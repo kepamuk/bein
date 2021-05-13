@@ -28,7 +28,14 @@
                 ></bePrompt>
             </beInput>
         </div>
-        <div class="beModal__footer"></div>
+        <div class="beModal__footer">
+            <beButton
+                type="button"
+                title="Create a Wallet"
+                class="confirm_button"
+                :shadow="true"
+            ></beButton>
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -38,5 +45,8 @@
     &__header{
         margin-bottom: 80px;
     }
+}
+.beModal__footer .confirm_button:hover{
+    color: white !important;
 }
 </style>

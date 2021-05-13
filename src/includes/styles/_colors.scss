@@ -35,6 +35,9 @@ $gradient-dark: linear-gradient(to right, $bg-dark, lighten($bg-dark, 2%));
 .text--alert{
     color: $alert;
 }
+.text--white{
+    color: $white;
+}
 
 .bg--white{
     background-color: $white !important;
