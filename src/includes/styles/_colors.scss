@@ -1,0 +1,41 @@
+$bg-dark: #0B111A;
+$bg-light: #E5E5E5;
+$black: #000;
+$white: #fff;
+$primary: #2864FF;
+$primary-light: #2898FF;
+$success: #04C7A3;
+$alert: #FF5A6B;
+$grey: rgba($bg-dark, .5);
+$grey-light: #E9E9E9;
+$grey-lighter: #F8F8F8;
+$purple: #8728FF;
+$purple-light: #C728FF;
+
+
+
+$gradient: linear-gradient(to right, $primary, $primary-light);
+$gradient-purple: linear-gradient(to right, $purple, $purple-light);
+$gradient-dark: linear-gradient(to right, $bg-dark, lighten($bg-dark, 2%));
+
+
+
+.text--primary{
+    color: $primary;
+}
+.text--grey{
+    color: $grey;
+}
+.text--purple{
+    color: $purple;
+}
+.text--success{
+    color: $success;
+}
+.text--alert{
+    color: $alert;
+}
+
+.bg--white{
+    background-color: $white !important;
+}

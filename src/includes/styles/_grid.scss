@@ -1,0 +1,78 @@
+.container{
+    width: 100%;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: -11px;
+    &-flex{
+        display: flex;
+        width: 100%;
+    }
+    [class^="col-"], [class*="col-"]{
+        margin: 11px;
+    }
+}
+.align-items{
+    &-center{
+        align-items: center;
+    }
+    &-start{
+        align-items: flex-start;
+    }
+    &-end{
+        align-items: flex-end;
+    }
+}
+.justify-content{
+    &-between{
+        justify-content: space-between;
+    }
+    &-around{
+        justify-content: space-around;
+    }
+    &-center{
+        justify-content: center;
+    }
+    &-start{
+        justify-content: flex-start;
+    }
+    &-end{
+        justify-content: flex-end;
+    }
+}
+.border-between-items{
+    display: flex;
+    & > *{
+        padding: 0 40px;
+        &:first-child{
+            padding-left: 0;
+        }
+    }
+    & > * + *{
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -1px;
+            width: 2px;
+            height: 80%;
+            background-color: $grey-light;
+            transform: translateY(-50%);
+        }
+    }
+}
+.items-half{
+    display: flex;
+    & > *{
+        flex: 0 0 50%;
+    }
+}
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: calc((100% / 12 * #{$i}) - 22px);
+        flex: 0 0 calc((100% / 12 * #{$i}) - 22px);
+    }
+}
