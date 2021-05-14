@@ -36,7 +36,10 @@
                             :data-value="item.value" 
                             @click="selectItem(item, $event)"
                             :class="{checked: item.selected}"
-                        >{{item.label}}</li>
+                        >
+                            <span>{{item.label}}</span>
+                            <span v-if="item.amount">{{item.amount}}</span>
+                        </li>
                     </ul>
                 </vueCustomScrollbar>
             </div>
@@ -139,7 +142,8 @@ export default {
     &__value{
         display: block;
         position: relative;
-        color: rgba(#0B111A, .5);
+        // color: rgba(#0B111A, .5);
+        opacity: .5;
         cursor: pointer;
         input{
             display: block;
@@ -262,7 +266,7 @@ export default {
         position: absolute;
         top: 100%;
         background-color: #fff;
-        width: 100%;
+        min-width: 100%;
         z-index: 999;
         box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.15);
         border-radius: 8px;
@@ -273,6 +277,15 @@ export default {
             transition: background .3s ease;
             cursor: pointer;
             text-align: left;
+            color: #0B111A;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            white-space: nowrap;
+            &>*+*{
+                margin-left: 40px;
+                color: rgba(#0B111A, .5);
+            }
             @media (max-width: 1600px) {
                 padding: 12px 30px;
             }

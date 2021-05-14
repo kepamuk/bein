@@ -6,10 +6,312 @@
         </h1>
         <div class="card card--white">
             <h2 class="mb30">{{$route.name}}</h2>
-            <div class="row">
-                <div class="col-6 card card--gradient"></div>
-                <div class="col-6 card card--gradient-purple"></div>
+            <div class="exchange_cards">
+                <div class="card card--gradient exchange_cards__item exchange_card__xrp">
+                    <div class="row-flex align-items-center">
+                        <div class="exchange_cards__icon">
+                            <i class="icon-currancy"></i>
+                        </div>
+                        <div class="exchange_cards__info">
+                            <beSelect
+                                class="wallet__select mb5"
+                                :selectArray="exchangeWalletsXRP"
+                                v-model="exchangeWalletSelectedXRP"
+                                :transparent="true"
+                            ></beSelect>
+                            <p>{{selectedWalletAmountXRP}} <span class="text--white50">| ${{selectedWalletXRPUSDAmount}} USD</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="data_transfer_icon"><i class="icon-data-transfer"></i></div>
+                <div class="card card--gradient-purple exchange_cards__item exchange_card__usdx">
+                    <div class="row-flex align-items-center">
+                        <div class="exchange_cards__icon">
+                            <img src="@/assets/balance.svg" alt="">
+                        </div>
+                        <div class="exchange_cards__info">
+                            <beSelect
+                                class="wallet__select mb5"
+                                :selectArray="exchangeWalletsUSDX"
+                                v-model="exchangeWalletSelectedUSDX"
+                                :transparent="true"
+                            ></beSelect>
+                            <p>{{selectedWalletAmountUSDX}} <span class="text--white50">| ${{selectedWalletUSDXUSDAmount}} USD</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="exchange_cards">
+                <div class="exchange_cards__item ">
+                    <div class="mt15">
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadio"
+                            :button="true"
+                            placeholder="MAX"
+                            value="1"
+                            v-model="selectedRadioXRP"
+                        ></beInputRadio>
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadio"
+                            :button="true"
+                            placeholder="Half"
+                            value="2"
+                            v-model="selectedRadioXRP"
+                        ></beInputRadio>
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadio"
+                            :button="true"
+                            placeholder="MIN"
+                            value="3"
+                            v-model="selectedRadioXRP"
+                        ></beInputRadio>
+                    </div>
+                    <div class="mt40">
+                        <beInput 
+                            type="number"
+                            class="xrp_exchange full-width"
+                            placeholder="0"
+                            :transparent="true"
+                            v-model="XRPExchange"
+                        >
+                            <span slot="right">XRP</span>
+                        </beInput>
+                        <div class="xrp_to_usd">
+                            <div class="converted_value">{{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></div>
+                            <div class="convert_to_currency">USD</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exchange_cards__item">
+                    <div class="mt15">
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadio"
+                            :button="true"
+                            placeholder="MAX"
+                            value="1"
+                            v-model="selectedRadioUSDX"
+                        ></beInputRadio>
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadio"
+                            :button="true"
+                            placeholder="Half"
+                            value="2"
+                            v-model="selectedRadioUSDX"
+                        ></beInputRadio>
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadio"
+                            :button="true"
+                            placeholder="MIN"
+                            value="3"
+                            v-model="selectedRadioUSDX"
+                        ></beInputRadio>
+                    </div>
+                    <div class="mt40">
+                        <beInput 
+                            type="number"
+                            class="usdx_exchange full-width"
+                            placeholder="0"
+                            :transparent="true"
+                            v-model="USDXExchange"
+                        >
+                            <span slot="right">USDX</span>
+                        </beInput>
+                        <div class="xrp_to_usd">
+                            <div class="converted_value">{{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></div>
+                            <div class="convert_to_currency">USD</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="exchange_info row justify-content-center mt30">
+                <div class="card card--white col-6 items-half">
+                    <div class="text-right exchange_info__item">
+                        <h5 class="exchange_info__title">You are exchanging</h5>
+                        <p class="exchange_info__currency_amount">{{XRPExchange || 0.00}} <small>XRP</small></p>
+                        <p class="exchange_info__currency_amount_usd">{{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></p>
+                        <div class="exchange_info__icon"><i class="icon-arrow-right-middle"></i></div>
+                    </div>
+                    <div class="exchange_info__item">
+                        <h5 class="exchange_info__title">You will receive</h5>
+                        <p class="exchange_info__currency_amount">{{USDXExchange || 0.00}} <small>USDX</small></p>
+                        <p class="exchange_info__currency_amount_usd">{{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></p>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <beButton
+                        title="Esxcchange"
+                    ></beButton>
+                </div>
+                <div class="col-12 row-flex justify-content-between mt50">
+                    <p>1 XRP = 1.000123 USDX</p>
+                    <router-link :to="{name: 'Wallets'}" class="btn btn-link more_link"><span>View history</span> <i class="icon-arrow-right"></i></router-link>
+                </div>
             </div>
         </div>
     </div>
 </template>
+<script>
+import {formatCurency} from '@/helpers/helpers'
+export default {
+    data: ()=>({
+		exchangeWalletsXRP:[
+            {value: 1, label: 'XRP Ripple', amount: '225.15 XRP'},
+            {value: 2, label: 'XRP Ripple 2', amount: '125.15 XRP'},
+            {value: 3, label: 'XRP Ripple 3', amount: '1365.15 XRP'},
+            {value: 4, label: 'XRP Ripple 4', amount: '856.15 XRP'},
+		],
+		exchangeWalletSelectedXRP: {value: 1, label: 'XRP Ripple', amount: '225.15 XRP'},
+		exchangeWalletsUSDX:[
+            {value: 1, label: 'USDX Be in coin', amount: '0.00 USDX'},
+            {value: 2, label: 'USDX Ripple 2', amount: '125.15 USDX'},
+            {value: 3, label: 'USDX Ripple 3', amount: '1365.15 USDX'},
+            {value: 4, label: 'USDX Ripple 4', amount: '856.15 USDX'},
+		],
+		exchangeWalletSelectedUSDX: {value: 1, label: 'USDX Be in coin', amount: '0.00 USDX'},
+        selectedRadioXRP: null,
+        selectedRadioUSDX: null,
+        XRPExchange: 0.00,
+        USDXExchange: 0.00
+    }),
+    computed: {
+        selectedWalletAmountXRP(){
+            return this.exchangeWalletSelectedXRP.amount
+        },
+        selectedWalletXRPUSDAmount(){
+            let number = this.selectedWalletAmountXRP.split(' ');
+            return formatCurency(+number[0] * 2)
+        },
+        selectedWalletAmountUSDX(){
+            return this.exchangeWalletSelectedUSDX.amount
+        },
+        selectedWalletUSDXUSDAmount(){
+            let number = this.selectedWalletAmountUSDX.split(' ');
+            return formatCurency(+number[0] * 2)
+        },
+        xrpToUsd(){
+			return formatCurency(this.XRPExchange * 2).split('.');
+        },
+        usdxToUsd(){
+			return formatCurency(this.USDXExchange * 2).split('.');
+        }
+    }
+}
+</script>
+<style lang="scss">
+.xrp_exchange{
+    color: #2864FF;
+    font-weight: 600;
+    &>input{
+        color: inherit;
+        font-weight: inherit;
+    }
+}
+.usdx_exchange{
+    color: #8728FF;
+    font-weight: 600;
+    &>input{
+        color: inherit;
+        font-weight: inherit;
+    }
+}
+.exchange_cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    &__item{
+        flex: 0 0 calc(50% - 30px);
+    }
+    &__icon{
+        width: 76px;
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #fff;
+        font-size: 44px;
+        padding: 10px;
+        margin-right: 25px;
+    }
+    .exchange__radio{
+        .radioGroup{
+            border-radius: 0;
+            height: 40px;
+            padding: 0 30px;
+        }
+        &:first-child{
+            .radioGroup{
+                border-radius: 8px 0 0 8px;
+            }
+        }
+        &:last-child{
+            .radioGroup{
+                border-radius: 0 8px 8px 0;
+            }
+        }
+    }
+    .card--gradient{
+        .exchange_cards__icon{
+            color: #2898FF;
+        }
+    }
+}
+.exchange_info{
+    &__item{
+        position: relative;
+        &:first-child{
+            padding-right: 40px;
+            border-right: 2px dotted rgba(#0B111A, .5);
+            .exchange_info__currency_amount{
+                color: #2864FF;
+            }
+        }
+        &:last-child{
+            padding-left: 40px;
+            .exchange_info__currency_amount{
+                color: #8728FF;
+            }
+        }
+    }
+    &__title{
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(#0B111A, .5);
+    }
+    &__currency_amount{
+        font-size: 22px;
+        font-weight: 600;
+        &_usd{
+            color: rgba(#0B111A, .5);   
+        }
+    }
+    &__icon{
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 5px 5px 20px rgba(23, 25, 31, 0.15);
+        transform: translate(50%, -50%);
+        font-size: 16px;
+    }
+}
+</style>

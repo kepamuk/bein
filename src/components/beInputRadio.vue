@@ -8,7 +8,7 @@
             :checked="isChecked"
             :value="value"
         >
-        <span class="beInputRadio__placeholder">{{placeholder}}</span>
+        <span class="beInputRadio__placeholder" :class="inputClass">{{placeholder}}</span>
     </label>
 </template>
 <script>
@@ -22,7 +22,8 @@ export default {
         'name',
         'button',
         'value',
-        'modelValue'
+        'modelValue',
+        'inputClass'
     ],
     computed: {
         isChecked() {
@@ -103,6 +104,7 @@ export default {
         border-radius: 5px;
         background-color: #F8F8F8;
         font-weight: 600;
+        padding: 0 1em;
         pointer-events: none;
         color: rgba(#0B111A, .5);
         transition: .3s ease;
