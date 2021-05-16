@@ -120,6 +120,7 @@ export default {
     padding-right: 30px;
     font-size: 16px;
     font-weight: 500;
+    color: #0B111A;
 }
 .icon_left{
     .selected__value{

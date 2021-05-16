@@ -14,7 +14,7 @@
             <beSelect 
                 :selectArray="selectList"
                 v-model="selectedItem"
-                class="wallet_select mb15"
+                class="wallet_select mb15 text--black"
             >
                 <span slot="small_text">X 354.12</span>
             </beSelect>

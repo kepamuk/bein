@@ -86,12 +86,19 @@
         <div class="transactions transactions_block mt30">
             <div class="transactions__header card card--white mb15">
                 <div class="block__title mb15">Transaction history</div>
-                <beSelect
-                    :selectArray="sortingList"
-                    v-model="selectedSortItem"
-                    :sortingIcon="true"
-                    :transparent="true"
-                ></beSelect>
+                <div class="row-flex">
+                    <div class="sorting__item mr5" >
+                        <button type="button" @click="sorted = !sorted">
+                            <i class="icon-ascending-sorting" v-if="!sorted"></i>
+                            <i class="icon-ascending-sorting-up" v-else></i>
+                        </button>
+                    </div>
+                    <beSelect
+                        :selectArray="sortingList"
+                        v-model="selectedSortItem"
+                        :transparent="true"
+                    ></beSelect>
+                </div>
             </div>
             <div class="transactions__body" v-if="getHistory">
                 <div 
@@ -161,6 +168,7 @@ import walletInfo from '../components/modalTemplates/walletInfo'
 import { mapGetters } from 'vuex';
 export default {
     data: ()=>({
+        sorted: false,
 		sortingList:[
             {value: 1, label: 'By transaction date'},
             {value: 2, label: 'By sum'},

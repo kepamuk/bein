@@ -92,11 +92,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="pt30 pb15">
+		<div class="pt30 pb15 row-flex">
+			<div class="sorting__item mr5" >
+				<button type="button" @click="sorted = !sorted">
+					<i class="icon-ascending-sorting" v-if="!sorted"></i>
+					<i class="icon-ascending-sorting-up" v-else></i>
+				</button>
+			</div>
 			<beSelect
 				:selectArray="sortingList"
                 v-model="selectedSortItem"
-				:sortingIcon="true"
 				:transparent="true"
 				class="mr15"
 			></beSelect>
@@ -106,7 +111,7 @@
 		</div>
 		<div class="container tickets">
 			<div class="row">
-				<div class="col-3 card card--gradient card--bg-lines">
+				<div class="col-flex col-3 card card--gradient card--bg-lines">
 					<div class="card--title">
 						<small><i class="icon-currancy"></i></small>
 						{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
@@ -140,17 +145,14 @@
 							</div>
 						</div>
 						<div class="card--info-item">
-							<div class="card--info-icon">
-								<i class="icon-checked-square"></i>
-							</div>
-							<div class="card--info-text">
-								<p class="card--info-text">
-									Investment extension
-									<bePrompt
-										text="Ты шо дурачёк?"
-									></bePrompt>
-								</p>
-							</div>
+							<beInputCheckbox
+								placeholder="Investment extension"
+								:white="true"
+							>
+								<bePrompt
+									text="Ты шо дурачёк?"
+								></bePrompt>
+							</beInputCheckbox>
 						</div>
 					</div>
 					<div class="pb20">
@@ -164,7 +166,7 @@
 						><i class="icon-coins" slot="icon-left"></i></beButton>
 					</div>
 				</div>
-				<div class="col-3 card card--gradient-purple card--bg-lines">
+				<div class="col-flex col-3 card card--gradient-purple card--bg-lines">
 					<div class="card--title">
 						{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} USDX</small>
 					</div>
@@ -197,17 +199,14 @@
 							</div>
 						</div>
 						<div class="card--info-item">
-							<div class="card--info-icon">
-								<i class="icon-checked-square"></i>
-							</div>
-							<div class="card--info-text">
-								<p class="card--info-text">
-									Investment extension
-									<bePrompt
-										text="Ты шо дурачёк?"
-									></bePrompt>
-								</p>
-							</div>
+							<beInputCheckbox
+								placeholder="Investment extension"
+								:white="true"
+							>
+								<bePrompt
+									text="Ты шо дурачёк?"
+								></bePrompt>
+							</beInputCheckbox>
 						</div>
 					</div>
 					<div class="pb20">
@@ -221,7 +220,7 @@
 						><i class="icon-coins" slot="icon-left"></i></beButton>
 					</div>
 				</div>
-				<div class="col-3 card card--gradient-dark card--bg-lines">
+				<div class="col-flex col-3 card card--gradient-dark card--bg-lines">
 					<div class="card--title">
 						<small><i class="icon-currancy"></i></small>
 						{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
@@ -252,19 +251,6 @@
 							<div class="card--info-text">
 								<div class="card--info-title">9 янв, 22:47 - 10 янв 23:37</div>
 								<p class="card--info-text">Deposit, end date</p>
-							</div>
-						</div>
-						<div class="card--info-item">
-							<div class="card--info-icon">
-								<i class="icon-checked-square"></i>
-							</div>
-							<div class="card--info-text">
-								<p class="card--info-text">
-									Investment extension
-									<bePrompt
-										text="Ты шо дурачёк?"
-									></bePrompt>
-								</p>
 							</div>
 						</div>
 					</div>
@@ -279,7 +265,7 @@
 						><i class="icon-checked" slot="icon-left"></i></beButton>
 					</div>
 				</div>
-				<div class="col-3 card card--gradient card--bg-lines">
+				<div class="col-flex col-3 card card--gradient card--bg-lines">
 					<div class="card--title">
 						<small><i class="icon-currancy"></i></small>
 						{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
@@ -313,17 +299,14 @@
 							</div>
 						</div>
 						<div class="card--info-item">
-							<div class="card--info-icon">
-								<i class="icon-checked-square"></i>
-							</div>
-							<div class="card--info-text">
-								<p class="card--info-text">
-									Investment extension
-									<bePrompt
-										text="Ты шо дурачёк?"
-									></bePrompt>
-								</p>
-							</div>
+							<beInputCheckbox
+								placeholder="Investment extension"
+								:white="true"
+							>
+								<bePrompt
+									text="Ты шо дурачёк?"
+								></bePrompt>
+							</beInputCheckbox>
 						</div>
 					</div>
 					<div class="pb20">
@@ -337,7 +320,7 @@
 						><i class="icon-coins" slot="icon-left"></i></beButton>
 					</div>
 				</div>
-				<div class="col-3 card card--gradient card--bg-lines">
+				<div class="col-flex col-3 card card--gradient card--bg-lines">
 					<div class="card--title">
 						<small><i class="icon-currancy"></i></small>
 						{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
@@ -371,17 +354,14 @@
 							</div>
 						</div>
 						<div class="card--info-item">
-							<div class="card--info-icon">
-								<i class="icon-checked-square"></i>
-							</div>
-							<div class="card--info-text">
-								<p class="card--info-text">
-									Investment extension
-									<bePrompt
-										text="Ты шо дурачёк?"
-									></bePrompt>
-								</p>
-							</div>
+							<beInputCheckbox
+								placeholder="Investment extension"
+								:white="true"
+							>
+								<bePrompt
+									text="Ты шо дурачёк?"
+								></bePrompt>
+							</beInputCheckbox>
 						</div>
 					</div>
 					<div class="pb20">
@@ -441,6 +421,7 @@ import howItWorks from '@/components/modalTemplates/howItWorks'
 export default {
 	components: {createInvestment, balancePlanner, howItWorks},
 	data: ()=>({
+        sorted: false,
 		currencyValue: null,
 		XRP: {
 			balance: 12021.23,

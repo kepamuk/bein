@@ -126,10 +126,15 @@
 			<div class="transactions transactions_block">
 				<div class="transactions__header row-flex align-items-center justify-content-start mb15 mt15">
 					<div class="block__title">Transaction history</div>
+					<div class="sorting__item mr5" >
+						<button type="button" @click="sorted = !sorted">
+							<i class="icon-ascending-sorting" v-if="!sorted"></i>
+							<i class="icon-ascending-sorting-up" v-else></i>
+						</button>
+					</div>
 					<beSelect
 						:selectArray="sortingList"
 						v-model="selectedSortItem"
-						:sortingIcon="true"
 						:transparent="true"
 					></beSelect>
 					<div class="block__link" v-if="clientWidth >= 890">
@@ -261,7 +266,8 @@ export default {
             {value: 4, label: 'By status'},
 		],
 		selectedSortItem: {value: 1, label: 'By transaction date'},
-		clientWidth: null
+		clientWidth: null,
+		sorted: false,
 	}),
 	computed:{
 		investmentXRPOffset(){

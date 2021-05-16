@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Dashboard from "../views/Dashboard/Dashboard.vue";
+import Dashboard from "@/views/Dashboard/Dashboard.vue";
 
 Vue.use(VueRouter);
 
@@ -17,7 +17,7 @@ const routes = [
 	{
 		path: "/earnings",
 		name: "Earnings",
-		component: () => import("../views/Earnings.vue"),
+		component: () => import("@/views/Earnings.vue"),
 		meta: {
 			linkText: 'Earnings',
 			icon: 'icon-exchange',
@@ -27,7 +27,7 @@ const routes = [
 	{
 		path: "/wallets",
 		name: "Wallets",
-		component: () => import("../views/Wallets.vue"),
+		component: () => import("@/views/Wallets.vue"),
 		meta: {
 			linkText: 'My wallets',
 			icon: 'icon-wallets',
@@ -36,16 +36,21 @@ const routes = [
 	{
 		path: "/exchange",
 		name: "Exchange",
-		component: () => import("../views/Exchange.vue"),
+		component: () => import("@/views/Exchange.vue"),
 		meta: {
 			linkText: 'Exchange',
 			icon: 'icon-dollar-bitcoin',
 		}
 	},
 	{
+		path: "/exchange-history",
+		name: "Exchange History",
+		component: () => import("@/views/ExchangeHistory.vue"),
+	},
+	{
 		path: "/support",
 		name: "Support",
-		component: () => import("../views/Support.vue"),
+		component: () => import("@/views/Support.vue"),
 		meta: {
 			linkText: 'Support',
 			icon: 'icon-about',
@@ -54,7 +59,7 @@ const routes = [
 	{
 		path: "/giveaway",
 		name: "Giveaway",
-		component: () => import("../views/Giveaway.vue"),
+		component: () => import("@/views/Giveaway.vue"),
 		meta: {
 			linkText: 'Giveaway',
 			icon: 'icon-leaderboard',
@@ -63,7 +68,7 @@ const routes = [
 	{
 		path: "/settings",
 		name: "Settings",
-		component: () => import("../views/Settings.vue"),
+		component: () => import("@/views/Settings.vue"),
 		meta: {
 			linkText: 'Settings',
 			icon: 'icon-settings',
@@ -72,7 +77,7 @@ const routes = [
 	{
 		path: "/notifications",
 		name: "Notifications",
-		component: () => import("../views/Notifications.vue"),
+		component: () => import("@/views/Notifications.vue"),
 		meta: {
 			linkText: 'Notifications',
 			icon: 'icon-notification',
@@ -82,7 +87,7 @@ const routes = [
 	// {
 	// 	path: "/components",
 	// 	name: "Components",
-	// 	component: () => import("../views/Components.vue"),
+	// 	component: () => import("@/views/Components.vue"),
 	// },
 ];
 

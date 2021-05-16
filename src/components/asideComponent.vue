@@ -12,7 +12,7 @@
           <nav id="nav">
               <ul>
                   <li v-for="route in getAllRoutes" :key="route.path" @click="toggleNavigation">
-                    <router-link :to="{name: route.name}" class="nav__link">
+                    <router-link :to="{name: route.name}" class="nav__link" v-if="route.meta">
                       <span class="nav_icon" v-if="route.meta && route.meta.icon">
                         <i :class="route.meta.icon"></i>
                       </span> 

@@ -1,4 +1,5 @@
 $bg-dark: #0B111A;
+$text: #0B111A;
 $bg-light: #E5E5E5;
 $black: #000;
 $white: #fff;
@@ -20,6 +21,9 @@ $gradient-dark: linear-gradient(to right, $bg-dark, lighten($bg-dark, 2%));
 
 
 
+.text--black{
+    color: $text;
+}
 .text--primary{
     color: $primary;
 }

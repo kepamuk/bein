@@ -3,12 +3,13 @@
         <input 
             type="checkbox"
             class="beInputCheckbox__item"
+            :class="{white: white}"
             @input="$emit('input', $event.target.value)"
             :name="name"
             :checked="isChecked"
             :value="value"
         >
-        <span class="beInputCheckbox__placeholder">{{placeholder}}</span>
+        <span class="beInputCheckbox__placeholder">{{placeholder}} <slot></slot></span>
     </label>
 </template>
 <script>
@@ -22,7 +23,8 @@ export default {
         'name',
         'button',
         'value',
-        'modelValue'
+        'modelValue',
+        'white'
     ],
     computed: {
         isChecked() {
@@ -52,6 +54,19 @@ export default {
                 border-color: #fff;
                 transform: rotate(45deg) scale(1);
             }
+        }
+        &.white{
+            &:checked + .beInputCheckbox__placeholder{
+                color: inherit;
+                &:before{
+                    border-color: #fff;
+                    background-color: #fff;
+                }
+                &:after{
+                    border-color: #2864FF;
+                }
+            }
+
         }
     }
     &__placeholder{

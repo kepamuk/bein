@@ -4,7 +4,7 @@
             <i :class="$route.meta.icon" class="page__title_icon"></i> 
             {{$route.name}}
         </h1>
-        <div class="card card--white">
+        <div class="card card--white pb20">
             <h2 class="mb30">{{$route.name}}</h2>
             <div class="exchange_cards">
                 <div class="card card--gradient exchange_cards__item exchange_card__xrp">
@@ -47,7 +47,7 @@
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadio"
+                            name="exchangeRadioXRP"
                             :button="true"
                             placeholder="MAX"
                             value="1"
@@ -56,7 +56,7 @@
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadio"
+                            name="exchangeRadioXRP"
                             :button="true"
                             placeholder="Half"
                             value="2"
@@ -65,7 +65,7 @@
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadio"
+                            name="exchangeRadioXRP"
                             :button="true"
                             placeholder="MIN"
                             value="3"
@@ -93,7 +93,7 @@
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadio"
+                            name="exchangeRadioUSDX"
                             :button="true"
                             placeholder="MAX"
                             value="1"
@@ -102,7 +102,7 @@
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadio"
+                            name="exchangeRadioUSDX"
                             :button="true"
                             placeholder="Half"
                             value="2"
@@ -111,7 +111,7 @@
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadio"
+                            name="exchangeRadioUSDX"
                             :button="true"
                             placeholder="MIN"
                             value="3"
@@ -140,13 +140,13 @@
                     <div class="text-right exchange_info__item">
                         <h5 class="exchange_info__title">You are exchanging</h5>
                         <p class="exchange_info__currency_amount">{{XRPExchange || 0.00}} <small>XRP</small></p>
-                        <p class="exchange_info__currency_amount_usd">{{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></p>
+                        <p class="exchange_info__currency_amount_usd">${{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></p>
                         <div class="exchange_info__icon"><i class="icon-arrow-right-middle"></i></div>
                     </div>
                     <div class="exchange_info__item">
                         <h5 class="exchange_info__title">You will receive</h5>
                         <p class="exchange_info__currency_amount">{{USDXExchange || 0.00}} <small>USDX</small></p>
-                        <p class="exchange_info__currency_amount_usd">{{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></p>
+                        <p class="exchange_info__currency_amount_usd">${{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></p>
                     </div>
                 </div>
                 <div class="col-12 text-center">
@@ -154,9 +154,9 @@
                         title="Esxcchange"
                     ></beButton>
                 </div>
-                <div class="col-12 row-flex justify-content-between mt50">
-                    <p>1 XRP = 1.000123 USDX</p>
-                    <router-link :to="{name: 'Wallets'}" class="btn btn-link more_link"><span>View history</span> <i class="icon-arrow-right"></i></router-link>
+                <div class="col-12 row-flex justify-content-between mt50 box_info">
+                    <p class="text--grey">1 XRP = 1.000123 USDX</p>
+                    <router-link :to="{name: 'Exchange History'}" class="more_link text--primary"><span>View history</span> <i class="icon-arrow-right"></i></router-link>
                 </div>
             </div>
         </div>
@@ -210,6 +210,12 @@ export default {
 }
 </script>
 <style lang="scss">
+.box_info{
+    font-size: 16px;
+}
+.more_link{
+    font-weight: 600;
+}
 .xrp_exchange{
     color: #2864FF;
     font-weight: 600;
