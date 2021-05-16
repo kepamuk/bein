@@ -4,9 +4,12 @@
 .vm--container .vm--modal{
     border-radius: 12px;
     overflow: visible;
+    max-height: 90vh;
 }
 .beModal{
     font-weight: 500;
+    display: flex;
+    flex-direction: column;
     &__header{
         position: relative;
         padding: 20px;
@@ -43,6 +46,7 @@
     &__body{
         min-height: 200px;
         padding: 0 55px;
+        flex-grow: 1;
         @media(max-width: 767px){
             padding: 0 30px;
         }

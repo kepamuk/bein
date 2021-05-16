@@ -1,6 +1,7 @@
 <template>
     <div class="wallets">
-        <h1 class="page__title">
+        <h1 class="page__title" @click="$router.go(-1)">
+            <i class="icon-arrow-left-middle mr5"></i>
             <i :class="$route.meta.icon" class="page__title_icon"></i> 
             {{$route.name}}
         </h1>
@@ -203,6 +204,7 @@ export default {
 .wallet{
     display: flex;
     flex-direction: column;
+    min-height: 150px;
     &__header{
         display: flex;
         align-items: center;
@@ -282,6 +284,26 @@ export default {
                 background-color: rgba(#0B111A, 0.1);
             }
         }
+    }
+}
+@media(max-width: 1200px){
+    .wallet__icon{
+        width: 50px;
+        flex: 0 0 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
+@media(max-width: 1023px){
+    .col-4{
+        width: calc(50% - 22px);
+        flex: 0 0 calc(50% - 22px);
+    }
+}
+@media(max-width: 767px){
+    .col-4{
+        width: calc(100% - 22px);
+        flex: 0 0 calc(100% - 22px);
     }
 }
 </style>

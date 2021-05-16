@@ -9,79 +9,86 @@
                 </div>
             </div>
         </div>
-        <div class="beModal__body">
-            <h2 class="beModal__title">Creation of investments</h2>
-            <div class="step mb20">
-                <h4><strong>01. Choose a Wallet</strong></h4>
-                <beSelect 
-                    :selectArray="selectList"
-                    v-model="selectedItem"
-                    class="wallet_select"
-                >
-                    <span slot="small_text">X 354.12</span>
-                </beSelect>
-            </div>
-            <div class="step mb20">
-                <h4><strong>02. Enter the deposit amount</strong></h4>
-                <beInput
-                    type="number"
-                    class="full-width"
-                    placeholder="The deposit amount"
-                    :transparent="false"
-                    step="0.01"
-                    v-model="currencyAmount"
-                ></beInput>
-            </div>
-            <div class="step mb30">
-                <h4><strong>03. Select the duration of the investment</strong></h4>
-                <div class="duration">
-                    <beInputRadio
-                        class="duration__radio"
-                        name="durationRadio"
-                        :button="true"
-                        placeholder="1 month"
-                        value="1"
-                        v-model="selectedRadio"
-                    ></beInputRadio>
-                    <beInputRadio 
-                        class="duration__radio"
-                        name="durationRadio"
-                        :button="true"
-                        placeholder="3 months"
-                        value="2"
-                        v-model="selectedRadio"
-                    ></beInputRadio>
-                    <beInputRadio 
-                        class="duration__radio"
-                        name="durationRadio"
-                        :button="true"
-                        placeholder="6 months"
-                        value="3"
-                        v-model="selectedRadio"
-                    ></beInputRadio>
+        <vueCustomScrollbar 
+            class="modal_scroll rail__normal"
+            :settings="{
+                wheelPropagation: false
+            }"
+        >
+            <div class="beModal__body">
+                <h2 class="beModal__title">Creation of investments</h2>
+                <div class="step mb20">
+                    <h4><strong>01. Choose a Wallet</strong></h4>
+                    <beSelect 
+                        :selectArray="selectList"
+                        v-model="selectedItem"
+                        class="wallet_select"
+                    >
+                        <span slot="small_text">X 354.12</span>
+                    </beSelect>
                 </div>
-                <beInputCheckbox 
-                    class="mt20"
-                    name="restartCheckbox"
-                    :button="true"
-                    placeholder="Restart automatically"
-                    value="4"
-                    v-model="selectedRestart"
-                ></beInputCheckbox>
+                <div class="step mb20">
+                    <h4><strong>02. Enter the deposit amount</strong></h4>
+                    <beInput
+                        type="number"
+                        class="full-width"
+                        placeholder="The deposit amount"
+                        :transparent="false"
+                        step="0.01"
+                        v-model="currencyAmount"
+                    ></beInput>
+                </div>
+                <div class="step mb30">
+                    <h4><strong>03. Select the duration of the investment</strong></h4>
+                    <div class="duration">
+                        <beInputRadio
+                            class="duration__radio"
+                            name="durationRadio"
+                            :button="true"
+                            placeholder="1 month"
+                            value="1"
+                            v-model="selectedRadio"
+                        ></beInputRadio>
+                        <beInputRadio 
+                            class="duration__radio"
+                            name="durationRadio"
+                            :button="true"
+                            placeholder="3 months"
+                            value="2"
+                            v-model="selectedRadio"
+                        ></beInputRadio>
+                        <beInputRadio 
+                            class="duration__radio"
+                            name="durationRadio"
+                            :button="true"
+                            placeholder="6 months"
+                            value="3"
+                            v-model="selectedRadio"
+                        ></beInputRadio>
+                    </div>
+                    <beInputCheckbox 
+                        class="mt20"
+                        name="restartCheckbox"
+                        :button="true"
+                        placeholder="Restart automatically"
+                        value="4"
+                        v-model="selectedRestart"
+                    ></beInputCheckbox>
+                </div>
             </div>
-        </div>
-        <div class="rejected_earnings">
-            <h4 class="rejected_earnings__title">Projected earnings</h4>
-            <p class="rejected_earnings__value">0,2% <small>/ daily</small></p>
-        </div>
-        <div class="info_block">
-            <p class="mb15">
-                <i class="icon-loyalty-card text--primary"></i> You will earn: 
-                <span class="text--success">+3.198 XRP</span> 
-                <bePrompt class="text--primary ml10" text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit a, doloribus tenetur ipsum eveniet incidunt rem totam labore eos ut."></bePrompt>
-            </p>
-            <p><i class="icon-ticket text--primary"></i> You will receive  <span class="text--primary">122 giveaway tickets</span> </p>
-        </div>
+            <div class="rejected_earnings">
+                <h4 class="rejected_earnings__title">Projected earnings</h4>
+                <p class="rejected_earnings__value">0,2% <small>/ daily</small></p>
+            </div>
+            <div class="info_block">
+                <p class="mb15">
+                    <i class="icon-loyalty-card text--primary"></i> You will earn: 
+                    <span class="text--success">+3.198 XRP</span> 
+                    <bePrompt class="text--primary ml10" text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit a, doloribus tenetur ipsum eveniet incidunt rem totam labore eos ut."></bePrompt>
+                </p>
+                <p><i class="icon-ticket text--primary"></i> You will receive  <span class="text--primary">122 giveaway tickets</span> </p>
+            </div>
+        </vueCustomScrollbar>
         <div class="beModal__footer">
             <beButton
                 title="Invest"
@@ -95,6 +102,8 @@
 <script>
 import { mapGetters } from 'vuex';
 import {formatCurency} from '@/helpers/helpers'
+import vueCustomScrollbar from 'vue-custom-scrollbar';
+import "vue-custom-scrollbar/dist/vueScrollbar.css";
 export default {
     data:()=>({
         selectList: null,
@@ -106,6 +115,9 @@ export default {
         USDX: null,
         currencyAmount: null
     }),
+    components:{
+        vueCustomScrollbar
+    },
     props:{
         currency: {
             default: '',
@@ -146,6 +158,12 @@ export default {
 }
 </script>
 <style lang="scss">
+.modal_scroll{
+    height: calc(90vh - 185px);
+    @media (max-width: 1600px) {
+        height: calc(90vh - 150px);
+    }
+}
 .step{
     h4{
         margin-bottom: 22px;

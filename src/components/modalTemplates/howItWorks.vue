@@ -3,7 +3,7 @@
         <div class="beModal__header">
             <div class="beModal__close">
                 <div slot="top-right">
-                    <button @click="$modal.hide('modal-confirm')">
+                    <button @click="$modal.hide('how-it-works')">
                         <i class="icon-close"></i>
                     </button>
                 </div>
@@ -20,7 +20,7 @@
                 <table class="full-width table">
                     <thead>
                         <tr>
-                            <th>Время</th>
+                            <th>Date</th>
                             <th>Exchange / rate</th>
                             <th>Currency pair</th>
                             <th>Profit</th>
@@ -76,7 +76,7 @@ export default {
 <style scoped lang="scss">
 .table_scroll{
     width: calc(100% + 60px);
-    height: 500px;
+    height: 380px;
     padding: 0 30px;
     margin-left: -30px;
     @media(max-width: 767px){

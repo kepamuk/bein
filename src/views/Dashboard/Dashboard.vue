@@ -36,7 +36,7 @@
 						title="Send" 
 						:outline="true" 
 						:white="true"
-						@click="openSendModal"
+						@click="openSendModal('XRP')"
 					><i class="icon-sign-out" slot="icon-left"></i></beButton>
 					<beButton 
 						type="button" 
@@ -44,7 +44,7 @@
 						:outline="false" 
 						:white="true"
 						class="ml10"
-						@click="openOutputModal"
+						@click="openOutputModal('XRP')"
 					><i class="icon-sign-in" slot="icon-left"></i></beButton>
 				</div>
 			</div>
@@ -74,6 +74,7 @@
 						title="Send" 
 						:outline="true" 
 						:white="true"
+						@click="openSendModal('USDX')"
 					><i class="icon-sign-out" slot="icon-left"></i></beButton>
 					<beButton 
 						type="button" 
@@ -81,6 +82,7 @@
 						:outline="false" 
 						:white="true"
 						class="ml10"
+						@click="openOutputModal('USDX')"
 					><i class="icon-sign-in" slot="icon-left"></i></beButton>
 				</div>
 			</div>
@@ -181,17 +183,64 @@
 				</div>
 			</div>
 		</div>
+    
+		<modal 
+			name="modal" 
+			class="send_to_walet_modal"
+			width="90%"
+			:maxWidth="540"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<foundsToWalletXRP v-if="sendXRP == 'XRP'"></foundsToWalletXRP>
+			<foundsToWalletUSDX v-else></foundsToWalletUSDX>
+		</modal>
+		<modal 
+			name="modal-output" 
+			class="receive_modal" 
+			width="90%"
+			:maxWidth="540"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<foundsOutputXRP v-if="outputXRP == 'XRP'"></foundsOutputXRP>
+			<foundsOutputUSDX v-else></foundsOutputUSDX>
+		</modal>
+		<modal 
+			name="modal-confirm" 
+			class="transactions_send" 
+			width="90%"
+			:maxWidth="540"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<transactionsSend></transactionsSend>
+		</modal>
 	</div>
 </template>
 
 <script>
+import foundsToWalletXRP from '@/components/modalTemplates/foundsToWalletXRP'
+import foundsToWalletUSDX from '@/components/modalTemplates/foundsToWalletUSDX'
+import foundsOutputXRP from '@/components/modalTemplates/foundsOutputXRP'
+import foundsOutputUSDX from '@/components/modalTemplates/foundsOutputUSDX'
+import transactionsSend from '@/components/modalTemplates/transactionsSend'
 import vueCustomScrollbar from 'vue-custom-scrollbar';
 import "vue-custom-scrollbar/dist/vueScrollbar.css";
 import {formatCurency} from '@/helpers/helpers'
 export default {
-  components: { vueCustomScrollbar },
+  	components: { 
+		vueCustomScrollbar,
+		foundsToWalletXRP,
+		foundsToWalletUSDX,
+		foundsOutputXRP, 
+		foundsOutputUSDX, 
+		transactionsSend,
+	},
 	name: "Dashboard",
 	data: ()=>({
+		sendXRP: null,
+		outputXRP: null,
 		XRP: {
 			balance: 12021.23,
 			investment: 2256.15,
@@ -302,11 +351,13 @@ export default {
 		window.addEventListener('resize', this.getWindowWidth)
 	},
 	methods: {
-		openSendModal(){
-			this.$modal.show('modal')
-		},
-		openOutputModal(){
+		openSendModal(type){
+			this.outputXRP = type
 			this.$modal.show('modal-output')
+		},
+		openOutputModal(type){
+			this.sendXRP = type
+			this.$modal.show('modal')
 		},
 		goToWalets(){
 			this.$router.push({name: 'Wallets'})

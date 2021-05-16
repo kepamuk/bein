@@ -6,53 +6,16 @@
         <router-view />
       </vueCustomScrollbar>
     </main>
-    
-		<modal 
-			name="modal" 
-			class="send_to_walet_modal"
-			width="90%"
-			:maxWidth="540"
-			height="auto" 
-			:scrollable="true" 
-			:adaptive="true">
-			<foundsToWallet></foundsToWallet>
-		</modal>
-		<modal 
-			name="modal-output" 
-			class="receive_modal" 
-			width="90%"
-			:maxWidth="540"
-			height="auto" 
-			:scrollable="true" 
-			:adaptive="true">
-			<foundsOutput></foundsOutput>
-		</modal>
-		<modal 
-			name="modal-confirm" 
-			class="transactions_send" 
-			width="90%"
-			:maxWidth="540"
-			height="auto" 
-			:scrollable="true" 
-			:adaptive="true">
-			<transactionsSend></transactionsSend>
-		</modal>
 	</div>
 </template>
 <script>
-import foundsToWallet from '@/components/modalTemplates/foundsToWallet'
-import foundsOutput from '@/components/modalTemplates/foundsOutput'
-import transactionsSend from '@/components/modalTemplates/transactionsSend'
 import asideComponent from '@/components/asideComponent';
 import vueCustomScrollbar from 'vue-custom-scrollbar';
 import "vue-custom-scrollbar/dist/vueScrollbar.css";
 export default {
   components: {
     asideComponent,
-    vueCustomScrollbar,
-    foundsToWallet, 
-    foundsOutput, 
-    transactionsSend, 
+    vueCustomScrollbar, 
   }
 }
 </script>

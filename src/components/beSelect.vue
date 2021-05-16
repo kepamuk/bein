@@ -1,27 +1,17 @@
 <template>
     <div class="select" :class="{'select__shadow': shadow, 'select__transparent': transparent}" ref="select">
-        <label class="select__value" :class="{'icon_left': sortingIcon}" @click="toggleSelectFocus">
+        <div class="select__value" :class="{'icon_left': sortingIcon}" @click="toggleSelectFocus">
             <span class="select__icon_sorting" v-if="sortingIcon">
                 <i class="icon-ascending-sorting"></i>
             </span>
-            <span class="selected__value">{{selectValue || selectPlaceholder || 'Select item'}}</span>
-            <!-- <input 
-                tabindex="-1"
-                type="text" 
-                readonly 
-                class="select__value_text"  
-                :value=""
-                @focus="toggleSelectFocus"
-                @blur="toggleSelectFocus"
-            > -->
+            <span :class="[selectedItemClass, 'selected__value']">{{selectValue || selectPlaceholder || 'Select item'}}</span>
             <span class="select__additinal">
                 <slot name="small_text"></slot>
             </span>
             <span class="select__dropdown_icon" :class="{active: selectFocused}"><i class="icon-arrow-right"></i></span>
-        </label>
+        </div>
         <transition name="dropdown_fade">
             <div class="select__dropdown" v-if="selectFocused">
-            <!-- <div class="select__dropdown"> -->
                 <vueCustomScrollbar 
                     class="dropdown__scrollbar"
                     :settings="{
@@ -57,7 +47,8 @@ export default {
         'selected',
         'shadow',
         'transparent',
-        'sortingIcon'
+        'sortingIcon',
+        'selectedItemClass'
     ],
     model:{
         prop: 'selected',
@@ -120,7 +111,6 @@ export default {
     padding-right: 30px;
     font-size: 16px;
     font-weight: 500;
-    color: #0B111A;
 }
 .icon_left{
     .selected__value{
@@ -266,12 +256,17 @@ export default {
     &__dropdown{
         position: absolute;
         top: 100%;
+        left: 0;
         background-color: #fff;
         min-width: 100%;
         z-index: 999;
         box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.15);
         border-radius: 8px;
         min-width: 220px;
+        @media(max-width: 767px){
+            left: 50%;
+            transform: translateX(-50%);
+        }
         &_item{
             padding: 15px 30px;
             font-size: 16px;

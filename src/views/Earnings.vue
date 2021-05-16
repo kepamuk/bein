@@ -1,6 +1,7 @@
 <template>
 	<div class="about">
-		<h1 class="page__title">
+        <h1 class="page__title" @click="$router.go(-1)">
+            <i class="icon-arrow-left-middle mr5"></i>
 			<i :class="$route.meta.icon" class="page__title_icon"></i> 
 			{{$route.name}}
 		</h1>
@@ -39,7 +40,15 @@
 							</div>
 						</div>
 						<div class="balance__info">
-							<div class="balance__title  font-normal">Income for <span class="text-underline text--primary"> yesterday</span></div>
+							<div class="balance__title font-normal">Income for 
+								<beSelect
+									class="income_select"
+									selectedItemClass='text-underline text--primary'
+									:selectArray="incomeListXRP"
+									v-model="selectedIncomeItemXRP"
+									:transparent="true"
+								></beSelect>
+							</div>
 							<div class="balance__actual">
 								<div class="atual__item yesterday">
 									{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} XRP</small>
@@ -81,7 +90,15 @@
 							</div>
 						</div>
 						<div class="balance__info">
-							<div class="balance__title  font-normal">Income for <span class="text-underline text--primary">yesterday</span></div>
+							<div class="balance__title  font-normal">Income for 
+								<beSelect
+									class="income_select"
+									selectedItemClass='text-underline text--primary'
+									:selectArray="incomeListUSDX"
+									v-model="selectedIncomeItemUSDX"
+									:transparent="true"
+								></beSelect>
+							</div>
 							<div class="balance__actual">
 								<div class="atual__item yesterday">
 									{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
@@ -439,7 +456,21 @@ export default {
             {value: 3, label: 'By wallet'},
             {value: 4, label: 'By status'},
 		],
-		selectedSortItem: {value: 1, label: 'By transaction date'}
+		selectedSortItem: {value: 1, label: 'By transaction date'},
+		incomeListXRP: [
+            {value: 1, label: 'Choose a date'},
+            {value: 2, label: 'yesterday'},
+            {value: 3, label: 'Week'},
+            {value: 4, label: 'Month'},
+		],
+		selectedIncomeItemXRP: {value: 2, label: 'yesterday'},
+		incomeListUSDX: [
+            {value: 1, label: 'Choose a date'},
+            {value: 2, label: 'yesterday'},
+            {value: 3, label: 'Week'},
+            {value: 4, label: 'Month'},
+		],
+		selectedIncomeItemUSDX: {value: 2, label: 'yesterday'}
 	}),
 	computed: {
 		balanceXRPArray(){
@@ -463,6 +494,23 @@ export default {
 }
 .balance__title{
 	font-size: 16px;
+	display: flex;
+	.income_select{
+		margin-left: 5px;
+		.select__value{
+			opacity: 1;
+		}
+		.selected__value{
+			padding-right: 0;
+		}
+		.select__dropdown_icon{
+			display: none;
+		}
+		.select__dropdown{
+			left: auto;
+			right: 0;
+		}
+	}
 }
 .balance__info{
 	display: flex;

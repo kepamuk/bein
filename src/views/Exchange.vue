@@ -1,14 +1,15 @@
 <template>
     <div class="exchange">
-        <h1 class="page__title">
+        <h1 class="page__title" @click="$router.go(-1)">
+            <i class="icon-arrow-left-middle mr5"></i>
             <i :class="$route.meta.icon" class="page__title_icon"></i> 
             {{$route.name}}
         </h1>
         <div class="card card--white pb20">
             <h2 class="mb30">{{$route.name}}</h2>
             <div class="exchange_cards">
-                <div class="card card--gradient exchange_cards__item exchange_card__xrp">
-                    <div class="row-flex align-items-center">
+                <div class="exchange_cards__item exchange_card__xrp">
+                    <div class="row-flex align-items-center card card--gradient ">
                         <div class="exchange_cards__icon">
                             <i class="icon-currancy"></i>
                         </div>
@@ -22,10 +23,39 @@
                             <p>{{selectedWalletAmountXRP}} <span class="text--white50">| ${{selectedWalletXRPUSDAmount}} USD</span></p>
                         </div>
                     </div>
+                    <div class="mt15">
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadioXRP"
+                            :button="true"
+                            placeholder="MAX"
+                            value="1"
+                            v-model="selectedRadioXRP"
+                        ></beInputRadio>
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadioXRP"
+                            :button="true"
+                            placeholder="Half"
+                            value="2"
+                            v-model="selectedRadioXRP"
+                        ></beInputRadio>
+                        <beInputRadio
+                            class="exchange__radio"
+                            inputClass="radioGroup"
+                            name="exchangeRadioXRP"
+                            :button="true"
+                            placeholder="MIN"
+                            value="3"
+                            v-model="selectedRadioXRP"
+                        ></beInputRadio>
+                    </div>
                 </div>
                 <div class="data_transfer_icon"><i class="icon-data-transfer"></i></div>
-                <div class="card card--gradient-purple exchange_cards__item exchange_card__usdx">
-                    <div class="row-flex align-items-center">
+                <div class="exchange_cards__item exchange_card__usdx">
+                    <div class="card card--gradient-purple row-flex align-items-center">
                         <div class="exchange_cards__icon">
                             <img src="@/assets/balance.svg" alt="">
                         </div>
@@ -39,99 +69,66 @@
                             <p>{{selectedWalletAmountUSDX}} <span class="text--white50">| ${{selectedWalletUSDXUSDAmount}} USD</span></p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="exchange_cards">
-                <div class="exchange_cards__item ">
                     <div class="mt15">
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadioXRP"
+                            name="exchangeRadioUSDX"
                             :button="true"
                             placeholder="MAX"
                             value="1"
-                            v-model="selectedRadioXRP"
+                            v-model="selectedRadioUSDX"
                         ></beInputRadio>
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadioXRP"
+                            name="exchangeRadioUSDX"
                             :button="true"
                             placeholder="Half"
                             value="2"
-                            v-model="selectedRadioXRP"
+                            v-model="selectedRadioUSDX"
                         ></beInputRadio>
                         <beInputRadio
                             class="exchange__radio"
                             inputClass="radioGroup"
-                            name="exchangeRadioXRP"
+                            name="exchangeRadioUSDX"
                             :button="true"
                             placeholder="MIN"
                             value="3"
-                            v-model="selectedRadioXRP"
+                            v-model="selectedRadioUSDX"
                         ></beInputRadio>
                     </div>
-                    <div class="mt40">
-                        <beInput 
-                            type="number"
-                            class="xrp_exchange full-width"
-                            placeholder="0"
-                            :transparent="true"
-                            v-model="XRPExchange"
-                        >
-                            <span slot="right">XRP</span>
-                        </beInput>
-                        <div class="xrp_to_usd">
-                            <div class="converted_value">{{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></div>
-                            <div class="convert_to_currency">USD</div>
-                        </div>
+                </div>
+            </div>
+            <div class="exchange_cards mt40">
+                <div class="exchange_cards__item">
+                    <beInput 
+                        type="number"
+                        class="xrp_exchange full-width"
+                        placeholder="0"
+                        :transparent="true"
+                        v-model="XRPExchange"
+                    >
+                        <span slot="right">XRP</span>
+                    </beInput>
+                    <div class="xrp_to_usd">
+                        <div class="converted_value">{{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></div>
+                        <div class="convert_to_currency">USD</div>
                     </div>
                 </div>
                 <div class="exchange_cards__item">
-                    <div class="mt15">
-                        <beInputRadio
-                            class="exchange__radio"
-                            inputClass="radioGroup"
-                            name="exchangeRadioUSDX"
-                            :button="true"
-                            placeholder="MAX"
-                            value="1"
-                            v-model="selectedRadioUSDX"
-                        ></beInputRadio>
-                        <beInputRadio
-                            class="exchange__radio"
-                            inputClass="radioGroup"
-                            name="exchangeRadioUSDX"
-                            :button="true"
-                            placeholder="Half"
-                            value="2"
-                            v-model="selectedRadioUSDX"
-                        ></beInputRadio>
-                        <beInputRadio
-                            class="exchange__radio"
-                            inputClass="radioGroup"
-                            name="exchangeRadioUSDX"
-                            :button="true"
-                            placeholder="MIN"
-                            value="3"
-                            v-model="selectedRadioUSDX"
-                        ></beInputRadio>
-                    </div>
-                    <div class="mt40">
-                        <beInput 
-                            type="number"
-                            class="usdx_exchange full-width"
-                            placeholder="0"
-                            :transparent="true"
-                            v-model="USDXExchange"
-                        >
-                            <span slot="right">USDX</span>
-                        </beInput>
-                        <div class="xrp_to_usd">
-                            <div class="converted_value">{{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></div>
-                            <div class="convert_to_currency">USD</div>
-                        </div>
+                    <beInput 
+                        type="number"
+                        class="usdx_exchange full-width"
+                        placeholder="0"
+                        :transparent="true"
+                        v-model="USDXExchange"
+                    >
+                        <span slot="right">USDX</span>
+                    </beInput>
+                    <div class="xrp_to_usd">
+                        <div class="converted_value">{{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></div>
+                        <div class="convert_to_currency">USD</div>
                     </div>
                 </div>
             </div>
@@ -234,14 +231,15 @@ export default {
 }
 .exchange_cards{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
     &__item{
         flex: 0 0 calc(50% - 30px);
     }
     &__icon{
         width: 76px;
+        flex: 0 0 76px;
         height: 76px;
         display: flex;
         align-items: center;
@@ -251,6 +249,12 @@ export default {
         font-size: 44px;
         padding: 10px;
         margin-right: 25px;
+        @media(max-width: 1200px){
+            width: 50px;
+            flex: 0 0 50px;
+            height: 50px;
+            font-size: 24px;
+        }
     }
     .exchange__radio{
         .radioGroup{
@@ -318,6 +322,27 @@ export default {
         box-shadow: 5px 5px 20px rgba(23, 25, 31, 0.15);
         transform: translate(50%, -50%);
         font-size: 16px;
+    }
+}
+.data_transfer_icon{
+    margin-top: 45px;
+}
+@media(max-width: 1023px){
+    .exchange_card__usdx,
+    .exchange_card__xrp{
+        width: 100%;
+        flex: 0 0 100%;
+    }
+    .data_transfer_icon{
+        margin: 30px auto;
+        transform: rotate(90deg);
+    }
+    .exchange_info{
+        .col-6{
+            width: calc(100% - 22px);
+            flex: 0 0 calc(100% - 22px);
+            max-width: 276px;
+        }
     }
 }
 </style>

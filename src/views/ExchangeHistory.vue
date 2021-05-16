@@ -2,7 +2,7 @@
     <div class="exchange_history_page">
         <div class="card card--white">
             <router-link :to="{name: 'Exchange'}" class="text--grey">
-                <i class="icon-arrow-left-middle"></i><span>Back</span>
+                <i class="icon-arrow-left-middle mr5"></i><span>Back</span>
             </router-link>
             <h1 class="my15">{{$route.name}}</h1>
             <div class="row-flex">

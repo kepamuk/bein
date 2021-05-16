@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="beModal__body text-center">
-            <h2 class="beModal__title">Output funds from the wallet</h2>
+            <h2 class="beModal__title">Send XRP</h2>
             <beSelect 
                 :selectArray="selectList"
                 v-model="selectedItem"
