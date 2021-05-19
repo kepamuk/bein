@@ -134,7 +134,7 @@ export default {
         display: block;
         position: relative;
         // color: rgba(#0B111A, .5);
-        opacity: .5;
+        // opacity: .5;
         cursor: pointer;
         input{
             display: block;

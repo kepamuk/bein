@@ -301,11 +301,12 @@
         }
         display: grid;
         grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr 1fr auto;
+        grid-template-rows: 110px 110px auto;
         grid-column-gap: 22px;
         grid-row-gap: 22px;
         @media(max-width: 889px){
             grid-template-columns: 1fr;
+            grid-template-rows: auto;
         }
         .xrp_block{
             @media(max-width: 767px){
@@ -342,6 +343,9 @@
             @media(max-width: 767px){
                 .balance__title{
                     margin-bottom: 10px;
+                }
+                .balance{
+                    width: 100%;
                 }
             }
         }

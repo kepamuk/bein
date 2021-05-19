@@ -81,27 +81,35 @@ export default {
             top: 1px;
             left: 0;
             display: block;
-            width: 1em;
-            height: 1em;
+            width: 18px;
+            height: 18px;
             border: 1px solid;
             border-radius: 4px;
             margin-right: 12px;
+            @media(max-width: 11600px){
+                width: 16px;
+                height: 16px;
+            }
         }
         &::after{
             content: '';
             position: absolute;
-            top: .2em;
-            left: .35em;
+            top: 3px;
+            left: 6px;
             display: block;
-            width: 0.32em;
-            flex: 0 0 0.32em;
-            height: .55em;
+            width: 6px;
+            flex: 0 0 6px;
+            height: 11px;
             border: none;
             border-bottom: 2px solid;
             border-right: 2px solid;
             transform: rotate(45deg) scale(0);
             opacity: 0;
             transition: .3s ease;
+            @media(max-width: 11600px){
+                top: 2px;
+                left: 5px;
+            }
         }
     }
 }

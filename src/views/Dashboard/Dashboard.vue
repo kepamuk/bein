@@ -183,7 +183,6 @@
 				</div>
 			</div>
 		</div>
-    
 		<modal 
 			name="modal" 
 			class="send_to_walet_modal"

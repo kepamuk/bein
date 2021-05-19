@@ -1,9 +1,11 @@
 <template>
     <div class="wallets">
-        <h1 class="page__title" @click="$router.go(-1)">
-            <i class="icon-arrow-left-middle mr5"></i>
+		<button class="go-back" @click.prevent="$router.go(-1)" type="button">
+            <i class="icon-arrow-left-middle"></i>
+		</button>
+        <h1 class="page__title">
             <i :class="$route.meta.icon" class="page__title_icon"></i> 
-            {{$route.name}}
+			{{$route.meta.linkText}}
         </h1>
         <div class="container wallets__container">
             <div class="row">
@@ -29,6 +31,7 @@
                             title="Send" 
                             :outline="true" 
                             :white="true"
+                            @click="openSendModal('USDX')"
                         ><i class="icon-sign-out" slot="icon-left"></i></beButton>
                         <beButton 
                             type="button" 
@@ -36,6 +39,7 @@
                             :outline="false" 
                             :white="true"
                             class="ml10 flex-full"
+						    @click="openOutputModal('USDX')"
                         ><i class="icon-sign-in" slot="icon-left"></i></beButton>
                     </div>
                 </div>
@@ -62,6 +66,7 @@
                             title="Send" 
                             :outline="true" 
                             :white="true"
+						    @click="openSendModal('XRP')"
                         ><i class="icon-sign-out" slot="icon-left"></i></beButton>
                         <beButton 
                             type="button" 
@@ -69,6 +74,7 @@
                             :outline="false" 
                             :white="true"
                             class="ml10 flex-full"
+						    @click="openOutputModal('XRP')"
                         ><i class="icon-sign-in" slot="icon-left"></i></beButton>
                     </div>
                 </div>
@@ -160,15 +166,54 @@
 			:adaptive="true">
 			<walletInfo></walletInfo>
 		</modal>
+		<modal 
+			name="modal" 
+			class="send_to_walet_modal"
+			width="90%"
+			:maxWidth="540"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<foundsToWalletXRP v-if="sendXRP == 'XRP'"></foundsToWalletXRP>
+			<foundsToWalletUSDX v-else></foundsToWalletUSDX>
+		</modal>
+		<modal 
+			name="modal-output" 
+			class="receive_modal" 
+			width="90%"
+			:maxWidth="540"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<foundsOutputXRP v-if="outputXRP == 'XRP'"></foundsOutputXRP>
+			<foundsOutputUSDX v-else></foundsOutputUSDX>
+		</modal>
+		<modal 
+			name="modal-confirm" 
+			class="transactions_send" 
+			width="90%"
+			:maxWidth="540"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<transactionsSend></transactionsSend>
+		</modal>
     </div>
 </template>
 <script>
+import foundsToWalletXRP from '@/components/modalTemplates/foundsToWalletXRP'
+import foundsToWalletUSDX from '@/components/modalTemplates/foundsToWalletUSDX'
+import foundsOutputXRP from '@/components/modalTemplates/foundsOutputXRP'
+import foundsOutputUSDX from '@/components/modalTemplates/foundsOutputUSDX'
+import transactionsSend from '@/components/modalTemplates/transactionsSend'
 import createWallet from '../components/modalTemplates/createWallet'
 import addWallet from '../components/modalTemplates/addWallet'
 import walletInfo from '../components/modalTemplates/walletInfo'
 import { mapGetters } from 'vuex';
 export default {
     data: ()=>({
+		sendXRP: null,
+		outputXRP: null,
         sorted: false,
 		sortingList:[
             {value: 1, label: 'By transaction date'},
@@ -178,7 +223,16 @@ export default {
 		],
 		selectedSortItem: {value: 1, label: 'By transaction date'}
     }),
-    components: {createWallet, addWallet, walletInfo},
+    components: {
+        createWallet, 
+        addWallet, 
+        walletInfo,
+		foundsToWalletXRP,
+		foundsToWalletUSDX,
+		foundsOutputXRP, 
+		foundsOutputUSDX, 
+		transactionsSend,
+    },
     computed: {
         ...mapGetters([
             'getHistory'
@@ -196,7 +250,15 @@ export default {
         walletInfo(wallet){
             console.log(wallet);
             this.$modal.show('modal-wallet-info')
-        }
+        },
+		openSendModal(type){
+			this.outputXRP = type
+			this.$modal.show('modal-output')
+		},
+		openOutputModal(type){
+			this.sendXRP = type
+			this.$modal.show('modal')
+		},
     }
 }
 </script>

@@ -1,9 +1,9 @@
 <template>
     <div class="exchange_history_page">
         <div class="card card--white">
-            <router-link :to="{name: 'Exchange'}" class="text--grey">
-                <i class="icon-arrow-left-middle mr5"></i><span>Back</span>
-            </router-link>
+            <button class="go-back text--grey" @click.prevent="$router.go(-1)" type="button">
+                <i class="icon-arrow-left-middle"> </i><span>Back</span>
+            </button>
             <h1 class="my15">{{$route.name}}</h1>
             <div class="row-flex">
                 <div class="sorting__item mr5" >
@@ -215,6 +215,11 @@ export default {
 </script>
 <style lang="scss">
 .exchange_history{
+    &_page{
+        .go-back{
+            font-size: 16px;
+        }
+    }
     .card{
         margin-bottom: 10px;
         overflow: hidden;

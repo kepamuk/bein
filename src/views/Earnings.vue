@@ -1,115 +1,115 @@
 <template>
 	<div class="about">
-        <h1 class="page__title" @click="$router.go(-1)">
-            <i class="icon-arrow-left-middle mr5"></i>
+		<button class="go-back" @click.prevent="$router.go(-1)" type="button">
+            <i class="icon-arrow-left-middle"></i>
+		</button>
+        <h1 class="page__title">
 			<i :class="$route.meta.icon" class="page__title_icon"></i> 
-			{{$route.name}}
+			{{$route.meta.linkText}}
 		</h1>
 		<div class="container currency__info">
-			<div class="row">
-				<div class="col-6 card card--white row-flex align-items-center justify-content-between p30 hold_xrp">
-					<div class="balance">
-						<div class="balance__info">
-							<div class="balance__title"><span class="text--primary">XRP</span> HODL balance</div>
-							<div class="balance__actual">
-								<div class="atual__item">
-									<small class="balance__currancy"><i class="icon-currancy"></i></small>{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="btns">
-						<beButton 
-							type="button" 
-							title="Create an investment" 
-							:outline="false" 
-							:white="false"
-							:shadow="true"
-							@click="createInvestmentOpen('xrp')"
-						><i class="icon-plus-outline" slot="icon-left"></i></beButton>
-					</div>
-				</div>
-				<div class="col-6 card card--white p30 balance hold_xrp__details">
-					<div class="balance__actual border-between-items items-half flex-full">
-						<div class="balance__info">
-							<div class="balance__title font-normal">Potential income</div>
-							<div class="balance__actual">
-								<div class="atual__item text--primary">
-									{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} XRP</small>
-								</div>
-							</div>
-						</div>
-						<div class="balance__info">
-							<div class="balance__title font-normal">Income for 
-								<beSelect
-									class="income_select"
-									selectedItemClass='text-underline text--primary'
-									:selectArray="incomeListXRP"
-									v-model="selectedIncomeItemXRP"
-									:transparent="true"
-								></beSelect>
-							</div>
-							<div class="balance__actual">
-								<div class="atual__item yesterday">
-									{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} XRP</small>
-								</div>
+			<div class="card card--white row-flex align-items-center justify-content-between p30 hold_xrp">
+				<div class="balance">
+					<div class="balance__info">
+						<div class="balance__title"><span class="text--primary">XRP</span>{{'\xa0'}}HODL balance</div>
+						<div class="balance__actual">
+							<div class="atual__item">
+								<small class="balance__currancy"><i class="icon-currancy"></i></small>{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-6 card card--white row-flex align-items-center justify-content-between p30 hold_usdx">
-					<div class="balance">
-						<div class="balance__info">
-							<div class="balance__title"><span class="text--purple">USDX</span> HODL balance</div>
-							<div class="balance__actual">
-								<div class="atual__item">
-									{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
-								</div>
+				<div class="btns">
+					<beButton 
+						type="button" 
+						title="Create an investment" 
+						:outline="false" 
+						:white="false"
+						:shadow="true"
+						@click="createInvestmentOpen('xrp')"
+					><i class="icon-plus-outline" slot="icon-left"></i></beButton>
+				</div>
+			</div>
+			<div class="card card--white p30 balance hold_xrp__details">
+				<div class="balance__actual border-between-items items-half flex-full">
+					<div class="balance__info">
+						<div class="balance__title font-normal">Potential income</div>
+						<div class="balance__actual">
+							<div class="atual__item text--primary">
+								{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} XRP</small>
 							</div>
 						</div>
 					</div>
-					<div class="btns">
-						<beButton 
-							type="button" 
-							title="Create an investment" 
-							:outline="false" 
-							:white="false"
-							:shadow="true"
-							@click="createInvestmentOpen('usdx')"
-						><i class="icon-plus-outline" slot="icon-left"></i></beButton>
+					<div class="balance__info">
+						<div class="balance__title font-normal">Income for 
+							<beSelect
+								class="income_select"
+								selectedItemClass='text-underline text--primary'
+								:selectArray="incomeListXRP"
+								v-model="selectedIncomeItemXRP"
+								:transparent="true"
+							></beSelect>
+						</div>
+						<div class="balance__actual">
+							<div class="atual__item yesterday">
+								{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} XRP</small>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-6 card card--white p30 balance hold_usdx__details">
-					<div class="balance__actual border-between-items items-half flex-full">
-						<div class="balance__info">
-							<div class="balance__title font-normal">Potential income</div>
-							<div class="balance__actual">
-								<div class="atual__item text--primary">
-									{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
-								</div>
+			</div>
+			<div class="card card--white row-flex align-items-center justify-content-between p30 hold_usdx">
+				<div class="balance">
+					<div class="balance__info">
+						<div class="balance__title"><span class="text--purple">USDX</span>{{'\xa0'}}HODL balance</div>
+						<div class="balance__actual">
+							<div class="atual__item">
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
 							</div>
 						</div>
-						<div class="balance__info">
-							<div class="balance__title  font-normal">Income for 
-								<beSelect
-									class="income_select"
-									selectedItemClass='text-underline text--primary'
-									:selectArray="incomeListUSDX"
-									v-model="selectedIncomeItemUSDX"
-									:transparent="true"
-								></beSelect>
+					</div>
+				</div>
+				<div class="btns">
+					<beButton 
+						type="button" 
+						title="Create an investment" 
+						:outline="false" 
+						:white="false"
+						:shadow="true"
+						@click="createInvestmentOpen('usdx')"
+					><i class="icon-plus-outline" slot="icon-left"></i></beButton>
+				</div>
+			</div>
+			<div class="card card--white p30 balance hold_usdx__details">
+				<div class="balance__actual border-between-items items-half flex-full">
+					<div class="balance__info">
+						<div class="balance__title font-normal">Potential income</div>
+						<div class="balance__actual">
+							<div class="atual__item text--primary">
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
 							</div>
-							<div class="balance__actual">
-								<div class="atual__item yesterday">
-									{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
-								</div>
+						</div>
+					</div>
+					<div class="balance__info">
+						<div class="balance__title  font-normal">Income for 
+							<beSelect
+								class="income_select"
+								selectedItemClass='text-underline text--primary'
+								:selectArray="incomeListUSDX"
+								v-model="selectedIncomeItemUSDX"
+								:transparent="true"
+							></beSelect>
+						</div>
+						<div class="balance__actual">
+							<div class="atual__item yesterday">
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="pt30 pb15 row-flex">
+		<div class="pt30 pb15 row-flex filters__block">
 			<div class="sorting__item mr5" >
 				<button type="button" @click="sorted = !sorted">
 					<i class="icon-ascending-sorting" v-if="!sorted"></i>
@@ -122,9 +122,11 @@
 				:transparent="true"
 				class="mr15"
 			></beSelect>
-			<button class="info_popup link" @click="$modal.show('how-it-works')">
-				<strong><i class="icon-info"></i> How does Al work?</strong>
-			</button>
+			<div class="info_btn">
+				<button class="info_popup link" @click="$modal.show('how-it-works')">
+					<strong><i class="icon-info"></i> How does Al work?</strong>
+				</button>
+			</div>
 		</div>
 		<div class="container tickets">
 			<div class="row">
@@ -458,10 +460,10 @@ export default {
 		],
 		selectedSortItem: {value: 1, label: 'By transaction date'},
 		incomeListXRP: [
-            {value: 1, label: 'Choose a date'},
-            {value: 2, label: 'yesterday'},
-            {value: 3, label: 'Week'},
-            {value: 4, label: 'Month'},
+            {value: 1, label: 'yesterday'},
+            {value: 2, label: 'week'},
+            {value: 3, label: 'month'},
+            {value: 4, label: 'choose a date'},
 		],
 		selectedIncomeItemXRP: {value: 2, label: 'yesterday'},
 		incomeListUSDX: [
@@ -489,6 +491,15 @@ export default {
 }
 </script>
 <style lang="scss">
+.currency{
+	&__info{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 110px 110px;
+        grid-column-gap: 22px;
+        grid-row-gap: 22px;
+	}
+}
 .yesterday{
 	font-size: 16px;
 }
@@ -526,10 +537,8 @@ export default {
 }
 @media(max-width: 1100px){
 	.currency__info{
-		[class^="col-"], [class*="col-"]{
-			width: calc(100% - 22px);
-			flex: 0 0 calc(100% - 22px);
-		}
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
 	}
 	.tickets{
 		.row{
@@ -544,6 +553,17 @@ export default {
 	}
 }
 @media(max-width: 767px){
+	.filters__block{
+		&.row-flex{
+			flex-wrap: wrap;
+
+		}
+		.info_btn{
+			width: 100%;
+			margin-bottom: 10px;
+			order: -1;
+		}
+	}
 	.hold_usdx,
 	.hold_xrp{
 		flex-direction: column;
