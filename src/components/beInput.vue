@@ -32,7 +32,14 @@ export default {
         'maxVal',
         'name',
         'step'
-    ]
+    ],
+    watch: {
+        inputValue(val){
+            if(val > this.maxVal){
+                this.inputValue = this.maxVal
+            }
+        }
+    }
 }
 </script>
 <style lang="scss">

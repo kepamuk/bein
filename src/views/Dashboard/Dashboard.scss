@@ -301,9 +301,12 @@
         }
         display: grid;
         grid-template-columns: 2fr 1fr;
-        grid-template-rows: 110px 110px auto;
+        grid-template-rows: 160px 160px auto;
         grid-column-gap: 22px;
         grid-row-gap: 22px;
+        @media(max-width: 1600px){
+            grid-template-rows: 110px 110px auto;
+        }
         @media(max-width: 889px){
             grid-template-columns: 1fr;
             grid-template-rows: auto;

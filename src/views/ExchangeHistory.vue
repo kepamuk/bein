@@ -204,9 +204,7 @@ export default {
     data:()=>({
 		sortingList:[
             {value: 1, label: 'By transaction date'},
-            {value: 2, label: 'By sum'},
-            {value: 3, label: 'By wallet'},
-            {value: 4, label: 'By status'},
+            {value: 2, label: 'By status'},
 		],
 		selectedSortItem: {value: 1, label: 'By transaction date'},
         sorted: false

@@ -255,8 +255,8 @@ export default {
       font-weight: 600;
       font-size: 14px;
       @media (max-height: 900px){
-        padding: 8px 12px;
-        font-size: 12px;
+        padding: 15px 12px;
+        font-size: 16px;
       }
       @media(max-width: 1300px){
         font-size: 10px;
@@ -265,7 +265,7 @@ export default {
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
-        font-size: 14px;
+        font-size: 16px;
       }
       .notifications_number{
         position: absolute;

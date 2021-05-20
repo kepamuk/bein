@@ -45,7 +45,7 @@
                             class="duration__radio"
                             name="durationRadio"
                             :button="true"
-                            placeholder="1 month"
+                            placeholder="1 mon"
                             value="1"
                             v-model="selectedRadio"
                         ></beInputRadio>
@@ -53,7 +53,7 @@
                             class="duration__radio"
                             name="durationRadio"
                             :button="true"
-                            placeholder="3 months"
+                            placeholder="3 mon"
                             value="2"
                             v-model="selectedRadio"
                         ></beInputRadio>
@@ -61,7 +61,7 @@
                             class="duration__radio"
                             name="durationRadio"
                             :button="true"
-                            placeholder="6 months"
+                            placeholder="6 mon"
                             value="3"
                             v-model="selectedRadio"
                         ></beInputRadio>

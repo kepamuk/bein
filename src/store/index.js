@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
+		screenWidth: null,
 		XRP: {
 			balance: 1256.45
 		},
@@ -82,9 +83,18 @@ export default new Vuex.Store({
 		getSelectedItem: state => state.selectedItem,
 		getXRP: state => state.XRP,
 		getUSDX: state => state.USDX,
-		getHistory: state => state.history
+		getHistory: state => state.history,
+		getWindowWidth: state=> state.screenWidth
 	},
-	mutations: {},
-	actions: {},
+	mutations: {
+		UPDAATE_WINDOW_WIDTH: (state, data)=>{
+			return state.screenWidth = data;
+		}
+	},
+	actions: {
+		resizeWindow: ({commit}, data)=>{
+			commit('UPDAATE_WINDOW_WIDTH', data)
+		}
+	},
 	modules: {},
 });

@@ -90,7 +90,7 @@
 				<div class="balance">
 					<div class="balance__info">
 						<div class="balance__title">
-							HODL balance
+							<span class="mr5">HODL balance</span>
 							<bePrompt text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit a, doloribus tenetur ipsum eveniet incidunt rem totam labore eos ut."></bePrompt>
 						</div>
 						<div class="balance__actual row-flex">

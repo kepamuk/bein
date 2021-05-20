@@ -390,12 +390,16 @@
     margin: 0;
     line-height: 1;
     margin-bottom: 10px;
+    display: none;
+    @media(max-width: 767px){
+        display: block;
+    }
 }
 .dropdown_fade-enter-active, .dropdown_fade-leave-active {
     transition: .3s ease;
     transition-property: opacity, transform;
 }
-.dropdown_fade-enter, .dropdown_fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+.dropdown_fade-enter, .dropdown_fade-leave-to {
     opacity: 0;
     transform: translateY(10px);
 }

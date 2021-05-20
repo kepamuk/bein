@@ -16,6 +16,10 @@ import beCopyText from '@/components/beCopyText';
 import beInput from '@/components/beInput';
 import beInputRadio from '@/components/beInputRadio';
 import beInputCheckbox from '@/components/beInputCheckbox';
+import beAccordeon from '@/components/beAccordeon';
+
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
 
 Vue.use(VModal, {dialog: true, dynamic: true});
 Vue.component('beButton', beButton);
@@ -25,6 +29,8 @@ Vue.component('beCopyText', beCopyText);
 Vue.component('beInput', beInput);
 Vue.component('beInputRadio', beInputRadio);
 Vue.component('beInputCheckbox', beInputCheckbox);
+Vue.component('beAccordeon', beAccordeon);
+Vue.component('DatePicker', DatePicker);
 
 Vue.config.productionTip = false;
 

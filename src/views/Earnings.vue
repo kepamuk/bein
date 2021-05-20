@@ -30,7 +30,7 @@
 					><i class="icon-plus-outline" slot="icon-left"></i></beButton>
 				</div>
 			</div>
-			<div class="card card--white p30 balance hold_xrp__details">
+			<div class="card card--white p30 balance hold_xrp__details" v-if="windowWidth > 767">
 				<div class="balance__actual border-between-items items-half flex-full">
 					<div class="balance__info">
 						<div class="balance__title font-normal">Potential income</div>
@@ -41,7 +41,8 @@
 						</div>
 					</div>
 					<div class="balance__info">
-						<div class="balance__title font-normal">Income for 
+						<div class="balance__title font-normal">
+							<span class="mr5">Income for</span> 
 							<beSelect
 								class="income_select"
 								selectedItemClass='text-underline text--primary'
@@ -58,6 +59,31 @@
 					</div>
 				</div>
 			</div>
+			<beAccordeon v-else>
+				<div slot="title">Details</div>
+				<div class="balance__actual" slot="content">
+					<div class="balance__info">
+						<div class="balance__title">Potential income</div>
+						<div class="balance__actual">
+							<div class="atual__item text--primary">
+								<small><i class="icon-currancy"></i></small>
+								{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
+							</div>
+						</div>
+					</div>
+					<div class="balance__info">
+						<div class="balance__title">
+							<span class="mr5">Income for for yesterday</span> 
+						</div>
+						<div class="balance__actual">
+							<div class="atual__item yesterday">
+								<small><i class="icon-currancy"></i></small>
+								{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</beAccordeon>
 			<div class="card card--white row-flex align-items-center justify-content-between p30 hold_usdx">
 				<div class="balance">
 					<div class="balance__info">
@@ -80,7 +106,7 @@
 					><i class="icon-plus-outline" slot="icon-left"></i></beButton>
 				</div>
 			</div>
-			<div class="card card--white p30 balance hold_usdx__details">
+			<div class="card card--white p30 balance hold_usdx__details" v-if="windowWidth > 767">
 				<div class="balance__actual border-between-items items-half flex-full">
 					<div class="balance__info">
 						<div class="balance__title font-normal">Potential income</div>
@@ -91,7 +117,8 @@
 						</div>
 					</div>
 					<div class="balance__info">
-						<div class="balance__title  font-normal">Income for 
+						<div class="balance__title  font-normal">
+							<span class="mr5">Income for</span> 
 							<beSelect
 								class="income_select"
 								selectedItemClass='text-underline text--primary'
@@ -108,6 +135,29 @@
 					</div>
 				</div>
 			</div>
+			<beAccordeon v-else>
+				<div slot="title">Details</div>
+				<div class="balance__actual" slot="content">
+					<div class="balance__info">
+						<div class="balance__title">Potential income</div>
+						<div class="balance__actual">
+							<div class="atual__item text--primary">
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
+							</div>
+						</div>
+					</div>
+					<div class="balance__info">
+						<div class="balance__title">
+							<span class="mr5">Income for for yesterday</span> 
+						</div>
+						<div class="balance__actual">
+							<div class="atual__item yesterday">
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</beAccordeon>
 		</div>
 		<div class="pt30 pb15 row-flex filters__block">
 			<div class="sorting__item mr5" >
@@ -437,9 +487,11 @@ import {formatCurency} from '@/helpers/helpers'
 import createInvestment from '@/components/modalTemplates/createInvestment'
 import balancePlanner from '@/components/modalTemplates/balancePlanner'
 import howItWorks from '@/components/modalTemplates/howItWorks'
+import { mapGetters } from 'vuex'
 export default {
 	components: {createInvestment, balancePlanner, howItWorks},
 	data: ()=>({
+		windowWidth: null,
         sorted: false,
 		currencyValue: null,
 		XRP: {
@@ -474,13 +526,24 @@ export default {
 		],
 		selectedIncomeItemUSDX: {value: 2, label: 'yesterday'}
 	}),
+	watch: {
+		getWindowWidth(val){
+			this.windowWidth = val;
+		}
+	},
 	computed: {
+		...mapGetters([
+			'getWindowWidth'
+		]),
 		balanceXRPArray(){
 			return formatCurency(this.XRP.balance).split('.');
 		},
 		balanceUSDXArray(){
 			return formatCurency(this.USDX.balance).split('.');
 		},
+	},
+	mounted(){
+		this.windowWidth = this.getWindowWidth;
 	},
 	methods:{
 		createInvestmentOpen(currancy){
@@ -506,8 +569,8 @@ export default {
 .balance__title{
 	font-size: 16px;
 	display: flex;
+	flex-wrap: wrap;
 	.income_select{
-		margin-left: 5px;
 		.select__value{
 			opacity: 1;
 		}
@@ -599,6 +662,26 @@ export default {
 			.items-half > *{
     			flex: 0 0 100%;
 			}
+		}
+	}
+	.accordeon {
+		.balance{
+			&__actual{
+				margin-top: 0px;
+			}
+			&__title{
+				font-size: 12px;
+				color: rgba(#333C4D, .7);
+				margin-bottom: 5px;
+			}
+			&__info{
+				& + .balance__info{
+					margin-top: 10px;
+					padding-top: 10px;
+					border-top: 2px solid #E9E9E9;
+				}
+			}
+
 		}
 	}
 }
