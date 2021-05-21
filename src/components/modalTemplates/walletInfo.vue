@@ -10,16 +10,17 @@
             </div>
         </div>
         <div class="beModal__body">
-            <div class="card card--gradient wallet card--bg-lines">
+            <div class="card  wallet card--bg-lines" :class="waletUSDX ? 'card--gradient-purple': 'card--gradient'">
                 <div class="wallet__header">
                     <div class="wallet__icon"><i class="icon-wallet-outline"></i></div>
                     <div class="balance__info">
                         <div class="balance__actual">
                             <div class="atual__item">
-                                12,021<small>.{{23 || '00'}} USDX</small>
+                                <small class="balance__currancy" v-if="!waletUSDX"><i class="icon-currancy"></i></small>
+                                12,021<small>.{{23 || '00'}} <span v-if="waletUSDX">USDX</span></small>
                             </div>
                         </div>
-                        <div class="balance__title">USDX Wallet</div>
+                        <div class="balance__title">{{waletName}}</div>
                     </div>
                 </div>
                 <div class="wallet__body"></div>
@@ -76,6 +77,7 @@
                 </div>
             </div>
         </div>
+        <div class="beModal__footer"></div>
     </div>
 </template>
 <script>
@@ -83,6 +85,14 @@ import { mapGetters } from 'vuex';
 import vueCustomScrollbar from 'vue-custom-scrollbar';
 import "vue-custom-scrollbar/dist/vueScrollbar.css";
 export default {
+    props: {
+        waletName: {
+            default: ''
+        },
+        waletUSDX: {
+            default: false
+        }
+    },
     components:{
         vueCustomScrollbar,
     },

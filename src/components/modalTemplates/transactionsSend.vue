@@ -11,10 +11,10 @@
         </div>
         <div class="beModal__body">
             <p class="beModal__icon"><i class="icon-checked"></i></p>
-            <h2 class="beModal__title">Transaction sent for processing</h2>
+            <h2 class="beModal__title">{{successTitle || 'Transaction sent for processing'}}</h2>
             <p class="beModal__text">
-                You can follow the status of transactions in the 
-                <router-link :to="{name: 'Wallets'}" class="link">
+                {{successText || 'You can follow the status of transactions in the'}}
+                <router-link :to="{name: 'Wallets'}" class="link" v-if="!successText">
                     Transaction History
                 </router-link>
             </p>
@@ -30,3 +30,11 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+    props:[
+        'successTitle',
+        'successText'
+    ]
+}
+</script>

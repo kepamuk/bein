@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-4 card card--gradient-purple wallet card--bg-lines">
                     <div class="wallet__header">
-                        <div class="wallet__icon pointer" @click="walletInfo('wallet')">
+                        <div class="wallet__icon pointer" @click="walletInfo('walletUSDX')">
                             <i class="icon-wallet-outline"></i>
                         </div>
     					<div class="balance__info">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-4 card card--gradient wallet card--bg-lines">
                     <div class="wallet__header">
-                        <div class="wallet__icon pointer" @click="walletInfo('wallet')">
+                        <div class="wallet__icon pointer" @click="walletInfo('walletXRP')">
                             <i class="icon-wallet-outline"></i>
                         </div>
     					<div class="balance__info">
@@ -156,7 +156,7 @@
 			:adaptive="true">
 			<addWallet></addWallet>
 		</modal>
-		<modal 
+		<!-- <modal 
 			name="modal-wallet-info" 
 			class="wallet_info" 
 			width="90%"
@@ -165,7 +165,7 @@
 			:scrollable="true" 
 			:adaptive="true">
 			<walletInfo></walletInfo>
-		</modal>
+		</modal> -->
 		<modal 
 			name="modal" 
 			class="send_to_walet_modal"
@@ -226,7 +226,6 @@ export default {
     components: {
         createWallet, 
         addWallet, 
-        walletInfo,
 		foundsToWalletXRP,
 		foundsToWalletUSDX,
 		foundsOutputXRP, 
@@ -248,8 +247,16 @@ export default {
             this.$modal.show('modal-add-wallet')
         },
         walletInfo(wallet){
-            console.log(wallet);
-            this.$modal.show('modal-wallet-info')
+            let waletName = wallet == 'walletUSDX' ? 'USDX Wallet' : 'Be in XRP Wallet';
+            let waletUSDX = wallet == 'walletUSDX' ? true : false;
+            this.$modal.show(
+                walletInfo, 
+                {
+                    waletName,
+                    waletUSDX
+                },
+                { height: 'auto', width: "90%", maxWidth: 880, adaptive: true }
+            )
         },
 		openSendModal(type){
 			this.outputXRP = type

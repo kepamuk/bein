@@ -30,6 +30,7 @@
                             <span>{{item.label}}</span>
                             <span v-if="item.amount">{{item.amount}}</span>
                         </li>
+                        <li class="select__dropdown_item"><slot name="customField"></slot></li>
                     </ul>
                 </vueCustomScrollbar>
             </div>
@@ -278,6 +279,9 @@ export default {
             align-items: center;
             justify-content: space-between;
             white-space: nowrap;
+            &:empty{
+                display: none;
+            }
             &>*+*{
                 margin-left: 40px;
                 color: rgba(#0B111A, .5);

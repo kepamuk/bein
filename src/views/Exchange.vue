@@ -128,17 +128,29 @@
                 </div>
             </div>
             <div class="exchange_info row justify-content-center mt30">
-                <div class="card card--white col-6 items-half exchange_info__container" :class="{reversed: reverse}">
+                <div class="card card--white col-6 items-half exchange_info__container">
                     <div class="exchange_info__item">
                         <h5 class="exchange_info__title">You are <br />exchanging</h5>
-                        <p class="exchange_info__currency_amount">{{XRPExchange || 0.00}} <small>XRP</small></p>
-                        <p class="exchange_info__currency_amount_usd">${{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></p>
+                        <div v-if="!reverse">
+                            <p class="exchange_info__currency_amount text--primary">{{XRPExchange || 0.00}} <small>XRP</small></p>
+                            <p class="exchange_info__currency_amount_usd">${{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></p>
+                        </div>
+                        <div v-else>
+                            <p class="exchange_info__currency_amount text--purple">{{USDXExchange || 0.00}} <small>USDX</small></p>
+                            <p class="exchange_info__currency_amount_usd">${{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></p>
+                        </div>
                     </div>
                     <div class="exchange_info__icon"><i class="icon-arrow-right-middle"></i></div>
                     <div class="exchange_info__item">
                         <h5 class="exchange_info__title">You will <br />receive</h5>
-                        <p class="exchange_info__currency_amount">{{USDXExchange || 0.00}} <small>USDX</small></p>
-                        <p class="exchange_info__currency_amount_usd">${{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></p>
+                        <div v-if="reverse" >
+                            <p class="exchange_info__currency_amount text--primary">{{XRPExchange || 0.00}} <small>XRP</small></p>
+                            <p class="exchange_info__currency_amount_usd">${{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></p>
+                        </div>
+                        <div v-else>
+                            <p class="exchange_info__currency_amount text--purple">{{USDXExchange || 0.00}} <small>USDX</small></p>
+                            <p class="exchange_info__currency_amount_usd">${{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 text-center">
@@ -332,18 +344,12 @@ export default {
         &:first-child{
             padding-right: 40px;
             text-align: right;
-            .exchange_info__currency_amount{
-                color: #2864FF;
-            }
             @media(max-width: 1023px){
                 padding-right: 10px;
             }
         }
         &:last-child{
             padding-left: 40px;
-            .exchange_info__currency_amount{
-                color: #8728FF;
-            }
             @media(max-width: 1023px){
                 padding-left: 10px;
             }

@@ -12,7 +12,7 @@ $grey-light: #E9E9E9;
 $grey-lighter: #F8F8F8;
 $purple: #8728FF;
 $purple-light: #C728FF;
-
+$primary50: rgba($primary, .5);
 
 
 $gradient: linear-gradient(to right, $primary, $primary-light);
@@ -26,6 +26,9 @@ $gradient-dark: linear-gradient(to right, $bg-dark, lighten($bg-dark, 2%));
 }
 .text--primary{
     color: $primary;
+}
+.text--primary50{
+    color: $primary50;
 }
 .text--grey{
     color: $grey;

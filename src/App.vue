@@ -36,7 +36,7 @@ export default {
 		window.addEventListener('resize', ()=>{
       this.documentWidth = document.body.clientWidth;
     })
-	},
+	}
 }
 </script>
 

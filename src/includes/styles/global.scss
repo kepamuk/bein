@@ -476,7 +476,32 @@ strong{
         outline: none;
     }
 }
+.two_columns_list{
+    counter-reset: list_counter;
+    column-count: 2;
+    column-gap: 30;
+    @media(max-width: 767px){
+        column-count: 1;
+    }
+    li{
+        counter-increment: list_counter;
+        text-align: left;
+        &::before{
+            content: counter(list_counter);
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+    }
+    @for $i from 1 through 9 {
+        li:nth-child(#{$i}){
+            &::before{
+                content: '0'counter(list_counter);
+            }
+        }
 
+    }
+}
 
 
 

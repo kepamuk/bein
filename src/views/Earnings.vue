@@ -43,13 +43,21 @@
 					<div class="balance__info">
 						<div class="balance__title font-normal">
 							<span class="mr5">Income for</span> 
+							<span class="text-underline text--primary datepicker__value" v-if="XRPDate">
+								<span v-if="XRPDate.start == XRPDate.end || !XRPDate.end">{{XRPDate.start}}</span> 
+								<span v-else>{{`${XRPDate.start}-${XRPDate.end}`}}</span> 
+								<i class="icon-close ml5 pointer" @click="XRPDate = null"></i>
+							</span>
 							<beSelect
+								v-else
 								class="income_select"
 								selectedItemClass='text-underline text--primary'
 								:selectArray="incomeListXRP"
 								v-model="selectedIncomeItemXRP"
 								:transparent="true"
-							></beSelect>
+							>
+								<span slot="customField" @click="openDatepicker('xrp')">choose a date</span>
+							</beSelect>
 						</div>
 						<div class="balance__actual">
 							<div class="atual__item yesterday">
@@ -119,23 +127,21 @@
 					<div class="balance__info">
 						<div class="balance__title  font-normal">
 							<span class="mr5">Income for</span> 
+							<span class="text-underline text--primary datepicker__value" v-if="USDXDate">
+								<span v-if="USDXDate.start == USDXDate.end || !USDXDate.end">{{USDXDate.start}}</span> 
+								<span v-else>{{`${USDXDate.start}-${USDXDate.end}`}}</span> 
+								<i class="icon-close ml5 pointer" @click="USDXDate = null"></i>
+							</span>
 							<beSelect
+								v-else
 								class="income_select"
 								selectedItemClass='text-underline text--primary'
 								:selectArray="incomeListUSDX"
 								v-model="selectedIncomeItemUSDX"
 								:transparent="true"
-							></beSelect>
-							<!-- <div class="" v-else>
-								{{getDateRangeUSDXstartDate}}{{getDateRangeUSDXendDate ? ` - ${getDateRangeUSDXendDate}` : '' }}
-								<div class="calendar">
-									<FunctionalCalendar
-										v-model="USDXDate"
-										:is-date-range="true"
-										:isAutoCloseable="true"
-									></FunctionalCalendar>
-								</div>
-							</div> -->
+							>
+								<span slot="customField" @click="openDatepicker('usdx')">choose a date</span>
+							</beSelect>
 						</div>
 						<div class="balance__actual">
 							<div class="atual__item yesterday">
@@ -490,6 +496,37 @@
 			:adaptive="true">
 			<howItWorks></howItWorks>
 		</modal>
+		<modal 
+			name="datepicker"
+			width="90%"
+			:maxWidth="400"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true"
+			class="datepicker-modal"
+		>
+			<div class="beModal__header">
+				<h2 class="date-modal-title">Chose a date</h2>
+				<div class="beModal__close">
+					<div slot="top-right">
+						<button @click="canselDatepicker">
+							<i class="icon-close"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<FunctionalCalendar
+				class="calendar"
+				v-model="getDate"
+				:is-date-range="true"
+				:isDatePicker="false"
+				arrowsPosition="right"
+				titlePosition="left"
+			></FunctionalCalendar>
+			<div class="beModal__footer">
+				<button class="btn full-width" type="button" @click="$modal.hide('datepicker')">Confirm</button>
+			</div>
+		</modal>
 	</div>
 </template>
 <script>
@@ -504,7 +541,10 @@ export default {
 		windowWidth: null,
         sorted: false,
 		currencyValue: null,
+		XRPDate: null,
 		USDXDate: null,
+		currentDatepicker: null,
+		getDate: {},
 		XRP: {
 			balance: 12021.23,
 			investment: 2256.15,
@@ -526,24 +566,23 @@ export default {
             {value: 1, label: 'yesterday'},
             {value: 2, label: 'week'},
             {value: 3, label: 'month'},
-            {value: 4, label: 'choose a date'},
 		],
-		selectedIncomeItemXRP: {value: 2, label: 'yesterday'},
+		selectedIncomeItemXRP: {value: 1, label: 'yesterday'},
 		incomeListUSDX: [
             {value: 1, label: 'yesterday'},
             {value: 2, label: 'week'},
             {value: 3, label: 'month'},
-            {value: 4, label: 'choose a date'},
 		],
-		selectedIncomeItemUSDX: {value: 2, label: 'yesterday'}
+		selectedIncomeItemUSDX: {value: 1, label: 'yesterday'}
 	}),
 	watch: {
 		getWindowWidth(val){
 			this.windowWidth = val;
 		},
-		selectedIncomeItemUSDX(val){
-			if(val){
-				console.log(val)
+		getDate: {
+			deep: true,
+			handler(val){
+				this.currentDatepicker == 'xrp' ? this.XRPDate = val.dateRange : this.USDXDate = val.dateRange;
 			}
 		}
 	},
@@ -571,16 +610,97 @@ export default {
 		createInvestmentOpen(currancy){
 			this.currencyValue = currancy
 			this.$modal.show('create-investment-modal')
+		},
+		openDatepicker(currency){
+			this.getDate = {}
+			this.currentDatepicker = currency;
+			this.$modal.show('datepicker')
+		},
+		canselDatepicker(){
+			this.$modal.hide('datepicker')
+			this.currentDatepicker == 'xrp' ? this.XRPDate = null : this.USDXDate = null;
+
 		}
 	}
 }
 </script>
 <style lang="scss">
+.date-modal-title{
+	font-size: 22px;
+}
+.datepicker__value{
+	font-size: 14px;
+	i{
+		font-size: 12px;
+		vertical-align: middle;
+	}
+}
+.datepicker-modal{
+	.beModal__header{
+		padding: 30px 60px 30px 30px;
+	}
+	.beModal__footer{
+		padding-top: 10px;
+	}
+}
 .calendar{
-	position: absolute;
-	top: 100%;
-	right: 0;
-	z-index: 999;
+	font-size: 16px;
+	.vfc-main-container{
+		box-shadow: none !important;
+	}
+	.vfc-top-date{
+		font-size: 16px;
+		margin: 0px 0px 25px;
+		padding-left: 10px;
+		font-weight: 600;
+	}
+	.vfc-dayNames span{
+		color: #989898;
+		font-size: 12px;
+	}
+	.vfc-week .vfc-day span.vfc-span-day.vfc-today{
+		background-color: rgba(#0B111A, .3);
+	}
+	.vfc-week .vfc-day span.vfc-span-day.vfc-marked{
+		background-color: #2864FF;
+		&::before{
+			background-color: #2898FF;
+		}
+	}
+	.vfc-week .vfc-day span.vfc-span-day.vfc-marked.vfc-borderd:before, .vfc-week .vfc-day span.vfc-span-day.vfc-marked.vfc-start-marked:before, .vfc-week .vfc-day span.vfc-span-day.vfc-marked.vfc-end-marked:before{
+		background: transparent;
+	}
+	.vfc-week .vfc-day .vfc-base-start, .vfc-week .vfc-day .vfc-base-end{
+		background: #2898FF;
+	}
+	.vfc-navigation-buttons div .vfc-arrow-left, .vfc-separately-navigation-buttons div .vfc-arrow-left{
+		width: 6px;
+		height: 6px;
+		margin: 0px;
+		transform: none;
+		border: 6px solid transparent;
+		border-left: 0;
+		border-right: 6px solid #0B111A;
+	}
+	.vfc-navigation-buttons div .vfc-arrow-right, .vfc-separately-navigation-buttons div .vfc-arrow-right{
+		width: 6px;
+		height: 6px;
+		margin: 0px;
+		transform: none;
+		border: 6px solid transparent;
+		border-left: 6px solid #0B111A;
+		border-right: 0;
+	}
+	.vfc-navigation-buttons.vfc-right, .vfc-separately-navigation-buttons.vfc-right{
+		padding-right: 20px;
+	}
+	.vfc-navigation-buttons, .vfc-separately-navigation-buttons{
+		margin-top: 0px;
+		margin-bottom: -21px;
+	}
+	.vfc-navigation-buttons div, .vfc-separately-navigation-buttons div{
+		margin: 5px;
+	}
 }
 .currency{
 	&__info{
@@ -630,6 +750,11 @@ export default {
 		}
 	}
 }
+.tickets{
+	.create_btn{
+		min-height: 330px;
+	}
+}
 @media(max-width: 1100px){
 	.currency__info{
         grid-template-columns: 1fr;
@@ -643,6 +768,7 @@ export default {
 			width: calc(50% - 22px);
 			flex: 0 0 calc(50% - 22px);
 			min-width: 275px;
+			min-height: 330px;
 			flex-grow: 1;
 		}
 	}
