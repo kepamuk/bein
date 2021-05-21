@@ -82,6 +82,9 @@
         position: relative;
         font-size: 30px;
         padding-top: 25px;
+        @media(max-width: 1600px){
+            padding-top: 10px;
+        }
     }
     &--info{
         position: relative;
@@ -93,13 +96,16 @@
         justify-content: flex-end;
         @media(max-width: 1600px){
             font-size: 14px;
-            margin-top: 60px;
+            margin-top: 30px;
         }
     }
     &--info-item{
         display: flex;
         align-items: center;
         margin-bottom: 22px;
+        @media(max-width: 1600px){
+            margin-bottom: 10px;
+        }
     }
     &--info-icon{
         font-size: 22px;
@@ -545,4 +551,13 @@ strong{
 .ps__rail-x.ps--clicking .ps__thumb-x, .ps__rail-x:focus>.ps__thumb-x, .ps__rail-x:hover>.ps__thumb-x{
     background-color: $primary;
     height: 7px;
+}
+
+.vfc-calendars-container{
+    font-family: 'Gilroy';
+}
+.vfc-week .vfc-day span.vfc-span-day{
+    font-size: 14px;
+    width: 35px !important;
+    line-height: 35px !important;
 }

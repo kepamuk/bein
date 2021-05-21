@@ -11,6 +11,7 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-custom-scrollbar": "^1.4.0",
+    "vue-functional-calendar": "^2.9.4",
     "vue-js-modal": "^2.0.0-rc.6",
     "vue-router": "^3.2.0",
     "vue2-datepicker": "^3.9.0",

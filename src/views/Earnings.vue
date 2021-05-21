@@ -126,6 +126,16 @@
 								v-model="selectedIncomeItemUSDX"
 								:transparent="true"
 							></beSelect>
+							<!-- <div class="" v-else>
+								{{getDateRangeUSDXstartDate}}{{getDateRangeUSDXendDate ? ` - ${getDateRangeUSDXendDate}` : '' }}
+								<div class="calendar">
+									<FunctionalCalendar
+										v-model="USDXDate"
+										:is-date-range="true"
+										:isAutoCloseable="true"
+									></FunctionalCalendar>
+								</div>
+							</div> -->
 						</div>
 						<div class="balance__actual">
 							<div class="atual__item yesterday">
@@ -224,7 +234,7 @@
 							</beInputCheckbox>
 						</div>
 					</div>
-					<div class="pb20">
+					<div class="pt20">
 						<beButton 
 							type="button" 
 							title="In the work" 
@@ -278,7 +288,7 @@
 							</beInputCheckbox>
 						</div>
 					</div>
-					<div class="pb20">
+					<div class="pt20">
 						<beButton 
 							type="button" 
 							title="In the work" 
@@ -323,7 +333,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="pb20">
+					<div class="pt20">
 						<beButton 
 							type="button" 
 							title="Successfully" 
@@ -378,7 +388,7 @@
 							</beInputCheckbox>
 						</div>
 					</div>
-					<div class="pb20">
+					<div class="pt20">
 						<beButton 
 							type="button" 
 							title="In the work" 
@@ -433,7 +443,7 @@
 							</beInputCheckbox>
 						</div>
 					</div>
-					<div class="pb20">
+					<div class="pt20">
 						<beButton 
 							type="button" 
 							title="In the work" 
@@ -494,6 +504,7 @@ export default {
 		windowWidth: null,
         sorted: false,
 		currencyValue: null,
+		USDXDate: null,
 		XRP: {
 			balance: 12021.23,
 			investment: 2256.15,
@@ -519,16 +530,21 @@ export default {
 		],
 		selectedIncomeItemXRP: {value: 2, label: 'yesterday'},
 		incomeListUSDX: [
-            {value: 1, label: 'Choose a date'},
-            {value: 2, label: 'yesterday'},
-            {value: 3, label: 'Week'},
-            {value: 4, label: 'Month'},
+            {value: 1, label: 'yesterday'},
+            {value: 2, label: 'week'},
+            {value: 3, label: 'month'},
+            {value: 4, label: 'choose a date'},
 		],
 		selectedIncomeItemUSDX: {value: 2, label: 'yesterday'}
 	}),
 	watch: {
 		getWindowWidth(val){
 			this.windowWidth = val;
+		},
+		selectedIncomeItemUSDX(val){
+			if(val){
+				console.log(val)
+			}
 		}
 	},
 	computed: {
@@ -541,6 +557,12 @@ export default {
 		balanceUSDXArray(){
 			return formatCurency(this.USDX.balance).split('.');
 		},
+		getDateRangeUSDXstartDate(){
+			return this.USDXDate ? this.USDXDate.dateRange.start : ''
+		},
+		getDateRangeUSDXendDate(){
+			return this.USDXDate ? this.USDXDate?.dateRange.end : ''
+		}
 	},
 	mounted(){
 		this.windowWidth = this.getWindowWidth;
@@ -554,6 +576,12 @@ export default {
 }
 </script>
 <style lang="scss">
+.calendar{
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 999;
+}
 .currency{
 	&__info{
         display: grid;
@@ -561,12 +589,16 @@ export default {
         grid-template-rows: 110px 110px;
         grid-column-gap: 22px;
         grid-row-gap: 22px;
+		@media(max-width: 1600px){
+        	grid-template-rows: 90px 90px;
+		}
 	}
 }
 .yesterday{
 	font-size: 16px;
 }
 .balance__title{
+	position: relative;
 	font-size: 16px;
 	display: flex;
 	flex-wrap: wrap;
