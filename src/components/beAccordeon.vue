@@ -23,9 +23,7 @@ export default {
 </script>
 <style lang="scss">
 .accordeon{
-	background-color: #fff;
-	border-radius: 12px;
-    overflow: hidden;
+    // overflow: hidden;
 	&__title{
 		display: flex;
 		align-items: center;
@@ -33,17 +31,22 @@ export default {
 		padding: 15px 20px;
 		font-weight: 600;
         cursor: pointer;
+	    background-color: #fff;
+        border-radius: 12px;
 		&_icon{
 			transform: rotate(90deg);
 		}
 	}
     &__dropdown{
+	    background-color: #fff;
         border-top: 2px solid rgba(#0B111A, 0.1);
         padding: 15px 20px;
+        border-radius: 0 0 12px 12px;
     }
     &.opened{
         .accordeon__title{
             background-color: #F8F8F8;
+            border-radius: 12px 12px 0 0;
         }
         .accordeon__title_icon{
 			transform: rotate(-90deg);

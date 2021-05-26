@@ -13,6 +13,15 @@
                 <p>Write to us and we will be glad to help you with your problems and will send an answer to the email indicated in your profile</p>
                 <div class="flex-full">
                     <textarea class="textarea" placeholder="Your message"></textarea>
+                    <beInputFile
+                        v-model="files"
+                        :isButton="false"
+                        label="Attach file"
+                        class="attach"
+                    >
+                        <i slot="attach-icon" class="icon-attach"></i>
+                        <i slot="delete" class="icon-close"></i>
+                    </beInputFile>
                 </div>
                 <div>
                     <beButton
@@ -56,6 +65,13 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+    data: ()=>({
+        files: null
+    })
+}
+</script>
 <style lang="scss" scoped>
 .support{
     &__issues{
@@ -67,6 +83,9 @@
             text-decoration: underline;
         }
     }
+}
+.attach{
+    margin-bottom: 30px;
 }
 @media (max-width: 1200px){
     .support{

@@ -59,13 +59,13 @@
 						</svg>
 					</div>
 					<div class="balance__info">
-						<div class="balance__title">Your USDX balance</div>
+						<div class="balance__title">Your BIXRP balance</div>
 						<div class="balance__actual">
 							<div class="atual__item">
-								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}}</small> <small>USDX</small>
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}}</small> <small>BIXRP</small>
 							</div>
 						</div>
-						<div class="add_wallet">1 USDX = 1$</div>
+						<div class="add_wallet">1 BIXRP = 1$</div>
 					</div>
 				</div>
 				<div class="btns">
@@ -107,12 +107,12 @@
 							</div>
 							<div class="atual__item">
 								<div class="balance__amount">
-									{{investmentUSDXArray[0]}}<small>.{{investmentUSDXArray[1] || '00'}} USDX</small>
+									{{investmentUSDXArray[0]}}<small>.{{investmentUSDXArray[1] || '00'}} BIXRP</small>
 								</div>
 								<div class="profit">
 									<span class="profit__finance loss">
 										<i class="icon-arrow-up-double"></i> 
-										{{USDX.profit}} USDX
+										{{USDX.profit}} BIXRP
 									</span> <small>for{{'\xa0'}}yesterday</small>
 								</div>
 							</div>
@@ -168,7 +168,7 @@
 								</button>
 							</div>
 							<div class="history__status">{{item.status}}</div>
-							<div class="history__finance">{{item.summ}} <small>{{item.currency == 1 ? 'USDX' : 'XRP'}}</small></div>
+							<div class="history__finance">{{item.summ}} <small>{{item.currency == 1 ? 'BIXRP' : 'XRP'}}</small></div>
 						</div>
 					</vueCustomScrollbar>
 				</div>

@@ -80,8 +80,23 @@
 						</div>
 					</div>
 					<div class="balance__info">
-						<div class="balance__title">
-							<span class="mr5">Income for for yesterday</span> 
+						<div class="balance__title font-normal">
+							<span class="mr5">Income for</span> 
+							<span class="text-underline text--primary datepicker__value" v-if="XRPDate">
+								<span v-if="XRPDate.start == XRPDate.end || !XRPDate.end">{{XRPDate.start}}</span> 
+								<span v-else>{{`${XRPDate.start}-${XRPDate.end}`}}</span> 
+								<i class="icon-close ml5 pointer" @click="XRPDate = null"></i>
+							</span>
+							<beSelect
+								v-else
+								class="income_select"
+								selectedItemClass='text-underline text--primary'
+								:selectArray="incomeListXRP"
+								v-model="selectedIncomeItemXRP"
+								:transparent="true"
+							>
+								<span slot="customField" @click="openDatepicker('xrp')">choose a date</span>
+							</beSelect>
 						</div>
 						<div class="balance__actual">
 							<div class="atual__item yesterday">
@@ -95,10 +110,10 @@
 			<div class="card card--white row-flex align-items-center justify-content-between p30 hold_usdx">
 				<div class="balance">
 					<div class="balance__info">
-						<div class="balance__title"><span class="text--purple">USDX</span>{{'\xa0'}}HODL balance</div>
+						<div class="balance__title"><span class="text--purple">BIXRP</span>{{'\xa0'}}HODL balance</div>
 						<div class="balance__actual">
 							<div class="atual__item">
-								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} BIXRP</small>
 							</div>
 						</div>
 					</div>
@@ -120,7 +135,7 @@
 						<div class="balance__title font-normal">Potential income</div>
 						<div class="balance__actual">
 							<div class="atual__item text--primary">
-								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} BIXRP</small>
 							</div>
 						</div>
 					</div>
@@ -145,7 +160,7 @@
 						</div>
 						<div class="balance__actual">
 							<div class="atual__item yesterday">
-								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} BIXRP</small>
 							</div>
 						</div>
 					</div>
@@ -158,17 +173,17 @@
 						<div class="balance__title">Potential income</div>
 						<div class="balance__actual">
 							<div class="atual__item text--primary">
-								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} BIXRP</small>
 							</div>
 						</div>
 					</div>
 					<div class="balance__info">
 						<div class="balance__title">
-							<span class="mr5">Income for for yesterday</span> 
+							<span class="mr5">Income for yesterday</span> 
 						</div>
 						<div class="balance__actual">
 							<div class="atual__item yesterday">
-								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} USDX</small>
+								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} BIXRP</small>
 							</div>
 						</div>
 					</div>
@@ -253,7 +268,7 @@
 				</div>
 				<div class="col-flex col-3 card card--gradient-purple card--bg-lines">
 					<div class="card--title">
-						{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} USDX</small>
+						{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} BIXRP</small>
 					</div>
 					<div class="card--info">
 						<div class="card--info-item">
@@ -735,6 +750,9 @@ export default {
 		.select__dropdown{
 			left: auto;
 			right: 0;
+			@media(max-width: 767px){
+				transform: translateX(50%);
+			}
 		}
 	}
 }
@@ -831,6 +849,7 @@ export default {
 				font-size: 12px;
 				color: rgba(#333C4D, .7);
 				margin-bottom: 5px;
+				justify-content: flex-start;
 			}
 			&__info{
 				& + .balance__info{

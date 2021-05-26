@@ -3,7 +3,7 @@
         <div class="beModal__header">
             <div class="beModal__close">
                 <div slot="top-right">
-                    <button @click="$modal.hide('modal-confirm')">
+                    <button @click="$modal.hideAll()">
                         <i class="icon-close"></i>
                     </button>
                 </div>

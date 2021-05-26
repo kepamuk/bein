@@ -111,6 +111,7 @@ export default {
         },
         submitData(){
             console.log('submit data');
+            this.$modal.hide('modal-create-wallet')
             this.$modal.show(
                 transactionsSend, 
                 {
@@ -179,12 +180,23 @@ export default {
     }
     &__title{
         color: #0B111A;
+        @media(max-width: 1600px){
+            &.mb40{
+                margin-bottom: 20px !important;
+            }
+        }
     }
     .two_columns_list{
         max-width: 320px;
         margin: 0 auto;
         font-size: 16px;
         transform: translateX(30px);
+        @media(max-width: 1600px){
+            transform: translateX(0px);
+            &.mb40{
+                margin-bottom: 20px !important;
+            }
+        }
         li{
             color: #0B111A;
             font-weight: 600;
@@ -192,6 +204,9 @@ export default {
             &::before{
                 color: rgba(#0B111A, 0.5);
                 min-width: 25px;
+            }
+            @media(max-width: 1600px){
+                margin-bottom: 5px;
             }
         }
     }

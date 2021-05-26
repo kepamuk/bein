@@ -3,14 +3,21 @@
         <input 
             type="file" 
             @change="inputChange($event)"
-            :accept="formats || 'image/jpeg, image/png, image/svg, image/svg+xml, application/pdf'"
+            :accept="formats"
             :multiple="multiple"
             class="input_file__item"
         >
-        <span class="input_file__container"> 
-            <span class="input_file__empty" v-if="!fileName"><i class="icon-submit-progress"></i> Download file</span> 
+        <span class="input_file__container" :class="{'is-button': isButton}"> 
+            <span class="input_file__empty" v-if="!fileName">
+                <slot name="attach-icon"><i class="icon-submit-progress"></i></slot> 
+                {{label}}
+            </span> 
             <span class="input_file__name" v-else>{{fileName}}</span>
-            <span v-if="fileName" class="input_file__clear"><button type="button" class="btn-clear" @click.prevent="clearInput">Delete</button></span>
+            <span v-if="fileName" class="input_file__clear">
+                <button type="button" class="btn-clear" @click.prevent="clearInput">
+                    <slot name="delete">Delete</slot>
+                </button>
+            </span>
         </span>
     </label>
 </template>
@@ -21,7 +28,20 @@ export default {
         files: [],
         inputVal: []
     }),
-    props: ['multiple', 'formats'],
+    props: {
+        multiple:{
+            default: false
+        }, 
+        formats: {
+            default: 'image/jpeg, image/png, image/svg, image/svg+xml, application/pdf'
+        },
+        label: {
+            default: 'Download file'
+        },
+        isButton: {
+            default: true
+        }
+    },
     computed: {
         fileName(){
             let file = '';
@@ -108,6 +128,26 @@ export default {
         font-weight: 600;
         line-height: 1;
 
+    }
+    &:not(.is-button){
+        height: auto;
+        padding: 0px;
+        background-color: transparent;
+        color: $grey;
+        &:hover{
+            color: $primary;
+        }
+        .input_file__container{
+        }
+        .btn-clear{
+            height: auto;
+            padding: 0;
+            background-color: transparent;
+            i{
+                font-size: 0.8em;
+                margin-right: 0px;
+            }
+        }
     }
 }
 </style>

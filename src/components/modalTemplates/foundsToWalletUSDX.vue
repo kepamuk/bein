@@ -10,18 +10,18 @@
             </div>
         </div>
         <div class="beModal__body text-center">
-            <h2 class="beModal__title">Receive USDX</h2>
+            <h2 class="beModal__title">Receive BIXRP</h2>
             <beSelect 
                 :selectArray="selectList"
                 v-model="selectedItem"
                 class="wallet_select text--black"
             >
-                <span slot="small_text">354.12 USDX</span>
+                <span slot="small_text">354.12 BIXRP</span>
             </beSelect>
             <div class="beModal__qr_code">
                 <img src="@/assets/qr.svg" alt="">
             </div>
-            <div class="qr_code__label">Your USDX Address</div>
+            <div class="qr_code__label">Your BIXRP Address</div>
             <beCopyText
                 :bordered="true"
                 class="walet__hash" 

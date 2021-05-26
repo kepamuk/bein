@@ -12,6 +12,7 @@ import '@/includes/fonts/fontello/fontello.scss';
 import beButton from '@/components/beButton';
 import bePrompt from '@/components/bePrompt';
 import beSelect from '@/components/beSelect';
+import beInputFile from '@/components/beInputFile';
 import beCopyText from '@/components/beCopyText';
 import beInput from '@/components/beInput';
 import beInputRadio from '@/components/beInputRadio';
@@ -32,6 +33,7 @@ Vue.component('beInput', beInput);
 Vue.component('beInputRadio', beInputRadio);
 Vue.component('beInputCheckbox', beInputCheckbox);
 Vue.component('beAccordeon', beAccordeon);
+Vue.component('beInputFile', beInputFile);
 
 Vue.config.productionTip = false;
 

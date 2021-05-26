@@ -13,7 +13,7 @@
             <h2 class="beModal__title">Add wallet</h2>
             <beInput 
                 class="xrp_address mb15 bg--white"
-                placeholder="USDX Wallet"
+                placeholder="BIXRP Wallet"
                 :transparent="false"
             ></beInput>
             <beInput 

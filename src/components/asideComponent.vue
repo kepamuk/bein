@@ -2,7 +2,7 @@
     <aside class="aside">
         <div class="aside__header">
           <div class="logo">
-            <router-link :to="{name: 'Dashboard'}"><img src="@/assets/logo.svg" alt=""></router-link>
+            <router-link :to="{name: 'Dashboard'}"><img src="@/assets/logo_main.svg" alt=""></router-link>
           </div>
           <div id="hamburger" :class="{opened: menuOpen}" @click="toggleNavigation()">
             <span></span>

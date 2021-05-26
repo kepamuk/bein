@@ -10,17 +10,17 @@
             </div>
         </div>
         <div class="beModal__body text-center">
-            <h2 class="beModal__title">Send USDX</h2>
+            <h2 class="beModal__title">Send BIXRP</h2>
             <beSelect 
                 :selectArray="selectList"
                 v-model="selectedItem"
                 class="wallet_select mb15 text--black"
             >
-                <span slot="small_text">354.12 USDX</span>
+                <span slot="small_text">354.12 BIXRP</span>
             </beSelect>
             <beInput 
                 class="xrp_address mb15"
-                placeholder="Send to USDX address"
+                placeholder="Send to BIXRP address"
                 :transparent="false"
             >
                 <i class="icon-qr-code" slot="right"></i>
@@ -45,7 +45,7 @@
                 v-model="inputVal"
                 :maxVal="XRP.balance"
             >
-                <span slot="right">USDX</span>
+                <span slot="right">BIXRP</span>
             </beInput>
             <div class="xrp_to_usd">
                 <div class="converted_value">{{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></div>

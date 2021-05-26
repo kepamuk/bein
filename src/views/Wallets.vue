@@ -17,10 +17,10 @@
     					<div class="balance__info">
     						<div class="balance__actual">
     							<div class="atual__item">
-    								12,021<small>.{{23 || '00'}} USDX</small>
+    								12,021<small>.{{23 || '00'}} BIXRP</small>
     							</div>
     						</div>
-                            <div class="balance__title">USDX Wallet</div>
+                            <div class="balance__title">BIXRP Wallet</div>
     					</div>
                     </div>
                     <div class="wallet__body"></div>
@@ -126,7 +126,7 @@
                         </button>
                     </div>
                     <div class="history__status">{{item.status}}</div>
-                    <div class="history__finance">{{item.summ}} <small>{{item.currency == 1 ? 'USDX' : 'XRP'}}</small></div>
+                    <div class="history__finance">{{item.summ}} <small>{{item.currency == 1 ? 'BIXRP' : 'XRP'}}</small></div>
                 </div>
             </div>
             <div class="transactions__body empty" v-else>

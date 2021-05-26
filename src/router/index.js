@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "@/views/Dashboard/Dashboard.vue";
+import { LANG } from '@/helpers/language.js'
 
 Vue.use(VueRouter);
 
@@ -10,7 +11,7 @@ const routes = [
 		name: "Dashboard",
 		component: Dashboard,
 		meta: {
-			linkText: 'Dashboard',
+			linkText: LANG.nav.dashboard.eng,
 			icon: 'icon-wallet',
 		}
 	},
@@ -19,7 +20,7 @@ const routes = [
 		name: "Earnings",
 		component: () => import("@/views/Earnings.vue"),
 		meta: {
-			linkText: 'Earnings',
+			linkText: LANG.nav.earnings.eng,
 			icon: 'icon-exchange',
 			notifications: 2
 		}
@@ -29,7 +30,7 @@ const routes = [
 		name: "Wallets",
 		component: () => import("@/views/Wallets.vue"),
 		meta: {
-			linkText: 'My wallets',
+			linkText: LANG.nav.wallets.eng,
 			icon: 'icon-wallets',
 		}
 	},
@@ -38,7 +39,7 @@ const routes = [
 		name: "Exchange",
 		component: () => import("@/views/Exchange.vue"),
 		meta: {
-			linkText: 'Exchange',
+			linkText: LANG.nav.exchange.eng,
 			icon: 'icon-dollar-bitcoin',
 		}
 	},
@@ -52,7 +53,7 @@ const routes = [
 		name: "Support",
 		component: () => import("@/views/Support.vue"),
 		meta: {
-			linkText: 'Support',
+			linkText: LANG.nav.support.eng,
 			icon: 'icon-about',
 		}
 	},
@@ -61,7 +62,7 @@ const routes = [
 		name: "Giveaway",
 		component: () => import("@/views/Giveaway.vue"),
 		meta: {
-			linkText: 'Giveaway',
+			linkText: LANG.nav.giveaway.eng,
 			icon: 'icon-leaderboard',
 		}
 	},
@@ -70,7 +71,7 @@ const routes = [
 		name: "Settings",
 		component: () => import("@/views/Settings.vue"),
 		meta: {
-			linkText: 'Settings',
+			linkText: LANG.nav.settings.eng,
 			icon: 'icon-settings',
 		}
 	},
@@ -79,7 +80,7 @@ const routes = [
 		name: "Notifications",
 		component: () => import("@/views/Notifications.vue"),
 		meta: {
-			linkText: 'Notifications',
+			linkText: LANG.nav.notifications.eng,
 			icon: 'icon-notification',
 			notifications: 2
 		}

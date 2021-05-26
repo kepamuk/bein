@@ -3,7 +3,7 @@
         <div class="beModal__header">
             <div class="beModal__close">
                 <div slot="top-right">
-                    <button @click="$modal.hide('modal-wallet-info')">
+                    <button @click="$modal.hideAll()">
                         <i class="icon-close"></i>
                     </button>
                 </div>
@@ -17,7 +17,7 @@
                         <div class="balance__actual">
                             <div class="atual__item">
                                 <small class="balance__currancy" v-if="!waletUSDX"><i class="icon-currancy"></i></small>
-                                12,021<small>.{{23 || '00'}} <span v-if="waletUSDX">USDX</span></small>
+                                12,021<small>.{{23 || '00'}} <span v-if="waletUSDX">BIXRP</span></small>
                             </div>
                         </div>
                         <div class="balance__title">{{waletName}}</div>

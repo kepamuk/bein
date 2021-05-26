@@ -77,8 +77,8 @@
                             <img src="@/assets/balance.svg" alt="">
                         </div>
                         <div class="exchange_cards__info">
-                            <p class="mb5">USDX Be in coin</p>
-                            <p>0.00 USDX <span class="text--white50">| $0.00 USD</span></p>
+                            <p class="mb5">BIXRP Be in coin</p>
+                            <p>0.00 BIXRP <span class="text--white50">| $0.00 USD</span></p>
                         </div>
                     </div>
                     <div class="mt15">
@@ -118,7 +118,7 @@
                             :transparent="true"
                             v-model="USDXExchange"
                         >
-                            <span slot="right">USDX</span>
+                            <span slot="right">BIXRP</span>
                         </beInput>
                         <div class="xrp_to_usd">
                             <div class="converted_value">{{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></div>
@@ -148,7 +148,7 @@
                             <p class="exchange_info__currency_amount_usd">${{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></p>
                         </div>
                         <div v-else>
-                            <p class="exchange_info__currency_amount text--purple">{{USDXExchange || 0.00}} <small>USDX</small></p>
+                            <p class="exchange_info__currency_amount text--purple">{{USDXExchange || 0.00}} <small>BIXRP</small></p>
                             <p class="exchange_info__currency_amount_usd">${{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></p>
                         </div>
                     </div>
@@ -156,18 +156,39 @@
                 <div class="col-12 text-center">
                     <beButton
                         title="Exchange"
+                        @click="$modal.show('exchange-start')"
                     ></beButton>
                 </div>
                 <div class="col-12 row-flex justify-content-between mt50 box_info">
-                    <p class="text--grey">1 XRP = 1.000123 USDX</p>
+                    <p class="text--grey">1 XRP = 1.000123 BIXRP</p>
                     <router-link :to="{name: 'Exchange History'}" class="more_link text--primary"><span>View history</span> <i class="icon-arrow-right"></i></router-link>
                 </div>
             </div>
         </div>
+		<modal 
+			name="exchange-start"
+			width="90%"
+			:maxWidth="960"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<beExchangeStart></beExchangeStart>
+		</modal>
+		<modal 
+			name="exchange-done"
+			width="90%"
+			:maxWidth="960"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<beExchangeDone></beExchangeDone>
+		</modal>
     </div>
 </template>
 <script>
 import {formatCurency} from '@/helpers/helpers'
+import beExchangeStart from '@/components/modalTemplates/beExchangeStart'
+import beExchangeDone from '@/components/modalTemplates/beExchangeDone'
 export default {
     data: ()=>({
         reverse: false,
@@ -184,6 +205,7 @@ export default {
         USDXExchange: 0.00,
         coef: 1.000123
     }),
+    components:{ beExchangeStart, beExchangeDone },
     computed: {
         selectedWalletAmountXRP(){
             return this.exchangeWalletSelectedXRP.amount

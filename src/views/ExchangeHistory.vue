@@ -35,7 +35,7 @@
                         </div>
                         <div class="exchange_history__to usdx">
                             <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 USDX</div>
+                            <div class="currency__amount">+90.78 BIXRP</div>
                         </div>
                     </div>
                     <div class="exchange_history__amount_status success">
@@ -56,7 +56,7 @@
                         </div>
                         <div class="exchange_history__to usdx">
                             <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 USDX</div>
+                            <div class="currency__amount">+90.78 BIXRP</div>
                         </div>
                     </div>
                     <div class="exchange_history__amount_status alert">
@@ -77,7 +77,7 @@
                         </div>
                         <div class="exchange_history__to usdx">
                             <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 USDX</div>
+                            <div class="currency__amount">+90.78 BIXRP</div>
                         </div>
                     </div>
                     <div class="exchange_history__amount_status inprogress">
@@ -98,7 +98,7 @@
                         </div>
                         <div class="exchange_history__to usdx">
                             <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 USDX</div>
+                            <div class="currency__amount">+90.78 BIXRP</div>
                         </div>
                     </div>
                     <div class="exchange_history__amount_status success">
@@ -124,7 +124,7 @@
                         </div>
                         <div class="exchange_history__to usdx">
                             <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 USDX</div>
+                            <div class="currency__amount">+90.78 BIXRP</div>
                         </div>
                     </div>
                     <div class="exchange_history__amount_status success">
@@ -145,7 +145,7 @@
                         </div>
                         <div class="exchange_history__to usdx">
                             <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 USDX</div>
+                            <div class="currency__amount">+90.78 BIXRP</div>
                         </div>
                     </div>
                     <div class="exchange_history__amount_status success">
@@ -166,7 +166,7 @@
                         </div>
                         <div class="exchange_history__to usdx">
                             <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 USDX</div>
+                            <div class="currency__amount">+90.78 BIXRP</div>
                         </div>
                     </div>
                     <div class="exchange_history__amount_status success">
@@ -187,7 +187,7 @@
                         </div>
                         <div class="exchange_history__to usdx">
                             <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 USDX</div>
+                            <div class="currency__amount">+90.78 BIXRP</div>
                         </div>
                     </div>
                     <div class="exchange_history__amount_status success">
