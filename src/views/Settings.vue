@@ -52,7 +52,7 @@
                 <div class="settings__block_item">
                     <div class="settings__block_label">Two-factor authentication</div>
                     <div class="settings__block_info">
-                        ********
+                        Disabled
                     </div>
                     <div class="settings__block_edit">
                         <button>Turn on <i class="icon-angle-right"></i></button>
