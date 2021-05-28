@@ -136,7 +136,7 @@
                             <p class="exchange_info__currency_amount_usd">${{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></p>
                         </div>
                         <div v-else>
-                            <p class="exchange_info__currency_amount text--purple">{{USDXExchange || 0.00}} <small>USDX</small></p>
+                            <p class="exchange_info__currency_amount text--purple">{{USDXExchange || 0.00}} <small>BIXRP</small></p>
                             <p class="exchange_info__currency_amount_usd">${{usdxToUsd[0]}}<small>.{{usdxToUsd[1] || '00'}}</small></p>
                         </div>
                     </div>
