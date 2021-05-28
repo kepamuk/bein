@@ -1,5 +1,5 @@
 <template>
-    <label class="input_file">
+    <label class="input_file" :class="{'is-button': isButton}">
         <input 
             type="file" 
             @change="inputChange($event)"
@@ -7,7 +7,7 @@
             :multiple="multiple"
             class="input_file__item"
         >
-        <span class="input_file__container" :class="{'is-button': isButton}"> 
+        <span class="input_file__container"> 
             <span class="input_file__empty" v-if="!fileName">
                 <slot name="attach-icon"><i class="icon-submit-progress"></i></slot> 
                 {{label}}
@@ -136,8 +136,6 @@ export default {
         color: $grey;
         &:hover{
             color: $primary;
-        }
-        .input_file__container{
         }
         .btn-clear{
             height: auto;

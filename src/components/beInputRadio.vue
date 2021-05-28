@@ -1,5 +1,5 @@
 <template>
-    <label class="beInputRadio" :class="{'beInputRadio__button': button}">
+    <label class="beInputRadio" :class="[{'circle': round}, {'beInputRadio__button': button}]">
         <input 
             type="radio"
             class="beInputRadio__item"
@@ -23,7 +23,8 @@ export default {
         'button',
         'value',
         'modelValue',
-        'inputClass'
+        'inputClass',
+        'round'
     ],
     computed: {
         isChecked() {
@@ -46,6 +47,7 @@ export default {
             border: none;
             height: auto;
             font-weight: 500;
+            background-color: transparent;
             &:before{
                 content: '';
                 position: absolute;
@@ -74,14 +76,47 @@ export default {
                 opacity: 0;
             }
         }
-        .beInputRadio__item:checked{
-            & ~ .beInputRadio__placeholder{
-                background-color: transparent;
-                border-color: transparent;
-                color: inherit;
+        &.circle{
+            .beInputRadio__placeholder{
+                &:before{
+                    border: 2px solid;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                }
                 &:after{
-                    opacity: 1;
-                    transform: rotate(45deg) scale(1);
+                    top: 60%;
+                    left: 0;
+                    width: 0.5em;
+                    height: 0.5em;
+                    border-radius: 50%;
+                    background-color: #2864FF;
+                    border: none;
+                    transform: translate(50%, -50%) rotate(0) scale(0);
+                }
+            }
+            .beInputRadio__item{
+                &:checked{
+                    & ~ .beInputRadio__placeholder{
+                        &:before{
+                            border-color: #2864FF;
+                        }
+                        &:after{
+                            transform: translate(50%, -50%) rotate(0) scale(1);
+                        }
+                    }
+                }
+            }
+        }
+        .beInputRadio__item{
+            &:checked{
+                & ~ .beInputRadio__placeholder{
+                    background-color: transparent;
+                    border-color: transparent;
+                    color: inherit;
+                    &:after{
+                        opacity: 1;
+                        transform: rotate(45deg) scale(1);
+                    }
                 }
             }
         }

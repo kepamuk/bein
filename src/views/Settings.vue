@@ -15,7 +15,13 @@
                         </div>
                     </div>
                     <div class="settings__block_edit">
-                        <button>Edit <i class="icon-angle-right"></i></button>
+                        <button 
+                            class="edit_button"
+                            @click="$modal.show('settings-step-form')"
+                        >
+                            <span class="edit_button__label">Edit</span> 
+                            <i class="icon-angle-right"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="settings__block_item">
@@ -36,6 +42,9 @@
                         <span v-if="isApproved" class="text--success">Approved</span>
                         <span v-else class="text--alert">Not passed</span>
                     </div>
+                    <div class="settings__block_edit" v-if="!isApproved">
+                        <button class="edit_button"><span class="edit_button__label">Get verified</span> <i class="icon-angle-right"></i></button>
+                    </div>
                 </div>
             </div>
             <div class="settings__block">
@@ -46,7 +55,13 @@
                         ********
                     </div>
                     <div class="settings__block_edit">
-                        <button>Reset <i class="icon-angle-right"></i></button>
+                        <button 
+                            class="edit_button"
+                            @click="$modal.show('modal-reset-password')"
+                        >
+                            <span class="edit_button__label">Reset</span> 
+                            <i class="icon-angle-right"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="settings__block_item">
@@ -55,18 +70,72 @@
                         Disabled
                     </div>
                     <div class="settings__block_edit">
-                        <button>Turn on <i class="icon-angle-right"></i></button>
+                        <button class="edit_button" @click="$modal.show('modal-two-factor-auth')">
+                            <span class="edit_button__label">Turn on</span> 
+                            <i class="icon-angle-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+		<modal 
+			name="settings-step-form"
+			width="90%"
+			:maxWidth="744"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<settingsStepForm></settingsStepForm>
+		</modal>
+		<modal 
+			name="modal-reset-password"
+			width="90%"
+			:maxWidth="500"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<passwordReset></passwordReset>
+		</modal>
+		<modal 
+			name="modal-reset-password-varification"
+			width="90%"
+			:maxWidth="540"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<passwordResetVarification></passwordResetVarification>
+		</modal>
+		<modal 
+			name="modal-two-factor-auth"
+			width="90%"
+			:maxWidth="650"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<twoFactorAuth></twoFactorAuth>
+		</modal>
+		<modal 
+			name="modal-two-factor-code"
+			width="90%"
+			:maxWidth="500"
+			height="auto" 
+			:scrollable="true" 
+			:adaptive="true">
+			<twoFactorCode></twoFactorCode>
+		</modal>
     </div>
 </template>
 <script>
+import settingsStepForm from '@/components/modalTemplates/settingsStepForm'
+import passwordReset from '@/components/modalTemplates/passwordReset'
+import twoFactorAuth from '@/components/modalTemplates/twoFactorAuth'
+import twoFactorCode from '@/components/modalTemplates/twoFactorCode'
+import passwordResetVarification from '@/components/modalTemplates/passwordResetVarification'
 export default {
     data: ()=>({
         isApproved: true
-    })
+    }),
+    components: { settingsStepForm, passwordReset, twoFactorAuth, twoFactorCode, passwordResetVarification }
 }
 </script>
 <style lang="scss">
@@ -93,6 +162,8 @@ export default {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+            font-size: 16px;
+            color: rgba(#0B111A, .5);
             &:last-child{
                 margin-bottom: 0px;
             }
@@ -101,6 +172,7 @@ export default {
             min-width: 300px;
             padding-left: 35px;
             font-weight: 600;
+            color: #0B111A;
         }
         &_edit{
             position: absolute;
@@ -109,7 +181,7 @@ export default {
             bottom: -1px;
             min-width: 170px;
             font-size: 16px;
-            button{
+            .edit_button{
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -120,7 +192,7 @@ export default {
                 border-radius: 5px;
                 color: rgba(#0B111A, .5);
                 font-weight: 600;
-                padding: 0 40px;
+                padding: 0 20px;
                 i{
                     margin-bottom: -2px;
                     font-size: 0.9em;
@@ -151,7 +223,22 @@ export default {
         
     }
     @media(max-width: 767px){
-        
+        .settings__block_item{
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .settings__block_label{
+            padding: 0px;
+            margin-bottom: 10px;
+        }
+        .settings__block_edit{
+            min-width: 26px;
+        }
+        .edit_button{
+            padding: 0 ;
+            &__label{display: none;}
+        }
     }
 }
 </style>
