@@ -6,7 +6,7 @@
         <div class="card card--white settings__container profile">
             <h2 class="font-large">Profile settings</h2>
             <div class="settings__block">
-                <h3 class="settings__block_title">Personal data</h3>
+                <h3 class="settings__block_title">Personal information</h3>
                 <div class="settings__block_item">
                     <div class="settings__block_label">Profile image</div>
                     <div class="settings__block_info">
@@ -133,7 +133,7 @@ import twoFactorCode from '@/components/modalTemplates/twoFactorCode'
 import passwordResetVarification from '@/components/modalTemplates/passwordResetVarification'
 export default {
     data: ()=>({
-        isApproved: true
+        isApproved: false
     }),
     components: { settingsStepForm, passwordReset, twoFactorAuth, twoFactorCode, passwordResetVarification }
 }

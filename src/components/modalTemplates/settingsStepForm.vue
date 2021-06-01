@@ -40,8 +40,8 @@
                         ></beInputFile>
                     </div>
                     <div class="col-5">
-                        <img class="full-width" :src="`${selectedDocumentFile}`" alt="" v-if="selectedDocumentFile && selectedDocumentFile.length">
-                        <img class="full-width" src="../../assets/example.png" alt="" v-else>
+                        <!-- <img class="full-width" :src="`${selectedDocumentFile}`" alt="" v-if="selectedDocumentFile && selectedDocumentFile.length"> -->
+                        <img class="full-width" src="../../assets/example.png" alt="">
                     </div>
                 </div>
             </div>
@@ -50,11 +50,11 @@
                 <div class="row">
                     <div class="col-7">
                         <ul>
-                            <li>Your background is a light neutral color</li>
+                            <li>Stand in front of a light-colored background</li>
                             <li>Look directly into the camera</li>
                             <li>Take a photo without a headdress and glasses</li>
                         </ul>
-                        <h4 class="select_label mb10">Selfie with documents</h4>
+                        <!-- <h4 class="select_label mb10">Selfie with documents</h4> -->
                         <beInputFile
                             class="full-width"
                             :isButton="true" 
@@ -63,8 +63,8 @@
                         ></beInputFile>
                     </div>
                     <div class="col-5">
-                        <img class="full-width" :src="`${selectedSelfieFile}`" alt="" v-if="selectedSelfieFile && selectedSelfieFile.length">
-                        <div class="example" v-else>
+                        <!-- <img class="full-width" :src="`${selectedSelfieFile}`" alt="" v-if="selectedSelfieFile && selectedSelfieFile.length"> -->
+                        <div class="example">
                             <img class="full-width" src="../../assets/example2.png" alt="">
                             <div class="example__text">EXAMPLE</div>
                         </div>

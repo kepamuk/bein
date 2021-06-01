@@ -11,7 +11,7 @@
         </div>
         <div class="beModal__body exchange_start">
             <h2 class="beModal__title">Exchange is successfully done!</h2>
-            <p>in 30 minutes or less your XRP will arrive. You can safely use Exodus or start a new exchange while waiting for your XRP deposit.</p>
+            <p>Your XRP will arrive in up to 30 minutes. You can safely use Exodus or start a new exchange while waiting for your XRP deposit.</p>
             <div class="exchange_start__container my50">
                 <div class="exchange_start__icon">
                     <div class="currency__icon usdx">
