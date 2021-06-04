@@ -22,7 +22,7 @@
 				<div class="btns">
 					<beButton 
 						type="button" 
-						title="Create an investment" 
+						title="Invest" 
 						:outline="false" 
 						:white="false"
 						:shadow="true"
@@ -33,7 +33,7 @@
 			<div class="card card--white p30 balance hold_xrp__details" v-if="windowWidth > 767">
 				<div class="balance__actual border-between-items items-half flex-full">
 					<div class="balance__info">
-						<div class="balance__title font-normal">Potential income</div>
+						<div class="balance__title font-normal">Daily P&L</div>
 						<div class="balance__actual">
 							<div class="atual__item text--primary">
 								{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}} XRP</small>
@@ -71,7 +71,7 @@
 				<div slot="title">Details</div>
 				<div class="balance__actual" slot="content">
 					<div class="balance__info">
-						<div class="balance__title">Potential income</div>
+						<div class="balance__title">Daily P&L</div>
 						<div class="balance__actual">
 							<div class="atual__item text--primary">
 								<small><i class="icon-currancy"></i></small>
@@ -121,7 +121,7 @@
 				<div class="btns">
 					<beButton 
 						type="button" 
-						title="Create an investment" 
+						title="Invest" 
 						:outline="false" 
 						:white="false"
 						:shadow="true"
@@ -132,7 +132,7 @@
 			<div class="card card--white p30 balance hold_usdx__details" v-if="windowWidth > 767">
 				<div class="balance__actual border-between-items items-half flex-full">
 					<div class="balance__info">
-						<div class="balance__title font-normal">Potential income</div>
+						<div class="balance__title font-normal">Daily P&L</div>
 						<div class="balance__actual">
 							<div class="atual__item text--primary">
 								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} BIXRP</small>
@@ -170,7 +170,7 @@
 				<div slot="title">Details</div>
 				<div class="balance__actual" slot="content">
 					<div class="balance__info">
-						<div class="balance__title">Potential income</div>
+						<div class="balance__title">Daily P&L</div>
 						<div class="balance__actual">
 							<div class="atual__item text--primary">
 								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}} BIXRP</small>
@@ -241,7 +241,7 @@
 							</div>
 							<div class="card--info-text">
 								<div class="card--info-title">9 янв, 22:47 - 10 янв 23:37</div>
-								<p class="card--info-text">Deposit, end date</p>
+								<p class="card--info-text">Deposit - End Date</p>
 							</div>
 						</div>
 						<div class="card--info-item">
@@ -295,7 +295,7 @@
 							</div>
 							<div class="card--info-text">
 								<div class="card--info-title">9 янв, 22:47 - 10 янв 23:37</div>
-								<p class="card--info-text">Deposit, end date</p>
+								<p class="card--info-text">Deposit - End Date</p>
 							</div>
 						</div>
 						<div class="card--info-item">
@@ -350,7 +350,7 @@
 							</div>
 							<div class="card--info-text">
 								<div class="card--info-title">9 янв, 22:47 - 10 янв 23:37</div>
-								<p class="card--info-text">Deposit, end date</p>
+								<p class="card--info-text">Deposit - End Date</p>
 							</div>
 						</div>
 					</div>
@@ -395,7 +395,7 @@
 							</div>
 							<div class="card--info-text">
 								<div class="card--info-title">9 янв, 22:47 - 10 янв 23:37</div>
-								<p class="card--info-text">Deposit, end date</p>
+								<p class="card--info-text">Deposit - End Date</p>
 							</div>
 						</div>
 						<div class="card--info-item">
@@ -450,7 +450,7 @@
 							</div>
 							<div class="card--info-text">
 								<div class="card--info-title">9 янв, 22:47 - 10 янв 23:37</div>
-								<p class="card--info-text">Deposit, end date</p>
+								<p class="card--info-text">Deposit - End Date</p>
 							</div>
 						</div>
 						<div class="card--info-item">
@@ -489,7 +489,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<createInvestment :currency="currencyValue"></createInvestment>
 		</modal>
@@ -498,7 +498,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<balancePlanner></balancePlanner>
 		</modal>
@@ -507,7 +507,7 @@
 			width="90%"
 			:maxWidth="1055"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<howItWorks></howItWorks>
 		</modal>
@@ -516,7 +516,7 @@
 			width="90%"
 			:maxWidth="400"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true"
 			class="datepicker-modal"
 		>

@@ -10,7 +10,7 @@
         <div class="row flex-full">
             <div class="col-6 card card--white col-flex">
                 <h2 class="mb15">Support Service</h2>
-                <p>Write to us and we will be glad to help you with your problems and will send an answer to the email indicated in your profile</p>
+                <p>Please leave a message and we'll happily address your issues. You will get our reply via the email indicated on your profile</p>
                 <div class="flex-full">
                     <textarea class="textarea" placeholder="Your message"></textarea>
                     <beInputFile
@@ -26,11 +26,12 @@
                 <div>
                     <beButton
                         title="Send"
+                        @click="sendMessage"
                     ></beButton>
                 </div>
             </div>
             <div class="col-6 card card--white col-flex">
-                <h2 class="mb35">You can also find answers to common questions:</h2>
+                <h2 class="mb35">You can also find answers to common questions here:</h2>
                 <div class="row flex-full">
                     <div class="col-6">
                         <h3 class="title__devider">Investments</h3>
@@ -66,10 +67,24 @@
     </div>
 </template>
 <script>
+import transactionsSend from '@/components/modalTemplates/transactionsSend'
 export default {
     data: ()=>({
         files: null
-    })
+    }),
+    methods: {
+        sendMessage(){
+            this.$modal.show(
+                transactionsSend, 
+                {
+                    successTitle: 'Your message has been sent to the support service!',
+                    successText: 'You will receive an answer to the email indicated in your profile. You can communicate with the support agent by replying to the email.',
+                    buttonText: 'Continue'
+                },
+                { height: 'auto', width: "90%", maxWidth: 540, adaptive: true }
+            )
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>

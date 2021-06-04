@@ -56,11 +56,15 @@
 <script>
 export default {
     data: ()=>({
-        resetType: 1
+        resetType: 3
     }),
     methods: {
         sendCode(){
             this.$modal.hide('modal-two-factor-auth')
+            if(this.resetType == 3){
+                this.$modal.show('modal-two-factor-gauth')
+                return;
+            }
             this.$modal.show('modal-two-factor-code')
         }
     }

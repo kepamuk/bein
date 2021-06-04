@@ -12,7 +12,7 @@
 						</svg>
 					</div>
 					<div class="balance__info">
-						<div class="balance__title">Your XRP balance</div>
+						<div class="balance__title">XRP balance</div>
 						<div class="balance__actual">
 							<div class="atual__item">
 								<small class="balance__currancy"><i class="icon-currancy"></i></small>
@@ -59,7 +59,7 @@
 						</svg>
 					</div>
 					<div class="balance__info">
-						<div class="balance__title">Your BIXRP balance</div>
+						<div class="balance__title">BIXRP balance</div>
 						<div class="balance__actual">
 							<div class="atual__item">
 								{{balanceUSDXArray[0]}}<small>.{{balanceUSDXArray[1] || '00'}}</small> <small>BIXRP</small>
@@ -175,7 +175,7 @@
 				<div class="transactions__body empty" v-else>
 					<div class="card card--white text-center">
 						<p class="icon"><i class="icon-smile-sad"></i></p>
-						<p class="empty__text">You have no transactions</p>
+						<p class="empty__text">You don't have any transactions yet</p>
 					</div>
 				</div>
 				<div class="block__link" v-if="clientWidth < 890">
@@ -189,7 +189,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<foundsToWalletXRP v-if="sendXRP == 'XRP'"></foundsToWalletXRP>
 			<foundsToWalletUSDX v-else></foundsToWalletUSDX>
@@ -200,7 +200,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<foundsOutputXRP v-if="outputXRP == 'XRP'"></foundsOutputXRP>
 			<foundsOutputUSDX v-else></foundsOutputUSDX>
@@ -211,7 +211,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<transactionsSend></transactionsSend>
 		</modal>
@@ -250,63 +250,63 @@ export default {
 			investment: 3258.15,
 			profit: 152.23,
 		},
-		// history: null,
-		history: [
-			{
-				id: 1,
-				date: '20/20/2020',
-				status: 'Rejected',
-				summ: '+320',
-				buttonText: 'Wallet replenishment',
-				currency: 1,
-				waletName: 'Walet Name'
-			},
-			{
-				id: 2,
-				date: '20/20/2020',
-				status: 'Approved',
-				summ: '+320',
-				buttonText: 'Wallet replenishment',
-				currency: 2,
-				waletName: 'Walet Name'
-			},
-			{
-				id: 3,
-				date: '20/20/2020',
-				status: 'Waiting',
-				summ: '+320',
-				buttonText: 'Funds output',
-				currency: 1,
-				waletName: 'Walet Name'
-			},
-			{
-				id: 4,
-				date: '20/20/2020',
-				status: 'Approved',
-				summ: '+320',
-				buttonText: 'Funds output',
-				currency: 2,
-				waletName: 'Walet Name'
-			},
-			{
-				id: 5,
-				date: '20/20/2020',
-				status: 'Waiting',
-				summ: '+320',
-				buttonText: 'Funds output',
-				currency: 1,
-				waletName: 'Walet Name'
-			},
-			{
-				id: 6,
-				date: '20/20/2020',
-				status: 'Approved',
-				summ: '+320',
-				buttonText: 'Funds output',
-				currency: 1,
-				waletName: 'Walet Name'
-			},
-		],
+		history: null,
+		// history: [
+		// 	{
+		// 		id: 1,
+		// 		date: '20/20/2020',
+		// 		status: 'Rejected',
+		// 		summ: '+320',
+		// 		buttonText: 'Wallet replenishment',
+		// 		currency: 1,
+		// 		waletName: 'Walet Name'
+		// 	},
+		// 	{
+		// 		id: 2,
+		// 		date: '20/20/2020',
+		// 		status: 'Approved',
+		// 		summ: '+320',
+		// 		buttonText: 'Wallet replenishment',
+		// 		currency: 2,
+		// 		waletName: 'Walet Name'
+		// 	},
+		// 	{
+		// 		id: 3,
+		// 		date: '20/20/2020',
+		// 		status: 'Waiting',
+		// 		summ: '+320',
+		// 		buttonText: 'Funds output',
+		// 		currency: 1,
+		// 		waletName: 'Walet Name'
+		// 	},
+		// 	{
+		// 		id: 4,
+		// 		date: '20/20/2020',
+		// 		status: 'Approved',
+		// 		summ: '+320',
+		// 		buttonText: 'Funds output',
+		// 		currency: 2,
+		// 		waletName: 'Walet Name'
+		// 	},
+		// 	{
+		// 		id: 5,
+		// 		date: '20/20/2020',
+		// 		status: 'Waiting',
+		// 		summ: '+320',
+		// 		buttonText: 'Funds output',
+		// 		currency: 1,
+		// 		waletName: 'Walet Name'
+		// 	},
+		// 	{
+		// 		id: 6,
+		// 		date: '20/20/2020',
+		// 		status: 'Approved',
+		// 		summ: '+320',
+		// 		buttonText: 'Funds output',
+		// 		currency: 1,
+		// 		waletName: 'Walet Name'
+		// 	},
+		// ],
 		sortingList:[
             {value: 1, label: 'By transaction date'},
             {value: 2, label: 'By sum'},

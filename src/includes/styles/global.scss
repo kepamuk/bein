@@ -31,6 +31,12 @@
     @media(max-width: 767px){
         padding: 15px 20px;
     }
+    &--nonshadow{
+        box-shadow: none;
+        .beInput__item{
+            background-color: #fff !important;
+        }
+    }
     &--gradient{
         background-image: $gradient;
         color: $white;
@@ -77,6 +83,9 @@
     }
     &--white{
         background-color: $white;
+    }
+    &--grey{
+        background-color: #F6F6F6;
     }
     &--dark{
         background: radial-gradient(50% 50% at 50% 50%, #151F2F 0%, #0B111A 100%), #FFFFFF;

@@ -170,7 +170,7 @@
 			width="90%"
 			:maxWidth="960"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<beExchangeStart></beExchangeStart>
 		</modal>
@@ -179,7 +179,7 @@
 			width="90%"
 			:maxWidth="960"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<beExchangeDone></beExchangeDone>
 		</modal>

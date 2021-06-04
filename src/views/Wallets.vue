@@ -132,7 +132,7 @@
             <div class="transactions__body empty" v-else>
                 <div class="card card--white text-center">
                     <p class="icon"><i class="icon-smile-sad"></i></p>
-                    <p class="empty__text">You have no transactions</p>
+                    <p class="empty__text">You don't have any transactions yet</p>
                 </div>
             </div>
         </div>
@@ -142,7 +142,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<createWallet></createWallet>
 		</modal>
@@ -152,7 +152,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<addWallet></addWallet>
 		</modal>
@@ -162,7 +162,7 @@
 			width="90%"
 			:maxWidth="880"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<walletInfo></walletInfo>
 		</modal> -->
@@ -172,7 +172,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<foundsToWalletXRP v-if="sendXRP == 'XRP'"></foundsToWalletXRP>
 			<foundsToWalletUSDX v-else></foundsToWalletUSDX>
@@ -183,7 +183,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<foundsOutputXRP v-if="outputXRP == 'XRP'"></foundsOutputXRP>
 			<foundsOutputUSDX v-else></foundsOutputUSDX>
@@ -194,7 +194,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<transactionsSend></transactionsSend>
 		</modal>
@@ -247,7 +247,7 @@ export default {
             this.$modal.show('modal-add-wallet')
         },
         walletInfo(wallet){
-            let waletName = wallet == 'walletUSDX' ? 'USDX Wallet' : 'Be in XRP Wallet';
+            let waletName = wallet == 'walletUSDX' ? 'BIXRP Wallet' : 'Be in XRP Wallet';
             let waletUSDX = wallet == 'walletUSDX' ? true : false;
             this.$modal.show(
                 walletInfo, 

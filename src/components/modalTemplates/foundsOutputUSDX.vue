@@ -33,7 +33,7 @@
             >
                 <bePrompt
                     slot="right"
-                    text="Indicate the beneficiary or destination for a transaction"
+                    text="Indicate the beneficiary or destination of the transaction"
                     class="text--primary"
                 ></bePrompt>
             </beInput>

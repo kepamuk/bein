@@ -66,14 +66,14 @@
                             </button>
                         </div>
                         <div class="history__status">{{item.status}}</div>
-                        <div class="history__finance">{{item.summ}} <small>{{item.currency == 1 ? 'USDX' : 'XRP'}}</small></div>
+                        <div class="history__finance">{{item.summ}} <small>{{item.currency == 1 ? 'BIXRP' : 'XRP'}}</small></div>
                     </div>
                 </vueCustomScrollbar>
             </div>
             <div class="transactions__body empty" v-else>
                 <div class="card card--white text-center">
                     <p class="icon"><i class="icon-smile-sad"></i></p>
-                    <p class="empty__text">You have no transactions</p>
+                    <p class="empty__text">You don't have any transactions yet</p>
                 </div>
             </div>
         </div>

@@ -25,19 +25,20 @@
             </div>
             <div class="step step__content" :class="{active: currentstep == 2}">
                 <div class="step__icon mb15"><i class="icon-lock"></i></div>
-                <p>To activate your wallet, you need to send 20 XRP to your created Ripple account. Once your wallet has been funded with 20 XRP, it will be automatically activated</p>
+                <p>To activate your wallet, you need to send 20 XRP to your new Ripple account. Once your wallet is replenished with 20 XRP, it will be automatically activated</p>
             </div>
             <div class="step step__content" :class="{active: currentstep == 3}">
-                <h4 class="step__title mb40">Write down your secret phrase in the correct order on paper</h4>
+                <h4 class="step__title mb40">Write down your secret phrase in the correct order on а paper</h4>
                 <ul class="two_columns_list mb40">
                     <li 
                         v-for="(item, i) of list" 
                         :key="i" 
-                        @mousedown="downEvent(item, $event.target)"
-                        @mouseup="upEvent(item, $event.target)"
-                    >..................</li>
+                    ><input type="password" class="hidden-text" readonly :value="item"></li>
                 </ul>
-                <p><strong class="text--primary50">Press and Hold to Reveal</strong></p>
+                <button
+                    @mousedown="downEvent()"
+                    @mouseup="upEvent()"
+                ><strong class="text--primary50">Press and Hold to Reveal</strong></button>
             </div>
         </div>
         <div class="beModal__footer">
@@ -82,7 +83,8 @@ export default {
             'tooth',
             'extend'
         ],
-        clickedItem: null
+        clickedItem: null,
+        timeout: null
     }),
     watch:{
     },
@@ -92,12 +94,20 @@ export default {
     methods: {
         downEvent(){
             this.timecounterStart = new Date();
+            this.timeout = setTimeout(this.pressTimeout, 1000)
         },
-        upEvent(item, target){
+        upEvent(){
             this.timecounterEnd = new Date();
-            if(this.timecounterEnd - this.timecounterStart > 1000){
-                target.innerHTML = item
-            }
+            console.log(this.timecounterEnd - this.timecounterStart);
+            // if(this.timecounterEnd - this.timecounterStart > 1000){
+                
+            // }
+            clearTimeout(this.timeout, 1000)
+        },
+        pressTimeout(){
+            console.log();
+            let hiddenItems = document.querySelectorAll('.hidden-text')
+            hiddenItems.forEach(item => item.type = 'text')
         },
         goToStep(step){
             console.log(step);
@@ -116,7 +126,7 @@ export default {
                 transactionsSend, 
                 {
                     successTitle: 'Wallet "name" successfully added!',
-                    successText: 'Your wallet has been created and added to "My Wallets". You can get detailed information on transactions by clicking on the wallet card.'
+                    successText: 'Your wallet has been created and added to "My Wallets". You can get detailed information on transactions by clicking on the wallet.'
                 },
                 { height: 'auto', width: "90%", maxWidth: 540, adaptive: true }
             )
@@ -201,6 +211,7 @@ export default {
             color: #0B111A;
             font-weight: 600;
             margin-bottom: 15px;
+            display: flex;
             &::before{
                 color: rgba(#0B111A, 0.5);
                 min-width: 25px;
@@ -217,5 +228,16 @@ export default {
     margin: 0 auto;
     color: rgba(#0B111A, .5);
     font-weight: bold;
+}
+.hidden-text{
+    display: inline-block;
+    width: auto;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    outline: transparent;
+    font-family: 'Gilroy';
+    font-weight: 600;
 }
 </style>

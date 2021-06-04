@@ -83,7 +83,7 @@
 			width="90%"
 			:maxWidth="744"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<settingsStepForm></settingsStepForm>
 		</modal>
@@ -92,7 +92,7 @@
 			width="90%"
 			:maxWidth="500"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<passwordReset></passwordReset>
 		</modal>
@@ -101,7 +101,7 @@
 			width="90%"
 			:maxWidth="540"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<passwordResetVarification></passwordResetVarification>
 		</modal>
@@ -110,7 +110,7 @@
 			width="90%"
 			:maxWidth="650"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<twoFactorAuth></twoFactorAuth>
 		</modal>
@@ -119,9 +119,18 @@
 			width="90%"
 			:maxWidth="500"
 			height="auto" 
-			:scrollable="true" 
+			:scrollable="false" 
 			:adaptive="true">
 			<twoFactorCode></twoFactorCode>
+		</modal>
+		<modal 
+			name="modal-two-factor-gauth"
+			width="90%"
+			:maxWidth="500"
+			height="auto" 
+			:scrollable="false" 
+			:adaptive="true">
+			<twoFactorGAuth></twoFactorGAuth>
 		</modal>
     </div>
 </template>
@@ -131,11 +140,12 @@ import passwordReset from '@/components/modalTemplates/passwordReset'
 import twoFactorAuth from '@/components/modalTemplates/twoFactorAuth'
 import twoFactorCode from '@/components/modalTemplates/twoFactorCode'
 import passwordResetVarification from '@/components/modalTemplates/passwordResetVarification'
+import twoFactorGAuth from '@/components/modalTemplates/twoFactorGAuth'
 export default {
     data: ()=>({
         isApproved: false
     }),
-    components: { settingsStepForm, passwordReset, twoFactorAuth, twoFactorCode, passwordResetVarification }
+    components: { settingsStepForm, passwordReset, twoFactorAuth, twoFactorCode, passwordResetVarification, twoFactorGAuth }
 }
 </script>
 <style lang="scss">

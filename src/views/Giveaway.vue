@@ -11,13 +11,15 @@
             <div class="card card--gradient row-flex justify-content-between align-items-center giveaway__main">
                 <div class="">
                     <h3>You can win at any time!</h3>
-                    <p>Get 1 ticket for every fixed-term frozen 500 XRP / 500 USDX</p>
+                    <p>Get 1 ticket for every fixed-term frozen 500 BIXRP</p>
                 </div>
                 <beButton 
                     type="button" 
-                    title="Create an investment" 
+                    title="Create an investment"
+                    class="white_btn" 
                     :large="true" 
                     :white="true"
+                    @click="$router.push({name: 'Earnings'})"
                 ><i class="icon-plus-outline-empty" slot="icon-left"></i></beButton>
             </div>
             <div class="card card--white row-flex align-items-center justify-content-around giveaway__tickets">
@@ -40,15 +42,15 @@
             <div class="card card--dark text-center giveaway__timer">
                 <div class="card--title-devider">Daily bonus from the company!</div>
                 <div class="">
-                    <p>You have a chance once every 24 hours to try your luck and win 1 - 500 XRP </p>
-                    <p><i>You must have at least 500XRP in your wallet to participate</i></p>
+                    <p>You have a chance once every 24 hours to try your luck and win 1 - 500 BIXRP</p>
+                    <p><i>You must have at least 500 BIXRP in your wallet to participate</i></p>
                 </div>
                 <div class="timer">
                     <div class="timer__label"><strong>The next attempt is available in:</strong></div>
                     <div class="timer__time">20:21:32</div>
                     <div class="timeline">
                         <div class="timeline__rail"></div>
-                        <div class="timeline__label">The bonus was received</div>
+                        <div class="timeline__label">Bonus received</div>
                     </div>
                 </div>
             </div>
@@ -293,6 +295,11 @@
         &__time{
             margin-top: 10px;
             margin-bottom: 40px;
+        }
+    }
+    .white_btn{
+        &:hover{
+            background-color: #fff;
         }
     }
     @media(max-width: 767px){

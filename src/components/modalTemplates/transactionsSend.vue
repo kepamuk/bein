@@ -11,9 +11,9 @@
         </div>
         <div class="beModal__body">
             <p class="beModal__icon"><i class="icon-checked"></i></p>
-            <h2 class="beModal__title">{{successTitle || 'Transaction sent for processing'}}</h2>
+            <h2 class="beModal__title">{{successTitle || 'Your transaction is being processed'}}</h2>
             <p class="beModal__text">
-                {{successText || 'You can follow the status of transactions in the'}}
+                {{successText || 'You can monitor the status in'}}
                 <router-link :to="{name: 'Wallets'}" class="link" v-if="!successText">
                     Transaction History
                 </router-link>
@@ -22,10 +22,10 @@
         <div class="beModal__footer">
             <beButton
                 type="button"
-                title="OK"
+                :title="buttonText || 'OK'"
                 class="confirm_button"
                 :shadow="true"
-                @click="$modal.hide('modal-confirm')"
+                @click="$modal.hideAll('')"
             ></beButton>
         </div>
     </div>
@@ -34,7 +34,8 @@
 export default {
     props:[
         'successTitle',
-        'successText'
+        'successText',
+        'buttonText'
     ]
 }
 </script>
