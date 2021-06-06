@@ -83,7 +83,7 @@
                         <span class="icon"></span>
                         <span class="type_dropdown">
                             <span class="type_dropdown__item" @click="createWallet">Create new wallet</span>
-                            <span class="type_dropdown__item" @click="addWallet">Add wallet</span>
+                            <span class="type_dropdown__item" @click="addWallet">Add a wallet</span>
                         </span>
                     </span>
                     <span class="text">Add Wallet</span>
@@ -156,16 +156,6 @@
 			:adaptive="true">
 			<addWallet></addWallet>
 		</modal>
-		<!-- <modal 
-			name="modal-wallet-info" 
-			class="wallet_info" 
-			width="90%"
-			:maxWidth="880"
-			height="auto" 
-			:scrollable="false" 
-			:adaptive="true">
-			<walletInfo></walletInfo>
-		</modal> -->
 		<modal 
 			name="modal" 
 			class="send_to_walet_modal"

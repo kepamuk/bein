@@ -88,15 +88,15 @@
                 </p>
                 <p><i class="icon-ticket text--primary"></i> You will receive  <span class="text--primary">122 giveaway tickets</span> </p>
             </div>
+            <div class="beModal__footer">
+                <beButton
+                    title="Invest"
+                    class="full-width"
+                    :shadow="true"
+                >
+                </beButton>
+            </div>
         </vueCustomScrollbar>
-        <div class="beModal__footer">
-            <beButton
-                title="Invest"
-                class="full-width"
-                :shadow="true"
-            >
-            </beButton>
-        </div>
     </div>
 </template>
 <script>
@@ -158,12 +158,6 @@ export default {
 }
 </script>
 <style lang="scss">
-.modal_scroll{
-    height: calc(90vh - 185px);
-    @media (max-width: 1600px) {
-        height: calc(90vh - 150px);
-    }
-}
 .step{
     h4{
         margin-bottom: 22px;

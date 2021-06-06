@@ -9,60 +9,76 @@
                 </div>
             </div>
         </div>
-        <div class="beModal__body">
-            <h2 class="beModal__title">Create new wallet</h2>
-            <div class="steps">
-                <div class="steps__item" @click="goToStep(1)" :class="{active: currentstep == 1 || currentstep == 2 ||  currentstep == 3}"></div>
-                <div class="steps__item" @click="goToStep(2)" :class="{active: currentstep == 2 ||  currentstep == 3}"></div>
-                <div class="steps__item" @click="goToStep(3)" :class="{active: currentstep == 3}"></div>
+        <vueCustomScrollbar 
+            class="modal_scroll rail__normal"
+            :settings="{
+                wheelPropagation: false,
+                suppressScrollX: true
+            }"
+        >
+            <div class="beModal__body">
+                <h2 class="beModal__title">Create new wallet</h2>
+                <div class="steps">
+                    <div class="steps__item" @click="goToStep(1)" :class="{active: currentstep == 1 || currentstep == 2 ||  currentstep == 3}"></div>
+                    <div class="steps__item" @click="goToStep(2)" :class="{active: currentstep == 2 ||  currentstep == 3}"></div>
+                    <div class="steps__item" @click="goToStep(3)" :class="{active: currentstep == 3}"></div>
+                </div>
+                <div class="step step__content" :class="{active: currentstep == 1}">
+                    <beSelect 
+                        :selectArray="selectItems"
+                        v-model="selectedItem"
+                        selectPlaceholder="Wallet currency"
+                        class="full-width mb15"
+                    ></beSelect>
+                    <beInput 
+                        class="xrp_address mb15"
+                        placeholder="Wallet 2"
+                        :transparent="false"
+                    ></beInput>
+                </div>
+                <div class="step step__content" :class="{active: currentstep == 2}">
+                    <div class="step__icon mb15"><i class="icon-lock"></i></div>
+                    <p>To activate your wallet, you need to send 20 XRP to your new Ripple account. Once your wallet is replenished with 20 XRP, it will be automatically activated</p>
+                </div>
+                <div class="step step__content" :class="{active: currentstep == 3}">
+                    <h4 class="step__title mb40">Write down your secret phrase in the correct order on а paper</h4>
+                    <ul class="two_columns_list mb40">
+                        <li 
+                            v-for="(item, i) of list" 
+                            :key="i" 
+                        ><input type="password" class="hidden-text" readonly :value="item"></li>
+                    </ul>
+                    <button
+                        @mousedown="downEvent()"
+                        @mouseup="upEvent()"
+                    ><strong :class="clickedButton ? 'text--primary50' : 'text--primary' ">Press and Hold to Reveal</strong></button>
+                </div>
             </div>
-            <div class="step step__content" :class="{active: currentstep == 1}">
-                <beInput 
-                    class="xrp_address mb15"
-                    placeholder="XRP Wallet 2"
-                    :transparent="false"
-                ></beInput>
+            <div class="beModal__footer">
+                <beButton
+                    v-if="currentstep == 3"
+                    type="button"
+                    title="Submit"
+                    class="confirm_button"
+                    :shadow="true"
+                    @click="submitData"
+                ></beButton>
+                <beButton
+                    v-else
+                    type="button"
+                    title="Сontinue"
+                    class="confirm_button"
+                    :shadow="true"
+                    @click="nextStep"
+                ></beButton>
+                <p v-if="currentstep == 3" class="mt30 text-info">Do not create a digital copy such as a screenshot, text file or e-mail.</p>
             </div>
-            <div class="step step__content" :class="{active: currentstep == 2}">
-                <div class="step__icon mb15"><i class="icon-lock"></i></div>
-                <p>To activate your wallet, you need to send 20 XRP to your new Ripple account. Once your wallet is replenished with 20 XRP, it will be automatically activated</p>
-            </div>
-            <div class="step step__content" :class="{active: currentstep == 3}">
-                <h4 class="step__title mb40">Write down your secret phrase in the correct order on а paper</h4>
-                <ul class="two_columns_list mb40">
-                    <li 
-                        v-for="(item, i) of list" 
-                        :key="i" 
-                    ><input type="password" class="hidden-text" readonly :value="item"></li>
-                </ul>
-                <button
-                    @mousedown="downEvent()"
-                    @mouseup="upEvent()"
-                ><strong class="text--primary50">Press and Hold to Reveal</strong></button>
-            </div>
-        </div>
-        <div class="beModal__footer">
-            <beButton
-                v-if="currentstep == 3"
-                type="button"
-                title="Submit"
-                class="confirm_button"
-                :shadow="true"
-                @click="submitData"
-            ></beButton>
-            <beButton
-                v-else
-                type="button"
-                title="Сontinue"
-                class="confirm_button"
-                :shadow="true"
-                @click="nextStep"
-            ></beButton>
-            <p v-if="currentstep == 3" class="mt30 text-info">Do not create a digital copy such as a screenshot, text file or e-mail.</p>
-        </div>
+        </vueCustomScrollbar>
     </div>
 </template>
 <script>
+import vueCustomScrollbar from 'vue-custom-scrollbar';
+import "vue-custom-scrollbar/dist/vueScrollbar.css";
 import transactionsSend from '@/components/modalTemplates/transactionsSend'
 export default {
     data: ()=>({
@@ -84,28 +100,32 @@ export default {
             'extend'
         ],
         clickedItem: null,
-        timeout: null
+        timeout: null,
+		selectItems: [
+			{value: 1, label: 'XRP'},
+			{value: 2, label: 'BIXRP'},
+		],
+		selectedItem: null,
+        clickedButton: false
     }),
-    watch:{
+    components:{
+        vueCustomScrollbar
     },
     mounted(){
 
     },
     methods: {
         downEvent(){
-            this.timecounterStart = new Date();
+            this.clickedButton = true;
             this.timeout = setTimeout(this.pressTimeout, 1000)
         },
         upEvent(){
-            this.timecounterEnd = new Date();
-            console.log(this.timecounterEnd - this.timecounterStart);
-            // if(this.timecounterEnd - this.timecounterStart > 1000){
-                
-            // }
+            this.clickedButton = false;
             clearTimeout(this.timeout, 1000)
+            let hiddenItems = document.querySelectorAll('.hidden-text')
+            hiddenItems.forEach(item => item.type = 'password')
         },
         pressTimeout(){
-            console.log();
             let hiddenItems = document.querySelectorAll('.hidden-text')
             hiddenItems.forEach(item => item.type = 'text')
         },

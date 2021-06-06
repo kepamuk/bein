@@ -172,7 +172,7 @@
 						</div>
 					</vueCustomScrollbar>
 				</div>
-				<div class="transactions__body empty" v-else>
+				<div class="transactions__body empty mb30" v-else>
 					<div class="card card--white text-center">
 						<p class="icon"><i class="icon-smile-sad"></i></p>
 						<p class="empty__text">You don't have any transactions yet</p>
@@ -213,7 +213,7 @@
 			height="auto" 
 			:scrollable="false" 
 			:adaptive="true">
-			<transactionsSend></transactionsSend>
+			<transactionsSend @onModalClose="closeModalConfirm"></transactionsSend>
 		</modal>
 	</div>
 </template>
@@ -363,6 +363,9 @@ export default {
 		},
 		getWindowWidth(){
 			this.clientWidth = document.body.clientWidth;
+		},
+		closeModalConfirm(){
+			console.log('confirm modal close');
 		}
 	},
 	beforeDestroy(){

@@ -15,7 +15,7 @@
                 </div>
                 <beButton 
                     type="button" 
-                    title="Create an investment"
+                    title="Invest"
                     class="white_btn" 
                     :large="true" 
                     :white="true"

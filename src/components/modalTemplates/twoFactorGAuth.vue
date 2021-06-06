@@ -9,50 +9,61 @@
                 </div>
             </div>
         </div>
-        <div class="beModal__body">
-            <h2 class="beModal__title">{{'Enabling two-factor authentication'}}</h2>
-            <div class="gAuth_steps">
-                <div class="card card--grey card--nonshadow">
-                    <p>After installing an authentication app (e.g. Google Authenticator), scan the QR code below with the camera of your phone:</p>
-                    <p class="text-center"><img src="../../assets/qr.svg" alt=""></p>
-                    <p class="text--grey">If you have any problems with the QR code, enter this code manually into the app:</p>
-                    <beInput class="full-width" placeholder="NQCXMHHR6K525FDO">
-                        <i class="icon-copy" slot="right"></i>
-                    </beInput>
+        <vueCustomScrollbar 
+            class="modal_scroll rail__normal"
+            :settings="{
+                wheelPropagation: false,
+                suppressScrollX: true
+            }"
+        >
+            <div class="beModal__body">
+                <h2 class="beModal__title">{{'Enabling two-factor authentication'}}</h2>
+                <div class="gAuth_steps">
+                    <div class="card card--grey card--nonshadow">
+                        <p>After installing an authentication app (e.g. Google Authenticator), scan the QR code below with the camera of your phone:</p>
+                        <p class="text-center"><img src="../../assets/qr.svg" alt=""></p>
+                        <p class="text--grey">If you have any problems with the QR code, enter this code manually into the app:</p>
+                        <beInput class="full-width" placeholder="NQCXMHHR6K525FDO">
+                            <i class="icon-copy" slot="right"></i>
+                        </beInput>
+                    </div>
+                    <div class="card card--grey card--nonshadow">
+                        <p class="text--grey">Enter the Two-Step Authentication code:</p>
+                        <beInput class="full-width" placeholder="NQCXMHHR6K525FDO">
+                            <i class="icon-copy" slot="right"></i>
+                        </beInput>
+                    </div>
                 </div>
-                <div class="card card--grey card--nonshadow">
-                    <p class="text--grey">Enter the Two-Step Authentication code:</p>
-                    <beInput class="full-width" placeholder="NQCXMHHR6K525FDO">
-                        <i class="icon-copy" slot="right"></i>
-                    </beInput>
+                <div>
+                    <beButton
+                        type="button"
+                        title="Verify Code"
+                        class="mb15"
+                        :shadow="true"
+                    ></beButton>
+                    <br>
+                    <beButton
+                        class="text--grey cancel-btn"
+                        type="button"
+                        title="Cancel"
+                        :link="true"
+                        @click="$modal.hide('modal-two-factor-gauth')"
+                    ></beButton>
                 </div>
             </div>
-            <div>
-                <beButton
-                    type="button"
-                    title="Verify Code"
-                    class="mb15"
-                    :shadow="true"
-                ></beButton>
-                <br>
-                <beButton
-                    class="text--grey cancel-btn"
-                    type="button"
-                    title="Cancel"
-                    :link="true"
-                    @click="$modal.hide('modal-two-factor-gauth')"
-                ></beButton>
-            </div>
-        </div>
-        <div class="beModal__footer">
-        </div>
+        </vueCustomScrollbar>
     </div>
 </template>
 <script>
+import vueCustomScrollbar from 'vue-custom-scrollbar';
+import "vue-custom-scrollbar/dist/vueScrollbar.css";
 export default {
     data: ()=>({
         resetType: 1
-    })
+    }),
+    components:{
+        vueCustomScrollbar
+    },
 }
 </script>
 <style lang="scss">

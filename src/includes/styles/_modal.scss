@@ -10,6 +10,7 @@
     font-weight: 500;
     display: flex;
     flex-direction: column;
+    max-height: 90vh;
     &__header{
         position: relative;
         padding: 20px;
@@ -113,4 +114,8 @@
         }
     }
 
+}
+.modal_scroll{
+    flex-grow: 1;
+    // padding-bottom: 35px;
 }

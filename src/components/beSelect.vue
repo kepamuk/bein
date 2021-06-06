@@ -1,14 +1,17 @@
 <template>
     <div class="select" :class="{'select__shadow': shadow, 'select__transparent': transparent}" ref="select">
-        <div class="select__value" :class="{'icon_left': sortingIcon}" @click="toggleSelectFocus">
+        <div class="select__value" :class="{'icon_left': sortingIcon || refreshIcon}" @click="toggleSelectFocus">
             <span class="select__icon_sorting" v-if="sortingIcon">
                 <i class="icon-ascending-sorting"></i>
+            </span>
+            <span class="select__icon_sorting" v-if="refreshIcon">
+                <i class="icon-refresh"></i>
             </span>
             <span :class="[selectedItemClass, 'selected__value']">{{selectValue || selectPlaceholder || 'Select item'}}</span>
             <span class="select__additinal">
                 <slot name="small_text"></slot>
             </span>
-            <span class="select__dropdown_icon" :class="{active: selectFocused}"><i class="icon-arrow-right"></i></span>
+            <span v-if="dropdownIcon" class="select__dropdown_icon" :class="{active: selectFocused}"><i class="icon-arrow-right"></i></span>
         </div>
         <transition name="dropdown_fade">
             <div class="select__dropdown" v-if="selectFocused">
@@ -42,15 +45,19 @@ import vueCustomScrollbar from 'vue-custom-scrollbar';
 import "vue-custom-scrollbar/dist/vueScrollbar.css";
 export default {
     name: 'beSelect',
-    props: [
-        'selectPlaceholder',
-        'selectArray',
-        'selected',
-        'shadow',
-        'transparent',
-        'sortingIcon',
-        'selectedItemClass'
-    ],
+    props: {
+        selectPlaceholder: String,
+        selectArray: Array,
+        selected: {},
+        shadow: Boolean,
+        transparent: Boolean,
+        refreshIcon: Boolean,
+        sortingIcon: Boolean,
+        selectedItemClass: String,
+        dropdownIcon: {
+            default: true
+        }
+    },
     model:{
         prop: 'selected',
         event: 'change'
@@ -211,7 +218,7 @@ export default {
             right: 15px;
         }
         .dropdown__scrollbar{
-            height: 250px;
+            max-height: 250px;
             padding: 15px 0px;
             @media (max-width: 1600px) {
                 padding: 12px 0px;

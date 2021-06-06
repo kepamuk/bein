@@ -17,6 +17,17 @@
 								<small class="balance__currancy"><i class="icon-currancy"></i></small>{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
 							</div>
 						</div>
+						<beSelect
+							class="refresh_select mt5"
+							selectedItemClass='text--primary'
+							selectPlaceholder="Change currency"
+							:selectArray="refreshArr"
+							:refreshIcon="true"
+							v-model="refreshSelected"
+							:transparent="true"
+							:dropdownIcon="false"
+						>
+						</beSelect>
 					</div>
 				</div>
 				<div class="btns">
@@ -179,7 +190,22 @@
 					</div>
 					<div class="balance__info">
 						<div class="balance__title">
-							<span class="mr5">Income for yesterday</span> 
+							<span class="mr5">Income for</span> 
+							<span class="text-underline text--primary datepicker__value" v-if="USDXDate">
+								<span v-if="USDXDate.start == USDXDate.end || !USDXDate.end">{{USDXDate.start}}</span> 
+								<span v-else>{{`${USDXDate.start}-${USDXDate.end}`}}</span> 
+								<i class="icon-close ml5 pointer" @click="USDXDate = null"></i>
+							</span>
+							<beSelect
+								v-else
+								class="income_select"
+								selectedItemClass='text-underline text--primary'
+								:selectArray="incomeListUSDX"
+								v-model="selectedIncomeItemUSDX"
+								:transparent="true"
+							>
+								<span slot="customField" @click="openDatepicker('usdx')">choose a date</span>
+							</beSelect>
 						</div>
 						<div class="balance__actual">
 							<div class="atual__item yesterday">
@@ -480,7 +506,7 @@
 				>
 					
 					<span class="icon"></span>
-					<span class="text">Create an investment</span>
+					<span class="text">Invest</span>
 				</button>
 			</div>
 		</div>
@@ -560,6 +586,13 @@ export default {
 		USDXDate: null,
 		currentDatepicker: null,
 		getDate: {},
+		refreshArr: [
+            {value: 1, label: 'Select item 1'},
+            {value: 2, label: 'Select item 2'},
+            {value: 3, label: 'Select item 3'},
+            {value: 4, label: 'Select item 4'},
+		],
+		refreshSelected: {},
 		XRP: {
 			balance: 12021.23,
 			investment: 2256.15,
@@ -640,6 +673,19 @@ export default {
 }
 </script>
 <style lang="scss">
+.refresh_select{
+	.select__icon_sorting{
+		background-color: #2864FF;
+		color: #fff;
+		padding: 3px;
+		border-radius: 50%;
+		width: 23px;
+		height: 23px;
+		font-size: 15px;
+		line-height: 13px;
+		text-align: center;
+	}
+}
 .date-modal-title{
 	font-size: 22px;
 }

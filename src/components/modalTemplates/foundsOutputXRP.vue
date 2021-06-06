@@ -9,66 +9,76 @@
                 </div>
             </div>
         </div>
-        <div class="beModal__body text-center">
-            <h2 class="beModal__title">Send XRP</h2>
-            <beSelect 
-                :selectArray="selectList"
-                v-model="selectedItem"
-                class="wallet_select mb15 text--black"
-            >
-                <span slot="small_text">X 354.12</span>
-            </beSelect>
-            <beInput 
-                class="xrp_address mb15"
-                placeholder="Send to XRP address"
-                :transparent="false"
-            >
-                <i class="icon-qr-code" slot="right"></i>
-            </beInput>
-            <beInput 
-                class="destination_tag mb15"
-                placeholder="Destination tag"
-                type="number"
-                :recomended="true"
-            >
-                <bePrompt
-                    slot="right"
-                    text="Indicate the beneficiary or destination of the transaction"
-                    class="text--primary"
-                ></bePrompt>
-            </beInput>
-            <beInput 
-                type="number"
-                class="xrp_ballance"
-                placeholder="0"
-                :transparent="true"
-                v-model="inputVal"
-                :maxVal="XRP.balance"
-            >
-                <span slot="right">XRP</span>
-            </beInput>
-            <div class="xrp_to_usd">
-                <div class="converted_value">{{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></div>
-                <div class="convert_to_currency">USD</div>
+        <vueCustomScrollbar 
+            class="modal_scroll rail__normal"
+            :settings="{
+                wheelPropagation: false,
+                suppressScrollX: true
+            }"
+        >
+            <div class="beModal__body text-center">
+                <h2 class="beModal__title">Send XRP</h2>
+                <beSelect 
+                    :selectArray="selectList"
+                    v-model="selectedItem"
+                    class="wallet_select mb15 text--black"
+                >
+                    <span slot="small_text">X 354.12</span>
+                </beSelect>
+                <beInput 
+                    class="xrp_address mb15"
+                    placeholder="Send to XRP address"
+                    :transparent="false"
+                >
+                    <i class="icon-qr-code" slot="right"></i>
+                </beInput>
+                <beInput 
+                    class="destination_tag mb15"
+                    placeholder="Destination tag"
+                    type="number"
+                    :recomended="true"
+                >
+                    <bePrompt
+                        slot="right"
+                        text="Indicate the beneficiary or destination of the transaction"
+                        class="text--primary"
+                    ></bePrompt>
+                </beInput>
+                <beInput 
+                    type="number"
+                    class="xrp_ballance"
+                    placeholder="0"
+                    :transparent="true"
+                    v-model="inputVal"
+                    :maxVal="XRP.balance"
+                >
+                    <span slot="right">XRP</span>
+                </beInput>
+                <div class="xrp_to_usd">
+                    <div class="converted_value">{{xrpToUsd[0]}}<small>.{{xrpToUsd[1] || '00'}}</small></div>
+                    <div class="convert_to_currency">USD</div>
+                </div>
             </div>
-        </div>
-        <div class="beModal__footer text-center">
-            <beButton
-                type="button"
-                title="Confirm"
-                class="confirm_button"
-                :shadow="true"
-                @click="confirmSending"
-            ></beButton>
-        </div>
+            <div class="beModal__footer text-center">
+                <beButton
+                    type="button"
+                    title="Confirm"
+                    class="confirm_button"
+                    :shadow="true"
+                    @click="confirmSending"
+                ></beButton>
+            </div>
+        </vueCustomScrollbar>
     </div>
 </template>
 <script>
+import vueCustomScrollbar from 'vue-custom-scrollbar';
+import "vue-custom-scrollbar/dist/vueScrollbar.css";
 import { mapGetters } from 'vuex';
 import {formatCurency} from '@/helpers/helpers'
 import bePrompt from '../bePrompt.vue';
 export default {
-  components: { bePrompt },
+  components: { bePrompt, vueCustomScrollbar },
     data:()=>({
         selectList: null,
         selectedItem: null,

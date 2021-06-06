@@ -51,11 +51,11 @@ export default {
             &:before{
                 content: '';
                 position: absolute;
-                top: 1px;
+                top: 0;
                 left: 0;
                 display: block;
-                width: 1em;
-                height: 1em;
+                width: 16px;
+                height: 16px;
                 border: 1px solid;
                 border-radius: 4px;
                 margin-right: 12px;
@@ -84,10 +84,10 @@ export default {
                     box-sizing: border-box;
                 }
                 &:after{
-                    top: 60%;
+                    top: 8px;
                     left: 0;
-                    width: 0.5em;
-                    height: 0.5em;
+                    width: 8px;
+                    height: 8px;
                     border-radius: 50%;
                     background-color: #2864FF;
                     border: none;
@@ -124,6 +124,7 @@ export default {
     &__item{
         position: absolute;
         opacity: 0;
+        visibility: hidden;
         &:checked + .beInputRadio__placeholder{
             background-color: #2864FF;
             border-color: #2864FF;

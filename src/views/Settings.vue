@@ -43,7 +43,13 @@
                         <span v-else class="text--alert">Not passed</span>
                     </div>
                     <div class="settings__block_edit" v-if="!isApproved">
-                        <button class="edit_button"><span class="edit_button__label">Get verified</span> <i class="icon-angle-right"></i></button>
+                        <button 
+                            class="edit_button"
+                            @click="$modal.show('settings-step-form')"
+                        >
+                            <span class="edit_button__label">Get verified</span> 
+                            <i class="icon-angle-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
