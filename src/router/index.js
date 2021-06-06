@@ -16,16 +16,6 @@ const routes = [
 		}
 	},
 	{
-		path: "/earnings",
-		name: "Earnings",
-		component: () => import("@/views/Earnings.vue"),
-		meta: {
-			linkText: LANG.nav.earnings.eng,
-			icon: 'icon-exchange',
-			notifications: 2
-		}
-	},
-	{
 		path: "/wallets",
 		name: "Wallets",
 		component: () => import("@/views/Wallets.vue"),
@@ -44,6 +34,34 @@ const routes = [
 		}
 	},
 	{
+		path: "/earnings",
+		name: "Earnings",
+		component: () => import("@/views/Earnings.vue"),
+		meta: {
+			linkText: LANG.nav.earnings.eng,
+			icon: 'icon-exchange',
+			notifications: 2
+		}
+	},
+	{
+		path: "/trading",
+		name: "Trading",
+		component: () => import("@/views/Trading.vue"),
+		meta: {
+			linkText: LANG.nav.trading.eng,
+			icon: 'icon-candlestick-chart',
+		}
+	},
+	{
+		path: "/giveaway",
+		name: "Giveaway",
+		component: () => import("@/views/Giveaway.vue"),
+		meta: {
+			linkText: LANG.nav.giveaway.eng,
+			icon: 'icon-leaderboard',
+		}
+	},
+	{
 		path: "/exchange-history",
 		name: "Exchange History",
 		component: () => import("@/views/ExchangeHistory.vue"),
@@ -55,15 +73,6 @@ const routes = [
 		meta: {
 			linkText: LANG.nav.support.eng,
 			icon: 'icon-about',
-		}
-	},
-	{
-		path: "/giveaway",
-		name: "Giveaway",
-		component: () => import("@/views/Giveaway.vue"),
-		meta: {
-			linkText: LANG.nav.giveaway.eng,
-			icon: 'icon-leaderboard',
 		}
 	},
 	{

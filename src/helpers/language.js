@@ -19,6 +19,9 @@ export const LANG = {
         giveaway:{
             eng: 'Giveaway'
         },
+        trading:{
+            eng: 'Trading'
+        },
         settings:{
             eng: 'Settings'
         },

@@ -11,8 +11,8 @@
         <div class="aside__body" v-if="menuOpen">
           <nav id="nav">
               <ul>
-                  <li v-for="route in getAllRoutes" :key="route.path" @click="toggleNavigation">
-                    <router-link :to="{name: route.name}" class="nav__link" v-if="route.meta">
+                  <li v-for="(route, idx) in getAllRoutes" :key="route.path" @click="toggleNavigation">
+                    <router-link :to="{name: route.name}" class="nav__link" v-if="route.meta && idx <= 6">
                       <span class="nav_icon" v-if="route.meta && route.meta.icon">
                         <i :class="route.meta.icon"></i>
                       </span> 
@@ -23,6 +23,30 @@
                     </router-link>
                   </li>
               </ul>
+              <div class="more_links text-center">
+                <div class="more_links__title">
+                  <i class="icon-more"></i>
+                  <p>More</p>
+                </div>
+                <div class="more_links__dropdown">
+                  <div 
+                    class="more_links__item" 
+                    v-for="(route, idx) in getAllRoutes" 
+                    :key="route.path" 
+                    @click="toggleNavigation"
+                  >
+                    <router-link :to="{name: route.name}" class="nav__link" v-if="route.meta && idx > 6">
+                      <span class="nav_icon" v-if="route.meta && route.meta.icon">
+                        <i :class="route.meta.icon"></i>
+                      </span> 
+                      <span class="more_links__text">{{route.meta.linkText}}</span>
+                      <span class="notifications_number"  v-if="route.meta && route.meta.notifications">
+                        {{route.meta.notifications}}
+                      </span>
+                    </router-link>
+                  </div>
+                </div>
+              </div>
           </nav>
           <div class="aside__footer">
             <div class="logout">
@@ -312,6 +336,87 @@ export default {
           margin-right: 10px;
           font-size: 24px;
         }
+      }
+    }
+    .more_links{
+      position: relative;
+      z-index: 1;
+      margin-top: 10px;
+      &__title{
+        @media(max-width: 1023px){
+          display: none;
+        }
+      }
+      &__dropdown{
+        position: absolute;
+        bottom: calc(100% + 20px);
+        left: 50%;
+        background-color: #2B3038;
+        border-radius: 8px 8px 8px 0px;
+        padding: 5px 0px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: .3s ease;
+        transition-property: transform, opacity;
+        @media(max-width: 1023px){
+          position: relative;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          left: 0px;
+          bottom: 0px;
+          background-color: transparent;
+          padding: 0px;
+        }
+        &::after{
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 0px;
+          width: 32px;
+          height: 26px;
+          background-image: url('../assets/corner-top.svg');
+          background-position: left top;
+          background-repeat: no-repeat;
+          background-size: contain;
+          @media(max-width: 1023px){
+            display: none;
+          }
+        }
+      }
+      &:hover{
+        .more_links__dropdown{
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0px);
+        }
+      }
+      &__item{
+        .nav__link{
+          flex-direction: row;
+          text-align: left;
+          align-items: center;
+          padding: 10px 20px;
+          @media(max-width: 1023px){
+            padding: 15px 12px;
+          }
+          .nav_icon{
+            flex-grow: 0;
+            font-size: 24px;
+            margin-bottom: 0px;
+            margin-right: 15px;
+          }
+          .notifications_number{
+            position: relative;
+            top: auto;
+            left: auto;
+            margin-left: 15px;
+          }
+        }
+      }
+      &__text{
+        flex-grow: 1;
       }
     }
     .router-link-exact-active{
