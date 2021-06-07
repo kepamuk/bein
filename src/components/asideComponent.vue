@@ -412,11 +412,17 @@ export default {
             top: auto;
             left: auto;
             margin-left: 15px;
+            @media(max-width: 1023px){
+              margin-left: 5px;
+            }
           }
         }
       }
       &__text{
         flex-grow: 1;
+        @media(max-width: 1023px){
+          flex-grow: 0;
+        }
       }
     }
     .router-link-exact-active{
