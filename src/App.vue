@@ -12,7 +12,7 @@
 import asideComponent from '@/components/asideComponent';
 import vueCustomScrollbar from 'vue-custom-scrollbar';
 import "vue-custom-scrollbar/dist/vueScrollbar.css";
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
   data: ()=>({
     documentWidth: null
@@ -23,7 +23,7 @@ export default {
   },
   computed:{
     ...mapGetters([
-      'getWindowWidth'
+      'getWindowWidth',
     ])
   },
   watch: {
@@ -36,7 +36,14 @@ export default {
 		window.addEventListener('resize', ()=>{
       this.documentWidth = document.body.clientWidth;
     })
-	}
+	},
+  created(){
+  },
+  methods: {
+		...mapActions([
+			'authorization'
+		])
+  }
 }
 </script>
 

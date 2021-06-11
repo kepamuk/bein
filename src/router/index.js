@@ -1,10 +1,15 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "@/views/Dashboard/Dashboard.vue";
-import { LANG } from '@/helpers/language.js'
+import { LANG } from '@/helpers/language.js';
+import axios from 'axios';
+
+const URL = process.env.VUE_APP_URL
+const $http = axios.create({
+	baseURL: URL
+});
 
 Vue.use(VueRouter);
-
 const routes = [
 	{
 		path: "/",
@@ -64,7 +69,7 @@ const routes = [
 	{
 		path: "/exchange-history",
 		name: "Exchange History",
-		component: () => import("@/views/ExchangeHistory.vue"),
+		component: () => import("@/views/ExchangeHistory.vue")
 	},
 	{
 		path: "/support",
@@ -94,6 +99,11 @@ const routes = [
 			notifications: 2
 		}
 	},
+	{
+		path: "/login",
+		name: "Login",
+		component: () => import("@/views/Login.vue")
+	},
 	// {
 	// 	path: "/components",
 	// 	name: "Components",
@@ -105,6 +115,21 @@ const router = new VueRouter({
 	mode: "history",
 	base: process.env.BASE_URL,
 	routes
+});
+router.beforeEach((to, from, next) => {
+	return new Promise((resolve, reject)=>{
+		$http.post('/loggedIn')
+			.then(responce=>{
+				if(responce.status === 200){
+					resolve(responce);
+					next();
+				}
+			})
+			.catch(e=>{
+				reject(e);
+				next("/login");
+			})
+	})
 });
 
 export default router;

@@ -102,9 +102,9 @@ export default new Vuex.Store({
 		getMonths: state => state.months
 	},
 	mutations: {
-		UPDAATE_WINDOW_WIDTH: (state, data)=>{
+		UPDAATE_WINDOW_WIDTH: (state, data) => {
 			return state.screenWidth = data;
-		}
+		},
 	},
 	actions: {
 		resizeWindow: ({commit}, data)=>{

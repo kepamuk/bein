@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import VModal from 'vue-js-modal'
+import axios from 'axios';
 
 import '@/includes/styles/global.scss';
 import '@/includes/fonts/gilroy/gilroy.scss';
@@ -35,10 +36,16 @@ Vue.component('beInputCheckbox', beInputCheckbox);
 Vue.component('beAccordeon', beAccordeon);
 Vue.component('beInputFile', beInputFile);
 
+const URL = process.env.VUE_APP_URL
+
+Vue.prototype.$http = axios.create({
+	baseURL: URL
+});
+
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
   store,
+  router,
   render: (h) => h(App),
 }).$mount("#app");
