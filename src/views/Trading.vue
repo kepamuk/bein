@@ -3,7 +3,7 @@
         <div class="trading__content text-center">
             <h2 class="title__devider">The trading section is currently under development.</h2>
             <p class="mb30">I don't know what to write, text is sorely needed</p>
-            <beButton title="Okay"></beButton>
+            <beButton title="Okay" @click="$router.push({name: 'Dashboard'})"></beButton>
         </div>
     </div>
 </template>

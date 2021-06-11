@@ -342,6 +342,9 @@ export default {
       position: relative;
       z-index: 1;
       margin-top: 10px;
+      @media(max-width: 1023px){
+        margin-top: 0px;
+      }
       &__title{
         @media(max-width: 1023px){
           display: none;
