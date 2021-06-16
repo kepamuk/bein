@@ -223,7 +223,7 @@
             border-top: 1px solid rgba(#C4C4C4, .5);
             font-size: 18px;
             border-collapse: collapse;
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 font-size: 16px;
             }
             @media(max-width: 1300px){
@@ -275,7 +275,7 @@
     .read-more{
         white-space: nowrap;
         min-width: 340px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             min-width: 250px;
         }
     }

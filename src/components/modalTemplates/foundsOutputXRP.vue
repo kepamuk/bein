@@ -139,7 +139,7 @@ export default {
 }
 .convert_to_currency{
     font-size: 16px;
-    @media(max-width: 1600px){
+    @media(max-width: 1700px){
         font-size: 14px;
     }
 }

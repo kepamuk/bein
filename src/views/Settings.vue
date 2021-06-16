@@ -232,7 +232,7 @@ export default {
             }
         }
     }
-    @media(max-width: 1600px){
+    @media(max-width: 1700px){
 
     }
     @media(max-width: 1024px){

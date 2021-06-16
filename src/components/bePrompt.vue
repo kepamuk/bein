@@ -91,7 +91,7 @@ export default {
             transition: .3s ease;
             transition-property: opacity, bottom, top;
             z-index: 1;
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 font-size: 14px;
                 padding: 15px 20px;
                 margin-bottom: 7px;
@@ -109,7 +109,7 @@ export default {
                 background-image: url('../assets/prompt-angle.svg');
                 background-size: contain;
                 background-repeat: no-repeat;
-                @media(max-width: 1600px){
+                @media(max-width: 1700px){
                     width: 15px;
                     height: 7px;
                 }
@@ -120,7 +120,7 @@ export default {
                 margin-bottom: 0;
                 margin-top: 15px;
                 border-radius: 0 15px 15px 15px;
-                @media(max-width: 1600px){
+                @media(max-width: 1700px){
                     margin-top: 7px;
                 }
                 &::before{

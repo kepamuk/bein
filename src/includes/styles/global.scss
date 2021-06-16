@@ -22,7 +22,7 @@
     box-shadow: 15px 15px 30px rgba(11, 17, 26, 0.15);
     border-radius: 18px;
     padding: 30px;
-    @media(max-width: 1600px){
+    @media(max-width: 1700px){
         padding: 15px 30px;
     }
     @media(max-width: 1300px){
@@ -95,7 +95,7 @@
         position: relative;
         font-size: 30px;
         padding-top: 25px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             padding-top: 10px;
         }
     }
@@ -122,7 +122,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             font-size: 14px;
             margin-top: 30px;
         }
@@ -131,7 +131,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 22px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             margin-bottom: 10px;
         }
     }
@@ -139,7 +139,7 @@
         font-size: 22px;
         width: 35px;
         flex: 0 0 35px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             font-size: 18px;
             width: 30px;
             flex: 0 0 30px;
@@ -200,7 +200,7 @@
         background-color: $white;
         color: $primary;
         font-size: 32px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             width: 50px;
             flex: 0 0 50px;
             height: 50px;
@@ -218,7 +218,7 @@
         }
         .icon-currancy{
             font-size: 45px;
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 font-size: 32px;
             }
             @media(max-width: 1300px){
@@ -227,7 +227,7 @@
         }
         .currency__icon{
             max-width: 62px;
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 max-width: 40px;
             }
             @media(max-width: 1300px){
@@ -242,7 +242,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) rotate(-100deg);
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             width: 75px;
             height: 75px;
         }
@@ -259,7 +259,7 @@
         font-size: 22px;
         font-weight: 600;
         line-height: 1;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             font-size: 18px;
         }
         @media(max-width: 1300px){
@@ -277,7 +277,7 @@
     &__actual{
         font-size: 36px;
         margin-top: 5px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             font-size: 24px;
         }
         @media(max-width: 1300px){
@@ -290,7 +290,7 @@
         }
         .balance__currancy{
             font-size: 28px;
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 font-size: 18px;
             }
             @media(max-width: 1300px){
@@ -561,7 +561,7 @@ strong{
     &__time{
         font-size: 58px;
         font-weight: 200;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             height: 48px;
         }
         @media(max-width: 1023px){
@@ -577,7 +577,7 @@ strong{
         height: 80px;
         background-color: rgba(#2864FF, .3);
         border-radius: 5px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             height: 60px;
         }
         @media(max-width: 1023px){

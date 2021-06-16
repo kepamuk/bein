@@ -285,7 +285,7 @@ export default {
     }
     &__title{
         color: #0B111A;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             &.mb40{
                 margin-bottom: 20px !important;
             }

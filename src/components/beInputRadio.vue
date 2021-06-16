@@ -144,7 +144,7 @@ export default {
         pointer-events: none;
         color: rgba(#0B111A, .5);
         transition: .3s ease;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             height: 45px;
         }
     }

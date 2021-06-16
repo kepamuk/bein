@@ -42,7 +42,7 @@ export default {
     display: inline-block;
     cursor: pointer;
     word-break: break-all;
-    @media(max-width: 1600px){
+    @media(max-width: 1700px){
         font-size: 14px;
     }
     &__value{

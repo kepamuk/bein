@@ -222,7 +222,7 @@ export default {
     line-height: 1;
     color: $white;
     text-align: center;
-    @media(max-width: 1600px){
+    @media(max-width: 1700px){
       width: 40px;
     }
     @media(max-height: 900px){

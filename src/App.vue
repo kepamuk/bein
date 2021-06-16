@@ -78,7 +78,7 @@ body{
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 850px;
-  @media (max-width: 1600px) {
+  @media (max-width: 1700px) {
     background-size: 500px;
     padding: 40px 40px;
   }

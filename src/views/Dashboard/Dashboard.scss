@@ -7,7 +7,7 @@
         padding: 0px 40px 30px;
         height: 430px;
         margin: 0px -40px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             height: 215px;
         }
         @media(max-width: 889px){
@@ -37,7 +37,7 @@
         &.empty{
             .empty__text{
                 font-size: 22px;
-                @media(max-width: 1600px){
+                @media(max-width: 1700px){
                     font-size: 18px;
                 }
                 @media(max-width: 767px){
@@ -182,7 +182,7 @@
         &__title{
             font-size: 18px;
             font-weight: 600;
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 font-size: 16px;
             }
             @media(max-width: 1300px){
@@ -192,7 +192,7 @@
         .wallet__name{
             font-size: 14px;
             color: $grey;
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 font-size: 14px;
             }
             @media(max-width: 1300px){
@@ -212,7 +212,7 @@
     font-weight: 500;
     margin-top: 5px;
     font-size: 16px;
-    @media (max-width: 1600px) {
+    @media (max-width: 1700px) {
         font-size: 14px;
     }
     @media (max-width: 1400px) {
@@ -314,7 +314,7 @@
         grid-template-rows: 160px 160px auto;
         grid-column-gap: 22px;
         grid-row-gap: 22px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             grid-template-rows: 110px 110px auto;
         }
         @media(max-width: 889px){

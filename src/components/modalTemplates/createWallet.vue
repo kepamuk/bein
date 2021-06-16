@@ -210,7 +210,7 @@ export default {
     }
     &__title{
         color: #0B111A;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             &.mb40{
                 margin-bottom: 20px !important;
             }
@@ -221,7 +221,7 @@ export default {
         margin: 0 auto;
         font-size: 16px;
         transform: translateX(30px);
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             transform: translateX(0px);
             &.mb40{
                 margin-bottom: 20px !important;
@@ -236,7 +236,7 @@ export default {
                 color: rgba(#0B111A, 0.5);
                 min-width: 25px;
             }
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 margin-bottom: 5px;
             }
         }

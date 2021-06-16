@@ -157,7 +157,7 @@ export default {
             font-weight: 500;
             line-height: 1;
             pointer-events: none;
-            @media(max-width: 1600px){
+            @media(max-width: 1700px){
                 height: 45px;
             }
             &:focus{
@@ -203,7 +203,7 @@ export default {
                 transition: background .3s ease;
                 cursor: pointer;
                 text-align: left;
-                @media (max-width: 1600px) {
+                @media (max-width: 1700px) {
                     padding: 12px 30px;
                 }
                 &:hover{
@@ -220,7 +220,7 @@ export default {
         .dropdown__scrollbar{
             max-height: 250px;
             padding: 15px 0px;
-            @media (max-width: 1600px) {
+            @media (max-width: 1700px) {
                 padding: 12px 0px;
             }
         }
@@ -247,7 +247,7 @@ export default {
                 font-weight: 500;
                 line-height: 1;
                 pointer-events: none;
-                @media(max-width: 1600px){
+                @media(max-width: 1700px){
                     height: 45px;
                 }
                 &:focus{
@@ -293,7 +293,7 @@ export default {
                 margin-left: 40px;
                 color: rgba(#0B111A, .5);
             }
-            @media (max-width: 1600px) {
+            @media (max-width: 1700px) {
                 padding: 12px 30px;
             }
             &:hover{
@@ -306,7 +306,7 @@ export default {
     }
     .dropdown__scrollbar{
         padding: 15px 0px;
-        @media (max-width: 1600px) {
+        @media (max-width: 1700px) {
             padding: 12px 0px;
         }
     }

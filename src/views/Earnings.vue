@@ -770,7 +770,7 @@ export default {
         grid-template-rows: 110px 110px;
         grid-column-gap: 22px;
         grid-row-gap: 22px;
-		@media(max-width: 1600px){
+		@media(max-width: 1700px){
         	grid-template-rows: 90px 90px;
 		}
 	}

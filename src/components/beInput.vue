@@ -62,7 +62,7 @@ export default {
         border-bottom: 2px solid #D0D0D0;
         box-sizing: border-box;
         font-size: 18px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             font-size: 16px;
             height: 45px;
         }
@@ -105,7 +105,7 @@ export default {
         transform: translateY(-50%);
         font-size: 16px;
         color: inherit;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             font-size: 14px;
         }
     }
@@ -115,7 +115,7 @@ export default {
         right: 40px;
         transform: translateY(-50%);
         font-size: 16px;
-        @media(max-width: 1600px){
+        @media(max-width: 1700px){
             font-size: 14px;
         }
         @media(max-width: 767px){
