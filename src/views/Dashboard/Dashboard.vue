@@ -15,8 +15,7 @@
 						<div class="balance__title">XRP balance</div>
 						<div class="balance__actual">
 							<div class="atual__item">
-								<small class="balance__currancy"><i class="icon-currancy"></i></small>
-								{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small>
+								{{balanceXRPArray[0]}}<small>.{{balanceXRPArray[1] || '00'}}</small> <small class="balance__currancy">XRP</small>
 							</div>
 						</div>
 						<div class="add_wallet">
@@ -172,7 +171,7 @@
 						</div>
 					</vueCustomScrollbar>
 				</div>
-				<div class="transactions__body empty mb30" v-else>
+				<div class="transactions__body empty" v-else>
 					<div class="card card--white text-center">
 						<p class="icon"><i class="icon-smile-sad"></i></p>
 						<p class="empty__text">You don't have any transactions yet</p>

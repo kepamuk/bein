@@ -773,6 +773,11 @@ export default {
 		@media(max-width: 1700px){
         	grid-template-rows: 90px 90px;
 		}
+		@media(max-width: 767px){
+			.balance__title{
+				justify-content: center;
+			}
+		}
 	}
 }
 .yesterday{

@@ -232,6 +232,10 @@ export default {
             font-weight: 600;
             margin-bottom: 15px;
             display: flex;
+            @media(max-width: 767px){
+                max-width: 100px;
+                margin: 0 auto;
+            }
             &::before{
                 color: rgba(#0B111A, 0.5);
                 min-width: 25px;

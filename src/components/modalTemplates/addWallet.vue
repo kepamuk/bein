@@ -9,53 +9,43 @@
                 </div>
             </div>
         </div>
-        <vueCustomScrollbar 
-            class="modal_scroll rail__normal"
-            :settings="{
-                wheelPropagation: false,
-                suppressScrollX: true
-            }"
-        >
-            <div class="beModal__body">
-                <h2 class="beModal__title">Add a wallet</h2>
-                <beSelect 
-                    :selectArray="selectItems"
-                    v-model="selectedItem"
-                    selectPlaceholder="Wallet currency"
-                    class="full-width mb15"
-                ></beSelect>
-                <beInput 
-                    class="xrp_address mb15 bg--white"
-                    placeholder="ABOBA URINA ONE NAME WALLET FILLED"
-                    :transparent="false"
-                ></beInput>
-                <beInput 
-                    class="xrp_address mb15"
-                    placeholder="Secret key"
-                    :transparent="false"
-                >
-                    <bePrompt
-                        slot="right"
-                        class="text-left"
-                        text="Indicate the beneficiary or destination of the transaction"
-                    ></bePrompt>
-                </beInput>
-            </div>
-            <div class="beModal__footer">
-                <beButton
-                    type="button"
-                    title="Create a Wallet"
-                    class="confirm_button"
-                    :shadow="true"
-                    @click="submitData"
-                ></beButton>
-            </div>
-        </vueCustomScrollbar>
+        <div class="beModal__body">
+            <h2 class="beModal__title">Add a wallet</h2>
+            <beSelect 
+                :selectArray="selectItems"
+                v-model="selectedItem"
+                selectPlaceholder="Wallet currency"
+                class="full-width mb15"
+            ></beSelect>
+            <beInput 
+                class="xrp_address mb15 bg--white"
+                placeholder="ABOBA URINA ONE NAME WALLET FILLED"
+                :transparent="false"
+            ></beInput>
+            <beInput 
+                class="xrp_address mb15"
+                placeholder="Secret key"
+                :transparent="false"
+            >
+                <bePrompt
+                    slot="right"
+                    class="text-left"
+                    text="Indicate the beneficiary or destination of the transaction"
+                ></bePrompt>
+            </beInput>
+        </div>
+        <div class="beModal__footer">
+            <beButton
+                type="button"
+                title="Create a Wallet"
+                class="confirm_button"
+                :shadow="true"
+                @click="submitData"
+            ></beButton>
+        </div>
     </div>
 </template>
 <script>
-import vueCustomScrollbar from 'vue-custom-scrollbar';
-import "vue-custom-scrollbar/dist/vueScrollbar.css";
 import transactionsSend from '@/components/modalTemplates/transactionsSend'
 export default {
     data: ()=>({
@@ -65,9 +55,6 @@ export default {
 		],
 		selectedItem: null,
     }),
-    components:{
-        vueCustomScrollbar
-    },
     methods: {
         submitData(){
             console.log('submit data');

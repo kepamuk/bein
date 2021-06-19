@@ -125,6 +125,7 @@
                         title="Complete later"
                         class="text--grey"
                         :link="true"
+                        @click="submitData"
                     ></beButton>
                     <beButton
                         v-if="currentstep == 3"

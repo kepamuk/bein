@@ -129,7 +129,7 @@ router.beforeEach((to, from, next) => {
 				reject(e);
 				next("/login");
 			})
-	})
+	})	
 });
 
 export default router;

@@ -51,11 +51,11 @@
     					<div class="balance__info">
     						<div class="balance__actual">
     							<div class="atual__item">
-    								<small class="balance__currancy"><i class="icon-currancy"></i></small>
-    								12,021<small>.{{23 || '00'}} </small>
+    								<!-- <small class="balance__currancy"><i class="icon-currancy"></i></small> -->
+    								12,021<small>.{{23 || '00'}} </small> <small>XRP</small>
     							</div>
     						</div>
-                            <div class="balance__title">Be in XRP Wallet</div>
+                            <div class="balance__title">XRP Wallet</div>
     					</div>
                     </div>
                     <div class="wallet__body"></div>
@@ -237,7 +237,7 @@ export default {
             this.$modal.show('modal-add-wallet')
         },
         walletInfo(wallet){
-            let waletName = wallet == 'walletUSDX' ? 'BIXRP Wallet' : 'Be in XRP Wallet';
+            let waletName = wallet == 'walletUSDX' ? 'BIXRP Wallet' : 'XRP Wallet';
             let waletUSDX = wallet == 'walletUSDX' ? true : false;
             this.$modal.show(
                 walletInfo, 
