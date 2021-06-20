@@ -4,11 +4,11 @@
           <div class="logo">
             <router-link :to="{name: 'Dashboard'}"><img src="@/assets/logo_main.svg" alt=""></router-link>
           </div>
-          <div id="hamburger" :class="{opened: menuOpen}" @click="toggleNavigation()">
+          <div id="hamburger" :class="{opened: getMenuState}" @click="toggleNavigation()">
             <span></span>
           </div>
         </div>
-        <div class="aside__body" v-if="menuOpen">
+        <div class="aside__body" v-if="getMenuState">
           <nav id="nav">
               <ul>
                   <li v-for="(route, idx) in getAllRoutes" :key="route.path" @click="toggleNavigation">
@@ -60,36 +60,26 @@
     </aside>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 export default {
     name: 'asideComponent',
     data: ()=>({
-      menuOpen: true
+      menuOpen: false
     }),
     computed: {
+      ...mapGetters([
+        'getMenuState',
+        'getWindowWidth'
+      ]),
       getAllRoutes(){
         return this.$router.options.routes
       }
     },
-    created(){
-        if(document.body.clientWidth > 1023){
-          this.menuOpen = true;
-        }else{
-          this.menuOpen = false;
-        }
-    },
-    mounted(){
-      window.addEventListener('resize', ()=>{
-        if(document.body.clientWidth > 1023){
-          this.menuOpen = true;
-        }else{
-          this.menuOpen = false;
-        }
-      })
-    },
-    methods:{
+    methods: {
       toggleNavigation(){
-        if(document.body.clientWidth < 1024){
-          this.menuOpen = !this.menuOpen;
+        if(this.getWindowWidth < 1024){
+          this.menuOpen = !this.menuOpen
+          this.$store.dispatch('changeMenuState', this.menuOpen)
         }
       }
     }

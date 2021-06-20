@@ -1,5 +1,8 @@
 <template>
 	<div class="home">
+		<button class="go-back" @click.prevent="$store.dispatch('changeMenuState', true)" type="button">
+            <i class="icon-arrow-left-middle"></i>
+		</button>
 		<h1 class="page__title"><i :class="$route.meta.icon" class="page__title_icon"></i> {{$route.name}}</h1>
 		<div class="home__content">
 			<div class="xrp_block card card--gradient row-flex align-items-center justify-content-between">

@@ -86,7 +86,7 @@
                             <span class="type_dropdown__item" @click="addWallet">Add a wallet</span>
                         </span>
                     </span>
-                    <span class="text">Add Wallet</span>
+                    <span class="text">Add a Wallet</span>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
+		menuOpen: false,
 		screenWidth: null,
 		XRP: {
 			balance: 1256.45
@@ -99,17 +100,29 @@ export default new Vuex.Store({
 		getUSDX: state => state.USDX,
 		getHistory: state => state.history,
 		getWindowWidth: state=> state.screenWidth,
-		getMonths: state => state.months
+		getMonths: state => state.months,
+		getMenuState: state => state.menuOpen
 	},
 	mutations: {
 		UPDAATE_WINDOW_WIDTH: (state, data) => {
 			return state.screenWidth = data;
 		},
+		UPDATE_MENU_STATE: (state, data) => {
+			let menuState = data === state.menuOpen ? !state.menuOpen : !!data; 
+			if(state.screenWidth > 1024){
+				menuState = true;
+			}
+			return state.menuOpen = menuState;
+		}
 	},
 	actions: {
 		resizeWindow: ({commit}, data)=>{
-			commit('UPDAATE_WINDOW_WIDTH', data)
-		}
+			commit('UPDAATE_WINDOW_WIDTH', data);
+			commit('UPDATE_MENU_STATE')
+		},
+		changeMenuState: ({commit}, data) => {
+			commit('UPDATE_MENU_STATE', data)
+		},
 	},
 	modules: {},
 });

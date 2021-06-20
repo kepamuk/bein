@@ -11,14 +11,21 @@
                     <div class="settings__block_label">Profile image</div>
                     <div class="settings__block_info">
                         <div class="profile__image">
-                            <img src="../assets/image.png" alt="">
+                            <img :src="selectedUserPhoto" alt="">
                         </div>
                     </div>
                     <div class="settings__block_edit">
                         <button 
                             class="edit_button"
-                            @click="$modal.show('settings-step-form')"
+                            @click="$refs.userPhoto.click()"
                         >
+                            <input 
+                                class="edit_button__input" 
+                                type="file" 
+                                ref="userPhoto" 
+                                @change="getUserPhoto($event)"
+                                accept="image/jpeg, image/png" 
+                            />
                             <span class="edit_button__label">Edit</span> 
                             <i class="icon-angle-right"></i>
                         </button>
@@ -147,11 +154,40 @@ import twoFactorAuth from '@/components/modalTemplates/twoFactorAuth'
 import twoFactorCode from '@/components/modalTemplates/twoFactorCode'
 import passwordResetVarification from '@/components/modalTemplates/passwordResetVarification'
 import twoFactorGAuth from '@/components/modalTemplates/twoFactorGAuth'
+import defaultPoto from '@/assets/image.png'
 export default {
     data: ()=>({
-        isApproved: false
+        isApproved: false,
+        selectedPhoto: defaultPoto
     }),
-    components: { settingsStepForm, passwordReset, twoFactorAuth, twoFactorCode, passwordResetVarification, twoFactorGAuth }
+    components: { 
+        settingsStepForm,
+        passwordReset, 
+        twoFactorAuth, 
+        twoFactorCode, 
+        passwordResetVarification, 
+        twoFactorGAuth 
+    },
+    computed: {
+        selectedUserPhoto(){
+            return  this.selectedPhoto;
+        }
+    },
+    methods: {
+        getUserPhoto(event){
+            let inputVal = event.target.files[0];
+            let photo = new Promise((resolve)=>{
+                let reader = new FileReader();
+                reader.readAsDataURL(inputVal);
+                reader.onload = function() {
+                    resolve(reader.result)
+                };
+            })
+            photo.then((responce)=>{
+                this.selectedPhoto = responce;
+            })
+        }
+    }
 }
 </script>
 <style lang="scss">
@@ -216,6 +252,13 @@ export default {
                 }
             }
         }
+    }
+    .edit_button__input{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0;
+        visibility: hidden;
     }
     .profile{
         &__image{

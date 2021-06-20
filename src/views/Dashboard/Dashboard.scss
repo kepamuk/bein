@@ -305,6 +305,9 @@
 .home{
     display: flex;
     flex-direction: column;
+    .go-back{
+        align-self: flex-start;
+    }
     &__content{
         flex-grow: 1;
         [class^="col-"], [class*="col-"]{

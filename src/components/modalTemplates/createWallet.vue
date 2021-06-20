@@ -117,11 +117,11 @@ export default {
     methods: {
         downEvent(){
             this.clickedButton = true;
-            this.timeout = setTimeout(this.pressTimeout, 1000)
+            this.timeout = setTimeout(this.pressTimeout, 500)
         },
         upEvent(){
             this.clickedButton = false;
-            clearTimeout(this.timeout, 1000)
+            clearTimeout(this.timeout)
             let hiddenItems = document.querySelectorAll('.hidden-text')
             hiddenItems.forEach(item => item.type = 'password')
         },
