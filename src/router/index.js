@@ -2,12 +2,12 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "@/views/Dashboard/Dashboard.vue";
 import { LANG } from '@/helpers/language.js';
-import axios from 'axios';
+// import axios from 'axios';
 
-const URL = process.env.VUE_APP_URL
-const $http = axios.create({
-	baseURL: URL
-});
+// const URL = process.env.VUE_APP_URL
+// const $http = axios.create({
+// 	baseURL: URL
+// });
 
 Vue.use(VueRouter);
 const routes = [
@@ -116,20 +116,20 @@ const router = new VueRouter({
 	base: process.env.BASE_URL,
 	routes
 });
-router.beforeEach((to, from, next) => {
-	return new Promise((resolve, reject)=>{
-		$http.post('/loggedIn')
-			.then(responce=>{
-				if(responce.status === 200){
-					resolve(responce);
-					next();
-				}
-			})
-			.catch(e=>{
-				reject(e);
-				next("/login");
-			})
-	})	
-});
+// router.beforeEach((to, from, next) => {
+// 	return new Promise((resolve, reject)=>{
+// 		$http.post('/loggedIn')
+// 			.then(responce=>{
+// 				if(responce.status === 200){
+// 					resolve(responce);
+// 					next();
+// 				}
+// 			})
+// 			.catch(e=>{
+// 				reject(e);
+// 				next("/login");
+// 			})
+// 	})	
+// });
 
 export default router;

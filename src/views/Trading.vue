@@ -13,10 +13,10 @@
 }
 .trading{
     position: absolute;
-    top: -2px;
-    left: -2px;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('../assets/trading.png');
     background-size: cover;
     background-repeat: no-repeat;

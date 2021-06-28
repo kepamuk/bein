@@ -86,6 +86,9 @@
         grid-template-rows: 150px 150px auto;
         grid-column-gap: 22px;
         grid-row-gap: 22px;
+        @media(max-width: 1700px){
+            grid-template-rows: 120px 120px auto;
+        }
         @media(max-width: 1200px){
             grid-template-rows: auto auto auto;
         }
@@ -213,7 +216,7 @@
         &__label{
             font-size: 22px;
             padding-bottom: 30px;
-            padding: 30px 30px;
+            padding: 20px 30px;
             @media(max-width: 767px){
                 font-size: 16px;
                 padding: 20px;
@@ -256,7 +259,7 @@
                 }
             }
             td{
-                padding: 13px 0px;
+                padding: 10px 0px;
                 &:nth-child(odd){
                     color: rgba(#0B111A, .5);
                 }
@@ -291,7 +294,7 @@
         }
     }
     .timer{
-        margin-top: 40px;
+        margin-top: 30px;
         &__time{
             margin-top: 10px;
             margin-bottom: 40px;

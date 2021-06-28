@@ -193,7 +193,7 @@ export default {
 <style lang="scss">
 .settings{
     h2{
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     &__block{
         margin-bottom: 50px;
@@ -206,7 +206,7 @@ export default {
         }
         &_item{
             position: relative;
-            padding: 18px 0;
+            padding: 10px 0;
             background-color: #F8F8F8;
             border: 1px solid #E9E9E9;
             border-radius: 5px;
@@ -233,6 +233,7 @@ export default {
             bottom: -1px;
             min-width: 170px;
             font-size: 16px;
+            overflow: hidden;
             .edit_button{
                 display: flex;
                 align-items: center;

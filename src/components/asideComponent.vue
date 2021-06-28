@@ -13,11 +13,11 @@
               <ul>
                   <li v-for="(route, idx) in getAllRoutes" :key="route.path" @click="toggleNavigation">
                     <router-link :to="{name: route.name}" class="nav__link" v-if="route.meta && idx <= 6">
-                      <span class="nav_icon" v-if="route.meta && route.meta.icon">
+                      <span class="nav_icon" v-if="route.meta.icon">
                         <i :class="route.meta.icon"></i>
                       </span> 
                       {{route.meta.linkText}}
-                      <span class="notifications_number"  v-if="route.meta && route.meta.notifications">
+                      <span class="notifications_number"  v-if="route.meta.notifications">
                         {{route.meta.notifications}}
                       </span>
                     </router-link>
@@ -254,8 +254,11 @@ export default {
     }
     li{
       margin-bottom: 8px;
+      &:empty{
+        display: none;
+      }
       @media(max-height: 900px){
-        margin-bottom: 4px;
+        margin-bottom: 0px;
       }
     }
     a{
@@ -386,6 +389,9 @@ export default {
         }
       }
       &__item{
+        &:empty{
+          display: none;
+        }
         .nav__link{
           flex-direction: row;
           text-align: left;

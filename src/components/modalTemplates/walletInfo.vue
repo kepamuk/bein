@@ -16,8 +16,11 @@
                     <div class="balance__info">
                         <div class="balance__actual">
                             <div class="atual__item">
-                                <small class="balance__currancy" v-if="!waletUSDX"><i class="icon-currancy"></i></small>
-                                12,021<small>.{{23 || '00'}} <span v-if="waletUSDX">BIXRP</span></small>
+                                <!-- <small class="balance__currancy" v-if="!waletUSDX"><i class="icon-currancy"></i></small> -->
+                                12,021<small>.{{23 || '00'}} 
+                                    <span v-if="waletUSDX">BIXRP</span>
+                                    <span v-else>XRP</span>
+                                </small>
                             </div>
                         </div>
                         <div class="balance__title">{{waletName}}</div>
