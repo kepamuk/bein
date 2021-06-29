@@ -252,63 +252,63 @@ export default {
 			investment: 3258.15,
 			profit: 152.23,
 		},
-		history: null,
-		// history: [
-		// 	{
-		// 		id: 1,
-		// 		date: '20/20/2020',
-		// 		status: 'Rejected',
-		// 		summ: '+320',
-		// 		buttonText: 'Wallet replenishment',
-		// 		currency: 1,
-		// 		waletName: 'Walet Name'
-		// 	},
-		// 	{
-		// 		id: 2,
-		// 		date: '20/20/2020',
-		// 		status: 'Approved',
-		// 		summ: '+320',
-		// 		buttonText: 'Wallet replenishment',
-		// 		currency: 2,
-		// 		waletName: 'Walet Name'
-		// 	},
-		// 	{
-		// 		id: 3,
-		// 		date: '20/20/2020',
-		// 		status: 'Waiting',
-		// 		summ: '+320',
-		// 		buttonText: 'Funds output',
-		// 		currency: 1,
-		// 		waletName: 'Walet Name'
-		// 	},
-		// 	{
-		// 		id: 4,
-		// 		date: '20/20/2020',
-		// 		status: 'Approved',
-		// 		summ: '+320',
-		// 		buttonText: 'Funds output',
-		// 		currency: 2,
-		// 		waletName: 'Walet Name'
-		// 	},
-		// 	{
-		// 		id: 5,
-		// 		date: '20/20/2020',
-		// 		status: 'Waiting',
-		// 		summ: '+320',
-		// 		buttonText: 'Funds output',
-		// 		currency: 1,
-		// 		waletName: 'Walet Name'
-		// 	},
-		// 	{
-		// 		id: 6,
-		// 		date: '20/20/2020',
-		// 		status: 'Approved',
-		// 		summ: '+320',
-		// 		buttonText: 'Funds output',
-		// 		currency: 1,
-		// 		waletName: 'Walet Name'
-		// 	},
-		// ],
+		// history: null,
+		history: [
+			{
+				id: 1,
+				date: '20/20/2020',
+				status: 'Rejected',
+				summ: '+320',
+				buttonText: 'Wallet replenishment',
+				currency: 1,
+				waletName: 'Walet Name'
+			},
+			{
+				id: 2,
+				date: '20/20/2020',
+				status: 'Approved',
+				summ: '+320',
+				buttonText: 'Wallet replenishment',
+				currency: 2,
+				waletName: 'Walet Name'
+			},
+			{
+				id: 3,
+				date: '20/20/2020',
+				status: 'Waiting',
+				summ: '+320',
+				buttonText: 'Funds output',
+				currency: 1,
+				waletName: 'Walet Name'
+			},
+			{
+				id: 4,
+				date: '20/20/2020',
+				status: 'Approved',
+				summ: '+320',
+				buttonText: 'Funds output',
+				currency: 2,
+				waletName: 'Walet Name'
+			},
+			{
+				id: 5,
+				date: '20/20/2020',
+				status: 'Waiting',
+				summ: '+320',
+				buttonText: 'Funds output',
+				currency: 1,
+				waletName: 'Walet Name'
+			},
+			{
+				id: 6,
+				date: '20/20/2020',
+				status: 'Approved',
+				summ: '+320',
+				buttonText: 'Funds output',
+				currency: 1,
+				waletName: 'Walet Name'
+			},
+		],
 		sortingList:[
             {value: 1, label: 'By transaction date'},
             {value: 2, label: 'By sum'},
