@@ -19,196 +19,48 @@
                 ></beSelect>
             </div>
         </div>
-        <div class="my30">
-            <h2 class="block__title">Apr 10, 2021</h2>
-        </div>
-        <div class="exchange_history">
-            <div class="card card--white">
-                <div class="exchange_history__item">
-                    <div class="exchange_history__from_to">
-                        <div class="exchange_history__from xrp">
-                            <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
-                            <div class="currency__amount">-10.214 XRP</div>
-                        </div>
-                        <div class="icon_transfer">
-                            <i class="icon-arrow-right-middle"></i>
-                        </div>
-                        <div class="exchange_history__to usdx">
-                            <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 BIXRP</div>
-                        </div>
-                    </div>
-                    <div class="exchange_history__amount_status success">
-                        <div class="exchange_history__amount">$102.83</div>
-                        <div class="exchange_history__status">Complete</div>
-                    </div>
-                </div>
+        <div v-for="(item, date) in getExchangeHistory" :key="date">
+            <div class="my30">
+                <h2 class="block__title">{{ date }}</h2>
             </div>
-            <div class="card card--white">
-                <div class="exchange_history__item">
-                    <div class="exchange_history__from_to">
-                        <div class="exchange_history__from xrp">
-                            <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
-                            <div class="currency__amount">-10.214 XRP</div>
+            <div class="exchange_history">
+                <div class="card card--white" v-for="exchangeItem in item" :key="exchangeItem.id">
+                    <div class="exchange_history__item">
+                        <div class="exchange_history__from_to">
+                            <div class="exchange_history__from xrp">
+                                <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
+                                <div class="currency__amount">{{exchangeItem.from}}</div>
+                            </div>
+                            <div class="icon_transfer">
+                                <i class="icon-arrow-right-middle"></i>
+                            </div>
+                            <div class="exchange_history__to usdx">
+                                <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
+                                <div class="currency__amount">{{exchangeItem.to}}</div>
+                            </div>
                         </div>
-                        <div class="icon_transfer">
-                            <i class="icon-arrow-right-middle"></i>
+                        <div class="exchange_history__amount_status" :class="exchangeItem.status">
+                            <div class="exchange_history__amount">{{exchangeItem.usd}}</div>
+                            <div class="exchange_history__status">{{exchangeItem.status}}</div>
                         </div>
-                        <div class="exchange_history__to usdx">
-                            <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 BIXRP</div>
-                        </div>
-                    </div>
-                    <div class="exchange_history__amount_status alert">
-                        <div class="exchange_history__amount">$102.83</div>
-                        <div class="exchange_history__status">Rejected</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card card--white">
-                <div class="exchange_history__item">
-                    <div class="exchange_history__from_to">
-                        <div class="exchange_history__from xrp">
-                            <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
-                            <div class="currency__amount">-10.214 XRP</div>
-                        </div>
-                        <div class="icon_transfer">
-                            <i class="icon-arrow-right-middle"></i>
-                        </div>
-                        <div class="exchange_history__to usdx">
-                            <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 BIXRP</div>
-                        </div>
-                    </div>
-                    <div class="exchange_history__amount_status inprogress">
-                        <div class="exchange_history__amount">$102.83</div>
-                        <div class="exchange_history__status">Waiting</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card card--white">
-                <div class="exchange_history__item">
-                    <div class="exchange_history__from_to">
-                        <div class="exchange_history__from xrp">
-                            <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
-                            <div class="currency__amount">-10.214 XRP</div>
-                        </div>
-                        <div class="icon_transfer">
-                            <i class="icon-arrow-right-middle"></i>
-                        </div>
-                        <div class="exchange_history__to usdx">
-                            <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 BIXRP</div>
-                        </div>
-                    </div>
-                    <div class="exchange_history__amount_status success">
-                        <div class="exchange_history__amount">$102.83</div>
-                        <div class="exchange_history__status">Complete</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="my30">
-            <h2 class="block__title">Apr 10, 2021</h2>
-        </div>
-        <div class="exchange_history">
-            <div class="card card--white">
-                <div class="exchange_history__item">
-                    <div class="exchange_history__from_to">
-                        <div class="exchange_history__from xrp">
-                            <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
-                            <div class="currency__amount">-10.214 XRP</div>
-                        </div>
-                        <div class="icon_transfer">
-                            <i class="icon-arrow-right-middle"></i>
-                        </div>
-                        <div class="exchange_history__to usdx">
-                            <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 BIXRP</div>
-                        </div>
-                    </div>
-                    <div class="exchange_history__amount_status success">
-                        <div class="exchange_history__amount">$102.83</div>
-                        <div class="exchange_history__status">Complete</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card card--white">
-                <div class="exchange_history__item">
-                    <div class="exchange_history__from_to">
-                        <div class="exchange_history__from xrp">
-                            <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
-                            <div class="currency__amount">-10.214 XRP</div>
-                        </div>
-                        <div class="icon_transfer">
-                            <i class="icon-arrow-right-middle"></i>
-                        </div>
-                        <div class="exchange_history__to usdx">
-                            <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 BIXRP</div>
-                        </div>
-                    </div>
-                    <div class="exchange_history__amount_status success">
-                        <div class="exchange_history__amount">$102.83</div>
-                        <div class="exchange_history__status">Complete</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card card--white">
-                <div class="exchange_history__item">
-                    <div class="exchange_history__from_to">
-                        <div class="exchange_history__from xrp">
-                            <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
-                            <div class="currency__amount">-10.214 XRP</div>
-                        </div>
-                        <div class="icon_transfer">
-                            <i class="icon-arrow-right-middle"></i>
-                        </div>
-                        <div class="exchange_history__to usdx">
-                            <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 BIXRP</div>
-                        </div>
-                    </div>
-                    <div class="exchange_history__amount_status success">
-                        <div class="exchange_history__amount">$102.83</div>
-                        <div class="exchange_history__status">Complete</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card card--white">
-                <div class="exchange_history__item">
-                    <div class="exchange_history__from_to">
-                        <div class="exchange_history__from xrp">
-                            <div class="currency__icon xrp"><i class="icon-currancy"></i></div>
-                            <div class="currency__amount">-10.214 XRP</div>
-                        </div>
-                        <div class="icon_transfer">
-                            <i class="icon-arrow-right-middle"></i>
-                        </div>
-                        <div class="exchange_history__to usdx">
-                            <div class="currency__icon usdx"><img src="@/assets/balance-white.svg" alt=""></div>
-                            <div class="currency__amount">+90.78 BIXRP</div>
-                        </div>
-                    </div>
-                    <div class="exchange_history__amount_status success">
-                        <div class="exchange_history__amount">$102.83</div>
-                        <div class="exchange_history__status">Complete</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 export default {
     data:()=>({
-		sortingList:[
-            {value: 1, label: 'By transaction date'},
-            {value: 2, label: 'By status'},
-		],
-		selectedSortItem: {value: 1, label: 'By transaction date'},
         sorted: false
-    })
+    }),
+    computed: {
+        ...mapGetters([
+            'getExchangeHistory'
+        ])
+    },
 }
 </script>
 <style lang="scss">
@@ -267,6 +119,7 @@ export default {
         }
     }
     &__amount_status{
+        text-transform: capitalize;
         @media(max-width: 767px){
             color: white;
             position: absolute;
@@ -274,7 +127,7 @@ export default {
             left: 0;
             padding: 8px 20px;
         }
-        &.success{
+        &.complete{
             .exchange_history__status{
                 color: #04C7A3;
             }
@@ -285,7 +138,7 @@ export default {
                 background-color: #04C7A3;
             }
         }
-        &.alert{
+        &.rejected{
             .exchange_history__status{
                 color: #FF5A6B;
             }
@@ -296,7 +149,7 @@ export default {
                 background-color: #FF5A6B;
             }
         }
-        &.inprogress{
+        &.waiting{
             .exchange_history__status{
                 color: rgba(#0B111A, .5);
             }

@@ -1,27 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import currency from './modules/currency'
+import screenResize from './modules/screenResize'
+import exchangeHistory from './modules/exchangeHistory'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		menuOpen: false,
-		screenWidth: null,
-		XRP: {
-			balance: 1256.45
-		},
-		USDX: {
-			balance: 2560.45
-		},
-		selectItems: [
-			{value: 1, label: 'Item 1'},
-			{value: 2, label: 'Item 2'},
-			{value: 3, label: 'Item 3'},
-			{value: 4, label: 'Item 4'},
-			{value: 5, label: 'Item 5'},
-			{value: 6, label: 'Item 6'}
-		],
-		selectedItem: {value: 2, label: 'Item 2'},
 		history: [
 			{
 				id: 1,
@@ -91,38 +77,28 @@ export default new Vuex.Store({
 			{value: 10, label: 'October'},
 			{value: 11, label: 'November'},
 			{value: 12, label: 'December'},
-		]
+		],
+		selectItems: [
+			{value: 1, label: 'Item 1'},
+			{value: 2, label: 'Item 2'},
+			{value: 3, label: 'Item 3'},
+			{value: 4, label: 'Item 4'},
+			{value: 5, label: 'Item 5'},
+			{value: 6, label: 'Item 6'}
+		],
+		selectedItem: {value: 2, label: 'Item 2'},
 	},
 	getters: {
+		getHistory: state => state.history,
+		getMonths: state => state.months,
 		getSelectList: state => state.selectItems,
 		getSelectedItem: state => state.selectedItem,
-		getXRP: state => state.XRP,
-		getUSDX: state => state.USDX,
-		getHistory: state => state.history,
-		getWindowWidth: state=> state.screenWidth,
-		getMonths: state => state.months,
-		getMenuState: state => state.menuOpen
 	},
-	mutations: {
-		UPDAATE_WINDOW_WIDTH: (state, data) => {
-			return state.screenWidth = data;
-		},
-		UPDATE_MENU_STATE: (state, data) => {
-			let menuState = data === state.menuOpen ? !state.menuOpen : !!data; 
-			if(state.screenWidth > 1024){
-				menuState = true;
-			}
-			return state.menuOpen = menuState;
-		}
+	mutations: {},
+	actions: {},
+	modules: {
+		currency,
+		screenResize,
+		exchangeHistory
 	},
-	actions: {
-		resizeWindow: ({commit}, data)=>{
-			commit('UPDAATE_WINDOW_WIDTH', data);
-			commit('UPDATE_MENU_STATE')
-		},
-		changeMenuState: ({commit}, data) => {
-			commit('UPDATE_MENU_STATE', data)
-		},
-	},
-	modules: {},
 });
