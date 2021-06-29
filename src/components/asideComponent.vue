@@ -1,111 +1,132 @@
 <template>
-    <aside class="aside">
-        <div class="aside__header">
-          <div class="logo">
-            <router-link :to="{name: 'Dashboard'}"><img src="@/assets/logo_main.svg" alt=""></router-link>
+  <aside class="aside">
+    <div class="aside__header">
+      <div class="logo">
+        <router-link :to="{ name: 'Dashboard' }"
+          ><img src="@/assets/logo_main.svg" alt=""
+        /></router-link>
+      </div>
+      <div
+        id="hamburger"
+        :class="{ opened: getMenuState }"
+        @click="toggleNavigation()"
+      >
+        <span></span>
+      </div>
+    </div>
+    <div class="aside__body" v-if="getMenuState">
+      <nav id="nav">
+        <ul>
+          <li
+            v-for="(route, idx) in getAllRoutes"
+            :key="route.path"
+            @click="toggleNavigation"
+          >
+            <router-link
+              :to="{ name: route.name }"
+              class="nav__link"
+              v-if="route.meta && idx <= 6"
+            >
+              <span class="nav_icon" v-if="route.meta.icon">
+                <i :class="route.meta.icon"></i>
+              </span>
+              {{ route.meta.linkText }}
+              <span
+                class="notifications_number"
+                v-if="route.meta.notifications"
+              >
+                {{ route.meta.notifications }}
+              </span>
+            </router-link>
+          </li>
+        </ul>
+        <div class="more_links text-center">
+          <div class="more_links__title">
+            <i class="icon-more"></i>
+            <p>More</p>
           </div>
-          <div id="hamburger" :class="{opened: getMenuState}" @click="toggleNavigation()">
-            <span></span>
-          </div>
-        </div>
-        <div class="aside__body" v-if="getMenuState">
-          <nav id="nav">
-              <ul>
-                  <li v-for="(route, idx) in getAllRoutes" :key="route.path" @click="toggleNavigation">
-                    <router-link :to="{name: route.name}" class="nav__link" v-if="route.meta && idx <= 6">
-                      <span class="nav_icon" v-if="route.meta.icon">
-                        <i :class="route.meta.icon"></i>
-                      </span> 
-                      {{route.meta.linkText}}
-                      <span class="notifications_number"  v-if="route.meta.notifications">
-                        {{route.meta.notifications}}
-                      </span>
-                    </router-link>
-                  </li>
-              </ul>
-              <div class="more_links text-center">
-                <div class="more_links__title">
-                  <i class="icon-more"></i>
-                  <p>More</p>
-                </div>
-                <div class="more_links__dropdown">
-                  <div 
-                    class="more_links__item" 
-                    v-for="(route, idx) in getAllRoutes" 
-                    :key="route.path" 
-                    @click="toggleNavigation"
-                  >
-                    <router-link :to="{name: route.name}" class="nav__link" v-if="route.meta && idx > 6">
-                      <span class="nav_icon" v-if="route.meta && route.meta.icon">
-                        <i :class="route.meta.icon"></i>
-                      </span> 
-                      <span class="more_links__text">{{route.meta.linkText}}</span>
-                      <span class="notifications_number"  v-if="route.meta && route.meta.notifications">
-                        {{route.meta.notifications}}
-                      </span>
-                    </router-link>
-                  </div>
-                </div>
-              </div>
-          </nav>
-          <div class="aside__footer">
-            <div class="logout">
-              <button type="button" class="logout_btn">
-                <i class="icon-logout"></i> 
-                <span class="logout_btn__text">Log out</span>
-              </button>
+          <div class="more_links__dropdown">
+            <div
+              class="more_links__item"
+              v-for="(route, idx) in getAllRoutes"
+              :key="route.path"
+              @click="toggleNavigation"
+            >
+              <router-link
+                :to="{ name: route.name }"
+                class="nav__link"
+                v-if="route.meta && idx > 6"
+              >
+                <span class="nav_icon" v-if="route.meta && route.meta.icon">
+                  <i :class="route.meta.icon"></i>
+                </span>
+                <span class="more_links__text">{{ route.meta.linkText }}</span>
+                <span
+                  class="notifications_number"
+                  v-if="route.meta && route.meta.notifications"
+                >
+                  {{ route.meta.notifications }}
+                </span>
+              </router-link>
             </div>
           </div>
         </div>
-    </aside>
+      </nav>
+      <div class="aside__footer">
+        <div class="logout">
+          <button type="button" class="logout_btn">
+            <i class="icon-logout"></i>
+            <span class="logout_btn__text">Log out</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 export default {
-    name: 'asideComponent',
-    data: ()=>({
-      menuOpen: false
-    }),
-    computed: {
-      ...mapGetters([
-        'getMenuState',
-        'getWindowWidth'
-      ]),
-      getAllRoutes(){
-        return this.$router.options.routes
+  name: "asideComponent",
+  data: () => ({
+    menuOpen: false,
+  }),
+  computed: {
+    ...mapGetters(["getMenuState", "getWindowWidth"]),
+    getAllRoutes() {
+      return this.$router.options.routes;
+    },
+  },
+  methods: {
+    toggleNavigation() {
+      if (this.getWindowWidth < 1024) {
+        this.menuOpen = !this.menuOpen;
+        this.$store.dispatch("changeMenuState", this.menuOpen);
       }
     },
-    methods: {
-      toggleNavigation(){
-        if(this.getWindowWidth < 1024){
-          this.menuOpen = !this.menuOpen
-          this.$store.dispatch('changeMenuState', this.menuOpen)
-        }
-      }
-    }
-}
+  },
+};
 </script>
 <style lang="scss">
-@import '@/includes/styles/_colors.scss';
-.aside{
+@import "@/includes/styles/_colors.scss";
+.aside {
   width: 165px;
   flex: 0 0 165px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgba($white, .6); 
+  color: rgba($white, 0.6);
   padding: 25px 0px 50px;
-  @media(max-height: 900px){
+  @media (max-height: 900px) {
     width: 120px;
     flex: 0 0 120px;
     padding: 25px 0px;
   }
-  @media(max-width: 1300px){
+  @media (max-width: 1300px) {
     width: 100px;
     flex: 0 0 100px;
     padding: 25px 0px;
   }
-  @media(max-width: 1023px){
+  @media (max-width: 1023px) {
     position: fixed;
     top: 0;
     left: 0;
@@ -117,19 +138,19 @@ export default {
     max-height: 100vh;
     overflow: auto;
   }
-  &__header{
+  &__header {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 15px;
-    @media(max-width: 1023px){
+    @media (max-width: 1023px) {
       justify-content: space-between;
     }
 
-    #hamburger{
+    #hamburger {
       display: none;
-      @media(max-width: 1023px){
+      @media (max-width: 1023px) {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -137,91 +158,93 @@ export default {
         width: 36px;
         height: 30px;
       }
-      span{
+      span {
         position: relative;
         display: block;
         width: 28px;
         height: 2px;
         background-color: $white;
         cursor: pointer;
-        &::before, &::after{
-          content: '';
+        &::before,
+        &::after {
+          content: "";
           position: absolute;
           left: 0px;
           width: 100%;
           height: 100%;
           background-color: $white;
-          transition: transform .2s ease, top .2s .2s ease;
+          transition: transform 0.2s ease, top 0.2s 0.2s ease;
         }
-        &::before{
+        &::before {
           top: -6px;
-        } 
-        &::after{
+        }
+        &::after {
           top: 6px;
         }
       }
-      &.opened{
-        span{
+      &.opened {
+        span {
           background-color: transparent;
-          &::before, &::after{
+          &::before,
+          &::after {
             top: 0px;
-            transition: top .2s ease, transform .2s .2s ease;
+            transition: top 0.2s ease, transform 0.2s 0.2s ease;
           }
-          &::before{
+          &::before {
             transform: rotate(45deg);
-          } 
-          &::after{
+          }
+          &::after {
             transform: rotate(-45deg);
           }
         }
       }
     }
   }
-  &__body{
+  &__body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 15px;
-    @media(max-width: 1300px){
+    @media (max-width: 1300px) {
       padding: 0px 10px;
     }
-    @media(max-width: 1023px){
+    @media (max-width: 1023px) {
       width: 100%;
       padding: 0px;
     }
   }
-  &__footer{
+  &__footer {
     width: 100%;
     display: flex;
     justify-content: center;
-    @media(max-width: 1023px){
+    @media (max-width: 1023px) {
       justify-content: flex-start;
       padding-top: 30px;
     }
   }
-  a{
-    &:hover{
-      color: $white
+  a {
+    &:hover {
+      color: $white;
     }
   }
-  .logo{
+  .logo {
     display: block;
     width: 53px;
     font-size: 32px;
     line-height: 1;
     color: $white;
     text-align: center;
-    @media(max-width: 1700px){
+    @media (max-width: 1700px) {
       width: 40px;
     }
-    @media(max-height: 900px){
+    @media (max-height: 900px) {
       font-size: 28px;
     }
-    a{
+    a {
       display: block;
     }
-    span{
+    span {
       position: relative;
       display: inline-flex;
       align-items: center;
@@ -232,8 +255,8 @@ export default {
       border-radius: 8px;
       margin-left: 3px;
       z-index: 1;
-      &:before{
-        content: '';
+      &:before {
+        content: "";
         position: absolute;
         top: 2px;
         left: 2px;
@@ -245,23 +268,23 @@ export default {
       }
     }
   }
-  #nav{
+  #nav {
     width: 100%;
     flex-grow: 1;
     padding-top: 60px;
-    @media(max-height: 900px){
+    @media (max-height: 900px) {
       padding-top: 30px;
     }
-    li{
+    li {
       margin-bottom: 8px;
-      &:empty{
+      &:empty {
         display: none;
       }
-      @media(max-height: 900px){
+      @media (max-height: 900px) {
         margin-bottom: 0px;
       }
     }
-    a{
+    a {
       position: relative;
       text-align: center;
       display: flex;
@@ -271,21 +294,21 @@ export default {
       line-height: 1;
       font-weight: 600;
       font-size: 14px;
-      @media (max-height: 900px){
+      @media (max-height: 900px) {
         padding: 8px 12px;
         font-size: 14px;
       }
-      @media(max-width: 1300px){
+      @media (max-width: 1300px) {
         font-size: 10px;
       }
-      @media(max-width: 1023px){
+      @media (max-width: 1023px) {
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
         padding: 15px 12px;
         font-size: 16px;
       }
-      .notifications_number{
+      .notifications_number {
         position: absolute;
         top: 8px;
         left: 55%;
@@ -299,31 +322,31 @@ export default {
         font-size: 16px;
         line-height: 1;
         color: $white;
-        @media(max-height: 900px){
+        @media (max-height: 900px) {
           font-size: 12px;
         }
-        @media(max-width: 1300px){
+        @media (max-width: 1300px) {
           font-size: 10px;
         }
-        @media(max-width: 1023px){
+        @media (max-width: 1023px) {
           position: static;
           transform: translate(5px, -5px);
         }
       }
-      .nav_icon{
+      .nav_icon {
         font-size: 32px;
         display: flex;
         justify-content: center;
         flex-grow: 1;
         margin-bottom: 10px;
-        @media(max-height: 900px){
+        @media (max-height: 900px) {
           font-size: 24px;
           margin-bottom: 5px;
         }
-        @media(max-width: 1300px){
+        @media (max-width: 1300px) {
           font-size: 20px;
         }
-        @media(max-width: 1023px){
+        @media (max-width: 1023px) {
           flex-grow: 0;
           margin-bottom: 0px;
           margin-right: 10px;
@@ -331,31 +354,31 @@ export default {
         }
       }
     }
-    .more_links{
+    .more_links {
       position: relative;
       z-index: 1;
       margin-top: 10px;
-      @media(max-width: 1023px){
+      @media (max-width: 1023px) {
         margin-top: 0px;
       }
-      &__title{
-        @media(max-width: 1023px){
+      &__title {
+        @media (max-width: 1023px) {
           display: none;
         }
       }
-      &__dropdown{
+      &__dropdown {
         position: absolute;
         bottom: calc(100% + 20px);
         left: 50%;
-        background-color: #2B3038;
+        background-color: #2b3038;
         border-radius: 8px 8px 8px 0px;
         padding: 5px 0px;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-20px);
-        transition: .3s ease;
+        transition: 0.3s ease;
         transition-property: transform, opacity;
-        @media(max-width: 1023px){
+        @media (max-width: 1023px) {
           position: relative;
           opacity: 1;
           visibility: visible;
@@ -365,89 +388,89 @@ export default {
           background-color: transparent;
           padding: 0px;
         }
-        &::after{
-          content: '';
+        &::after {
+          content: "";
           position: absolute;
           top: 100%;
           left: 0px;
           width: 32px;
           height: 26px;
-          background-image: url('../assets/corner-top.svg');
+          background-image: url("../assets/corner-top.svg");
           background-position: left top;
           background-repeat: no-repeat;
           background-size: contain;
-          @media(max-width: 1023px){
+          @media (max-width: 1023px) {
             display: none;
           }
         }
       }
-      &:hover{
-        .more_links__dropdown{
+      &:hover {
+        .more_links__dropdown {
           opacity: 1;
           visibility: visible;
           transform: translateY(0px);
         }
       }
-      &__item{
-        &:empty{
+      &__item {
+        &:empty {
           display: none;
         }
-        .nav__link{
+        .nav__link {
           flex-direction: row;
           text-align: left;
           align-items: center;
           padding: 10px 20px;
-          @media(max-width: 1023px){
+          @media (max-width: 1023px) {
             padding: 15px 12px;
           }
-          .nav_icon{
+          .nav_icon {
             flex-grow: 0;
             font-size: 24px;
             margin-bottom: 0px;
             margin-right: 15px;
           }
-          .notifications_number{
+          .notifications_number {
             position: relative;
             top: auto;
             left: auto;
             margin-left: 15px;
-            @media(max-width: 1023px){
+            @media (max-width: 1023px) {
               margin-left: 5px;
             }
           }
         }
       }
-      &__text{
+      &__text {
         flex-grow: 1;
-        @media(max-width: 1023px){
+        @media (max-width: 1023px) {
           flex-grow: 0;
         }
       }
     }
-    .router-link-exact-active{
+    .router-link-exact-active {
       color: $white;
       background-image: $gradient;
-      @media(max-width: 1023px){
+      @media (max-width: 1023px) {
         border-radius: 0;
       }
     }
   }
-  .logout_btn{
+  .logout_btn {
     font-size: 32px;
     display: flex;
     align-items: center;
-    @media(max-height: 900px){
+    @media (max-height: 900px) {
       font-size: 24px;
     }
-    &__text{
+    &__text {
       display: none;
       font-size: 14px;
       margin-left: 10px;
-      @media(max-width: 1023px){
+      @media (max-width: 1023px) {
         display: block;
       }
     }
-    &:hover{
+    &:hover {
       color: $white;
     }
   }

@@ -1,27 +1,54 @@
 <template>
-    <button 
-        :type="type || 'button'" 
-        class="btn" 
-        :class="[{'btn-outline': outline}, {'btn-white': white}, {'btn-large': large}, {'btn-shadow': shadow}, {'btn-dark': dark}, {'btn-link': link}]" 
-        :disabled="disabled"
-        @click="$emit('click')"
-    >
-        <slot name="icon-left"></slot> 
-        <span>{{title || 'Button'}}</span> 
-        <slot name="icon-right"></slot>
-        <span v-if="arrowRight">
-            <svg width="42" height="12" viewBox="0 0 42 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M41.5303 6.53033C41.8232 6.23744 41.8232 5.76256 41.5303 5.46967L36.7574 0.696699C36.4645 0.403806 35.9896 0.403806 35.6967 0.696699C35.4038 0.989593 35.4038 1.46447 35.6967 1.75736L39.9393 6L35.6967 10.2426C35.4038 10.5355 35.4038 11.0104 35.6967 11.3033C35.9896 11.5962 36.4645 11.5962 36.7574 11.3033L41.5303 6.53033ZM0 6.75H41V5.25H0V6.75Z" fill="#2864FF"/>
-            </svg>
-        </span>
-    </button>
+  <button
+    :type="type || 'button'"
+    class="btn"
+    :class="[
+      { 'btn-outline': outline },
+      { 'btn-white': white },
+      { 'btn-large': large },
+      { 'btn-shadow': shadow },
+      { 'btn-dark': dark },
+      { 'btn-link': link },
+    ]"
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
+    <slot name="icon-left"></slot>
+    <span>{{ title || "Button" }}</span>
+    <slot name="icon-right"></slot>
+    <span v-if="arrowRight">
+      <svg
+        width="42"
+        height="12"
+        viewBox="0 0 42 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M41.5303 6.53033C41.8232 6.23744 41.8232 5.76256 41.5303 5.46967L36.7574 0.696699C36.4645 0.403806 35.9896 0.403806 35.6967 0.696699C35.4038 0.989593 35.4038 1.46447 35.6967 1.75736L39.9393 6L35.6967 10.2426C35.4038 10.5355 35.4038 11.0104 35.6967 11.3033C35.9896 11.5962 36.4645 11.5962 36.7574 11.3033L41.5303 6.53033ZM0 6.75H41V5.25H0V6.75Z"
+          fill="#2864FF"
+        />
+      </svg>
+    </span>
+  </button>
 </template>
 <script>
 export default {
-    name: 'beButton',
-    props: ['type', 'link', 'title', 'outline', 'white', 'dark', 'disabled', 'large', 'arrowRight', 'shadow']
-}
+  name: "beButton",
+  props: [
+    "type",
+    "link",
+    "title",
+    "outline",
+    "white",
+    "dark",
+    "disabled",
+    "large",
+    "arrowRight",
+    "shadow",
+  ],
+};
 </script>
 <style lang="scss" scoped>
-@import '@/includes/styles/_colors.scss';
+@import "@/includes/styles/_colors.scss";
 </style>
