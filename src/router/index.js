@@ -83,7 +83,7 @@ const routes = [
   {
     path: "/settings",
     name: "Settings",
-    component: () => import("@/views/Settings.vue"),
+    component: () => import("@/views/Settings/Settings.vue"),
     meta: {
       linkText: LANG.nav.settings.eng,
       icon: "icon-settings",
