@@ -1,0 +1,119 @@
+.beModal {
+  &__header {
+    padding: 30px 50px;
+  }
+  &__title {
+    color: #0b111a;
+  }
+  &__body {
+    padding-bottom: 30px;
+  }
+  &__footer {
+    border-top: 1px solid rgba(#000, 0.2);
+  }
+  .btn {
+    font-size: 18px;
+  }
+  .confirm_button {
+    width: 250px;
+  }
+}
+.steps {
+  counter-reset: my-awesome-counter;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &__item {
+    position: relative;
+    counter-increment: my-awesome-counter;
+    background-color: #b6b8ba;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    &:first-child {
+      background-color: #2864ff;
+    }
+    &:not(:first-child) {
+      margin-left: 75px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        width: 75px;
+        border-top: 2px dashed #b6b8ba;
+        transform: translateY(-50%);
+      }
+    }
+    &.active {
+      background-color: #2864ff;
+      &::after {
+        border-top: 2px solid #2864ff;
+      }
+    }
+    &::before {
+      content: "0" counter(my-awesome-counter);
+      font-size: 16px;
+    }
+  }
+}
+.step {
+  display: none;
+  &.active {
+    display: block;
+  }
+  &__icon {
+    font-size: 50px;
+  }
+  &__title {
+    color: #0b111a;
+    @media (max-width: 1700px) {
+      &.mb40 {
+        margin-bottom: 20px !important;
+      }
+    }
+  }
+  ul {
+    li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: 1em;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: 0.35em;
+        width: 0.66666666em;
+        height: 0.66666666em;
+        border-radius: 50%;
+        background-color: #2864ff;
+        line-height: 0;
+      }
+    }
+  }
+}
+.select_label {
+  color: #0b111a;
+}
+.example {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  &__text {
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: rgba(#0b111a, 0.5);
+    font-weight: 600;
+  }
+}
