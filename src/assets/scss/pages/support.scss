@@ -1,0 +1,24 @@
+.support {
+  &__issues {
+    li {
+      margin-bottom: 15px;
+    }
+    a {
+      display: block;
+      text-decoration: underline;
+    }
+  }
+}
+.attach {
+  margin-bottom: 30px;
+}
+@media (max-width: 1200px) {
+  .support {
+    display: block !important;
+    height: auto !important;
+  }
+  .col-6 {
+    width: calc(100% - 22px);
+    flex: 0 0 calc(100% - 22px);
+  }
+}

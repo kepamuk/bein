@@ -2,9 +2,7 @@
   <aside class="aside">
     <div class="aside__header">
       <div class="logo">
-        <router-link :to="{ name: 'Dashboard' }"
-          ><img src="@/assets/logo_main.svg" alt=""
-        /></router-link>
+        <nuxt-link to="/"><img src="/images/logo_main.svg" alt="" /></nuxt-link>
       </div>
       <div
         id="hamburger"
@@ -22,8 +20,8 @@
             :key="route.path"
             @click="toggleNavigation"
           >
-            <router-link
-              :to="{ name: route.name }"
+            <nuxt-link
+              :to="route.path"
               class="nav__link"
               v-if="route.meta && idx <= 6"
             >
@@ -37,7 +35,7 @@
               >
                 {{ route.meta.notifications }}
               </span>
-            </router-link>
+            </nuxt-link>
           </li>
         </ul>
         <div class="more_links text-center">
@@ -52,8 +50,8 @@
               :key="route.path"
               @click="toggleNavigation"
             >
-              <router-link
-                :to="{ name: route.name }"
+              <nuxt-link
+                :to="route.path"
                 class="nav__link"
                 v-if="route.meta && idx > 6"
               >
@@ -67,7 +65,7 @@
                 >
                   {{ route.meta.notifications }}
                 </span>
-              </router-link>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -85,29 +83,117 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import { LANG } from "@/helpers/language";
 export default {
   name: "asideComponent",
-  data: () => ({
-    menuOpen: false,
-  }),
+  data() {
+    return {
+      menuOpen: false,
+      // getMenuState: true,
+      getAllRoutes: [
+        {
+          path: "/",
+          name: "Dashboard",
+          meta: {
+            linkText: LANG.nav.dashboard.eng,
+            icon: "icon-wallet",
+          },
+        },
+        {
+          path: "/wallets",
+          name: "Wallets",
+          meta: {
+            linkText: LANG.nav.wallets.eng,
+            icon: "icon-wallets",
+          },
+        },
+        {
+          path: "/exchange",
+          name: "Exchange",
+          meta: {
+            linkText: LANG.nav.exchange.eng,
+            icon: "icon-dollar-bitcoin",
+          },
+        },
+        {
+          path: "/earnings",
+          name: "Earnings",
+          meta: {
+            linkText: LANG.nav.earnings.eng,
+            icon: "icon-exchange",
+            notifications: 2,
+          },
+        },
+        {
+          path: "/trading",
+          name: "Trading",
+          meta: {
+            linkText: LANG.nav.trading.eng,
+            icon: "icon-candlestick-chart",
+          },
+        },
+        {
+          path: "/giveaway",
+          name: "Giveaway",
+          meta: {
+            linkText: LANG.nav.giveaway.eng,
+            icon: "icon-leaderboard",
+          },
+        },
+        {
+          path: "/exchange-history",
+          name: "Exchange History",
+        },
+        {
+          path: "/support",
+          name: "Support",
+          meta: {
+            linkText: LANG.nav.support.eng,
+            icon: "icon-about",
+          },
+        },
+        {
+          path: "/settings",
+          name: "Settings",
+          meta: {
+            linkText: LANG.nav.settings.eng,
+            icon: "icon-settings",
+          },
+        },
+        {
+          path: "/notifications",
+          name: "Notifications",
+          meta: {
+            linkText: LANG.nav.notifications.eng,
+            icon: "icon-notification",
+            notifications: 2,
+          },
+        },
+        {
+          path: "/login",
+          name: "Login",
+        },
+      ],
+    };
+  },
   computed: {
-    ...mapGetters(["getMenuState", "getWindowWidth"]),
-    getAllRoutes() {
-      return this.$router.options.routes;
-    },
+    ...mapGetters({
+      getMenuState: "menu/getMenuState",
+      getWindowWidth: "menu/getWindowWidth",
+    }),
   },
   methods: {
     toggleNavigation() {
       if (this.getWindowWidth < 1024) {
         this.menuOpen = !this.menuOpen;
-        this.$store.dispatch("changeMenuState", this.menuOpen);
+        this.$store.dispatch("menu/changeMenuState", this.menuOpen);
       }
     },
   },
 };
 </script>
 <style lang="scss">
-@import "@/includes/styles/_colors.scss";
+@import "@/assets/scss/partials/_colors.scss";
 .aside {
   width: 165px;
   flex: 0 0 165px;
@@ -395,7 +481,7 @@ export default {
           left: 0px;
           width: 32px;
           height: 26px;
-          background-image: url("../assets/corner-top.svg");
+          background-image: url("/images/corner-top.svg");
           background-position: left top;
           background-repeat: no-repeat;
           background-size: contain;
@@ -447,7 +533,7 @@ export default {
         }
       }
     }
-    .router-link-exact-active {
+    .nuxt-link-exact-active {
       color: $white;
       background-image: $gradient;
       @media (max-width: 1023px) {

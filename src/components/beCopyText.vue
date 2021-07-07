@@ -11,9 +11,11 @@
 <script>
 export default {
   props: ["text", "bordered"],
-  data: () => ({
-    textValue: null,
-  }),
+  data() {
+    return {
+      textValue: null,
+    };
+  },
   created() {
     this.textValue = this.text;
   },
@@ -38,7 +40,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "@/includes/styles/_colors.scss";
+@import "@/assets/scss/partials/_colors.scss";
 .copy_text {
   position: relative;
   font-size: 18px;
