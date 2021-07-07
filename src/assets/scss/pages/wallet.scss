@@ -1,0 +1,105 @@
+.wallet {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+  &__body {
+    flex-grow: 1;
+  }
+  &__icon {
+    width: 76px;
+    flex: 0 0 76px;
+    height: 76px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-right: 20px;
+  }
+  &.card--bg-lines {
+    &::before {
+      background-size: 120%;
+      background-position: -70% bottom;
+    }
+  }
+  &.card--gradient {
+    .wallet__icon {
+      color: #2864ff;
+    }
+  }
+  &.card--gradient-purple {
+    .wallet__icon {
+      color: #8728ff;
+    }
+  }
+}
+.select_wallet_type {
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    .type_dropdown {
+      transform: translateY(5px);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .type_dropdown {
+    position: absolute;
+    bottom: 100%;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0px;
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    transition-property: opacity transform;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    &:before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 20px;
+      width: 10px;
+      border: 10px solid transparent;
+      border-top: 10px solid #fff;
+    }
+    &__item {
+      padding: 5px 25px;
+      line-height: 1.5;
+      transition: 0.3s ease;
+      &:hover {
+        background-color: rgba(#0b111a, 0.1);
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .wallet__icon {
+    width: 50px;
+    flex: 0 0 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}
+@media (max-width: 1023px) {
+  .col-4 {
+    width: calc(50% - 22px);
+    flex: 0 0 calc(50% - 22px);
+  }
+}
+@media (max-width: 767px) {
+  .col-4 {
+    width: calc(100% - 22px);
+    flex: 0 0 calc(100% - 22px);
+  }
+}

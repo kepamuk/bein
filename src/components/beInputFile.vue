@@ -24,10 +24,12 @@
 <script>
 export default {
   name: "beInputFile",
-  data: () => ({
-    files: [],
-    inputVal: [],
-  }),
+  data() {
+    return {
+      files: [],
+      inputVal: [],
+    };
+  },
   props: {
     multiple: {
       default: false,
@@ -78,7 +80,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "@/includes/styles/_colors.scss";
+@import "@/assets/scss/partials/_colors.scss";
 .input_file {
   display: inline-flex;
   align-items: center;

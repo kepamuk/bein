@@ -49,6 +49,3 @@ export default {
   ],
 };
 </script>
-<style lang="scss" scoped>
-@import "@/includes/styles/_colors.scss";
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="beModal">
+  <div class="beModal beModal_step">
     <div class="beModal__header">
       <div class="beModal__close">
         <div slot="top-right">
@@ -62,7 +62,7 @@
             </div>
             <div class="col-5">
               <!-- <img class="full-width" :src="`${selectedDocumentFile}`" alt="" v-if="selectedDocumentFile && selectedDocumentFile.length"> -->
-              <img class="full-width" src="src/assets/example.png" alt="" />
+              <img class="full-width" src="/images/example.png" alt="" />
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
             <div class="col-5">
               <!-- <img class="full-width" :src="`${selectedSelfieFile}`" alt="" v-if="selectedSelfieFile && selectedSelfieFile.length"> -->
               <div class="example">
-                <img class="full-width" src="src/assets/example2.png" alt="" />
+                <img class="full-width" src="/images/example2.png" alt="" />
                 <div class="example__text">EXAMPLE</div>
               </div>
             </div>
@@ -174,42 +174,41 @@
   </div>
 </template>
 <script>
-import vueCustomScrollbar from "vue-custom-scrollbar";
-import "vue-custom-scrollbar/dist/vueScrollbar.css";
-import transactionsSend from "@/components/modalTemplates/transactionsSend";
 import { mapGetters } from "vuex";
+import transactionsSend from "@/components/modalTemplates/transactionsSend";
 
 export default {
-  data: () => ({
-    currentstep: 1,
-    clickedItem: null,
-    selectCountryList: [
-      { value: 1, label: "Country 1" },
-      { value: 2, label: "Country 2" },
-      { value: 3, label: "Country 3" },
-      { value: 4, label: "Country 4" },
-      { value: 5, label: "Country 5" },
-      { value: 6, label: "Country 6" },
-    ],
-    selectedCountryItem: null,
-    selectDocumentList: [
-      { value: 1, label: "Document 1" },
-      { value: 2, label: "Document 2" },
-      { value: 3, label: "Document 3" },
-      { value: 4, label: "Document 4" },
-      { value: 5, label: "Document 5" },
-      { value: 6, label: "Document 6" },
-    ],
-    selectedDocumentItem: null,
-    selectedDocumentFile: null,
-    selectedSelfieFile: null,
-    selectedMonth: null,
-  }),
-  computed: {
-    ...mapGetters(["getMonths"]),
+  data() {
+    return {
+      currentstep: 1,
+      clickedItem: null,
+      selectCountryList: [
+        { value: 1, label: "Country 1" },
+        { value: 2, label: "Country 2" },
+        { value: 3, label: "Country 3" },
+        { value: 4, label: "Country 4" },
+        { value: 5, label: "Country 5" },
+        { value: 6, label: "Country 6" },
+      ],
+      selectedCountryItem: null,
+      selectDocumentList: [
+        { value: 1, label: "Document 1" },
+        { value: 2, label: "Document 2" },
+        { value: 3, label: "Document 3" },
+        { value: 4, label: "Document 4" },
+        { value: 5, label: "Document 5" },
+        { value: 6, label: "Document 6" },
+      ],
+      selectedDocumentItem: null,
+      selectedDocumentFile: null,
+      selectedSelfieFile: null,
+      selectedMonth: null,
+    };
   },
-  components: {
-    vueCustomScrollbar,
+  computed: {
+    ...mapGetters({
+      getMonths: "lists/getMonths",
+    }),
   },
   methods: {
     goToStep(step) {
@@ -241,4 +240,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" src="./settingsStepForm.scss"></style>

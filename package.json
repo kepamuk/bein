@@ -1,37 +1,39 @@
 {
-  "name": "bein",
-  "version": "0.1.0",
+  "name": "bein-nuxt",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Yana <yana.lihotska@gmail.com>",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/moment": "^1.6.1",
     "axios": "^0.21.1",
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-custom-scrollbar": "^1.4.0",
+    "cookie-universal-nuxt": "^2.1.5",
+    "lodash": "^4.17.21",
+    "nuxt": "^2.0.0",
+    "vue-custom-scrollbar": "^1.4.1",
     "vue-functional-calendar": "^2.9.4",
     "vue-js-modal": "^2.0.0-rc.6",
-    "vue-router": "^3.2.0",
-    "vue2-datepicker": "^3.9.0",
-    "vuex": "^3.4.0"
+    "vue2-datepicker": "^3.9.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.0",
-    "@vue/cli-plugin-eslint": "^4.5.0",
-    "@vue/cli-plugin-router": "^4.5.0",
-    "@vue/cli-plugin-vuex": "^4.5.0",
-    "@vue/cli-service": "^4.5.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.12.0",
-    "prettier": "^2.2.1",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "@nuxtjs/dotenv": "^1.4.1",
+    "babel-eslint": "^10.0.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "file-loader": "^6.2.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.2.0",
+    "url-loader": "^4.1.1"
   }
 }

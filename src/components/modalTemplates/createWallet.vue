@@ -105,41 +105,37 @@
   </div>
 </template>
 <script>
-import vueCustomScrollbar from "vue-custom-scrollbar";
-import "vue-custom-scrollbar/dist/vueScrollbar.css";
 import transactionsSend from "@/components/modalTemplates/transactionsSend";
 export default {
-  data: () => ({
-    currentstep: 1,
-    timecounterStart: null,
-    timecounterEnd: null,
-    list: [
-      "tuition",
-      "liberty",
-      "wisdom",
-      "firm",
-      "trap",
-      "wine",
-      "neutral",
-      "clay",
-      "brave",
-      "globe",
-      "tooth",
-      "extend",
-    ],
-    clickedItem: null,
-    timeout: null,
-    selectItems: [
-      { value: 1, label: "XRP" },
-      { value: 2, label: "BIXRP" },
-    ],
-    selectedItem: null,
-    clickedButton: false,
-  }),
-  components: {
-    vueCustomScrollbar,
+  data() {
+    return {
+      currentstep: 1,
+      timecounterStart: null,
+      timecounterEnd: null,
+      list: [
+        "tuition",
+        "liberty",
+        "wisdom",
+        "firm",
+        "trap",
+        "wine",
+        "neutral",
+        "clay",
+        "brave",
+        "globe",
+        "tooth",
+        "extend",
+      ],
+      clickedItem: null,
+      timeout: null,
+      selectItems: [
+        { value: 1, label: "XRP" },
+        { value: 2, label: "BIXRP" },
+      ],
+      selectedItem: null,
+      clickedButton: false,
+    };
   },
-  mounted() {},
   methods: {
     downEvent() {
       this.clickedButton = true;
