@@ -13,6 +13,7 @@
     />
     <span class="beInput__placeholder">{{ placeholder }}</span>
     <i class="recomended" v-if="recomended">(Recomended)</i>
+    <!-- <span class="" v-if="sublabel">{{ sublabel }}</span> -->
     <span class="beInput__right">
       <slot name="right"></slot>
     </span>
@@ -34,6 +35,42 @@ export default {
     "maxVal",
     "name",
     "step",
+    // placeholder: {
+    //   type: String,
+    //   default: ''
+    // },
+    // transparent: {
+    //   type: String,
+    //   default: ''
+    // },
+    // type: {
+    //   type: String,
+    //   default: ''
+    // },
+    // recomended: {
+    //   type: Boolean,
+    //   default: false
+    // },
+    // minVal: {
+    //   type: String,
+    //   default: ''
+    // },
+    // maxVal: {
+    //   type: String,
+    //   default: ''
+    // },
+    // name: {
+    //   type: String,
+    //   default: ''
+    // },
+    // step: {
+    //   type: String,
+    //   default: ''
+    // },
+    // sublabel: {
+    //   type: String,
+    //   default: ''
+    // },
   ],
   watch: {
     inputValue(val) {

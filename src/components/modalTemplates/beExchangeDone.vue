@@ -25,7 +25,7 @@
         <div class="exchange_start__container my50">
           <div class="exchange_start__icon">
             <div class="currency__icon usdx">
-              <img src="/images/balance-white.svg" alt="" />
+              <img src="/images/client/balance-white.svg" alt="" />
             </div>
             <i class="icon-checked-circle text--purple small__icon"></i>
           </div>

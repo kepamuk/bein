@@ -1,0 +1,873 @@
+.coin-header-block {
+
+
+  &__left {
+    padding-bottom: 150px;
+    min-height: 726px;
+    @media all and (max-width: $widthxl) {
+      padding-bottom: 0;
+    }
+    @media all and (max-width: $widthlg) {
+      min-height: initial;
+      padding-bottom: 220px;
+    }
+    @media all and (max-width: $widthsm) {
+      .faq-header-block__img-tablet {
+        max-width: 240px;
+        margin: 0 auto;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  &__img {
+    @media all and (max-width: $widthmd) {
+      display: none;
+    }
+
+  }
+  &__title {
+    color: #fff;
+    padding-top: 50px;
+    @media all and (max-width: $widthxl) {
+      font-size: 32px;
+      padding-top: 100px;
+    }
+    @media all and (max-width: $widthlg) {
+      padding-top: 0;
+    }
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  &__text {
+    color: #fff;
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+    }
+  }
+  &__img {
+    width: 100%;
+    max-width: 768px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.what-bein-coin {
+  @media all and (max-width: $widthmd) {
+    .wallet-works-item {
+      margin-bottom: 50px !important;
+    }
+  }
+  &:after {
+    top: initial;
+    bottom: 100px;
+  }
+}
+
+
+.coin-trade {
+  background: #f5f5f5;
+  padding-top: 79px;
+  @media all and (max-width: $widthxl) {
+    padding-top: 59px;
+  }
+  @media all and (max-width: $widthsm) {
+    padding-top: 30px;
+  }
+  &__title {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100%;
+    b {
+      font-weight: 700;
+      color: $blue;
+    }
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__text {
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    color: $dark-blue2;
+    @media all and (max-width: $widthsm) {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1210px;
+    margin: 0 auto;
+    padding-bottom: 54px;
+    position: relative;
+    &:before {
+      content: '';
+      background: url("/images/profits-circle.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 800px;
+      height: 800px;
+      position: absolute;
+      right: -237px;
+      top: -219px;
+    }
+    @media all and (max-width: $widthxl) {
+      padding-bottom: 34px;
+      max-width: 1100px;
+      &:before {
+        width: 700px;
+        height: 700px;
+        right: -181px;
+        top: -90px;
+      }
+    }
+    @media all and (max-width: 1450px) {
+      &:before {
+        width: 600px;
+        height: 600px;
+        right: -100px;
+        top: -150px;
+      }
+    }
+    @media all and (max-width: $widthlg) {
+      flex-wrap: wrap;
+      max-width: 650px;
+      padding-top: 50px;
+      &:before {
+        display: none;
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      padding-top: 30px;
+    }
+  }
+  &__col {
+    position: relative;
+    z-index: 2;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 112px;
+    &.global {
+      margin-top: 52px;
+      width: 100%;
+      max-width: 423px;
+    }
+    @media all and (max-width: $widthxl) {
+      margin-top: 73px;
+    }
+    @media all and (max-width: $widthlg) {
+      margin-top:50px;
+      &.global {
+        order: 1;
+        max-width: 650px;
+        margin: 0 15px;
+        width: calc(100% - 30px);
+        .earn-on-terms-item {
+          max-width: 100%;
+        }
+        @media all and (max-width: $widthsm) {
+          margin: 0 4px;
+          width: calc(100% - 8px);
+        }
+      }
+      &.two {
+        order: 2;
+        margin-top: 0;
+        margin: 0 15px;
+        margin-bottom: 30px;
+        width: calc(50% - 30px);
+        .earn-on-terms-item {
+          height: 186px;
+        }
+        @media all and (max-width: $widthsm) {
+          position: relative;
+          z-index: 3;
+          margin: 0 4px;
+          margin-bottom: 8px;
+          width: calc(50% - 8px);
+          .earn-on-terms-item {
+            height: 100px;
+            &.one {
+              .earn-on-terms-item__icon {
+                width: 72px;
+                height: 22px;
+                img {
+                  width: 100%;
+                }
+              }
+            }
+            &.two {
+              .earn-on-terms-item__icon {
+                width: 100px;
+                height: 20px;
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.three {
+        order: 3;
+        margin-top: 0;
+        margin: 0 15px;
+        margin-bottom: 30px;
+        width: calc(50% - 30px);
+        .earn-on-terms-item {
+          height: 186px;
+        }
+        @media all and (max-width: $widthsm) {
+          position: relative;
+          z-index: 3;
+          margin: 0 4px;
+          margin-bottom: 8px;
+          width: calc(50% - 8px);
+          .earn-on-terms-item {
+            height: 100px;
+            &.one {
+              .earn-on-terms-item__icon {
+                width: 71px;
+                height: 19px;
+                img {
+                  width: 100%;
+                }
+              }
+            }
+            &.two {
+              .earn-on-terms-item__icon {
+                width: 66px;
+                height: 25px;
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.coin-trade-item {
+  width: 100%;
+  max-width: 300px;
+  background: #FFFFFF;
+  box-shadow: 8px 8px 40px rgba(11, 17, 26, 0.15);
+  border-radius: 12px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  padding: 46px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media all and (max-width: $widthxl) {
+    max-width: 245px;
+    padding: 35px 0;
+    min-height: 151px;
+  }
+  @media all and (max-width: $widthsm) {
+    position: relative;
+    min-height: 100px;
+  }
+  &.global {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    width: 100%;
+    max-width: 423px;
+    min-height: 292px;
+    position: relative;
+    @media all and (max-width: $widthxl) {
+      max-width: 366px;
+      min-height: 252px;
+      margin-bottom: 57px;
+      .coin-trade-item__icon {
+        width: 230px;
+      }
+    }
+    @media all and (max-width: $widthlg) {
+      margin-bottom: 30px;
+    }
+    @media all and (max-width: $widthsm) {
+      margin-bottom: 8px;
+    }
+    .check {
+      position: absolute;
+      top: 12px;
+      right: -18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 8px 8px 40px rgba(11, 17, 26, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 22px;
+        height: 22px;
+        fill: #2C67FF;
+      }
+      @media all and (max-width: $widthxl) {
+        width: 28px;
+        height: 28px;
+        top: 6px;
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+    .coin-trade-item__icon {
+      width: 257px;
+      height: 77px;
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  &.kraken {
+    @media all and (max-width: $widthxl) {
+      .coin-trade-item__icon {
+        width: 150px;
+      }
+    }
+    @media all and (max-width: $widthlg) {
+      max-width: 100%;
+    }
+
+  }
+  &.one {
+    .coin-trade-item__icon {
+      width: 140px;
+      height: 51px;
+    }
+    @media all and (max-width: $widthxl) {
+      .coin-trade-item__icon {
+        width: 120px;
+      }
+    }
+  }
+  &.two {
+    .coin-trade-item__icon {
+      width: 150px;
+      height: 31px;
+    }
+    img {
+
+    }
+    @media all and (max-width: $widthxl) {
+      .coin-trade-item__icon {
+        width: 130px;
+      }
+    }
+  }
+  &.three {
+    .coin-trade-item__icon {
+      width: 200px;
+      height: 39px;
+    }
+    @media all and (max-width: $widthxl) {
+      .coin-trade-item__icon {
+        width: 180px;
+      }
+    }
+  }
+  &.four {
+    .coin-trade-item__icon {
+      width: 180px;
+      height: 41px;
+    }
+    @media all and (max-width: $widthxl) {
+      .coin-trade-item__icon {
+        width: 160px;
+      }
+    }
+  }
+  @media all and (max-width: $widthlg) {
+    margin-bottom: 30px;
+    max-width: 100%;
+    &.global {
+      max-width: 100%;
+    }
+  }
+  @media all and (max-width: $widthsm) {
+    margin-bottom: 8px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    &.global {
+      padding-top: 22px;
+      padding-bottom: 37px;
+      min-height: 164px;
+      .check {
+        display: none;
+      }
+      .coin-trade-item__icon {
+        width: 126px;
+        height: 38px;
+      }
+      .coin-trade-item__percent {
+        margin:11px 0;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 100%;
+      }
+      .coin-trade-item__text {
+        font-size: 14px;
+        line-height: 100%;
+      }
+    }
+    &.kraken {
+      .coin-trade-item__icon {
+        width: 92px;
+        height: 14px;
+      }
+    }
+    &.one {
+      .coin-trade-item__icon {
+        width: 77px;
+        height: 28px;
+      }
+    }
+    &.two {
+      .coin-trade-item__icon {
+        width: 80px;
+        height: 16px;
+      }
+    }
+    &.three {
+      .coin-trade-item__icon {
+        width: 108px;
+        height: 22px;
+      }
+    }
+    &.four {
+      .coin-trade-item__icon {
+        width: 98px;
+        height: 22px;
+      }
+    }
+
+  }
+  &__icon {
+    @media all and (max-width: $widthxl) {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      width: 68px;
+      height: 27px;
+      img {
+        width: 100%;
+      }
+    }
+
+  }
+  &__percent {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    margin-top: 19px;
+    color: $dark-blue2;
+    opacity: 0.5;
+  }
+  &__text {
+
+  }
+}
+
+.modern-movement-money {
+  padding-top: 90px;
+  @media all and (max-width: $widthsm) {
+    padding-top: 50px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+  }
+  &__img {
+    width: 100%;
+    max-width: 877px;
+    position: relative;
+    &:before {
+      content: '';
+      background: url(/images/prizes-lines.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 450px;
+      height: 450px;
+      position: absolute;
+      top: -180px;
+      z-index: -1;
+      left: -150px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    @media all and (max-width: $widthsm) {
+      &:before {
+        display: none;
+      }
+    }
+
+  }
+  &__content {
+    margin-bottom: 50px;
+    margin-left: 50px;
+    @media all and (max-width: $widthmd) {
+      margin-left: 0;
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__title {
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 22px;
+        line-height: 100%;
+      }
+    }
+
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @media all and (max-width: $widthmd) {
+      width: 100%;
+      justify-content: center;
+    }
+    @media all and (max-width: $widthsm) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      .btn-blue-shadow {
+        margin-right: 0;
+      }
+      .btn-blue-text {
+        margin-top: 20px;
+        font-size: 14px;
+        line-height: 15px;
+      }
+    }
+    .btn-blue-shadow {
+      margin-right: 37px;
+      width: 100%;
+      max-width: 225px;
+
+    }
+    .btn-blue-text {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 22px;
+      color: $blue;
+    }
+  }
+}
+
+.transfer-globally {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  @media all and (max-width: $widthxl) {
+    padding-top: 10px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__img {
+    width: 100%;
+    max-width: 789px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    @media all and (max-width: $widthxl) {
+      max-width: 659px;
+    }
+  }
+  &__content {
+    margin-left: 70px;
+    @media all and (max-width: $widthmd) {
+      margin-left: 0;
+    }
+  }
+  &__title {
+    max-width: 500px;
+    @media all and (max-width: $widthmd) {
+      max-width: initial;
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  &__text {
+    max-width: 590px;
+    @media all and (max-width: $widthmd) {
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.why-does-block {
+  background: $grey;
+  padding-top: 109px;
+  padding-bottom: 177px;
+  @media all and (max-width: $widthxl) {
+    padding-top: 79px;
+    padding-bottom: 107px;
+  }
+  @media all and (max-width: $widthmd) {
+    padding-bottom: 75px;
+    padding-top: 75px;
+  }
+  @media all and (max-width: $widthsm) {
+    padding-top: 46px;
+    padding-bottom: 23px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+  }
+  &__title {
+    text-align: center;
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__text {
+    text-align: center;
+    max-width: 1110px;
+  }
+  &__content {
+    padding-top: 20px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-top: 45px;
+    position: relative;
+    z-index: 1;
+    .why-does-block__text-col {
+      text-align: right;
+    }
+    @media all and (max-width: $widthmd) {
+      justify-content: center ;
+      align-items: center;
+    }
+    &.one {
+      &:before {
+        content: '';
+        background: url(/images/prizes-lines.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 450px;
+        height: 450px;
+        position: absolute;
+        bottom: -50px;
+        z-index: -1;
+        left: -75px;
+
+      }
+      @media all and (max-width: $widthlg) {
+        &:before {
+          display: none;
+        }
+      }
+      @media all and (max-width: $widthmd) {
+        order: 2;
+      }
+      @media all and (max-width: $widthsm) {
+        padding-top: 10px;
+      }
+    }
+    &.two {
+      padding-top: 0;
+      &:before {
+        content: '';
+        background: url(/images/prizes-lines.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 450px;
+        height: 450px;
+        position: absolute;
+        top: -50px;
+        z-index: -1;
+        right: -75px;
+        transform: rotate(180deg);
+
+      }
+      .why-does-block__text-col {
+        text-align: left;
+      }
+      align-items: flex-start;
+      justify-content: flex-end;
+      @media all and (max-width: $widthlg) {
+        &:before {
+          display: none;
+        }
+      }
+      @media all and (max-width: $widthmd) {
+        order: 3;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 27px;
+      }
+    }
+  }
+  &__img {
+    width: 100%;
+    max-width: 596px;
+    min-width: 596px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    @media all and (max-width: $widthxl) {
+      max-width: 555px;
+      min-width: 555px;
+    }
+    @media all and (max-width: $widthlg) {
+      min-width: 400px;
+      max-width: 400px;
+    }
+    @media all and (max-width: $widthmd) {
+      order: 1;
+    }
+    @media all and (max-width: $widthsm) {
+      min-width: initial;
+    }
+  }
+  &__icon {
+    background: #FFFFFF;
+    box-shadow: 5px 5px 20px rgba(23, 25, 31, 0.15);
+    border-radius: 12px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: $blue;
+    }
+    @media all and (max-width: $widthsm) {
+      width: 46px;
+      height: 46px;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  &__title-col {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 100%;
+    color: $dark-blue2;
+    @media all and (max-width: $widthxl) {
+      font-size: 20px;
+    }
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+    }
+    @media all and (max-width: $widthsm) {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 100%;
+    }
+  }
+  &__text-col {
+    padding-top: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $dark-blue2;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+    @media all and (max-width: $widthmd) {
+      text-align: center !important;
+    }
+    @media all and (max-width: $widthsm) {
+
+    }
+  }
+}

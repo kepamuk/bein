@@ -109,7 +109,7 @@ export default {
       display: block;
       width: 28px;
       height: 15px;
-      background-image: url("/images/prompt-angle.svg");
+      background-image: url("/images/client/prompt-angle.svg");
       background-size: contain;
       background-repeat: no-repeat;
       @media (max-width: 1700px) {

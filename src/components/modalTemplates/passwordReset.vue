@@ -17,7 +17,7 @@
       }"
     >
       <div class="beModal__body">
-        <h2 class="beModal__title">{{ "Password reset" }}</h2>
+        <h2 class="beModal__title">{{ login ? "Account recovery" : "Password reset" }}</h2>
         <div class="mb30">
           <beInputRadio
             class="mr25"
@@ -45,16 +45,28 @@
         </div>
         <beButton
           type="button"
-          title="Continue"
+          :title="login ? 'Recover' : 'Continue'"
           :shadow="true"
           @click="resetPassword"
         ></beButton>
+        <button @click="BackModals" v-if="login" class="js-btn-login-popup popup-recovery__sign">
+          <svg>
+            <use xlink:href="/images/icons/icons.svg#arrow-left3"></use>
+          </svg>
+          <span>Back to Sign in</span>
+        </button>
       </div>
     </vueCustomScrollbar>
   </div>
 </template>
 <script>
 export default {
+  props: {
+    login: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       resetType: 1,
@@ -65,6 +77,15 @@ export default {
       this.$modal.hide("modal-reset-password");
       this.$modal.show("modal-reset-password-varification");
     },
+    BackModals() {
+      this.$modal.hide("modal-reset-password");
+      this.$modal.show("modal-login");
+    },
   },
 };
 </script>
+<style lang="scss" scoped>
+  .popup-recovery__sign {
+    width: 100%;
+  }
+</style>

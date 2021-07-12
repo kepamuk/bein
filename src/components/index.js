@@ -10,6 +10,9 @@ import beInputFile from '@/components/beInputFile';
 import beInputRadio from '@/components/beInputRadio';
 import bePrompt from '@/components/bePrompt';
 import beSelect from '@/components/beSelect';
+import beTextarea from '@/components/beTextarea';
+import AppHeaderComponent from '@/components/AppHeaderComponent';
+import AppFooterComponent from '@/components/AppFooterComponent';
 
 Vue.component("asideComponent", asideComponent);
 Vue.component("beAccordeon", beAccordeon);
@@ -21,9 +24,16 @@ Vue.component("beInputFile", beInputFile);
 Vue.component("beInputRadio", beInputRadio);
 Vue.component("bePrompt", bePrompt);
 Vue.component("beSelect", beSelect);
+Vue.component("beTextarea", beTextarea);
+Vue.component("AppHeader", AppHeaderComponent);
+Vue.component("AppFooter", AppFooterComponent);
 
 
 // modals
+import login from '@/components/modalTemplates/login';
+import register from '@/components/modalTemplates/register';
+import termsOfService from '@/components/modalTemplates/termsOfService';
+import askAQuestion from '@/components/modalTemplates/askAQuestion';
 import addWallet from '@/components/modalTemplates/addWallet';
 import balancePlanner from '@/components/modalTemplates/balancePlanner';
 import beExchangeDone from '@/components/modalTemplates/beExchangeDone';
@@ -43,6 +53,10 @@ import twoFactorCode from '@/components/modalTemplates/twoFactorCode';
 import twoFactorGAuth from '@/components/modalTemplates/twoFactorGAuth';
 import walletInfo from '@/components/modalTemplates/walletInfo';
 
+Vue.component("login", login);
+Vue.component("register", register);
+Vue.component("termsOfService", termsOfService);
+Vue.component("askAQuestion", askAQuestion);
 Vue.component("addWallet", addWallet);
 Vue.component("balancePlanner", balancePlanner);
 Vue.component("beExchangeDone", beExchangeDone);
@@ -66,5 +80,7 @@ Vue.component("walletInfo", walletInfo);
 
 
 import settingsStepForm from '@/components/modalTemplates/settingsStepForm/settingsStepForm';
+import notificationStepForm from '@/components/modalTemplates/settingsStepForm/notificationStepForm';
 
 Vue.component("settingsStepForm", settingsStepForm);
+Vue.component("notificationStepForm", notificationStepForm);

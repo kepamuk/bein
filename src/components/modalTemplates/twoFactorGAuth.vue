@@ -27,7 +27,7 @@
               Authenticator), scan the QR code below with the camera of your
               phone:
             </p>
-            <p class="text-center"><img src="/images/qr.svg" alt="" /></p>
+            <p class="text-center"><img src="/images/client/qr.svg" alt="" /></p>
             <p class="text--grey">
               If you have any problems with the QR code, enter this code
               manually into the app:

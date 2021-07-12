@@ -56,10 +56,10 @@
       background-repeat: no-repeat;
     }
     &:not(.card--gradient-dark)::before {
-      background-image: url(/images/card-lines-white.png);
+      background-image: url(/images/client/card-lines-white.png);
     }
     &::before {
-      background-image: url(/images/card-lines-blue.png);
+      background-image: url(/images/client/card-lines-blue.png);
     }
     & > * {
       position: relative;

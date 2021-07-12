@@ -1,0 +1,1613 @@
+.bg-overley {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  background: $dark-blue2;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s linear;
+  &.js-menu {
+    opacity: 0.2;
+    visibility: visible;
+    z-index: 5;
+  }
+  &.js-active {
+    opacity: 0.4;
+    visibility: visible;
+  }
+}
+
+.create-account {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    animation: scaleAnim  .5s forwards ease-in-out;
+  }
+  &__wrapper {
+    position: relative;
+    max-width: 814px;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding:64px 80px 75px 80px;
+    @media all and (max-height:860px) {
+      height: 90vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    @media all and (max-width: 800px) {
+      max-width: 500px;
+      width: 100%;
+      padding: 46px 22px 100px 22px;
+      height: 90vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    @media all and (max-width: $widthsm) {
+      max-width: calc(100% - 30px);
+    }
+  }
+  &__exit {
+    cursor: pointer;
+    position: absolute;
+    width: 14px;
+    top: 20px;
+    right: 20px;
+    height: 14px;
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: $dark-blue2;
+      opacity: 0.3;
+      transition: .3s linear;
+    }
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+    }
+    @media all and (max-width: 800px) {
+      right: 10px;
+      top: 10px;
+    }
+  }
+  &__title {
+    text-align: center;
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media all and (max-width: $widthxl) {
+      font-size: 24px;
+      padding-top: 0;
+    }
+  }
+  &__form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 -11px;
+    margin-bottom: -30px;
+  }
+  &__input {
+    margin: 0 11px;
+    margin-bottom: 30px;
+    width: calc(50% - 22px);
+    &.name {
+      width: calc(100% - 22px);
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    span {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color:  rgba(11, 17, 26, 0.5);
+      padding-top: 15px;
+      @media all and (max-width: $widthxl) {
+        font-size: 13px;
+      }
+    }
+    position: relative;
+    .check-password {
+      top: 21px;
+      right: 20px;
+      @media all and (max-width: 800px) {
+        top: 14px;
+        right: 15px;
+      }
+    }
+    .erorr-input {
+      top: 21px;
+      &:hover {
+        img {
+          opacity: 0.5;
+        }
+      }
+      @media all and (max-width: 800px) {
+        top: 14px;
+        right: 15px;
+      }
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    input {
+      width: 100%;
+      &:focus + label {
+        &:before {
+          background: $blue;
+        }
+      }
+    }
+    &.error {
+      input {
+        background: #fff;
+      }
+      label {
+        &:before {
+          background: $red;
+        }
+      }
+    }
+    @media all and (max-width: 800px) {
+      width: calc(100% - 22px);
+      margin-bottom: 22px;
+    }
+  }
+  &__checkbox {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .checkbox:not(checked)+label {
+      padding-left: 26px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      color: $dark-blue;
+      a {
+        color:$blue;
+        font-weight: 700;
+      }
+    }
+    .checkbox:not(checked) + label:before {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    .checkbox:not(checked) + label:after {
+      top: 50%;
+      left: 4px;
+      transform: translateY(-50%);
+    }
+    @media all and (max-width: $widthxl) {
+      padding-top: 15px;
+      padding-bottom: 25px;
+      .checkbox:not(checked)+label {
+        font-size: 16px;
+
+      }
+    }
+    @media all and (max-width: 800px) {
+      padding-top: 49px;
+      padding-bottom: 18px;
+      .checkbox:not(checked)+label{
+        padding-left: 0;
+        &:before {
+          left: 50%;
+          transform: translateX(-50%);
+          top: initial;
+          bottom: calc(100% + 10px);
+        }
+        &:after {
+          left: 50%;
+          transform: translateX(-50%);
+          top: initial;
+          bottom: calc(100% + 14px);
+        }
+      }
+    }
+  }
+  &__btn {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 340px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    appearance: none;
+    span {
+      font-size: 22px;
+      line-height: 27px;
+    }
+    &:before {
+      width: 100%;
+      max-width: 276px;
+    }
+    @media all and (max-width: $widthxl) {
+      max-width: 290px;
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+  &__login {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+
+    @media all and (max-width: 800px) {
+      margin-top: 28px;
+    }
+    a {
+      color: $blue;
+      font-weight: 600;
+      margin-left: 8px;
+      transition: .3s linear;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    @media all and (max-width: $widthxl) {
+      margin-top: 30px;
+      span {
+        font-size: 16px;
+      }
+      a {
+        font-size: 16px;
+      }
+    }
+
+  }
+}
+
+.login-popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    animation: scaleAnim  .5s forwards ease-in-out;
+  }
+  &__wrapper {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding:44px 79px 54px 79px;
+    @media all and (max-width: 800px) {
+      max-width: 500px;
+      width: 100%;
+      padding: 46px 22px 30px 22px;
+    }
+    @media all and (max-width: $widthsm) {
+      max-width: calc(100% - 30px)
+    }
+  }
+  &__title {
+    max-width: 349px;
+    font-size: 28px;
+    line-height: 100%;
+    text-align: center;
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media all and (max-width: $widthxl) {
+      font-size: 24px;
+    }
+    @media all and (max-width: 800px) {
+      max-width: 100%;
+    }
+  }
+  &__form {
+
+  }
+  &__input {
+    position: relative;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    input {
+      width: 100%;
+    }
+    .check-password {
+      position: absolute;
+      top: 24px;
+      right: 22px;
+      @media all and (max-width: 800px) {
+        top: 14px;
+        right: 15px;
+      }
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    input {
+      width: 100%;
+      &:focus + label {
+        &:before {
+          background: $blue;
+        }
+      }
+    }
+    &.error {
+      input {
+        background: #fff;
+      }
+      .erorr-input {
+        @media all and (max-width: 800px) {
+          right: 15px;
+        }
+      }
+      label {
+        &:before {
+          background: $red;
+
+        }
+      }
+    }
+  }
+  &__forgot-pass {
+    text-align: right;
+    a {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+      color: $dark-blue2;
+      opacity: 0.7;
+      transition: .3s linear;
+      &:hover {
+        opacity: 1;
+        color: $blue;
+      }
+    }
+    @media all and (max-width: $widthxl) {
+      a {
+        font-size: 16px;
+      }
+    }
+    @media all and (max-width: 800px) {
+      a {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+      }
+    }
+  }
+  &__btn {
+    margin: 0 auto;
+    max-width: 216px;
+    margin-top: 38px;
+    margin-bottom: 33px;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+    span {
+      font-size: 22px;
+      line-height: 27px;
+    }
+    @media all and (max-width: $widthxl) {
+      span {
+        font-size: 18px;
+      }
+    }
+    @media all and (max-width: 800px) {
+      margin-top: 31px;
+      margin-bottom: 28px;
+      span {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+  }
+  &__login-block {
+    text-align: center;
+    span {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+      color: $dark-blue2;
+      opacity: 0.7;
+    }
+    a {
+      margin-left: 4px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+      color: $blue;
+      transition: .3s linear;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    @media all and (max-width: $widthxl) {
+      span {
+        font-size: 16px;
+      }
+      a {
+        font-size: 16px;
+      }
+    }
+    @media all and (max-width: 800px) {
+     span {
+       font-weight: 500;
+       font-size: 14px;
+       line-height: 100%;
+     }
+      a {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+      }
+    }
+  }
+}
+.popup-ask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    animation: scaleAnim  .5s forwards ease-in-out;
+  }
+  &__wrapper {
+    position: relative;
+    max-width: 534px;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding:64px 69px 67px 69px;
+    @media all and (max-width: 800px) {
+      max-width: 500px;
+      width:100%;
+      padding: 46px 22px 30px 22px;
+
+    }
+    @media all and (max-width: $widthsm) {
+      width: 100%;
+    }
+  }
+  &__title {
+    max-width: 349px;
+    font-size: 28px;
+    line-height: 100%;
+    text-align: center;
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media all and (max-width: 800px) {
+      max-width: 100%;
+    }
+    @media all and (max-width: $widthxl) {
+      font-size: 24px;
+    }
+  }
+  &__form {
+
+  }
+  &__input {
+    position: relative;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    input {
+      width: 100%;
+    }
+    @media all and (max-width: 800px) {
+      textarea {
+        width: 100%;
+        height: 104px;
+      }
+
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    input {
+      width: 100%;
+      &:focus + label {
+        &:before {
+          background: $blue;
+        }
+      }
+    }
+    &.error {
+      input {
+        background: #fff;
+      }
+      label {
+        &:before {
+          background: $red;
+        }
+      }
+    }
+  }
+  &__btn {
+    margin: 0 auto;
+    max-width: 216px;
+    width: 100%;
+    margin-top: 40px;
+    appearance: none;
+    @media all and (max-width: $widthsm) {
+      margin-top: 20px;
+      max-width: 232px;
+    }
+    span {
+      font-size: 22px;
+      line-height: 27px;
+    }
+    @media all and (max-width: $widthxl) {
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.popup-recovery {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    animation: scaleAnim  .5s forwards ease-in-out;
+  }
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 498px;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding:64px 69px 67px 69px;
+    @media all and (max-width: 800px) {
+      max-width: 500px;
+      width: 100%;
+      padding: 46px 22px 30px 22px;
+    }
+    @media all and (max-width: $widthsm) {
+      max-width: calc(100% - 30px);
+    }
+  }
+  &__title {
+    max-width: 349px;
+    font-size: 28px;
+    line-height: 100%;
+    text-align: center;
+    @media all and (max-width: $widthmd) {
+      max-width: 100%;
+    }
+    @media all and (max-width: $widthxl) {
+      font-size: 24px;
+    }
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__form {
+
+  }
+  &__radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    .checkbox:not(checked)+label {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      color: $dark-blue2;
+      opacity: 0.5;
+    }
+    .checkbox:checked+label {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      color: $dark-blue2;
+      opacity: 1;
+    }
+
+    .checkbox:not(checked)+label:before {
+      border-radius: 50%;
+    }
+    .checkbox:checked+label:before {
+      border-radius: 50%;
+      background:#fff;
+    }
+    .checkbox:checked+label:after {
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      background: $blue;
+      top: 5px;
+      left: 5px;
+    }
+    .checkbox:not(checked)+label:after {
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      top: 5px;
+      left: 5px;
+    }
+    .checkbox:not(checked):hover+label:after {
+      background: $blue;
+
+    }
+    label {
+      margin: 0 11px;
+      padding-left: 24px;
+
+    }
+    @media all and (max-width: $widthxl) {
+      .checkbox:not(checked)+label {
+        font-size: 16px;
+      }
+      .checkbox:checked+label {
+        font-size: 16px;
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      label {
+        margin: 0 6px;
+      }
+      .checkbox:not(checked)+label {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .checkbox:checked+label {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .checkbox:not(checked)+label:before {
+        width: 14px;
+        height: 14px;
+      }
+      .checkbox:not(checked)+label:after {
+        width: 6px;
+        height: 6px;
+        top: 4px;
+        left: 4px;
+      }
+      .checkbox:checked+label:after {
+        width: 6px;
+        height: 6px;
+        top: 4px;
+        left: 4px;
+      }
+    }
+  }
+  &__input {
+    position: relative;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    input {
+      width: 100%;
+    }
+    @media all and (max-width: 800px) {
+      textarea {
+        width: 100%;
+        height: 104px;
+      }
+
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    input {
+      width: 100%;
+      &:focus + label {
+        &:before {
+          background: $blue;
+        }
+      }
+    }
+    &.error {
+      input {
+        background: #fff;
+      }
+      label {
+        &:before {
+          background: $red;
+        }
+      }
+    }
+  }
+  &__btn {
+    margin: 0 auto;
+    max-width: 216px;
+    width: 100%;
+    margin-top: 52px;
+    appearance: none;
+    @media all and (max-width: $widthsm) {
+      max-width: 232px;
+    }
+    span {
+      font-size: 22px;
+      line-height: 27px;
+    }
+    @media all and (max-width: $widthxl) {
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+  &__sign {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    &:hover {
+      svg {
+        opacity: 1;
+        fill: $blue;
+      }
+      span {
+        opacity: 1;
+        color: $blue;
+      }
+
+    }
+    svg {
+      width: 24px;
+      height: 17px;
+      margin-right: 14px;
+      fill: $dark-blue3;
+      opacity: .5;
+      transition: .3s linear;
+    }
+    span {
+      transition: .3s linear;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+      color: $dark-blue2;
+      opacity: 0.5;
+    }
+    @media all and (max-width: $widthxl) {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.popup-password {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    animation: scaleAnim  .5s forwards ease-in-out;
+  }
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding:64px 69px 67px 69px;
+
+    @media all and (max-width: 800px) {
+      max-width: 500px;
+      width: 100%;
+      padding: 46px 22px 30px 22px;
+    }
+    @media all and (max-width: $widthsm) {
+      max-width: calc(100% - 30px;);
+    }
+  }
+  &__title {
+    font-size: 28px;
+    line-height: 100%;
+    text-align: center;
+    max-width: 100%;
+    @media all and (max-width: $widthxl) {
+      font-size: 24px;
+    }
+    @media all and (max-width: $widthmd) {
+      max-width: 100%;
+    }
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__form {
+    .login-popup__input {
+      margin-bottom: 14px;
+    }
+  }
+  &__input {
+    position: relative;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    input {
+      width: 100%;
+    }
+    @media all and (max-width: 800px) {
+      textarea {
+        width: 100%;
+        height: 104px;
+      }
+
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    label {
+      width: 100%;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        background:#D0D0D0;
+        width: 100%;
+        transition: .3s linear;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+      }
+    }
+    input {
+      width: 100%;
+      &:focus + label {
+        &:before {
+          background: $blue;
+        }
+      }
+    }
+    &.error {
+      input {
+        background: #fff;
+      }
+      label {
+        &:before {
+          background: $red;
+        }
+      }
+    }
+  }
+  &__btn {
+    margin: 0 auto;
+    max-width: 340px;
+    width: 100%;
+    margin-top: 52px;
+    appearance: none;
+    @media all and (max-width: $widthxl) {
+      padding: 15px 24px;
+      max-width: 208px;
+      span {
+        font-size: 18px;
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      max-width: 232px;
+    }
+    span {
+      font-size: 22px;
+      line-height: 27px;
+    }
+
+  }
+  &__sign {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    &:hover {
+      svg {
+        opacity: 1;
+        fill: $blue;
+      }
+      span {
+        opacity: 1;
+        color: $blue;
+      }
+
+    }
+    svg {
+      width: 24px;
+      height: 17px;
+      margin-right: 14px;
+      fill: $dark-blue3;
+      opacity: .5;
+      transition: .3s linear;
+    }
+    span {
+      transition: .3s linear;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+      color: $dark-blue2;
+      opacity: 0.5;
+    }
+    @media all and (max-width: $widthxl) {
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+.popup-text {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    animation: scaleAnim  .5s forwards ease-in-out;
+  }
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding:64px 69px 67px 69px;
+    @media all and (max-height: 800px) {
+      height: 90vh;
+      overflow-y: auto;
+    }
+    @media all and (max-width: 800px) {
+      max-width: calc(100% - 44px);
+      padding: 46px 22px 30px 22px;
+    }
+    @media all and (max-width: $widthsm) {
+      height: 90vh;
+      overflow-y: auto;
+    }
+    strong {
+      font-size: 18px;
+      line-height: 100%;
+      margin: 10px 0;
+      display: block;
+      @media all and (max-width: $widthxl) {
+        font-size: 16px;
+      }
+    }
+    ul {
+      padding-left: 0;
+      li {
+        padding-left: 30px;
+        margin-bottom: 14px;
+        list-style: none;
+        position: relative;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 100%;
+        a {
+          color: $blue;
+        }
+        &:before {
+          content: '';
+          background: url(/images/check-blue.svg);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 15px;
+          height: 10px;
+          position: absolute;
+          left: 0;
+          top: 3px;
+        }
+        @media all and (max-width: $widthxl) {
+          font-size: 16px;
+        }
+      }
+    }
+    p {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+      @media all and (max-width: $widthxl) {
+        font-size: 16px;
+      }
+    }
+    span.red {
+      display: block;
+      color: $red;
+      margin-top: 10px;
+      font-weight: 600;
+      font-style: italic;
+    }
+  }
+  &__title {
+    max-width: 560px;
+
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+  }
+
+}
+
+
+.popup-verify {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  &.js-active {
+    opacity: 1;
+    visibility: visible;
+    animation: scaleAnim  .5s forwards ease-in-out;
+  }
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 607px;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding:42px 50px 30px 50px;
+    @media all and (max-height: 600px) {
+      height: 90vh;
+      overflow-y: auto;
+    }
+    @media all and (max-width: $widthsm) {
+      max-width: calc(100% - 44px);
+      padding: 43px 25px 23px 25px;
+    }
+  }
+  &__title {
+    @media all and (max-width: $widthxl) {
+      font-size: 24px;
+    }
+    @media all and (max-width: $widthsm) {
+      padding-top: 0;
+      text-align: left;
+      margin-bottom: 43px;
+      &:before {
+        left: 0;
+        transform: initial;
+      }
+    }
+  }
+  &__steps {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 35px;
+    .line {
+      border-bottom: 2px dashed #B6B8BA;
+      width: 76px;
+    }
+    @media all and (max-width: $widthsm) {
+      padding-bottom: 27px;
+    }
+  }
+  &__step {
+    background: #B6B8BA;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #fff;
+    transition: .3s linear;
+    &.js-active {
+      background: #2C67FF;
+      box-shadow: 5px 5px 20px rgba(44, 103, 255, 0.25);
+    }
+    @media all and (max-width: $widthsm) {
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+  &__subtitle {
+    padding-bottom: 16px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 100%;
+    color: $dark-blue2;
+  }
+  &__form {
+
+  }
+  &__input {
+    position: relative;
+
+    input {
+      width: 100%;
+      padding-right: 60px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 100%;
+      font-weight: 700;
+      b {
+        font-weight: 700;
+        color: $red;
+      }
+      color: rgba(11, 17, 26, 0.7);
+      @media all and (max-width: $widthsm) {
+        font-size: 12px;
+        line-height: 100%;
+      }
+    }
+    &.error {
+      .erorr-input {
+        top: 30px;
+      }
+      input {
+        border-bottom-color: #ff4949;
+        &::placeholder {
+          color: #ff4949;
+        }
+      }
+    }
+    .edit {
+      position: absolute;
+      top: 24px;
+      right: 30px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color:rgba(11, 17, 26, 0.7);
+      @media all and (max-width: $widthsm) {
+        font-size: 12px;
+        line-height: 100%;
+      }
+    }
+    .copy {
+      position: absolute;
+      top: 22px;
+      right: 30px;
+      width: 16px;
+      height: 18px;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .save-btn {
+      position: absolute;
+      top: 24px;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        &.save {
+          svg {
+            width: 14px;
+            height:11px;
+            fill: $blue;
+          }
+        }
+        &.delete {
+          svg {
+            width: 11px;
+            height: 11px;
+            fill: $dark-blue2;
+            opacity: 0.5;
+          }
+        }
+        span {
+          margin-left: 6px;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 100%;
+          color:$blue;
+          margin-right: 11px;
+          padding-right: 11px;
+          border-right: 1px solid #C4C4C4;
+        }
+      }
+      @media all and (max-width: 800px) {
+        top: 20px;
+      }
+      @media all and (max-width: $widthsm) {
+        top: 24px;
+        right: 14px;
+        a {
+          &.save {
+            padding-right: 9px;
+            margin-right: 11px;
+            border-right: 1px solid #C4C4C4;
+            span {
+              display: none;
+            }
+            svg {
+              width: 12px;
+              height: 11px;
+            }
+          }
+          &.delete {
+            svg {
+              width: 12px;
+              height: 12px;
+            }
+          }
+        }
+      }
+    }
+    .send-again {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      padding-top: 18px;
+      display: block;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: $dark-blue2;
+      opacity: 0.5;
+      @media all and (max-width: $widthsm) {
+        font-size: 12px;
+        line-height: 100%;
+      }
+    }
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin-top: 40px;
+    padding-top: 28px;
+    &:before {
+      content: '';
+      height: 1px;
+      background: #000;
+      width: calc(100% + 90px);
+      left: -45px;
+      opacity: 0.1;
+      top: 0;
+      position: absolute;
+    }
+    @media all and (max-width: $widthsm) {
+      &:before {
+        width: calc(100% + 50px);
+        left: -25px;
+      }
+      flex-direction: column-reverse;
+    }
+  }
+  &__btn-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: rgba(11, 17, 26, 0.1);
+    width: 50%;
+    margin: 0 5px;
+    text-decoration: none;
+    height: 52px;
+    transition: .3s linear;
+    &:hover {
+      background: rgba(11, 17, 26, 0.4);
+      svg {
+        fill: #fff;
+        opacity: 1;
+      }
+      span {
+        opacity: 1;
+        color: #fff;
+      }
+    }
+    svg {
+      width: 36px;
+      fill: $dark-blue2;
+      opacity: 0.5;
+      transition: .3s linear;
+    }
+    span {
+      transition: .3s linear;
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 100%;
+      color: $dark-blue2;
+      opacity: 0.5;
+    }
+    @media all and (max-width: $widthsm) {
+      width: 100%;
+      height: 44px;
+      svg {
+        width: 28px;
+      }
+      span {
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+  }
+  &__btn-continue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: $blue;
+    width: 50%;
+    margin: 0 5px;
+    appearance: none;
+    border:none;
+    transition: .3s linear;
+    &:hover {
+      background: $hover-blue;
+    }
+    height: 52px;
+    svg {
+      width: 36px;
+      fill: #fff;
+      transform: rotate(180deg);
+    }
+    span {
+      margin-right: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 100%;
+      color: #fff;
+    }
+    @media all and (max-width: $widthsm) {
+      width: 100%;
+      margin-bottom: 6px;
+      height: 44px;
+      svg {
+        width: 28px;
+      }
+      span {
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+  }
+  &__btn-complete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: $blue;
+    width: 50%;
+    margin: 0 5px;
+    appearance: none;
+    border:none;
+    transition: .3s linear;
+    &:hover {
+      background: $hover-blue;
+    }
+    height: 52px;
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+    span {
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 100%;
+      color: #fff;
+    }
+    @media all and (max-width: $widthsm) {
+      width: 100%;
+      margin-bottom: 6px;
+      height: 44px;
+      svg {
+        width: 28px;
+      }
+      span {
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+  }
+}

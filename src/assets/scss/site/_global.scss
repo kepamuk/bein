@@ -1,0 +1,407 @@
+* {
+	outline: none;
+	box-sizing: border-box;
+}
+body {
+	font-family: "Gilroy";
+	overflow-x:hidden;
+	margin: 0;
+	&.fixed {
+		overflow:hidden;
+	}
+}
+input {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 21px;
+	color: #4f4f4f;
+	appearance:none;
+	&:placeholder {
+		color: #E0E0E0;
+	}
+}
+
+button {
+	cursor: pointer;
+}
+
+textarea {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 21px;
+	color: #4f4f4f;
+	appearance:none;
+	resize: none;
+	&:placeholder {
+		color: #E0E0E0;
+	}
+}
+.container {
+	width: 100%;
+	max-width: 1450px;
+	margin: 0 auto;
+	@media all and (max-width: $widthxl) {
+		max-width: 1170px;
+	}
+	@media all and (max-width: $widthlg) {
+		max-width: calc(100% - 60px);
+	}
+	@media all and (max-width: $widthmd) {
+		max-width: calc(100% - 44px);
+	}
+}
+.tablet-class {
+	display: none;
+	@media all and (max-width: $widthmd) {
+		display: block;
+		width: 100%;
+	}
+}
+.mobile-class {
+	display: none;
+	@media all and (max-width: $widthsm) {
+		display: block;
+		width: 100%;
+	}
+}
+
+.subtitle {
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 22px;
+	color: $blue;
+	@media all and (max-width: $widthxl) {
+		font-size: 16px;
+	}
+	@media all and (max-width: $widthsm) {
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 17px;
+	}
+}
+.title {
+	position: relative;
+	padding-top: 12px;
+	margin-bottom: 42px;
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 100%;
+	color: $dark-blue;
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -20px;
+		width: 58px;
+		height: 3px;
+		background: linear-gradient(90deg, $blue 0%, rgba(44, 103, 255, 0) 100%);;
+	}
+	@media all and (max-width: $widthxl) {
+		font-size: 26px;
+	}
+	@media all and (max-width: $widthsm) {
+		font-size: 22px;
+		line-height: 100%;
+		margin-bottom: 33px;
+		text-align: center;
+		&:before {
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: -16px;
+		}
+	}
+}
+.text {
+	p {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 120%;
+		color:$dark-blue;
+		margin: 0;
+		margin-bottom: 28px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	@media all and (max-width: $widthxl) {
+		p {
+			font-size: 16px;
+		}
+	}
+	@media all and (max-width: $widthsm) {
+		p {
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 100%;
+			text-align: center;
+			margin-bottom: 14px;
+		}
+	}
+}
+
+.input-grey {
+	appearance: none;
+	border: none;
+	box-sizing: border-box;
+	width: 327px;
+	transition: .3s linear;
+	box-sizing: border-box;
+	border: 1px solid #E9E9E9;
+	border-radius: 5px 5px 0 0;
+	background: #F8F8F8;
+	padding: 24px 26px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 100%;
+	color: $dark-blue2;
+	&::placeholder {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 100%;
+		color: rgba(11, 17, 26, 0.5);
+	}
+
+	&:focus {
+		background:#fff;
+	}
+	@media all and (max-width:$widthxl) {
+	    padding:19px 26px;
+	}
+	@media all and (max-width: 800px) {
+		padding: 19px 26px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 100%;
+		&::placeholder {
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 100%;
+		}
+	}
+}
+
+/* Cначала обозначаем стили для IE8 и более старых версий
+т.е. здесь мы немного облагораживаем стандартный чекбокс. */
+.checkbox {
+	vertical-align: top;
+	width: 17px;
+	height: 17px;
+	margin: 0 3px 0 0;
+}
+/* Это для всех браузеров, кроме совсем старых, которые не поддерживают
+селекторы с плюсом. Показываем, что label кликабелен. */
+.checkbox + label {
+	cursor: pointer;
+}
+
+/* Далее идет оформление чекбокса в современных браузерах, а также IE9 и выше.
+Благодаря тому, что старые браузеры не поддерживают селекторы :not и :checked,
+в них все нижеследующие стили не сработают. В данном случае checked указывается
+без двоеточия впереди, почему-то это срабатывает именно так. */
+
+.checkbox:not(checked) {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 10px 0 0 20px;
+}
+.checkbox:not(checked) + label {
+	position: relative;
+}
+.checkbox:not(checked) + label:before {
+	content: '';
+	opacity: 0.3;
+	border: 2px solid #0B111A;
+	box-sizing: border-box;
+	border-radius: 4px;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	left: 0;
+	transition: .3s linear;
+}
+.checkbox:not(checked) + label:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	opacity: 0.5;
+	left: 0;
+	transition: .3s linear;
+
+}
+
+.checkbox:checked:hover + label:after {
+	background: url("/images/check-white.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+.checkbox:checked + label:before {
+	background: $blue;
+	opacity: 1;
+	border-color: $blue;
+}
+.checkbox:checked + label:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background: url("/images/check-white.svg");
+	opacity: 1;
+	left: 0;
+	transition: .3s linear;
+}
+
+.check-password {
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	background: url("/images/pass1.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 2;
+	cursor: pointer;
+	background-size: contain;
+	&.view {
+		background: url("/images/pass2.svg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
+
+.erorr-input {
+	z-index: 5;
+	display: none;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	&.reverse {
+		.erorr-input__popup {
+			left: initial;
+			right: calc(100% - 10px);
+			border-radius: 10px 10px 0 10px;
+			&:before {
+				content: '';
+				background: url(/images/arriow-white-block2.svg);
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+				position: absolute;
+				top: 98%;
+				left: initial;
+				right: 0;
+				width: 30px;
+				height: 14px;
+			}
+		}
+	}
+	img {
+		width: 22px;
+		height: 22px;
+		transition: .3s linear;
+	}
+	&:hover {
+		.erorr-input__popup {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	&__popup {
+		transition: .3s linear;
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		left: calc(100% - 10px);
+		bottom: calc(100% + 10px);
+		filter: drop-shadow(8px 8px 40px rgba(23, 25, 31, 0.15));
+		border-radius: 10px 10px 10px 0;
+		box-sizing: border-box;
+		padding:20px 30px;
+		font-weight: 500;
+		min-width: 202px;
+		font-size: 18px;
+		line-height: 120%;
+		color: $dark-blue2 !important;
+		background: #FFFFFF;
+		&:before {
+			content: '';
+			background: url("/images/arriow-white-block.svg");
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+			position: absolute;
+			top: 98%;
+			left: 0;
+			width: 30px;
+			height: 14px;
+		}
+		@media all and (max-width:$widthxl) {
+		    font-size:16px;
+		    left: initial;
+            right: calc(100% - 10px);
+            border-radius: 10px 10px 0 10px;
+            &:before {
+                content: '';
+                background: url("/images/arriow-white-block2.svg");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: 98%;
+                left: initial;
+                right: 0;
+                width: 30px;
+                height: 14px;
+            }
+		}
+		@media all and (max-width: $widthsm) {
+		    font-size:12px;
+		    padding:10px 15px;
+		    min-width:150px;
+		}
+	}
+}
+
+.error {
+	position: relative;
+	.erorr-input {
+		display: block;
+	}
+}
+
+.bread-crumbs {
+	padding-top: 160px;
+	padding-bottom: 70px;
+	@media all and (max-width: $widthsm) {
+		padding-bottom: 10px;
+		padding-top: 83px;
+	}
+	span {
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 19px;
+		color: rgba(255, 255, 255, 0.5);
+		@media all and (max-width: $widthsm) {
+			font-size: 14px;
+		}
+	}
+	a {
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 19px;
+		color: rgba(255, 255, 255, 0.5);
+		text-decoration: none;
+		&:last-child {
+			color: rgba(255, 255, 255, 1);
+		}
+		@media all and (max-width: $widthsm) {
+			font-size: 14px;
+		}
+	}
+}

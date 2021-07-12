@@ -25,11 +25,11 @@
             placeholder="Recovery key"
             v-model="varification.recoveryKey"
           >
-            <i
+            <!-- <i
               :class="isResetShown ? 'icon-closed-eye' : 'icon-eye'"
               slot="right"
               @click="isResetShown = !isResetShown"
-            ></i>
+            ></i> -->
           </beInput>
           <beInput
             :type="isPasswordShown ? 'text' : 'password'"
@@ -37,7 +37,7 @@
             placeholder="New password please"
           >
             <i
-              :class="isPasswordShown ? 'icon-closed-eye' : 'icon-eye'"
+              :class="isPasswordShown ? 'icon-eye' : 'icon-closed-eye'"
               slot="right"
               @click="isPasswordShown = !isPasswordShown"
             ></i>
@@ -48,7 +48,7 @@
             placeholder="Once again, please."
           >
             <i
-              :class="isRepeatShown ? 'icon-closed-eye' : 'icon-eye'"
+              :class="isRepeatShown ? 'icon-eye' : 'icon-closed-eye'"
               slot="right"
               @click="isRepeatShown = !isRepeatShown"
             ></i>
@@ -60,12 +60,28 @@
           :shadow="true"
           @click="$modal.hide('modal-reset-password-varification')"
         ></beButton>
+        <button
+          @click="BackModals"
+          v-if="login"
+          class="js-btn-login-popup popup-recovery__sign"
+        >
+          <svg>
+            <use xlink:href="/images/icons/icons.svg#arrow-left3"></use>
+          </svg>
+          <span>Back to Sign in</span>
+        </button>
       </div>
     </vueCustomScrollbar>
   </div>
 </template>
 <script>
 export default {
+  props: {
+    login: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       isResetShown: false,
@@ -80,6 +96,15 @@ export default {
   },
   methods: {
     showInput() {},
+    BackModals() {
+      this.$modal.hide("modal-reset-password-varification");
+      this.$modal.show("modal-login");
+    },
   },
 };
 </script>
+<style lang="scss" scoped>
+.popup-recovery__sign {
+  width: 100%;
+}
+</style>
