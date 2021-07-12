@@ -36,7 +36,7 @@
           </div>
           <div class="exchange_start__icon">
             <div class="currency__icon usdx">
-              <img src="/images/balance-white.svg" alt="" />
+              <img src="/images/client/balance-white.svg" alt="" />
             </div>
           </div>
         </div>

@@ -62,7 +62,7 @@
             </div>
             <div class="col-5">
               <!-- <img class="full-width" :src="`${selectedDocumentFile}`" alt="" v-if="selectedDocumentFile && selectedDocumentFile.length"> -->
-              <img class="full-width" src="/images/example.png" alt="" />
+              <img class="full-width" src="/images/client/example.png" alt="" />
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@
           <div class="row">
             <div class="col-7">
               <ul>
-                <li>Stand in front of a light-colored background</li>
+                <li>Your background is a light neutral color</li>
                 <li>Look directly into the camera</li>
                 <li>Take a photo without a headdress and glasses</li>
               </ul>
@@ -86,7 +86,7 @@
             <div class="col-5">
               <!-- <img class="full-width" :src="`${selectedSelfieFile}`" alt="" v-if="selectedSelfieFile && selectedSelfieFile.length"> -->
               <div class="example">
-                <img class="full-width" src="/images/example2.png" alt="" />
+                <img class="full-width" src="/images/client/example2.png" alt="" />
                 <div class="example__text">EXAMPLE</div>
               </div>
             </div>
@@ -97,10 +97,10 @@
           <h4 class="mb10">Personal Data</h4>
           <div class="row mb20">
             <div class="col-6">
-              <beInput class="full-width" placeholder="First name"></beInput>
+              <beInput class="full-width" placeholder="Name"></beInput>
             </div>
             <div class="col-6">
-              <beInput class="full-width" placeholder="Last name"></beInput>
+              <beInput class="full-width" placeholder="Surname"></beInput>
             </div>
           </div>
           <h4 class="mb10">Date of birth</h4>

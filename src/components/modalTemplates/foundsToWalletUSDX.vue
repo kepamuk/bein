@@ -26,7 +26,7 @@
           <span slot="small_text">354.12 BIXRP</span>
         </beSelect>
         <div class="beModal__qr_code">
-          <img src="/images/qr.svg" alt="" />
+          <img src="/images/client/qr.svg" alt="" />
         </div>
         <div class="qr_code__label">Your BIXRP Address</div>
         <beCopyText

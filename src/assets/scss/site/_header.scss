@@ -1,0 +1,660 @@
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  left: 0;
+  padding-top: 52px;
+  transition: .3s linear;
+  &.grey {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    .header__logo {
+      svg {
+        .grey {
+          fill: $dark-blue2;
+        }
+      }
+    }
+    .header__btn-burger {
+      svg {
+        fill: $dark-blue2;
+      }
+    }
+    .header-login {
+      &__mail {
+        span {
+          color: $dark-blue2;
+        }
+        svg {
+          fill: $dark-blue2;
+        }
+      }
+      &__dropdown {
+        border-radius: 0 0 12px 12px;
+        top: calc(100%  + 12px) !important;
+        @media all and (max-width: $widthsm) {
+          top: calc(100% + 10px) !important;
+        }
+      }
+    }
+    .drop-down {
+      &__content {
+        border-radius: 0 0 12px 12px;
+        @media all and (max-width: $widthxl) {
+          top: calc(100% + 36px);
+        }
+        a {
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .header-menu {
+      ul {
+        li {
+          &:hover {
+            span {
+              opacity: 1;
+            }
+          }
+          &.js-active {
+            &:before {
+              top: -46px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media all and (max-width: $widthxl) {
+    padding-top: 40px;
+  }
+  @media all and (max-width: $widthtable) {
+    padding:0;
+  }
+  @media all and (max-width: $widthsm) {
+    padding-top: 18px;
+    &.grey {
+      padding: 0 !important;
+    }
+  }
+  &.fixed {
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    @media all and (max-width: $widthxl) {
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+    @media all and (max-width: $widthsm) {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .header__logo {
+      svg {
+        .grey {
+          fill: $dark-blue2;
+        }
+      }
+    }
+    .header-menu {
+      li {
+        &.js-active {
+          position: relative;
+          &:before {
+            content: '';
+            position: absolute;
+            top: -26px !important;
+            left: 0;
+            width: 100%;
+            background:$blue;
+            height: 6px;
+            @media all and (max-width: $widthxl) {
+              top: -31px !important;
+            }
+          }
+        }
+      }
+      a {
+        color: $dark-blue;
+        opacity: 0.4;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      span {
+        color: $dark-blue;
+        opacity: 0.4;
+        svg {
+          fill: $dark-blue;
+        }
+        &:hover {
+          opacity: 1;
+        }
+        &.js-active {
+          opacity: 1;
+        }
+      }
+    }
+    .drop-down {
+      &__content {
+        border-radius: 0 0 13px 13px;
+        top: calc(100% + 26px);
+        @media all and (max-width: $widthxl) {
+          top: calc(100% + 30px);
+        }
+      }
+    }
+    .header__btn {
+      .btn-blue-border {
+        span  {
+          color: $blue;
+        }
+        &:hover {
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+    .header__btn-burger {
+      svg {
+        fill: $dark-blue2;
+      }
+    }
+    .header-login {
+      &__mail {
+        span {
+          color: $dark-blue2;
+        }
+        svg {
+          fill: $dark-blue2;
+        }
+      }
+      &__dropdown {
+        border-radius: 0 0 12px 12px;
+        top: calc(100%  + 14px);
+      }
+    }
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media all and (max-width: $widthsm) {
+      padding:10px 0;
+    }
+  }
+  &__logo {
+    display: block;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    @media all and (max-width: $widthxl) {
+      width: 84px;
+      height: 51px;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+      img {
+        object-fit: contain;
+      }
+    }
+    @media all and (max-width: $widthtable) {
+      width: 100px;
+      img {
+        width: 100%;
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      width: 66px;
+      height: 41px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__menu {
+    margin-right: 90px;
+    @media all and (max-width: $widthmd) {
+      margin-right: 15px;
+    }
+    @media all and (max-width: $widthtable) {
+      display: none;
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    a {
+      margin-left: 8px;
+    }
+    &.blue {
+      a:first-child {
+        &:hover {
+          span {
+            color: #fff;
+          }
+        }
+        span {
+          color: $blue;
+        }
+      }
+    }
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+      line-height: 19px;
+      a {
+        padding: 11px 10px;
+        width: 100%;
+        min-width: 90px;
+        span {
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+      .btn-blue {
+      }
+      .btn-blue-border {
+
+      }
+    }
+    @media all and (max-width: $widthtable) {
+      a.btn-blue {
+        display: none;
+      }
+      .btn-blue-border {
+        padding:4px 7px;
+        border-color: $blue;
+        font-size: 14px;
+        line-height: 17px;
+        max-width: 57px;
+        min-width: 57px;
+      }
+    }
+  }
+  &__btn-burger {
+    display: none;
+    @media all and (max-width: $widthtable) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 16px;
+      svg {
+        width: 30px;
+        height: 17px;
+        fill: #fff;
+      }
+    }
+  }
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @media all and (max-width: $widthtable) {
+    justify-content: center;
+  }
+  &.grey {
+    ul {
+      li {
+        & > span {
+          opacity: 0.4;
+          &.js-active {
+            opacity: 1;
+          }
+        }
+        .drop-down__content {
+          a {
+            opacity: 1;
+          }
+        }
+        span {
+          color: $dark-blue2;
+          svg {
+            transition: .3s linear;
+            fill: $dark-blue2;
+          }
+        }
+        a {
+          color: $dark-blue2;
+          opacity: 0.4;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @media all and (max-width: $widthmd) {
+      padding-left: 0;
+    }
+    @media all and (max-width: $widthtable) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0;
+    }
+    li {
+      margin-left: 36px;
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+      @media all and (max-width: $widthmd) {
+        margin-left: 15px;
+      }
+      @media all and (max-width: $widthtable) {
+        margin-left: 0;
+      }
+      &.js-active {
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          top: -78px;
+          left: 0;
+          width: 100%;
+          background:$blue;
+          height: 6px;
+        }
+        @media all and (max-width: $widthxl) {
+          &:before {
+            top: -56px;
+          }
+        }
+      }
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        color: #fff;
+        transition: .3s linear;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        @media all and (max-width: $widthxl) {
+          font-size: 16px;
+          line-height: 19px;
+        }
+        @media all and (max-width: $widthtable) {
+          font-size: 16px;
+          line-height: 19px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          //margin-bottom: 22px;
+          display: block;
+        }
+      }
+      span {
+        text-decoration: none;
+        transition: .3s linear;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        color: #fff;
+        @media all and (max-width: $widthxl) {
+          font-size: 16px;
+          line-height: 19px;
+        }
+        svg {
+          width: 4px;
+          height: 8px;
+          transform: rotate(90deg);
+          margin-left: 5px;
+          fill: #fff;
+          transition: .3s linear;
+        }
+        &.js-active {
+          svg {
+            transform: rotate(-90deg);
+          }
+        }
+        @media all and (max-width: $widthtable) {
+          font-size: 16px;
+          line-height: 19px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          //margin-bottom: 22px;
+        }
+      }
+    }
+  }
+}
+
+.drop-down {
+  @media all and (max-width: $widthtable) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__content {
+    position: absolute;
+    top: calc(100% + 46px);
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: #FFFFFF;
+    box-shadow: 8px 8px 40px rgba(23, 25, 31, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    display: none;
+    left: -30px;
+    @media all and (max-width: $widthxl) {
+      width: 170px;
+    }
+    @media all and (max-width: $widthtable) {
+      position: static;
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+    }
+    a {
+      box-sizing: border-box;
+      font-style: normal;
+      font-weight: bold !important;
+      padding:22px 30px;
+      font-size: 18px !important;
+      line-height: 22px !important;
+      color: #0B111A !important;
+      transition: .3s linear;
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid rgba( 196,196,196,0.5);
+      &:hover {
+        color: $blue !important;;
+        background:#f8f8f8;
+      }
+      @media all and (max-width: $widthxl) {
+        font-size: 16px !important;
+        padding: 10px 20px;
+        line-height: 100% !important;
+      }
+      @media all and (max-width: $widthtable) {
+        background: transparent;
+        padding: 0;
+        border:none;
+        text-align: center;
+        display: block;
+        margin-bottom: 0px;
+        color: #fff !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+        line-height: 16px !important;
+        opacity: 0.5;
+        &:hover {
+          color: #fff;
+          background: transparent;
+        }
+      }
+    }
+  }
+}
+
+.header-login {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: flex-end;
+    &.js-active {
+      .header-login__mail {
+        svg {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      &.js-active {
+        .header-login__img {
+
+          &:before {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+  &__img {
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    &:before {
+      width: 100%;
+      height: 100%;
+      content: '';
+      background:#000;
+      opacity: 0;
+      transition: .3s linear;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    @media all and (max-width: $widthsm) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &__mail {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @media all and (max-width: $widthsm) {
+      span {
+        display: none;
+      }
+      svg {
+        margin-left: 8px;
+      }
+    }
+    span {
+      margin-left: 16px;
+      margin-right: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+      color: #fff;
+    }
+    svg {
+      margin-top: 2px;
+      width: 4px;
+      transition: .3s linear;
+      height: 8px;
+      transform: rotate(90deg);
+      fill: #fff;
+    }
+  }
+  &__dropdown {
+    position: absolute;
+    display: none;
+    top: calc(100%  + 20px);
+    background: #FFFFFF;
+    box-shadow: 8px 8px 40px rgba(23, 25, 31, 0.15);
+    right: 0;
+    min-width: 200px;
+    width: 100%;
+    border-radius: 12px;
+    @media all and (max-width: $widthsm) {
+      right: -10px;
+      top: calc(100%  + 18px) !important;
+      max-width: 133px;
+      min-width: 133px;
+    }
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      a {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        color: $dark-blue2;
+        text-decoration: none;
+        transition: .3s linear;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 14px 30px;
+        width: 100%;
+        border-bottom: 1px solid rgba(196, 196, 196, 0.5);
+        &:last-child {
+          border-bottom: 0;
+        }
+        &:hover {
+          color: $blue;
+        }
+        @media all and (max-width: $widthxl) {
+          font-size: 16px;
+          line-height: 100%;
+          padding: 15px 20px;
+        }
+        @media all and (max-width: $widthsm) {
+          font-size: 16px;
+          padding: 10px 18px;
+          line-height: 17px;
+        }
+      }
+    }
+  }
+}

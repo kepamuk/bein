@@ -34,12 +34,12 @@
               <td>
                 <div class="exchange">
                   <span class="exchange__item">
-                    <img src="/images/binance.png" alt="" />
+                    <img src="/images/client/binance.png" alt="" />
                     <strong>Binance</strong>
                     <span class="text--grey ml5">5.00001</span>
                   </span>
                   <span class="exchange__item">
-                    <img src="/images/kraken.png" alt="" />
+                    <img src="/images/client/kraken.png" alt="" />
                     <strong>Kraken</strong>
                     <span class="text--grey ml5">3.939900</span>
                   </span>

@@ -2,7 +2,7 @@
   <aside class="aside">
     <div class="aside__header">
       <div class="logo">
-        <nuxt-link to="/"><img src="/images/logo_main.svg" alt="" /></nuxt-link>
+        <nuxt-link to="/dashboard"><img src="/images/client/logo_main.svg" alt="" /></nuxt-link>
       </div>
       <div
         id="hamburger"
@@ -28,7 +28,7 @@
               <span class="nav_icon" v-if="route.meta.icon">
                 <i :class="route.meta.icon"></i>
               </span>
-              {{ route.meta.linkText }}
+              {{ route.name }}
               <span
                 class="notifications_number"
                 v-if="route.meta.notifications"
@@ -91,16 +91,16 @@ export default {
       menuOpen: false,
       // getMenuState: true,
       getAllRoutes: [
+        // {
+        //   path: "/",
+        //   name: "Dashboard",
+        //   meta: {
+        //     linkText: LANG.nav.dashboard.eng,
+        //     icon: "icon-wallet",
+        //   },
+        // },
         {
-          path: "/",
-          name: "Dashboard",
-          meta: {
-            linkText: LANG.nav.dashboard.eng,
-            icon: "icon-wallet",
-          },
-        },
-        {
-          path: "/wallets",
+          path: "/dashboard/wallets",
           name: "Wallets",
           meta: {
             linkText: LANG.nav.wallets.eng,
@@ -108,24 +108,33 @@ export default {
           },
         },
         {
-          path: "/exchange",
+          path: "/dashboard/exchange",
           name: "Exchange",
           meta: {
             linkText: LANG.nav.exchange.eng,
-            icon: "icon-dollar-bitcoin",
+            icon: "icon-arrows",
           },
         },
         {
-          path: "/earnings",
-          name: "Earnings",
+          path: "/dashboard/hold",
+          name: "HODL",
           meta: {
             linkText: LANG.nav.earnings.eng,
-            icon: "icon-exchange",
+            icon: "icon-hold",
             notifications: 2,
           },
         },
+        // {
+        //   path: "/earnings",
+        //   name: "Earnings",
+        //   meta: {
+        //     linkText: LANG.nav.earnings.eng,
+        //     icon: "icon-exchange",
+        //     notifications: 2,
+        //   },
+        // },
         {
-          path: "/trading",
+          path: "/dashboard/trading",
           name: "Trading",
           meta: {
             linkText: LANG.nav.trading.eng,
@@ -133,35 +142,15 @@ export default {
           },
         },
         {
-          path: "/giveaway",
+          path: "/dashboard/giveaway",
           name: "Giveaway",
           meta: {
             linkText: LANG.nav.giveaway.eng,
-            icon: "icon-leaderboard",
+            icon: "icon-prize",
           },
         },
         {
-          path: "/exchange-history",
-          name: "Exchange History",
-        },
-        {
-          path: "/support",
-          name: "Support",
-          meta: {
-            linkText: LANG.nav.support.eng,
-            icon: "icon-about",
-          },
-        },
-        {
-          path: "/settings",
-          name: "Settings",
-          meta: {
-            linkText: LANG.nav.settings.eng,
-            icon: "icon-settings",
-          },
-        },
-        {
-          path: "/notifications",
+          path: "/dashboard/notifications",
           name: "Notifications",
           meta: {
             linkText: LANG.nav.notifications.eng,
@@ -170,7 +159,28 @@ export default {
           },
         },
         {
-          path: "/login",
+          path: "/dashboard/exchange-history",
+          name: "Exchange History",
+        },
+        {
+          path: "/dashboard/support",
+          name: "Support",
+          meta: {
+            linkText: LANG.nav.support.eng,
+            icon: "icon-support",
+          },
+        },
+        {
+          path: "/dashboard/settings",
+          name: "Settings",
+          meta: {
+            linkText: LANG.nav.settings.eng,
+            icon: "icon-settings",
+          },
+        },
+
+        {
+          path: "/dashboard/login",
           name: "Login",
         },
       ],
@@ -481,7 +491,7 @@ export default {
           left: 0px;
           width: 32px;
           height: 26px;
-          background-image: url("/images/corner-top.svg");
+          background-image: url("/images/client/corner-top.svg");
           background-position: left top;
           background-repeat: no-repeat;
           background-size: contain;
@@ -538,6 +548,11 @@ export default {
       background-image: $gradient;
       @media (max-width: 1023px) {
         border-radius: 0;
+      }
+      .notifications_number {
+        background-image: none;
+        background-color: white;
+        color: $primary;
       }
     }
   }

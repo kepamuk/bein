@@ -1,0 +1,339 @@
+.footer {
+  background: #0B111A;
+  padding-top: 55px;
+  @media all and (max-width: $widthxl) {
+    padding-top: 32px;
+  }
+  @media all and (max-width: $widthsm) {
+    padding-top: 0;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 57px;
+    border-bottom: 1px solid rgba(196,196,196,0.1);
+    @media all and (max-width: $widthxl) {
+      padding-bottom: 31px;
+    }
+    @media all and (max-width: $widthlg) {
+      flex-wrap: wrap;
+    }
+    @media all and (max-width: $widthsm) {
+      justify-content: center;
+    }
+  }
+  &__left {
+    @media all and (max-width: $widthlg) {
+      margin-right: 10px;
+    }
+    @media all and (max-width: $widthsm) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__logo {
+    width: 112px;
+    height: 70px;
+    display: block;
+    img {
+      height: 100%;
+      object-fit: contain;
+      width: 100%;
+    }
+    @media all and (max-width: $widthxl) {
+      width: 84px;
+      height: 51px;
+    }
+    @media all and (max-width: $widthsm) {
+      margin-top: 33px;
+      width: 66px;
+      height: 41px;
+    }
+
+  }
+  &__contact {
+    margin-top: 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 35px;
+    position: relative;
+    &:before {
+      content: '';
+      width: 22px;
+      height: 16px;
+      top: 2px;
+      background: url("/images/mail.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 0;
+    }
+    a {
+      transition: .3s linear;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      text-decoration: none;
+      color: #fff;
+      margin-bottom: 11px;
+      &:hover {
+        color: $blue;
+      }
+      @media all and (max-width: $widthxl) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      @media all and (max-width: $widthsm) {
+        font-size: 14px;
+      }
+    }
+    @media all and (max-width: $widthxl) {
+      padding-left: 28px;
+      &:before {
+        width: 18px;
+        height: 12px;
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      margin-top: 40px;
+      padding-left: 0;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -30px;
+      }
+      a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+  &__main {
+
+  }
+  &__right {
+    padding-top: 11px;
+    @media all and (max-width: $widthxl) {
+      padding-top: 22px;
+    }
+  }
+  &__bottom {
+    padding-top: 27px;
+    padding-bottom: 28px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    opacity: 0.5;
+    @media all and (max-width: $widthxl) {
+      font-size: 14px;
+    }
+    @media all and (max-width: $widthsm) {
+      font-size: 12px;
+      padding-top: 18px;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+.footer-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 508px;
+  width: 100%;
+  @media all and (max-width: $widthmd) {
+    max-width:initial;
+    width: initial;
+  }
+  @media all and (max-width: $widthsm) {
+    width: 100%;
+    justify-content: center;
+  }
+  &__col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @media all and (max-width: $widthlg) {
+      min-width: 100px;
+    }
+    @media all and (max-width: $widthmd) {
+      margin-left: 90px;
+      min-width: initial;
+    }
+    @media all and (max-width: $widthsm) {
+      margin-left: 0;
+      width: initial;
+      align-items: center;
+      margin: 0 19px;
+
+    }
+  }
+  &__title {
+    color: #fff;
+    margin-bottom: 33px;
+    font-size: 22px;
+    @media all and (max-width: $widthxl) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    @media all and (max-width: $widthmd) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    @media all and (max-width: $widthsm) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    a {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      text-decoration: none;
+      margin-bottom: 14px;
+      color: #FFFFFF;
+      opacity: 0.5;
+    }
+    @media all and (max-width: $widthxl) {
+      a {
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 7px;
+      }
+    }
+    @media all and (max-width: $widthmd) {
+      a {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      a {
+        text-align: center;
+      }
+      align-items: center;
+    }
+  }
+}
+
+.footer-coins {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.2);
+  &__title {
+    padding-top: 21px;
+    padding-bottom: 29px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #fff;
+    opacity: 0.5;
+    @media all and (max-width: $widthxl) {
+      font-size: 14px;
+      line-height: 17px;
+      padding-bottom: 18px;
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: -11px;
+    img {
+      width: calc(5% - 22px);
+      height: 50px;
+      margin:11px;
+      object-fit: contain;
+    }
+    @media all and (max-width: $widthlg) {
+      img {
+        width: calc(10% - 22px);
+      }
+    }
+    @media all and (max-width: $widthsm) {
+      margin: -3px;
+      img {
+        margin:  3px;
+        width: calc(10% - 6px);
+      }
+    }
+    @media all and (max-width: $widthm) {
+      margin: -3px;
+      img {
+        height: initial;
+        margin: 3px;
+        width: calc(10% - 6px);
+      }
+    }
+  }
+}
+
+.footer-question {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  @media all and (max-width: $widthlg) {
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+  }
+  @media all and (max-width: $widthsm) {
+    padding-top: 30px;
+  }
+  &__title {
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: right;
+    color: #fff;
+    @media all and (max-width: $widthxl) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    padding-top: 4px;
+    padding-bottom: 16px;
+    color: $lightgrey;
+    white-space: nowrap;
+    @media all and (max-width: $widthxl) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+    @media all and (max-width: $widthsm) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__btn {
+    width: 100%;
+    max-width: 197px;
+    @media all and (max-width: $widthsm) {
+      width: 100%;
+      max-width: 197px;
+    }
+  }
+}

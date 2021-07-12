@@ -1,0 +1,450 @@
+.learn-using {
+  &__bread {
+    padding-bottom: 0;
+
+  }
+  &__wrapper {
+    padding: 76px;
+    padding-bottom: 65px;
+    @media all and (max-width:$widthmd) {
+      padding-bottom: 24px;
+      padding-right: 0;
+      padding-left: 0;
+      padding-top: 80px !important;
+      padding-bottom: 80px;
+    }
+
+  }
+  &__img {
+
+  }
+  &__subtitle {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: $blue;
+    padding-top: 40px;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+  }
+  &__title {
+    margin-top: 16px;
+    padding-top: 0;
+    max-width: 594px;
+    text-align: center;
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media all and (max-width:$widthmd) {
+      margin-top: 20px;
+    }
+  }
+}
+
+.learn-using-wallet {
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__left {
+    width: 100%;
+    max-width: calc(100% - 670px);
+    margin-right: 72px;
+    padding-top: 145px;
+    padding-bottom: 183px;
+    box-sizing: border-box;
+    @media all and (max-width: $widthxl) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+      max-width: calc(100% - 500px);
+    }
+    @media all and (max-width: $widthmd) {
+      max-width: 100%;
+      padding-top: 0;
+      margin-right: 0;
+      padding-bottom: 0;
+      position: relative;
+      top: -50px;
+    }
+  }
+  &__title {
+    width: 100%;
+    max-width: 660px;
+    @media all and (max-width: $widthmd) {
+      max-width: 100%;
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  &__text {
+    width: 100%;
+    max-width: 697px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $dark-blue2;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      max-width: 100%;
+    }
+    @media all and (max-width: $widthsm) {
+      font-size: 14px;
+    }
+  }
+  &__img {
+    position: absolute;
+    width: 671px;
+    right: 0;
+    top: -60px;
+    img {
+      width: 100%;
+    }
+    @media all and (max-width: $widthxl) {
+      width: 500px;
+    }
+    @media all and (max-width: $widthmd) {
+      position: relative;
+      right: initial;
+    }
+    @media all and (max-width: $widthsm) {
+      width: 100%;
+      max-width: 500px;
+    }
+  }
+}
+
+.cross-border-block {
+  @media all and (max-width: $widthmd) {
+    padding-bottom: 50px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__left {
+    width: 100%;
+    max-width: 578px;
+    position: relative;
+    left: -30px;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+    @media all and (max-width: $widthxl) {
+      max-width: 422px;
+      left: 0;
+    }
+  }
+  &__right {
+    margin-left: 135px;
+    @media all and (max-width: $widthxl) {
+      margin-left: 45px;
+    }
+    @media all and (max-width: $widthmd) {
+      margin-left: 0;
+    }
+  }
+  &__title {
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $dark-blue2;
+    width: 100%;
+    max-width: 707px;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      max-width: 100%;
+    }
+    @media all and (max-width: $widthsm) {
+      font-size: 14px;
+    }
+  }
+}
+
+.micropayments {
+  @media all and (max-width: $widthmd) {
+    padding-bottom: 50px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column-reverse;
+    }
+  }
+  &__left {
+    width: 100%;
+    max-width: 695px;
+    margin-right: 40px;
+    @media all and (max-width: $widthmd) {
+      margin-right: 0;
+    }
+  }
+  &__title {
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $dark-blue2;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+    }
+    @media all and (max-width: $widthsm) {
+      font-size: 14px;
+    }
+  }
+  &__img {
+    width: 100%;
+    max-width: 716px;
+    position: relative;
+    right: -50px;
+    @media all and (max-width: $widthxl) {
+      max-width: 524px;
+      right: 0;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+.digital-wallets {
+  @media all and (max-width: $widthmd) {
+    padding-bottom: 50px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__img {
+    position: relative;
+    left: -30px;
+    width: 645px;
+    margin-right: 50px;
+    img {
+      width: 100%;
+    }
+    @media all and (max-width: $widthxl) {
+      max-width: 422px;
+      width: 100%;
+      left: 0;
+    }
+    @media all and (max-width: $widthmd) {
+      margin-right: 0;
+    }
+  }
+  &__right {
+    width: 100%;
+    max-width: 707px;
+    @media all and (max-width: $widthmd) {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+  &__title {
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $dark-blue2;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+    @media all and (max-width: $widthsm) {
+      font-size: 14px;
+    }
+  }
+}
+
+.exchanges {
+  @media all and (max-width: $widthmd) {
+    padding-bottom: 50px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__left {
+    width: 100%;
+    max-width: 707px;
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      max-width: 100%;
+    }
+  }
+  &__title {
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $dark-blue2;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+    }
+    @media all and (max-width: $widthsm) {
+      font-size: 14px;
+    }
+  }
+  &__img {
+    position: relative;
+    right: -50px;
+    width: 100%;
+    max-width: 650px;
+    img {
+      width: 100%;
+    }
+    @media all and (max-width: $widthxl) {
+      max-width: 400px;
+      right: 0;
+      margin-left: 45px;
+    }
+    @media all and (max-width: $widthmd) {
+      margin-left: 0;
+    }
+
+  }
+}
+
+.cryptocurrency {
+  margin-bottom: 30px;
+  @media all and (max-width: $widthmd) {
+    margin-bottom: 0;
+    padding-bottom: 50px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media all and (max-width: $widthmd) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__img {
+    position: relative;
+    left: -30px;
+    @media all and (max-width: $widthxl) {
+      max-width: 422px;
+      width: 100%;
+      left: 0;
+      margin-right: 45px;
+      img {
+        width: 100%;
+      }
+    }
+    @media all and (max-width: $widthmd) {
+      margin-right: 0;
+    }
+  }
+  &__right {
+    width: 100%;
+    max-width: 707px;
+    @media all and (max-width: $widthmd) {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+  &__title {
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+      &:before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $dark-blue2;
+    @media all and (max-width: $widthxl) {
+      font-size: 16px;
+    }
+    @media all and (max-width: $widthmd) {
+      text-align: center;
+    }
+    @media all and (max-width: $widthsm) {
+      font-size: 14px;
+    }
+  }
+}

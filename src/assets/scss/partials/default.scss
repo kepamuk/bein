@@ -1,12 +1,23 @@
-// [class^="icon-"]:before, [class*=" icon-"]:before {
-//   margin: 0;
-// }
-// .beModal__footer {
-//   border-top: none !important;
-// }
-// button {
-//   margin: 0;
-// }
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  margin: 0;
+}
+.link-underline {
+  text-decoration: underline;
+}
+html {
+  scroll-behavior: smooth;
+}
+.site {
+  overflow: hidden;
+}
+button {
+  // margin: 0;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
 .beModal_step {
   .beModal {
     &__header {
@@ -68,6 +79,7 @@
       &::before {
         content: "0" counter(my-awesome-counter);
         font-size: 16px;
+        font-weight: 700;
       }
     }
   }
