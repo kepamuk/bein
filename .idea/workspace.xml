@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72372492-c586-4109-88af-b06732bd1ea0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/scss/pages/wallet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/pages/wallet.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/asideComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/asideComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/lClient.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/lClient.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/wallets1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/wallets1.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +40,13 @@
     <property name="ts.external.directory.path" value="C:\soft\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\bein\src\components\modalTemplates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\bein\src\static\images\wallet" />
       <recent name="C:\projects\bein\src\components\modalTemplates\settingsStepForm" />
       <recent name="C:\projects\bein\src\views\Settings" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\bein\src\components\modalTemplates" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -64,7 +67,7 @@
       <workItem from="1625591739853" duration="622000" />
       <workItem from="1625641852286" duration="3761000" />
       <workItem from="1625925765792" duration="2121000" />
-      <workItem from="1626090500889" duration="3793000" />
+      <workItem from="1626090500889" duration="28903000" />
     </task>
     <servers />
   </component>
@@ -88,13 +91,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1625049942115" />
-    <state x="661" y="52" width="1195" height="886" key="find.popup" timestamp="1626159989532">
+    <state x="661" y="52" width="1195" height="886" key="find.popup" timestamp="1626183715974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="52" width="1195" height="886" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626159989532" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1625040165631">
+    <state x="661" y="52" width="1195" height="886" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626183715974" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1626164750064">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1625040165631" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626164750064" />
   </component>
 </project>

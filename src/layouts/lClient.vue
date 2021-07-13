@@ -71,7 +71,7 @@ body {
     padding: 40px 40px;
   }
   @media (max-height: 850px) {
-    padding: 40px 40px;
+    padding: 80px 40px;
     border-radius: 30px;
     box-shadow: inset 12px 0px 30px rgba($black, 0.25);
   }
