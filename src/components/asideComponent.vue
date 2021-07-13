@@ -108,6 +108,14 @@ export default {
           },
         },
         {
+          path: "/dashboard/wallets1",
+          name: "Wallets",
+          meta: {
+            linkText: LANG.nav.wallets.eng,
+            icon: "icon-wallets",
+          },
+        },
+        {
           path: "/dashboard/exchange",
           name: "Exchange",
           meta: {
