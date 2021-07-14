@@ -97,9 +97,506 @@
     flex: 0 0 calc(50% - 22px);
   }
 }
+
 @media (max-width: 767px) {
   .col-4 {
     width: calc(100% - 22px);
     flex: 0 0 calc(100% - 22px);
+  }
+}
+
+.wallets {
+  background: #FFFFFF;
+  box-shadow: 15px 15px 40px rgba(11, 17, 26, 0.15);
+  border-radius: 18px;
+  max-width: 1576px;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+.container__wallets {
+  padding: 4px;
+}
+
+.bitcoinWallet {
+  background: radial-gradient(50% 50% at 50% 50%, #3E475C 0%, #232836 100%), #FF1B1B;
+  box-shadow: 15px 15px 40px rgba(11, 17, 26, 0.15);
+  border-radius: 12px;
+  height: 178px;
+  position: relative;
+  display: flex;
+  padding: 0 36px 0 44px;
+
+  &__bg {
+    background-image: url(/images/wallet/bitcoinWallets.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 30px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    left: 0;
+    top: 0;
+  }
+}
+
+.bitcoinInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.money {
+  margin-left: 10px;
+
+  &__select {
+    color: rgba(255, 255, 255, .5);
+    font-size: 16px;
+  }
+
+  &__number {
+    color: rgba(255, 255, 255, .5);
+    font-size: 16px;
+  }
+}
+
+.btc {
+  font-size: 30px;
+  line-height: 100%;
+  color: #fff;
+  display: flex;
+
+  &__refresh {
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgba(244, 244, 244, 0.08);
+    box-sizing: border-box;
+    box-shadow: 4px 4px 15px rgba(34, 39, 51, 0.49), 8px 8px 40px rgba(23, 25, 31, 0.15);
+    border-radius: 50%;
+    margin-left: 10px;
+    overflow: hidden;
+
+    &-bg {
+      background-image: url(/images/wallet/refresh.svg);
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: #2D3445;
+    }
+  }
+}
+
+.select__wallet {
+  color: rgba(11, 17, 26, .5);
+  font-size: 16px;
+
+  .selected__value {
+    font-weight: bold;
+  }
+}
+
+.bitcoinBtns {
+  display: flex;
+  margin-left: auto;
+
+  &__button {
+    background: linear-gradient(127.9deg, #394156 0%, #2D3445 100%);
+    box-shadow: 4px 4px 15px rgba(34, 39, 51, 0.49);
+    border-radius: 8px;
+    width: 120px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 22px;
+
+    &-icon {
+      margin-bottom: 6px;
+    }
+
+    &-text {
+      color: #B3BDD7;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__button:last-child {
+    margin-right: 0;
+  }
+}
+
+.transactionHistory {
+  margin-top: 50px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    &-title {
+      color: #0B111A;
+      font-weight: bold;
+      font-size: 22px;
+    }
+  }
+
+  &__table {
+    margin-top: 30px;
+  }
+}
+
+.filterWrap {
+  display: flex;
+  align-items: center;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+
+  &__text {
+    color: rgba(11, 17, 26, .5);
+    font-size: 16px;
+  }
+
+  &__icon {
+    margin: 0 10px;
+  }
+}
+
+.delimiter {
+  background: #C4C4C4;
+  width: 1px;
+  height: 22px;
+  margin: 0 28px;
+}
+
+.item {
+  border-bottom: rgba(105, 105, 105, .15) solid 2px;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.receive {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    color: #2864FF;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+
+    &-top {
+      color: #0B111A;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    &-bottom {
+      color: rgba(11, 17, 26, 0.5);
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 16px;
+
+    &-top {
+      color: rgba(11, 17, 26, 0.5);
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    &-bottom {
+      color: rgba(11, 17, 26, 0.5);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}
+
+.success {
+  .info__text-top {
+    color: #04C7A3;
+  }
+}
+
+.icon-more {
+  color: #B3BDD7;
+}
+
+.more_links {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+  @media (max-width: 1023px) {
+    margin-top: 0px;
+  }
+
+  &__title {
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    background-color: #2b3038;
+    border-radius: 8px 8px 8px 0px;
+    padding: 5px 0px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 0.3s ease;
+    transition-property: transform, opacity;
+    @media (max-width: 1023px) {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      left: 0px;
+      bottom: 0px;
+      background-color: transparent;
+      padding: 0px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0px;
+      width: 32px;
+      height: 26px;
+      background-image: url("/images/client/corner-top.svg");
+      background-position: left top;
+      background-repeat: no-repeat;
+      background-size: contain;
+      @media (max-width: 1023px) {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    .more_links__dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0px);
+    }
+  }
+
+  &__item {
+    &:empty {
+      display: none;
+    }
+
+    .nav__link {
+      display: flex;
+      flex-direction: row;
+      text-align: left;
+      align-items: center;
+      padding: 10px 20px;
+      @media (max-width: 1023px) {
+        padding: 15px 12px;
+      }
+
+      .nav_icon {
+        flex-grow: 0;
+        font-size: 24px;
+        margin-bottom: 0px;
+        margin-right: 15px;
+
+        img {
+          max-width: none;
+        }
+      }
+
+      .notifications_number {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-left: 15px;
+        @media (max-width: 1023px) {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  &__text {
+    flex-grow: 1;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+
+    @media (max-width: 1023px) {
+      flex-grow: 0;
+    }
+  }
+}
+
+.HODLWrap {
+  background: #0B111A;
+  border-radius: 8px;
+  padding: 22px 36px;
+}
+
+.HODL {
+  display: flex;
+}
+
+.btcNumber {
+  display: flex;
+  align-items: baseline;
+  font-size: 22px;
+  color: #fff;
+
+  small {
+    font-size: 16px;
+    margin-left: 4px;
+  }
+}
+
+.btcText {
+  font-size: 14px;
+  color: #B3BDD7;
+  margin-top: -4px;
+  display: block;
+  color: rgba(255, 255, 255, .5);
+}
+
+.dollars {
+  display: flex;
+  margin-top: 10px;
+
+  span {
+    color: #04C7A3;
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+
+.details {
+  background: #313847;
+  border-radius: 5px;
+  color: #fff;
+  width: 156px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  padding-left: 15px;
+  margin-top: 8px;
+}
+
+.btnBlue {
+  background: #2864FF;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  margin-top: 18px;
+}
+
+.chartBtc {
+  padding: 18px;
+  margin-top: 22px;
+  border-radius: 12px;
+  height: 324px;
+  position: relative;
+  background: #0B111A;
+}
+
+.infoChartBtc {
+  display: flex;
+  width: fit-content;
+  margin: 6px;
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+}
+
+.number {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.currency {
+  font-size: 14px;
+  color: rgba(255, 255, 255, .5);
+}
+
+.question {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+
+.btcFilter {
+  margin-top: 22px;
+  display: flex;
+
+  li {
+    width: 56px;
+    height: 32px;
+    color: rgba(11, 17, 26, .5);
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 5px 14px;
+    border-radius: 5555px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    margin-right: 4px;
+  }
+
+  li.active {
+    background: #2864FF;
+    color: #fff;
   }
 }
