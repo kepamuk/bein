@@ -11,6 +11,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1uZV9Me0gbONxPsctxTpJ98xsiX" />
@@ -35,13 +40,13 @@
     <property name="ts.external.directory.path" value="C:\soft\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\bein\src\components\modalTemplates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\projects\bein\src\static\images\wallet" />
       <recent name="C:\projects\bein\src\components\modalTemplates\settingsStepForm" />
       <recent name="C:\projects\bein\src\views\Settings" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\bein\src\components\modalTemplates" />
     </key>
   </component>
   <component name="SvnConfiguration">
