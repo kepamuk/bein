@@ -12,4 +12,8 @@ dist
 #environmet
 .env
 
-.idea/
+.idea
+
+.DS_Store
+
+**/.DS_Store
