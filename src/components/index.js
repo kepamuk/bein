@@ -52,6 +52,7 @@ import twoFactorAuth from '@/components/modalTemplates/twoFactorAuth';
 import twoFactorCode from '@/components/modalTemplates/twoFactorCode';
 import twoFactorGAuth from '@/components/modalTemplates/twoFactorGAuth';
 import walletInfo from '@/components/modalTemplates/walletInfo';
+import aboutBTC from '@/components/modalTemplates/aboutBTC';
 
 Vue.component("login", login);
 Vue.component("register", register);
@@ -76,6 +77,7 @@ Vue.component("twoFactorCode", twoFactorCode);
 Vue.component("foundsToWalletXRP", foundsToWalletXRP);
 Vue.component("twoFactorGAuth", twoFactorGAuth);
 Vue.component("walletInfo", walletInfo);
+Vue.component("aboutBTC", aboutBTC);
 
 
 
