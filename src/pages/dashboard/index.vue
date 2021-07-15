@@ -12,235 +12,130 @@
       Dashboard
     </h1>
     <div class="home__content">
-      <div
-        class="
-          xrp_block
-          card card--gradient
-          row-flex
-          align-items-center
-          justify-content-between
-        "
-      >
-        <div class="balance">
-          <div class="balance__icon">
-            <i class="icon-currancy"></i>
-            <svg
-              class="balance__circle"
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                class="circle__main"
-                cx="50"
-                cy="50"
-                r="47"
-                stroke="#fff"
-                stroke-width="5"
-                stroke-dasharray="300"
-                :stroke-dashoffset="investmentXRPOffset - 290"
-              />
-              <circle
-                class="circle__investment"
-                cx="50"
-                cy="50"
-                r="47"
-                stroke="rgba(255,255,255,.5)"
-                stroke-width="5"
-                stroke-dasharray="300"
-                :stroke-dashoffset="investmentXRPOffset"
-              />
-            </svg>
-          </div>
-          <div class="balance__info">
-            <div class="balance__title">XRP balance</div>
-            <div class="balance__actual">
-              <div class="atual__item">
-                {{ balanceXRPArray[0]
-                }}<small>.{{ balanceXRPArray[1] || "00" }}</small>
-                <small class="balance__currancy">XRP</small>
+      <div class="balance-block">
+        <div class="balance-block__wrapper">
+          <img
+            src="/images/client/dashboard-info.png"
+            alt=""
+            class="balance-block__bg"
+          />
+          <div class="balance-block__info">
+            <div class="balance">
+              <div class="balance-block__icon">
+                <p class="balance-block__total">$ 12,021</p>
+                <span class="balance-block__total-text">Total balance</span>
+                <svg
+                  class="balance__circle"
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    class="circle__main"
+                    cx="50"
+                    cy="50"
+                    r="47"
+                    stroke="#2898FF"
+                    stroke-width="3"
+                    stroke-dasharray="300"
+                    :stroke-dashoffset="investmentXRPOffset - 290"
+                  />
+                  <circle
+                    class="circle__investment"
+                    cx="50"
+                    cy="50"
+                    r="47"
+                    stroke="#F1AF0F"
+                    stroke-width="3"
+                    stroke-dasharray="300"
+                    :stroke-dashoffset="investmentXRPOffset"
+                  />
+                </svg>
+                <button class="balance-block__refresh">
+                  <i class="icon-refresh"></i>
+                </button>
+              </div>
+              <div class="balance-summary">
+                <p class="balance-summary__day">
+                  +$ 12,021
+                  <span>24h Change</span>
+                </p>
+                <p class="balance-summary__highest">
+                  $ 28,774 <span>Highest Balance</span>
+                </p>
+                <p class="balance-summary__age">
+                  2 Year, 3 month, 30 days <span>Account Age</span>
+                </p>
               </div>
             </div>
-            <div class="add_wallet">
-              <beButton title="Add wallet" :link="true" @click="goToWalets">
-                <i class="icon-plus-outline" slot="icon-left"></i>
-              </beButton>
-            </div>
           </div>
-        </div>
-        <div class="btns">
-          <beButton
-            type="button"
-            title="Send"
-            :outline="true"
-            :white="true"
-            @click="openSendModal('XRP')"
-            ><i class="icon-sign-out" slot="icon-left"></i
-          ></beButton>
-          <beButton
-            type="button"
-            title="Receive"
-            :outline="false"
-            :white="true"
-            class="ml10"
-            @click="openOutputModal('XRP')"
-            ><i class="icon-sign-in" slot="icon-left"></i
-          ></beButton>
+          <div class="balance-block__actions">
+            <beButton title="Buy">
+              <i class="icon-plus-outline" slot="icon-left"></i>
+            </beButton>
+            <beButton
+              type="button"
+              title="Send"
+              :outline="true"
+              :white="true"
+              @click="openSendModal('USDX')"
+              ><i class="icon-sign-in" slot="icon-left"></i
+            ></beButton>
+            <beButton
+              type="button"
+              title="Receive"
+              :outline="false"
+              :white="true"
+              class=""
+              @click="openOutputModal('USDX')"
+              ><i class="icon-sign-out" slot="icon-left"></i
+            ></beButton>
+          </div>
         </div>
       </div>
       <div
-        class="
-          card
-          usdx_block
-          card--gradient-purple
-          row-flex
-          align-items-center
-          justify-content-between
-        "
+        class="transactions transactions_inner transactions_block card--white"
       >
-        <div class="balance">
-          <div class="balance__icon">
-            <!-- <i class="icon-wallet-outline"></i> -->
-            <img class="currency__icon" src="/images/client/balance.svg" alt="" />
-            <svg
-              class="balance__circle"
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                class="circle__main"
-                cx="50"
-                cy="50"
-                r="47"
-                stroke="#fff"
-                stroke-width="5"
-                stroke-dasharray="300"
-                :stroke-dashoffset="investmentUSDXOffset - 290"
-              />
-              <circle
-                class="circle__investment"
-                cx="50"
-                cy="50"
-                r="47"
-                stroke="rgba(255,255,255,.5)"
-                stroke-width="5"
-                stroke-dasharray="300"
-                :stroke-dashoffset="investmentUSDXOffset"
-              />
-            </svg>
-          </div>
-          <div class="balance__info">
-            <div class="balance__title">BIXRP balance</div>
-            <div class="balance__actual">
-              <div class="atual__item">
-                {{ balanceUSDXArray[0]
-                }}<small>.{{ balanceUSDXArray[1] || "00" }}</small>
-                <small>BIXRP</small>
-              </div>
-            </div>
-            <div class="add_wallet">1 BIXRP = 1$</div>
-          </div>
-        </div>
-        <div class="btns">
-          <beButton
-            type="button"
-            title="Send"
-            :outline="true"
-            :white="true"
-            @click="openSendModal('USDX')"
-            ><i class="icon-sign-out" slot="icon-left"></i
-          ></beButton>
-          <beButton
-            type="button"
-            title="Receive"
-            :outline="false"
-            :white="true"
-            class="ml10"
-            @click="openOutputModal('USDX')"
-            ><i class="icon-sign-in" slot="icon-left"></i
-          ></beButton>
-        </div>
-      </div>
-      <div class="hold_block card card--white">
-        <div class="balance">
-          <div class="balance__info">
-            <div class="balance__title">
-              <span class="mr5">HODL balance</span>
-              <bePrompt
-                text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit a, doloribus tenetur ipsum eveniet incidunt rem totam labore eos ut."
-              ></bePrompt>
-            </div>
-            <div class="balance__actual row-flex">
-              <div class="atual__item">
-                <div class="balance__amount">
-                  <small class="balance__currancy"
-                    ><i class="icon-currancy"></i
-                  ></small>
-                  {{ investmentXRPArray[0]
-                  }}<small>.{{ investmentXRPArray[1] || "00" }}</small>
-                </div>
-                <div class="profit">
-                  <span class="profit__finance">
-                    <i class="icon-arrow-up-double"></i> {{ XRP.profit }}
-                  </span>
-                  <small>for{{ "\xa0" }}yesterday</small>
-                </div>
-              </div>
-              <div class="atual__item">
-                <div class="balance__amount">
-                  {{ investmentUSDXArray[0]
-                  }}<small>.{{ investmentUSDXArray[1] || "00" }} BIXRP</small>
-                </div>
-                <div class="profit">
-                  <span class="profit__finance loss">
-                    <i class="icon-arrow-up-double"></i>
-                    {{ USDX.profit }} BIXRP
-                  </span>
-                  <small>for{{ "\xa0" }}yesterday</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="graph_block">
-        <div class="graph">
-          <img src="/images/client/graph.png" alt="" />
-        </div>
-      </div>
-      <div class="transactions transactions_block">
-        <div
-          class="
-            transactions__header
-            row-flex
-            align-items-center
-            justify-content-start
-            mb15
-            mt15
-          "
-        >
+        <div class="transactions__filter">
           <div class="block__title">Transaction history</div>
-          <div class="sorting__item mr5">
-            <button type="button" @click="sorted = !sorted">
-              <i class="icon-ascending-sorting" v-if="!sorted"></i>
-              <i class="icon-ascending-sorting-up" v-else></i>
-            </button>
-          </div>
-          <beSelect
-            :selectArray="sortingList"
-            v-model="selectedSortItem"
-            :transparent="true"
-          ></beSelect>
-          <div class="block__link" v-if="clientWidth >= 890">
-            <nuxt-link
-              to="/dashboard/wallets"
-              class="btn btn-link more_link"
-              ><span>Details</span> <i class="icon-arrow-right"></i
-            ></nuxt-link>
+          <div class="transactions__filter-block">
+            <div class="transactions__filter-item">
+              <label class="transactions__filter-label">Transaction type</label>
+              <beSelect
+                :selectArray="sortingList"
+                v-model="selectedItem"
+                selectPlaceholder="Select"
+                class="full-width mb15"
+                customIcon="arrows"
+              ></beSelect>
+            </div>
+            <div class="transactions__filter-item">
+              <label class="transactions__filter-label">Time</label>
+              <beSelect
+                :selectArray="sortingTime"
+                v-model="selectedItem"
+                selectPlaceholder="Select"
+                class="full-width mb15"
+                customIcon="hours"
+              >
+                <span slot="customField" @click="openDatepicker('xrp')"
+                  >Select date</span
+                ></beSelect
+              >
+            </div>
+            <div class="transactions__filter-item">
+              <label class="transactions__filter-label">Currency</label>
+              <beSelect
+                :selectArray="sortingCurrency"
+                v-model="selectedItem"
+                selectPlaceholder="Select"
+                class="full-width mb15"
+                customIcon="arrows"
+              ></beSelect>
+            </div>
           </div>
         </div>
-        <div class="transactions__body" v-if="history">
+        <div class="transactions__body" v-if="history.length">
           <vue-custom-scrollbar
             :settings="{
               wheelPropagation: false,
@@ -248,7 +143,7 @@
             class="transactions__wrapper"
           >
             <div
-              class="card card--white history"
+              class="history"
               v-for="(item, idx) in history"
               :key="idx"
               :class="[
@@ -259,27 +154,85 @@
                   : 'inprogress',
               ]"
             >
-              <div class="history__date">{{ item.date }}</div>
-              <div class="history__planish_link">
-                <button class="wallet_btn">
-                  <span v-if="item.buttonText === 'Wallet replenishment'"
-                    ><i class="icon-sign-in" slot="icon-left"></i
-                  ></span>
-                  <span v-else
-                    ><i class="icon-sign-out" slot="icon-left"></i
-                  ></span>
-                  <span class="wallet_btn__text">
-                    <span class="wallet_btn__title">{{ item.buttonText }}</span>
-                    <span class="wallet__name"
-                      >Wallet: {{ item.waletName }}</span
-                    >
-                  </span>
+              <div class="history__wrapper">
+                <div class="history__planish_link">
+                  <button class="wallet_btn">
+                    <span v-if="item.buttonText === 'Wallet replenishment'"
+                      ><i class="icon-sign-in" slot="icon-left"></i
+                    ></span>
+                    <span v-else
+                      ><i class="icon-sign-out" slot="icon-left"></i
+                    ></span>
+                    <span class="wallet_btn__text">
+                      <span class="wallet_btn__title">Receive</span>
+                      <span class="wallet__name"
+                        >Wallet: {{ item.waletName }}</span
+                      >
+                    </span>
+                  </button>
+                </div>
+                <div class="history__finance">
+                  {{ item.summ }}
+                  <small>{{ item.currency == 1 ? "BIXRP" : "XRP" }}</small>
+                  <div class="history__date">{{ item.date }}</div>
+                </div>
+                <span
+                  class="history__status-icon history__status-icon_rejected"
+                  v-if="item.status === 'Rejected'"
+                >
+                  <i class="icon-close"></i>
+                </span>
+                <span
+                  class="history__status-icon history__status-icon_approved"
+                  v-else-if="item.status === 'Approved'"
+                >
+                  <i class="icon-check"></i>
+                </span>
+                <span class="history__status-icon" v-else>
+                  <span></span>
+                </span>
+                <button
+                  class="history__more"
+                  :class="{ show: item.itemShow }"
+                  @click="item.itemShow = !item.itemShow"
+                >
+                  <i class="icon-arrow-bottom"></i>
                 </button>
               </div>
-              <div class="history__status">{{ item.status }}</div>
-              <div class="history__finance">
-                {{ item.summ }}
-                <small>{{ item.currency == 1 ? "BIXRP" : "XRP" }}</small>
+              <div v-if="item.itemShow" class="history-info">
+                <ul class="history-info__lists">
+                  <li class="history-info__list">
+                    <span class="history-info__name">Transaction ID</span>
+                    <p class="history-info__text">
+                      <beCopyText
+                        class="walet__hash"
+                        text="d8cc24355cf45a12949fb5d28d7dk211445a129491419г8аг9афоомфлf..."
+                      ></beCopyText>
+                    </p>
+                  </li>
+                  <li class="history-info__list">
+                    <span class="history-info__name">To</span>
+                    <p class="history-info__text">
+                      d8cc24355cf45a12949fb5d28d7dk211445a12949f...
+                    </p>
+                  </li>
+                  <li class="history-info__list">
+                    <span class="history-info__name">Fee</span>
+                    <p class="history-info__text">0.000024328 BTC</p>
+                  </li>
+                  <li class="history-info__list">
+                    <span class="history-info__name">Date</span>
+                    <p class="history-info__text">05/04/2021 6:43 PM</p>
+                  </li>
+                  <li class="history-info__list">
+                    <span class="history-info__name">Now</span>
+                    <p class="history-info__text">$ 77.44</p>
+                  </li>
+                  <li class="history-info__list">
+                    <span class="history-info__name">May 4th </span>
+                    <p class="history-info__text">$ 115.41</p>
+                  </li>
+                </ul>
               </div>
             </div>
           </vue-custom-scrollbar>
@@ -288,6 +241,125 @@
           <div class="card card--white text-center">
             <p class="icon"><i class="icon-smile-sad"></i></p>
             <p class="empty__text">You don't have any transactions yet</p>
+            <button class="empty__btn btn-grey">Buy crypto</button>
+          </div>
+        </div>
+        <div class="block__link" v-if="clientWidth < 890">
+          <nuxt-link to="/dashboard/wallets" class="btn btn-link more_link"
+            ><span>Details</span> <i class="icon-arrow-right"></i
+          ></nuxt-link>
+        </div>
+      </div>
+      <div class="transactions transactions_block transactions_general">
+        <div
+          class="
+            transactions__header
+            row-flex
+            align-items-center
+            justify-content-between
+            mb25
+            mt25
+          "
+        >
+          <div class="row-flex">
+            <div class="block__title">My Wallets</div>
+            <div class="wallet-create">
+              <button class="wallet-create__btn" type="button">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    opacity="0.1"
+                    width="22"
+                    height="22"
+                    rx="11"
+                    fill="#0B111A"
+                  />
+                  <path
+                    opacity="0.5"
+                    d="M11 8.06665V13.9333M8.06665 11H13.9333"
+                    stroke="#0B111A"
+                    stroke-width="1.5"
+                  /></svg
+                ><span>Сreate wallet</span>
+              </button>
+            </div>
+          </div>
+          <div class="wallet__search">
+            <i class="icon-search wallet__search-icon"></i>
+            <input
+              class="wallet__search-input"
+              type="text"
+              placeholder="Search"
+            />
+          </div>
+        </div>
+        <div class="transactions__body" v-if="myWallets.length">
+          <vue-custom-scrollbar
+            :settings="{
+              wheelPropagation: false,
+            }"
+            class="transactions__wrapper"
+          >
+            <div
+              class="card card--white history"
+              v-for="(item, idx) in myWallets"
+              :key="idx"
+              :class="[
+                item.status == 'Rejected'
+                  ? 'alert'
+                  : item.status == 'Approved'
+                  ? 'success'
+                  : 'inprogress',
+              ]"
+            >
+              <div class="history__planish_link">
+                <button class="wallet_btn">
+                  <img
+                    class="wallet_btn__img"
+                    :src="`/images/client/${item.icon}.svg`"
+                    alt=""
+                  />
+                  <span class="wallet_btn__text">
+                    <span class="wallet_btn__title">{{ item.waletText }}</span>
+                    <span class="wallet__name"
+                      >Wallet: {{ item.waletName }}</span
+                    >
+                  </span>
+                </button>
+              </div>
+              <div v-if="item.status === 'Rejected'" class="history__finance">
+                -{{ item.percent }}<small>%</small>
+              </div>
+              <div v-else class="history__finance">
+                +{{ item.percent }}<small>%</small>
+              </div>
+              <div v-if="item.status === 'Rejected'" class="history__status">
+                <img src="/images/client/status-rejected.png" alt="" />
+              </div>
+              <div v-else class="history__status">
+                <img src="/images/client/status-approved.png" alt="" />
+              </div>
+              <div class="wallet__summary">
+                <button class="wallet_btn">
+                  <span class="wallet_btn__text">
+                    <span class="wallet_btn__title">{{ item.summ }}</span>
+                    <span class="wallet__name">${{ item.dollars }}</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </vue-custom-scrollbar>
+        </div>
+        <div class="transactions__body empty" v-else>
+          <div class="card card--white text-center">
+            <p class="icon"><i class="icon-smile-sad"></i></p>
+            <p class="empty__text">You don't have any transactions yet</p>
+            <button class="empty__btn btn-grey">Buy crypto</button>
           </div>
         </div>
         <div class="block__link" v-if="clientWidth < 890">
@@ -332,11 +404,47 @@
     >
       <transactionsSend @onModalClose="closeModalConfirm"></transactionsSend>
     </modal>
+    <modal
+      name="datepicker"
+      width="90%"
+      :maxWidth="400"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+      class="datepicker-modal"
+    >
+      <div class="beModal__header">
+        <h2 class="date-modal-title">Chose a date</h2>
+        <div class="beModal__close">
+          <div slot="top-right">
+            <button @click="canselDatepicker">
+              <i class="icon-close"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <FunctionalCalendar
+        class="calendar"
+        v-model="getDate"
+        :is-date-range="true"
+        :isDatePicker="false"
+        arrowsPosition="right"
+        titlePosition="left"
+      ></FunctionalCalendar>
+      <div class="beModal__footer">
+        <button
+          class="btn full-width"
+          type="button"
+          @click="$modal.hide('datepicker')"
+        >
+          Confirm
+        </button>
+      </div>
+    </modal>
   </div>
 </template>
 
 <script>
-
 export default {
   layout: "lClient",
   name: "Dashboard",
@@ -344,6 +452,8 @@ export default {
     return {
       sendXRP: null,
       outputXRP: null,
+      currentDatepicker: null,
+      getDate: {},
       XRP: {
         balance: 12021.23,
         investment: 2256.15,
@@ -354,67 +464,196 @@ export default {
         investment: 3258.15,
         profit: 152.23,
       },
+      selectItems: [
+        { value: 1, label: "XRP" },
+        { value: 2, label: "BIXRP" },
+      ],
+      selectedItem: null,
       history: [
         {
           id: 1,
-          date: "20/20/2020",
+          date: "20.20.2020",
           status: "Rejected",
           summ: "+320",
           buttonText: "Wallet replenishment",
           currency: 1,
+          itemShow: false,
           waletName: "Walet Name",
         },
         {
           id: 2,
-          date: "20/20/2020",
+          date: "20.20.2020",
           status: "Approved",
           summ: "+320",
           buttonText: "Wallet replenishment",
           currency: 2,
+          itemShow: false,
           waletName: "Walet Name",
         },
         {
           id: 3,
-          date: "20/20/2020",
+          date: "20.20.2020",
           status: "Waiting",
           summ: "+320",
           buttonText: "Funds output",
           currency: 1,
+          itemShow: false,
           waletName: "Walet Name",
         },
         {
           id: 4,
-          date: "20/20/2020",
+          date: "20.20.2020",
           status: "Approved",
           summ: "+320",
           buttonText: "Funds output",
           currency: 2,
+          itemShow: false,
           waletName: "Walet Name",
         },
         {
           id: 5,
-          date: "20/20/2020",
+          date: "20.20.2020",
           status: "Waiting",
           summ: "+320",
           buttonText: "Funds output",
           currency: 1,
+          itemShow: false,
           waletName: "Walet Name",
         },
         {
           id: 6,
-          date: "20/20/2020",
+          date: "20.20.2020",
           status: "Approved",
+          summ: "9.04",
+          buttonText: "Funds output",
+          currency: 1,
+          itemShow: false,
+          waletName: "Walet Name",
+        },
+        {
+          id: 7,
+          date: "20.20.2020",
+          status: "Waiting",
           summ: "+320",
           buttonText: "Funds output",
           currency: 1,
+          itemShow: false,
+          waletName: "Walet Name",
+        },
+        {
+          id: 8,
+          date: "20.20.2020",
+          status: "Approved",
+          summ: "+320",
+          buttonText: "Funds output",
+          currency: 2,
+          itemShow: false,
+          waletName: "Walet Name",
+        },
+        {
+          id: 9,
+          date: "20.20.2020",
+          status: "Waiting",
+          summ: "+320",
+          buttonText: "Funds output",
+          currency: 1,
+          itemShow: false,
+          waletName: "Walet Name",
+        },
+        {
+          id: 10,
+          date: "20.20.2020",
+          status: "Approved",
+          summ: "9.04",
+          buttonText: "Funds output",
+          currency: 1,
+          itemShow: false,
           waletName: "Walet Name",
         },
       ],
+      myWallets: [
+        {
+          id: 11,
+          icon: "wallet-1",
+          dollars: "11,289",
+          status: "Rejected",
+          percent: "9.04",
+          summ: "12.238",
+          waletText: "BIXRP Wallet",
+          currency: 1,
+          waletName: "BIXRP",
+        },
+        {
+          id: 12,
+          icon: "wallet-2",
+          dollars: "20",
+          status: "Approved",
+          percent: "23",
+          summ: "500",
+          waletText: "BIXRP Wallet",
+          currency: 1,
+          waletName: "USDT",
+        },
+        {
+          id: 12,
+          icon: "wallet-1",
+          dollars: "11,289",
+          status: "Rejected",
+          percent: "9.04",
+          summ: "12.238",
+          waletText: "BIXRP Wallet",
+          currency: 1,
+          waletName: "BIXRP",
+        },
+        {
+          id: 14,
+          icon: "wallet-2",
+          dollars: "20",
+          status: "Approved",
+          percent: "23",
+          summ: "500",
+          waletText: "BIXRP Wallet",
+          currency: 1,
+          waletName: "USDT",
+        },
+        {
+          id: 15,
+          icon: "wallet-1",
+          dollars: "11,289",
+          status: "Rejected",
+          percent: "9.04",
+          summ: "12.238",
+          waletText: "BIXRP Wallet",
+          currency: 1,
+          waletName: "BIXRP",
+        },
+        {
+          id: 16,
+          icon: "wallet-2",
+          dollars: "20",
+          status: "Approved",
+          percent: "23",
+          summ: "500",
+          waletText: "BIXRP Wallet",
+          currency: 1,
+          waletName: "USDT",
+        },
+      ],
       sortingList: [
-        { value: 1, label: "By transaction date" },
-        { value: 2, label: "By sum" },
-        { value: 3, label: "By wallet" },
-        { value: 4, label: "By status" },
+        { value: 1, label: "Show all" },
+        { value: 2, label: "Transfer" },
+        { value: 4, label: "Exchange" },
+      ],
+      sortingTime: [
+        { value: 1, label: "Show all" },
+        { value: 2, label: "Last week" },
+        { value: 3, label: "Last month" },
+      ],
+      sortingCurrency: [
+        { value: 1, label: "Show all" },
+        { value: 2, label: "BIXRP" },
+        { value: 3, label: "FAN" },
+        { value: 4, label: "PIN" },
       ],
       selectedSortItem: { value: 1, label: "By transaction date" },
       clientWidth: null,
@@ -474,6 +713,27 @@ export default {
     },
     closeModalConfirm() {
       console.log("confirm modal close");
+    },
+    openDatepicker(currency) {
+      this.getDate = {};
+      this.currentDatepicker = currency;
+      this.$modal.show("datepicker");
+    },
+    canselDatepicker() {
+      this.$modal.hide("datepicker");
+      this.currentDatepicker == "xrp"
+        ? (this.XRPDate = null)
+        : (this.USDXDate = null);
+    },
+  },
+  watch: {
+    getDate: {
+      deep: true,
+      handler(val) {
+        this.currentDatepicker == "xrp"
+          ? (this.XRPDate = val.dateRange)
+          : (this.USDXDate = val.dateRange);
+      },
     },
   },
   beforeDestroy() {
