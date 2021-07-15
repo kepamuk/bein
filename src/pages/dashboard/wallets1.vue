@@ -3,11 +3,15 @@
     <div class="container container__wallets">
       <div class="row">
         <div class="col-8 fluid">
+          <button
+            @click="openOutputModal()"
+          >
+            aboutBTC
+          </button>
           <div class="bitcoinWallet">
-
             <div class="more_links text-center">
               <div class="more_links__title">
-                <i class="icon-more" />
+                <i class="icon-more"/>
               </div>
               <div class="more_links__dropdown">
                 <div class="more_links__item">
@@ -119,7 +123,10 @@
               </div>
             </div>
 
-            <div class="transactionHistory__table">
+            <div
+              class="transactionHistory__table"
+              v-if="history.length !== 0"
+            >
               <div
                 class="item"
                 v-for="(item, idx) in history"
@@ -147,15 +154,25 @@
                     <span class="info__text-bottom">29 Jun, 2021</span>
                   </div>
                   <div v-if="item.status === 'Rejected'">
-                    <img src="/images/wallet/error.svg" alt="" />
+                    <img src="/images/wallet/error.svg" alt=""/>
                   </div>
                   <div v-else-if="item.status === 'Approved'">
-                    <img src="/images/wallet/success.svg" alt="" />
+                    <img src="/images/wallet/success.svg" alt=""/>
                   </div>
                   <div v-else>
-                    <img src="/images/wallet/empty.svg" alt="" />
+                    <img src="/images/wallet/empty.svg" alt=""/>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              class="transactionHistory__notFound"
+              v-else
+            >
+              <div class="notFound__content">
+                <img src="/images/wallet/notFound.svg" alt="">
+                <span class="notFound__content-text">You don't have any transaction yet</span>
+                <div class="notFound__content-btn">Buy crypto</div>
               </div>
             </div>
           </div>
@@ -213,6 +230,16 @@
         </div>
       </div>
     </div>
+    <modal
+      name="aboutBTC"
+      width="90%"
+      :maxWidth="540"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <aboutBTC></aboutBTC>
+    </modal>
   </div>
 </template>
 <script>
@@ -284,6 +311,14 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    openOutputModal() {
+      this.$modal.show("aboutBTC");
+    }
+  },
+  mounted() {
+
   }
 };
 </script>

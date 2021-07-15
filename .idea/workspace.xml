@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72372492-c586-4109-88af-b06732bd1ea0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/pages/wallet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/pages/wallet.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/wallets1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/wallets1.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,14 +17,9 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1uZV9Me0gbONxPsctxTpJ98xsiX" />
+  <component name="ProjectId" id="1vJpio6Xe0jOeU3oiRxqfkAfGDm" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -33,23 +32,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="C:\projects\bein\node_modules\prettier" />
     <property name="ts.external.directory.path" value="C:\soft\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\bein\src\components\modalTemplates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\projects\bein\src\static\images\wallet" />
-      <recent name="C:\projects\bein\src\components\modalTemplates\settingsStepForm" />
-      <recent name="C:\projects\bein\src\views\Settings" />
-    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -57,20 +43,11 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="72372492-c586-4109-88af-b06732bd1ea0" name="Default Changelist" comment="" />
-      <created>1624872945516</created>
+      <created>1626290175901</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1624872945516</updated>
-      <workItem from="1624872946730" duration="493000" />
-      <workItem from="1624873464719" duration="34857000" />
-      <workItem from="1625116067401" duration="1414000" />
-      <workItem from="1625126472124" duration="6152000" />
-      <workItem from="1625494170982" duration="3851000" />
-      <workItem from="1625591739853" duration="622000" />
-      <workItem from="1625641852286" duration="3761000" />
-      <workItem from="1625925765792" duration="2121000" />
-      <workItem from="1626090500889" duration="30165000" />
-      <workItem from="1626251638087" duration="3160000" />
+      <updated>1626290175901</updated>
+      <workItem from="1626290181412" duration="4654000" />
     </task>
     <servers />
   </component>
@@ -78,33 +55,17 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1625988597331">
+    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1626294444134">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1625988597331" />
-    <state x="151" y="67" key="MergeDialog" timestamp="1624998399114">
+    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1626294444134" />
+    <state x="667" y="255" width="585" height="530" key="find.popup" timestamp="1626293107042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="151" y="67" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624998399114" />
-    <state x="522" y="181" width="810" height="639" key="MultipleFileMergeDialog" timestamp="1624998399120">
+    <state x="667" y="255" width="585" height="530" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626293107042" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1626291497440">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="522" y="181" width="810" height="639" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624998399120" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1625049942115">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1625049942115" />
-    <state x="661" y="52" width="1195" height="886" key="find.popup" timestamp="1626183715974">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="661" y="52" width="1195" height="886" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626183715974" />
-    <state x="739" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1626258361145">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="739" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626258361145" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1626164750064">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626164750064" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626291497440" />
   </component>
 </project>
