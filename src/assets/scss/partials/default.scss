@@ -18,6 +18,11 @@ button {
     outline: none;
   }
 }
+.main_content {
+  .container {
+    max-width: 100%;
+  }
+}
 .beModal_step {
   .beModal {
     &__header {

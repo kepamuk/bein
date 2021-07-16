@@ -17,14 +17,14 @@
       }"
     >
       <div class="beModal__body text-center">
-        <h2 class="beModal__title">Send BIXRP</h2>
-        <beSelect
+        <h2 class="beModal__title">Send</h2>
+        <!-- <beSelect
           :selectArray="selectList"
           v-model="selectedItem"
           class="wallet_select mb15 text--black"
         >
           <span slot="small_text">354.12 BIXRP</span>
-        </beSelect>
+        </beSelect> -->
         <beInput
           class="xrp_address mb15"
           placeholder="Send to BIXRP address"
@@ -52,7 +52,7 @@
           v-model="inputVal"
           :maxVal="XRP.balance"
         >
-          <span slot="right">BIXRP</span>
+          <span slot="right">MAX</span>
         </beInput>
         <div class="xrp_to_usd">
           <div class="converted_value">
@@ -61,14 +61,13 @@
           <div class="convert_to_currency">USD</div>
         </div>
       </div>
-      <div class="beModal__footer text-center">
-        <beButton
-          type="button"
-          title="Confirm"
-          class="confirm_button"
-          :shadow="true"
-          @click="confirmSending"
-        ></beButton>
+      <div class="beModal__footer text-center row-flex justify-content-between">
+        <button @click="back" class="popup-verify__btn-back">
+          <span>Back</span>
+        </button>
+        <button @click="confirmSending" class="popup-verify__btn-continue">
+          <span>Continue</span>
+        </button>
       </div>
     </vueCustomScrollbar>
   </div>
@@ -104,6 +103,9 @@ export default {
     confirmSending() {
       this.$modal.hide("modal-output");
       this.$modal.show("modal-confirm");
+    },
+    back() {
+      this.$modal.hide("modal-output");
     },
   },
 };

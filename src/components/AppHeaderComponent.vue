@@ -478,6 +478,7 @@
     >
       <notificationStepForm></notificationStepForm>
     </modal>
+    <div class="bg-overley"></div>
   </div>
 </template>
 
@@ -529,10 +530,12 @@ export default {
     showLearn() {
       this.isShowLearn = !this.isShowLearn;
       this.isShowProducts = false;
+      document.querySelector(".bg-overley").classList.add("js-active");
     },
     showProducts() {
       this.isShowProducts = !this.isShowProducts;
       this.isShowLearn = false;
+      document.querySelector(".bg-overley").classList.add("js-active");
     },
     close(e) {
       if (!this.$refs.toggleLearn.contains(e.target)) {
@@ -540,6 +543,9 @@ export default {
       }
       if (!this.$refs.toggleProducts.contains(e.target)) {
         this.isShowProducts = false;
+      }
+      if (!this.$refs.toggleLearn.contains(e.target) && !this.$refs.toggleProducts.contains(e.target)) {
+        document.querySelector(".bg-overley").classList.remove("js-active");
       }
       if (!this.$refs.toggleLearnMob.contains(e.target)) {
         this.isShowLearnMob = false;
@@ -576,5 +582,8 @@ export default {
   &.js-active {
     display: block;
   }
+}
+.header {
+  z-index: 12;
 }
 </style>

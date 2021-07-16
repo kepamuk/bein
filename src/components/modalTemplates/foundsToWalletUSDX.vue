@@ -18,13 +18,13 @@
     >
       <div class="beModal__body text-center">
         <h2 class="beModal__title">Receive BIXRP</h2>
-        <beSelect
+        <!-- <beSelect
           :selectArray="selectList"
           v-model="selectedItem"
           class="wallet_select text--black"
         >
           <span slot="small_text">354.12 BIXRP</span>
-        </beSelect>
+        </beSelect> -->
         <div class="beModal__qr_code">
           <img src="/images/client/qr.svg" alt="" />
         </div>
@@ -35,21 +35,18 @@
           text="13tL5oHakHbsv1kGUtkLuE4hkyzGcyijmt"
         ></beCopyText>
       </div>
-      <div class="beModal__footer text-center">
-        <beButton
-          type="button"
-          title="Confirm"
-          class="confirm_button"
-          :shadow="true"
-          @click="confirmSending"
-        ></beButton>
+      <div class="beModal__footer text-center row-flex justify-content-between">
+        <button @click="back" class="popup-verify__btn-back">
+          <span>Back</span>
+        </button>
+        <button @click="confirmSending" class="popup-verify__btn-continue">
+          <span>Continue</span>
+        </button>
       </div>
     </vueCustomScrollbar>
   </div>
 </template>
 <script>
-import vueCustomScrollbar from "vue-custom-scrollbar";
-import "vue-custom-scrollbar/dist/vueScrollbar.css";
 import { mapGetters } from "vuex";
 export default {
   data() {
@@ -57,9 +54,6 @@ export default {
       selectList: null,
       selectedItem: null,
     };
-  },
-  components: {
-    vueCustomScrollbar,
   },
   computed: {
     ...mapGetters({
@@ -75,6 +69,9 @@ export default {
     confirmSending() {
       this.$modal.hide("modal");
       this.$modal.show("modal-confirm");
+    },
+    back() {
+      this.$modal.hide("modal");
     },
   },
 };

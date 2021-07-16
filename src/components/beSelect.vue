@@ -15,6 +15,9 @@
       <span class="select__icon_sorting" v-if="refreshIcon">
         <i class="icon-refresh"></i>
       </span>
+      <span class="select__icon_sorting" v-if="customIcon">
+        <i :class="'icon-'+customIcon"></i>
+      </span>
       <span :class="[selectedItemClass, 'selected__value']">{{
         selectValue || selectPlaceholder || "Select item"
       }}</span>
@@ -72,6 +75,10 @@ export default {
     dropdownIcon: {
       default: true,
     },
+    customIcon: {
+      type: String,
+      default: ''
+    }
   },
   model: {
     prop: "selected",
