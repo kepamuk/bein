@@ -8,6 +8,36 @@
           >
             aboutBTC
           </button>
+          <button
+            @click="walletExportModal()"
+          >
+            walletExport
+          </button>
+          <button
+            @click="walletExportModal1()"
+          >
+            walletExport1
+          </button>
+          <button
+            @click="downloadAutomatModal()"
+          >
+            downloadAutomat
+          </button>
+          <button
+            @click="deleteWalletModal()"
+          >
+            deleteWallet
+          </button>
+          <button
+            @click="deleteSuccessfullyWalletModal()"
+          >
+            deleteSuccessfullyWallet
+          </button>
+          <button
+            @click="deleteSuccessfullyWallet1Modal()"
+          >
+            deleteSuccessfullyWallet1
+          </button>
           <div class="bitcoinWallet">
             <div class="more_links text-center">
               <div class="more_links__title">
@@ -240,6 +270,70 @@
     >
       <aboutBTC></aboutBTC>
     </modal>
+    <modal
+      name="walletExport"
+      width="90%"
+      :maxWidth="540"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <walletExport></walletExport>
+    </modal>
+    <modal
+      name="walletExport1"
+      width="90%"
+      :maxWidth="540"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <walletExport1></walletExport1>
+    </modal>
+    <modal
+      name="downloadAutomat"
+      class="create_wallet"
+      width="90%"
+      :maxWidth="540"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <downloadAutomat></downloadAutomat>
+    </modal>
+    <modal
+      name="deleteWallet"
+      class="create_wallet"
+      width="90%"
+      :maxWidth="540"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <deleteWallet></deleteWallet>
+    </modal>
+    <modal
+      name="deleteSuccessfullyWallet"
+      class="create_wallet"
+      width="90%"
+      :maxWidth="540"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <deleteSuccessfullyWallet></deleteSuccessfullyWallet>
+    </modal>
+    <modal
+      name="deleteSuccessfullyWallet1"
+      class="create_wallet"
+      width="90%"
+      :maxWidth="540"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <deleteSuccessfullyWallet1></deleteSuccessfullyWallet1>
+    </modal>
   </div>
 </template>
 <script>
@@ -315,6 +409,24 @@ export default {
   methods: {
     openOutputModal() {
       this.$modal.show("aboutBTC");
+    },
+    walletExportModal() {
+      this.$modal.show("walletExport");
+    },
+    walletExportModal1() {
+      this.$modal.show("walletExport1");
+    },
+    downloadAutomatModal() {
+      this.$modal.show("downloadAutomat");
+    },
+    deleteWalletModal() {
+      this.$modal.show("deleteWallet");
+    },
+    deleteSuccessfullyWalletModal() {
+      this.$modal.show("deleteSuccessfullyWallet");
+    },
+    deleteSuccessfullyWallet1Modal() {
+      this.$modal.show("deleteSuccessfullyWallet1");
     }
   },
   mounted() {

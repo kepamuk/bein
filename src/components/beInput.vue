@@ -101,6 +101,7 @@ export default {
     border-bottom: 2px solid #d0d0d0;
     box-sizing: border-box;
     font-size: 18px;
+
     @media (max-width: 1700px) {
       font-size: 16px;
       height: 45px;
@@ -160,6 +161,12 @@ export default {
     @media (max-width: 767px) {
       font-size: 12px;
     }
+  }
+  &__placeholder {
+    left: 30px;
+  }
+  &__right {
+    right: 15px;
   }
 }
 </style>

@@ -111,7 +111,7 @@
   border-radius: 18px;
   max-width: 1576px;
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 80px 20px;
 }
 
 .container__wallets {
@@ -517,6 +517,10 @@
 
 .HODL {
   display: flex;
+
+  > img{
+    width: 50%;
+  }
 }
 
 .btcNumber {
@@ -639,5 +643,25 @@
   li.active {
     background: #2864FF;
     color: #fff;
+  }
+}
+
+@media (max-width: 1600px) {
+  .bitcoinWallet{
+    padding: 0 20px;
+  }
+  .bitcoinBtns {
+    &__button {
+      margin-right: 10px;
+      width: 80px;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .bitcoinBtns {
+    &__button {
+      width: 70px;
+    }
   }
 }
