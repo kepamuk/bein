@@ -4,6 +4,7 @@ import asideComponent from '@/components/asideComponent';
 import beAccordeon from '@/components/beAccordeon';
 import beButton from '@/components/beButton';
 import beCopyText from '@/components/beCopyText';
+import beCopyText1 from '@/components/beCopyText1';
 import beInput from '@/components/beInput';
 import beInputCheckbox from '@/components/beInputCheckbox';
 import beInputFile from '@/components/beInputFile';
@@ -18,6 +19,7 @@ Vue.component("asideComponent", asideComponent);
 Vue.component("beAccordeon", beAccordeon);
 Vue.component("beButton", beButton);
 Vue.component("beCopyText", beCopyText);
+Vue.component("beCopyText1", beCopyText1);
 Vue.component("beInput", beInput);
 Vue.component("beInputCheckbox", beInputCheckbox);
 Vue.component("beInputFile", beInputFile);
@@ -53,6 +55,12 @@ import twoFactorCode from '@/components/modalTemplates/twoFactorCode';
 import twoFactorGAuth from '@/components/modalTemplates/twoFactorGAuth';
 import walletInfo from '@/components/modalTemplates/walletInfo';
 import aboutBTC from '@/components/modalTemplates/aboutBTC';
+import walletExport from '@/components/modalTemplates/walletExport';
+import walletExport1 from '@/components/modalTemplates/walletExport1';
+import downloadAutomat from '@/components/modalTemplates/downloadAutomat';
+import deleteWallet from '@/components/modalTemplates/deleteWallet';
+import deleteSuccessfullyWallet from '@/components/modalTemplates/deleteSuccessfullyWallet';
+import deleteSuccessfullyWallet1 from '@/components/modalTemplates/deleteSuccessfullyWallet1';
 
 Vue.component("login", login);
 Vue.component("register", register);
@@ -78,6 +86,12 @@ Vue.component("foundsToWalletXRP", foundsToWalletXRP);
 Vue.component("twoFactorGAuth", twoFactorGAuth);
 Vue.component("walletInfo", walletInfo);
 Vue.component("aboutBTC", aboutBTC);
+Vue.component("walletExport", walletExport);
+Vue.component("walletExport1", walletExport1);
+Vue.component("downloadAutomat", downloadAutomat);
+Vue.component("deleteWallet", deleteWallet);
+Vue.component("deleteSuccessfullyWallet", deleteSuccessfullyWallet);
+Vue.component("deleteSuccessfullyWallet1", deleteSuccessfullyWallet1);
 
 
 

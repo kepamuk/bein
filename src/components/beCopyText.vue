@@ -39,7 +39,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/scss/partials/_colors.scss";
 .copy_text {
   position: relative;

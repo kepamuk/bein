@@ -234,7 +234,7 @@
           ></beSelect>
           <div class="block__link" v-if="clientWidth >= 890">
             <nuxt-link
-              to="/dashboard/wallets"
+              to="/dashboard/wallets1"
               class="btn btn-link more_link"
               ><span>Details</span> <i class="icon-arrow-right"></i
             ></nuxt-link>
@@ -291,7 +291,7 @@
           </div>
         </div>
         <div class="block__link" v-if="clientWidth < 890">
-          <nuxt-link to="/dashboard/wallets" class="btn btn-link more_link"
+          <nuxt-link to="/dashboard/wallets1" class="btn btn-link more_link"
             ><span>Details</span> <i class="icon-arrow-right"></i
           ></nuxt-link>
         </div>
