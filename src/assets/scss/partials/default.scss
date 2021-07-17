@@ -23,6 +23,25 @@ button {
     max-width: 100%;
   }
 }
+.select-wallet {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  img {
+    margin: 0;
+    margin-right: 13px;
+  }
+  &__name {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 14px;
+    color: #0b111a;
+    opacity: 0.5;
+  }
+}
 .beModal_step {
   .beModal {
     &__header {
@@ -35,6 +54,8 @@ button {
       padding-bottom: 30px;
     }
     &__footer {
+      padding-right: 0;
+      padding-left: 0;
       border-top: 1px solid rgba(#000, 0.2);
     }
   }

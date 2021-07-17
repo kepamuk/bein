@@ -16,8 +16,8 @@
         suppressScrollX: true,
       }"
     >
-      <div class="beModal__body text-center">
-        <h2 class="beModal__title">Send</h2>
+      <div class="beModal__body">
+        <h2 class="beModal__title">{{innerWallet ? 'Send BIXRP' : 'Send'}}</h2>
         <!-- <beSelect
           :selectArray="selectList"
           v-model="selectedItem"
@@ -25,47 +25,76 @@
         >
           <span slot="small_text">354.12 BIXRP</span>
         </beSelect> -->
-        <beInput
-          class="xrp_address mb15"
-          placeholder="Send to BIXRP address"
-          :transparent="false"
-        >
-          <i class="icon-qr-code" slot="right"></i>
-        </beInput>
-        <beInput
-          class="destination_tag mb15"
-          placeholder="Destination tag"
-          type="number"
-          :recomended="true"
-        >
-          <bePrompt
-            slot="right"
-            text="Indicate the beneficiary or destination of the transaction"
-            class="text--primary"
-          ></bePrompt>
-        </beInput>
-        <beInput
-          type="number"
-          class="xrp_ballance"
-          placeholder="0"
-          :transparent="true"
-          v-model="inputVal"
-          :maxVal="XRP.balance"
-        >
-          <span slot="right">MAX</span>
-        </beInput>
-        <div class="xrp_to_usd">
-          <div class="converted_value">
-            {{ xrpToUsd[0] }}<small>.{{ xrpToUsd[1] || "00" }}</small>
+        <div class="beModal__gray-bg">
+          <beInput
+            class="xrp_address mb15"
+            placeholder="Send to BIXRP address"
+            :transparent="true"
+          >
+            <i class="icon-qr-code" slot="right"></i>
+          </beInput>
+          <beInput
+            class="destination_tag mb15"
+            placeholder="Destination tag"
+            type="number"
+            :recomended="true"
+            :transparent="true"
+          >
+            <bePrompt
+              slot="right"
+              text="Indicate the beneficiary or destination of the transaction"
+              class="text--primary"
+            ></bePrompt>
+          </beInput>
+          <div class="xrp_ballance__amount">
+            <label class="beModal__small">Amount</label>
+            <beInput
+              type="number"
+              class="xrp_ballance"
+              placeholder="0"
+              v-model="inputVal"
+              :maxVal="XRP.balance"
+            >
+              <span slot="right">MAX</span>
+            </beInput>
+            <div class="xrp_to_usd">
+              <div class="converted_value beModal__small">
+                ${{ xrpToUsd[0] }}<small>.{{ xrpToUsd[1] || "00" }}</small>
+              </div>
+              <div class="convert_to_currency beModal__small">
+                Available: 4,82939 XRP
+              </div>
+            </div>
           </div>
-          <div class="convert_to_currency">USD</div>
+          <div class="xrp_ballance__network">
+            <label class="xrp_ballance__label beModal__small"
+              >Network fee:</label
+            >
+            <p class="xrp_ballance__network-number beModal__small">
+              $1.79 / 0.00005242 BTC
+            </p>
+          </div>
         </div>
       </div>
       <div class="beModal__footer text-center row-flex justify-content-between">
-        <button @click="back" class="popup-verify__btn-back">
+        <button
+          v-if="innerWallet"
+          @click="back"
+          class="beModal__btn beModal__back popup-verify__btn-back"
+        >
           <span>Back</span>
         </button>
-        <button @click="confirmSending" class="popup-verify__btn-continue">
+        <button
+          v-else
+          @click="cancel"
+          class="beModal__btn beModal__back popup-verify__btn-back"
+        >
+          <span>Cancel</span>
+        </button>
+        <button
+          @click="confirmSending"
+          class="beModal__btn beModal__continue popup-verify__btn-continue"
+        >
           <span>Continue</span>
         </button>
       </div>
@@ -75,6 +104,12 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  props: {
+    innerWallet: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       selectList: null,
@@ -105,6 +140,10 @@ export default {
       this.$modal.show("modal-confirm");
     },
     back() {
+      this.$modal.hide("modal-output");
+      this.$modal.show("modal-another-wallet");
+    },
+    cancel() {
       this.$modal.hide("modal-output");
     },
   },
@@ -138,10 +177,10 @@ export default {
     font-size: 14px;
   }
 }
-.convert_to_currency {
-  font-size: 16px;
-  @media (max-width: 1700px) {
-    font-size: 14px;
-  }
-}
+// .convert_to_currency {
+//   font-size: 16px;
+//   @media (max-width: 1700px) {
+//     font-size: 14px;
+//   }
+// }
 </style>

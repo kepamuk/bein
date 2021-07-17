@@ -16,9 +16,16 @@
         <i class="icon-refresh"></i>
       </span>
       <span class="select__icon_sorting" v-if="customIcon">
-        <i :class="'icon-'+customIcon"></i>
+        <i :class="'icon-' + customIcon"></i>
       </span>
-      <span :class="[selectedItemClass, 'selected__value']">{{
+      <div v-if="wallet" class="select-wallet">
+        <img v-if="walletIcon" src="/images/client/select-wallet.png" alt="" />
+        <div class="select-wallet__info">
+          <p class="select-wallet__name">Ripple</p>
+          <span class="select-wallet__text">XRP</span>
+        </div>
+      </div>
+      <span v-else :class="[selectedItemClass, 'selected__value']">{{
         selectValue || selectPlaceholder || "Select item"
       }}</span>
       <span class="select__additinal">
@@ -77,8 +84,16 @@ export default {
     },
     customIcon: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
+    wallet: {
+      type: Boolean,
+      default: false,
+    },
+    walletIcon: {
+      type: Boolean,
+      default: false,
+    },
   },
   model: {
     prop: "selected",

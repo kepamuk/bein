@@ -155,7 +155,7 @@
 
             <div
               class="transactionHistory__table"
-              v-if="history.length !== 0"
+              v-if="history.length === 0"
             >
               <div
                 class="item"
