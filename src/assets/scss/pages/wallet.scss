@@ -111,11 +111,8 @@
   border-radius: 18px;
   max-width: 1576px;
   margin: 0 auto;
-  padding: 80px 20px;
-}
-
-.container__wallets {
-  padding: 4px;
+  padding: 76px 46px;
+  position: relative;
 }
 
 .bitcoinWallet {
@@ -125,7 +122,7 @@
   height: 178px;
   position: relative;
   display: flex;
-  padding: 0 36px 0 44px;
+  padding: 0 36px 0 38px;
 
   &__bg {
     background-image: url(/images/wallet/bitcoinWallets.png);
@@ -152,7 +149,7 @@
 }
 
 .money {
-  margin-left: 10px;
+  margin-left: 12px;
 
   &__select {
     color: rgba(255, 255, 255, .5);
@@ -167,9 +164,15 @@
 
 .btc {
   font-size: 30px;
-  line-height: 100%;
+  line-height: 20px;
   color: #fff;
   display: flex;
+
+  &__number {
+    &-currency {
+      font-size: 21px;
+    }
+  }
 
   &__refresh {
     height: 30px;
@@ -215,7 +218,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-right: 22px;
+    margin-right: 16px;
 
     &-icon {
       margin-bottom: 6px;
@@ -250,7 +253,7 @@
 
   &__table,
   &__notFound {
-    margin-top: 30px;
+    margin-top: 11px;
   }
 
   &__notFound {
@@ -322,7 +325,7 @@
 
 .item {
   border-bottom: rgba(105, 105, 105, .15) solid 2px;
-  padding: 16px 0;
+  padding: 12.5px 0;
   display: flex;
   justify-content: space-between;
 
@@ -337,7 +340,7 @@
 
   &__icon {
     color: #2864FF;
-    font-size: 24px;
+    font-size: 30px;
     margin-right: 10px;
   }
 
@@ -396,7 +399,7 @@
 
 .more_links {
   position: absolute;
-  right: 10px;
+  right: 13px;
   top: 10px;
   z-index: 1;
   @media (max-width: 1023px) {
@@ -512,7 +515,7 @@
 .HODLWrap {
   background: #0B111A;
   border-radius: 8px;
-  padding: 22px 36px;
+  padding: 24px 36px;
 }
 
 .HODL {
@@ -545,12 +548,13 @@
 
 .dollars {
   display: flex;
-  margin-top: 10px;
+  margin-top: 8px;
 
   span {
     color: #04C7A3;
     font-weight: 500;
     font-size: 16px;
+    margin-left: 4px;
   }
 }
 
@@ -565,7 +569,7 @@
   font-weight: bold;
   font-size: 14px;
   padding-left: 15px;
-  margin-top: 8px;
+  margin-top: 2px;
 }
 
 .btnBlue {
@@ -586,7 +590,7 @@
   padding: 18px;
   margin-top: 22px;
   border-radius: 12px;
-  height: 324px;
+  height: 340px;
   position: relative;
   background: #0B111A;
 }
@@ -662,6 +666,31 @@
   .bitcoinBtns {
     &__button {
       width: 70px;
+    }
+  }
+}
+
+@media (min-width: 1700px) {
+  .row__wallets {
+    margin: -16px;
+  }
+  .wallets {
+
+    .container__wallets {
+      padding: 4px;
+
+      &-left,
+      &-right {
+        margin: 16px;
+      }
+
+      &-left {
+        flex: 0 0 calc((100% / 13 * 8) - 19px);
+      }
+
+      &-right {
+        flex: 0 0 calc((100% / 11 * 4) - 18px);
+      }
     }
   }
 }
