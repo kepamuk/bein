@@ -19,13 +19,13 @@
       <div class="beModal__body">
         <p class="beModal__icon"><i class="icon-checked"></i></p>
         <h2 class="beModal__title">
-          {{ successTitle || "Your transaction is being processed" }}
+          {{ successTitle || "The transaction has been sent for processing" }}
         </h2>
         <p class="beModal__text">
-          {{ successText || "You can monitor the status in" }}
+          {{ successText || "You can monitor the status of transactions in the " }}
           <router-link
             :to="{ name: 'Wallets' }"
-            class="link"
+            class="link link-underline"
             v-if="!successText"
           >
             Transaction History
@@ -35,7 +35,7 @@
       <div class="beModal__footer">
         <beButton
           type="button"
-          :title="buttonText || 'OK'"
+          :title="buttonText || 'Ok'"
           class="confirm_button"
           :shadow="true"
           @click="closeModal"

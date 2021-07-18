@@ -11,90 +11,211 @@
       <i class="page__title_icon icon-wallet"></i>
       Dashboard
     </h1>
-    <div class="home__content">
-      <div class="balance-block">
-        <div class="balance-block__wrapper">
-          <img
-            src="/images/client/dashboard-info.png"
-            alt=""
-            class="balance-block__bg"
-          />
-          <div class="balance-block__info">
-            <div class="balance">
-              <div class="balance-block__icon">
-                <p class="balance-block__total">$ 12,021</p>
-                <span class="balance-block__total-text">Total balance</span>
-                <svg
-                  class="balance__circle"
-                  viewBox="0 0 100 100"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    class="circle__main"
-                    cx="50"
-                    cy="50"
-                    r="47"
-                    stroke="#2898FF"
-                    stroke-width="3"
-                    stroke-dasharray="300"
-                    :stroke-dashoffset="investmentXRPOffset - 290"
-                  />
-                  <circle
-                    class="circle__investment"
-                    cx="50"
-                    cy="50"
-                    r="47"
-                    stroke="#F1AF0F"
-                    stroke-width="3"
-                    stroke-dasharray="300"
-                    :stroke-dashoffset="investmentXRPOffset"
-                  />
-                </svg>
-                <button class="balance-block__refresh">
-                  <i class="icon-refresh"></i>
-                </button>
-              </div>
-              <div class="balance-summary">
-                <p class="balance-summary__day">
-                  +$ 12,021
-                  <span>24h Change</span>
-                </p>
-                <p class="balance-summary__highest">
-                  $ 28,774 <span>Highest Balance</span>
-                </p>
-                <p class="balance-summary__age">
-                  2 Year, 3 month, 30 days <span>Account Age</span>
-                </p>
+    <div class="home__content row">
+      <div class="col-7">
+        <div class="balance-block">
+          <div class="balance-block__wrapper">
+            <img
+              src="/images/client/dashboard-info.png"
+              alt=""
+              class="balance-block__bg"
+            />
+            <div class="balance-block__info">
+              <div class="balance">
+                <div class="balance-block__icon">
+                  <p class="balance-block__total">$ 12,021</p>
+                  <span class="balance-block__total-text">Total balance</span>
+                  <svg
+                    class="balance__circle"
+                    viewBox="0 0 100 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      class="circle__main"
+                      cx="50"
+                      cy="50"
+                      r="47"
+                      stroke="#2898FF"
+                      stroke-width="3"
+                      stroke-dasharray="300"
+                      :stroke-dashoffset="investmentXRPOffset - 290"
+                    />
+                    <circle
+                      class="circle__investment"
+                      cx="50"
+                      cy="50"
+                      r="47"
+                      stroke="#F1AF0F"
+                      stroke-width="3"
+                      stroke-dasharray="300"
+                      :stroke-dashoffset="investmentXRPOffset"
+                    />
+                  </svg>
+                  <button class="balance-block__refresh">
+                    <i class="icon-refresh"></i>
+                  </button>
+                </div>
+                <div class="balance-summary">
+                  <p class="balance-summary__day">
+                    +$ 12,021
+                    <span>24h Change</span>
+                  </p>
+                  <p class="balance-summary__highest">
+                    $ 28,774 <span>Highest Balance</span>
+                  </p>
+                  <p class="balance-summary__age">
+                    2 Year, 3 month, 30 days <span>Account Age</span>
+                  </p>
+                </div>
               </div>
             </div>
+            <div class="balance-block__actions">
+              <beButton title="Buy">
+                <i class="icon-plus-outline" slot="icon-left"></i>
+              </beButton>
+              <beButton
+                type="button"
+                title="Send"
+                :outline="true"
+                :white="true"
+                @click="openSendModal()"
+                ><i class="icon-sign-in" slot="icon-left"></i
+              ></beButton>
+              <beButton
+                type="button"
+                title="Receive"
+                :outline="false"
+                :white="true"
+                class=""
+                @click="openOutputModal('USDX')"
+                ><i class="icon-sign-out" slot="icon-left"></i
+              ></beButton>
+            </div>
           </div>
-          <div class="balance-block__actions">
-            <beButton title="Buy">
-              <i class="icon-plus-outline" slot="icon-left"></i>
-            </beButton>
-            <beButton
-              type="button"
-              title="Send"
-              :outline="true"
-              :white="true"
-              @click="openSendModal('USDX')"
-              ><i class="icon-sign-in" slot="icon-left"></i
-            ></beButton>
-            <beButton
-              type="button"
-              title="Receive"
-              :outline="false"
-              :white="true"
-              class=""
-              @click="openOutputModal('USDX')"
-              ><i class="icon-sign-out" slot="icon-left"></i
-            ></beButton>
+        </div>
+        <div class="transactions transactions_block transactions_general">
+          <div
+            class="
+              transactions__header
+              row-flex
+              align-items-center
+              justify-content-between
+              mb25
+              mt25
+            "
+          >
+            <div class="row-flex">
+              <div class="block__title">My Wallets</div>
+              <div class="wallet-create">
+                <button @click="$modal.show('modal-create-wallet')" class="wallet-create__btn" type="button">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      opacity="0.1"
+                      width="22"
+                      height="22"
+                      rx="11"
+                      fill="#0B111A"
+                    />
+                    <path
+                      opacity="0.5"
+                      d="M11 8.06665V13.9333M8.06665 11H13.9333"
+                      stroke="#0B111A"
+                      stroke-width="1.5"
+                    /></svg
+                  ><span>Сreate wallet</span>
+                </button>
+              </div>
+            </div>
+            <div class="wallet__search">
+              <i class="icon-search wallet__search-icon"></i>
+              <input
+                class="wallet__search-input"
+                type="text"
+                placeholder="Search"
+              />
+            </div>
+          </div>
+          <div class="transactions__body" v-if="myWallets.length">
+            <vue-custom-scrollbar
+              :settings="{
+                wheelPropagation: false,
+              }"
+              class="transactions__wrapper"
+            >
+              <div
+                class="card card--white history"
+                v-for="(item, idx) in myWallets"
+                :key="idx"
+                :class="[
+                  item.status == 'Rejected'
+                    ? 'alert'
+                    : item.status == 'Approved'
+                    ? 'success'
+                    : 'inprogress',
+                ]"
+              >
+                <div class="history__planish_link">
+                  <button class="wallet_btn">
+                    <img
+                      class="wallet_btn__img"
+                      :src="`/images/client/${item.icon}.svg`"
+                      alt=""
+                    />
+                    <span class="wallet_btn__text">
+                      <span class="wallet_btn__title">{{
+                        item.waletText
+                      }}</span>
+                      <span class="wallet__name"
+                        >Wallet: {{ item.waletName }}</span
+                      >
+                    </span>
+                  </button>
+                </div>
+                <div v-if="item.status === 'Rejected'" class="history__finance">
+                  -{{ item.percent }}<small>%</small>
+                </div>
+                <div v-else class="history__finance">
+                  +{{ item.percent }}<small>%</small>
+                </div>
+                <div v-if="item.status === 'Rejected'" class="history__status">
+                  <img src="/images/client/status-rejected.png" alt="" />
+                </div>
+                <div v-else class="history__status">
+                  <img src="/images/client/status-approved.png" alt="" />
+                </div>
+                <div class="wallet__summary">
+                  <div class="wallet_btn">
+                    <span class="wallet_btn__text">
+                      <span class="wallet_btn__title">{{ item.summ }}</span>
+                      <span class="wallet__name">${{ item.dollars }}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </vue-custom-scrollbar>
+          </div>
+          <div class="transactions__body empty" v-else>
+            <div class="card card--white text-center">
+              <p class="icon"><i class="icon-smile-sad"></i></p>
+              <p class="empty__text">You don't have any transactions yet</p>
+              <button class="empty__btn btn-grey">Buy crypto</button>
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="transactions transactions_inner transactions_block card--white"
+        class="
+          col-5
+          transactions transactions_inner transactions_block
+          card--white
+        "
       >
         <div class="transactions__filter">
           <div class="block__title">Transaction history</div>
@@ -156,7 +277,7 @@
             >
               <div class="history__wrapper">
                 <div class="history__planish_link">
-                  <button class="wallet_btn">
+                  <button class="wallet_btn" @click="showModalType()">
                     <span v-if="item.buttonText === 'Wallet replenishment'"
                       ><i class="icon-sign-in" slot="icon-left"></i
                     ></span>
@@ -244,154 +365,53 @@
             <button class="empty__btn btn-grey">Buy crypto</button>
           </div>
         </div>
-        <div class="block__link" v-if="clientWidth < 890">
-          <nuxt-link to="/dashboard/wallets" class="btn btn-link more_link"
-            ><span>Details</span> <i class="icon-arrow-right"></i
-          ></nuxt-link>
-        </div>
-      </div>
-      <div class="transactions transactions_block transactions_general">
-        <div
-          class="
-            transactions__header
-            row-flex
-            align-items-center
-            justify-content-between
-            mb25
-            mt25
-          "
-        >
-          <div class="row-flex">
-            <div class="block__title">My Wallets</div>
-            <div class="wallet-create">
-              <button class="wallet-create__btn" type="button">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    opacity="0.1"
-                    width="22"
-                    height="22"
-                    rx="11"
-                    fill="#0B111A"
-                  />
-                  <path
-                    opacity="0.5"
-                    d="M11 8.06665V13.9333M8.06665 11H13.9333"
-                    stroke="#0B111A"
-                    stroke-width="1.5"
-                  /></svg
-                ><span>Сreate wallet</span>
-              </button>
-            </div>
-          </div>
-          <div class="wallet__search">
-            <i class="icon-search wallet__search-icon"></i>
-            <input
-              class="wallet__search-input"
-              type="text"
-              placeholder="Search"
-            />
-          </div>
-        </div>
-        <div class="transactions__body" v-if="myWallets.length">
-          <vue-custom-scrollbar
-            :settings="{
-              wheelPropagation: false,
-            }"
-            class="transactions__wrapper"
-          >
-            <div
-              class="card card--white history"
-              v-for="(item, idx) in myWallets"
-              :key="idx"
-              :class="[
-                item.status == 'Rejected'
-                  ? 'alert'
-                  : item.status == 'Approved'
-                  ? 'success'
-                  : 'inprogress',
-              ]"
-            >
-              <div class="history__planish_link">
-                <button class="wallet_btn">
-                  <img
-                    class="wallet_btn__img"
-                    :src="`/images/client/${item.icon}.svg`"
-                    alt=""
-                  />
-                  <span class="wallet_btn__text">
-                    <span class="wallet_btn__title">{{ item.waletText }}</span>
-                    <span class="wallet__name"
-                      >Wallet: {{ item.waletName }}</span
-                    >
-                  </span>
-                </button>
-              </div>
-              <div v-if="item.status === 'Rejected'" class="history__finance">
-                -{{ item.percent }}<small>%</small>
-              </div>
-              <div v-else class="history__finance">
-                +{{ item.percent }}<small>%</small>
-              </div>
-              <div v-if="item.status === 'Rejected'" class="history__status">
-                <img src="/images/client/status-rejected.png" alt="" />
-              </div>
-              <div v-else class="history__status">
-                <img src="/images/client/status-approved.png" alt="" />
-              </div>
-              <div class="wallet__summary">
-                <button class="wallet_btn">
-                  <span class="wallet_btn__text">
-                    <span class="wallet_btn__title">{{ item.summ }}</span>
-                    <span class="wallet__name">${{ item.dollars }}</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </vue-custom-scrollbar>
-        </div>
-        <div class="transactions__body empty" v-else>
-          <div class="card card--white text-center">
-            <p class="icon"><i class="icon-smile-sad"></i></p>
-            <p class="empty__text">You don't have any transactions yet</p>
-            <button class="empty__btn btn-grey">Buy crypto</button>
-          </div>
-        </div>
-        <div class="block__link" v-if="clientWidth < 890">
-          <nuxt-link to="/dashboard/wallets" class="btn btn-link more_link"
-            ><span>Details</span> <i class="icon-arrow-right"></i
-          ></nuxt-link>
-        </div>
       </div>
     </div>
     <modal
-      name="modal"
-      class="send_to_walet_modal"
+      name="modal-create-wallet"
+      class="create_wallet"
       width="90%"
       :maxWidth="540"
       height="auto"
       :scrollable="false"
       :adaptive="true"
     >
-      <foundsToWalletXRP v-if="sendXRP == 'XRP'"></foundsToWalletXRP>
-      <foundsToWalletUSDX v-else></foundsToWalletUSDX>
+      <createWallet></createWallet>
+    </modal>
+    <modal
+      name="modal-another-wallet"
+      class="send_to_walet_modal"
+      width="90%"
+      :maxWidth="600"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <receiveAnotherWallet></receiveAnotherWallet>
+    </modal>
+    <modal
+      name="modal"
+      class="send_to_walet_modal"
+      width="90%"
+      :maxWidth="600"
+      height="auto"
+      :scrollable="false"
+      :adaptive="true"
+    >
+      <!-- <foundsToWalletXRP v-if="sendXRP == 'XRP'"></foundsToWalletXRP> -->
+      <foundsToWalletUSDX :innerWallet="innerWalletOutput"></foundsToWalletUSDX>
     </modal>
     <modal
       name="modal-output"
       class="receive_modal"
       width="90%"
-      :maxWidth="540"
+      :maxWidth="600"
       height="auto"
       :scrollable="false"
       :adaptive="true"
     >
-      <foundsOutputXRP v-if="outputXRP == 'XRP'"></foundsOutputXRP>
-      <foundsOutputUSDX v-else></foundsOutputUSDX>
+      <!-- <foundsOutputXRP v-if="outputXRP == 'XRP'"></foundsOutputXRP> -->
+      <foundsOutputUSDX :innerWallet="innerWalletOutput"></foundsOutputUSDX>
     </modal>
     <modal
       name="modal-confirm"
@@ -469,6 +489,7 @@ export default {
         { value: 2, label: "BIXRP" },
       ],
       selectedItem: null,
+      innerWalletOutput: false,
       history: [
         {
           id: 1,
@@ -697,12 +718,16 @@ export default {
       let formated = new Intl.NumberFormat("en-IN").format(curency);
       return formated;
     },
-    openSendModal(type) {
-      this.outputXRP = type;
+    openSendModal() {
+      this.innerWalletOutput = false;
       this.$modal.show("modal-output");
     },
-    openOutputModal(type) {
-      this.sendXRP = type;
+    showModalType() {
+      this.innerWalletOutput = true;
+      this.$modal.show("modal-another-wallet");
+    },
+    openOutputModal() {
+      this.innerWalletOutput = false;
       this.$modal.show("modal");
     },
     goToWalets() {

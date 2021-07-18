@@ -17,7 +17,7 @@
       }"
     >
       <div class="beModal__body text-center">
-        <h2 class="beModal__title">Receive BIXRP</h2>
+        <h2 class="beModal__title">{{innerWallet ? 'Receive BIXRP' : 'Receive'}}</h2>
         <!-- <beSelect
           :selectArray="selectList"
           v-model="selectedItem"
@@ -25,21 +25,29 @@
         >
           <span slot="small_text">354.12 BIXRP</span>
         </beSelect> -->
-        <div class="beModal__qr_code">
+        <div class="beModal__gray-bg">
           <img src="/images/client/qr.svg" alt="" />
+          <div class="qr_code__label">Your BIXRP Address</div>
+          <beCopyText
+            :bordered="true"
+            class="walet__hash"
+            text="0x2762e927128408324vb913ab945d4e38sd132cdea2"
+          ></beCopyText>
         </div>
-        <div class="qr_code__label">Your BIXRP Address</div>
-        <beCopyText
-          :bordered="true"
-          class="walet__hash"
-          text="13tL5oHakHbsv1kGUtkLuE4hkyzGcyijmt"
-        ></beCopyText>
       </div>
+      <div class="beModal__qr_code"></div>
       <div class="beModal__footer text-center row-flex justify-content-between">
-        <button @click="back" class="popup-verify__btn-back">
+        <button v-if="innerWallet" @click="back" class="beModal__btn beModal__back popup-verify__btn-back">
           <span>Back</span>
         </button>
-        <button @click="confirmSending" class="popup-verify__btn-continue">
+          <button
+          v-else
+          @click="cancel"
+          class="beModal__btn beModal__back popup-verify__btn-back"
+        >
+          <span>Cancel</span>
+        </button>
+        <button @click="confirmSending" class="beModal__btn beModal__continue popup-verify__btn-continue">
           <span>Continue</span>
         </button>
       </div>
@@ -49,6 +57,12 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+   props: {
+    innerWallet: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       selectList: null,
@@ -71,6 +85,10 @@ export default {
       this.$modal.show("modal-confirm");
     },
     back() {
+      this.$modal.hide("modal");
+      this.$modal.show("modal-another-wallet");
+    },
+     cancel() {
       this.$modal.hide("modal");
     },
   },

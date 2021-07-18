@@ -130,16 +130,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0px;
+  padding: 14px 0px;
   font-size: 18px;
   small {
     font-size: 14px;
   }
 }
-.convert_to_currency {
-  font-size: 16px;
-  @media (max-width: 1700px) {
-    font-size: 14px;
-  }
-}
+// .convert_to_currency {
+//   font-size: 16px;
+//   @media (max-width: 1700px) {
+//     font-size: 14px;
+//   }
+// }
 </style>
