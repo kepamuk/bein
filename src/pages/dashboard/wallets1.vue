@@ -1,18 +1,8 @@
 <template>
   <div class="wallets">
     <div class="container container__wallets">
-      <div class="row">
-        <div class="col-8 fluid">
-          <button
-            @click="openOutputModal()"
-          >
-            aboutBTC
-          </button>
-          <button
-            @click="walletExportModal()"
-          >
-            walletExport
-          </button>
+      <div class="row row__wallets">
+        <div class="col-8 fluid container__wallets-left">
           <button
             @click="walletExportModal1()"
           >
@@ -22,11 +12,6 @@
             @click="downloadAutomatModal()"
           >
             downloadAutomat
-          </button>
-          <button
-            @click="deleteWalletModal()"
-          >
-            deleteWallet
           </button>
           <button
             @click="deleteSuccessfullyWalletModal()"
@@ -45,13 +30,13 @@
               </div>
               <div class="more_links__dropdown">
                 <div class="more_links__item">
-                  <div class="nav__link">
+                  <div class="nav__link" @click="walletExportModal()">
                     <span class="nav_icon">
                       <img src="/images/wallet/export.svg" alt="">
                     </span>
                     <span class="more_links__text">Export Wallet</span>
                   </div>
-                  <div class="nav__link">
+                  <div class="nav__link" @click="deleteWalletModal()">
                     <span class="nav_icon">
                       <img src="/images/wallet/delete.svg" alt="">
                     </span>
@@ -63,7 +48,7 @@
 
             <div class="bitcoinWallet__bg" />
             <div class="bitcoinInfo">
-              <img src="/images/wallet/bitcoin.png" alt="" />
+              <img @click="openOutputModal()" src="/images/wallet/bitcoin.png" alt="" />
               <div class="money">
                 <beSelect
                   class="money__select"
@@ -207,7 +192,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-4 container__wallets-right">
           <div class="HODLWrap">
             <div class="HODL">
               <div class="HODL__left">

@@ -139,7 +139,7 @@ export default {
 </script>
 <style lang="scss">
 .selected__value {
-  padding-right: 30px;
+  padding-right: 16px;
   font-size: 16px;
   font-weight: 500;
 }
